@@ -1,8 +1,12 @@
-<p align="center">
+# 警告
+
+**The English document is not synchronized with the Chinese document.**
+
+<!-- <p align="center">
   <a href="http://lowcode-engine.cn">
     <img width="200" src="https://img.alicdn.com/imgextra/i3/O1CN01i8K9cD1d0HU7TjDtv_!!6000000003673-2-tps-500-591.png">
   </a>
-</p>
+</p> -->
 
 <h1 align="center">LowCodeEngine</h1>
 
@@ -10,25 +14,22 @@
 
 An enterprise-class low-code technology stack with scale-out design
 
-[![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
+<!-- [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url] -->
 
 [![][issues-helper-image]][issues-helper-url] [![Issues need help][help-wanted-image]][help-wanted-url]
 
 [![codecov][codecov-image-url]][codecov-url] [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/lowcode-workspace/awesome-lowcode-engine)
 
-[![](https://img.shields.io/badge/LowCodeEngine-Check%20Your%20Contribution-orange)](https://opensource.alibaba.com/contribution_leaderboard/details?projectValue=lowcode-engine)
+<!-- [![](https://img.shields.io/badge/LowCodeEngine-Check%20Your%20Contribution-orange)](https://opensource.alibaba.com/contribution_leaderboard/details?projectValue=lowcode-engine) -->
 
 [npm-image]: https://img.shields.io/npm/v/@alilc/lowcode-engine.svg?style=flat-square
 [npm-url]: http://npmjs.org/package/@alilc/lowcode-engine
-
 [download-image]: https://img.shields.io/npm/dm/@alilc/lowcode-engine.svg?style=flat-square
 [download-url]: https://npmjs.org/package/@alilc/lowcode-engine
 [help-wanted-image]: https://flat.badgen.net/github/label-issues/alibaba/lowcode-engine/help%20wanted/open
 [help-wanted-url]: https://github.com/alibaba/lowcode-engine/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22
-
 [issues-helper-image]: https://img.shields.io/badge/using-issues--helper-orange?style=flat-square
 [issues-helper-url]: https://github.com/actions-cool/issues-helper
-
 [codecov-image-url]: https://codecov.io/gh/alibaba/lowcode-engine/branch/main/graph/badge.svg
 [codecov-url]: https://codecov.io/gh/alibaba/lowcode-engine
 
@@ -73,8 +74,7 @@ skeleton.add({
   name: 'logo',
   content: YourFantasticLogo,
   contentProps: {
-    logo:
-      'https://img.alicdn.com/tfs/TB1_SocGkT2gK0jSZFkXXcIQFXa-66-66.png',
+    logo: 'https://img.alicdn.com/tfs/TB1_SocGkT2gK0jSZFkXXcIQFXa-66-66.png',
     href: '/',
   },
   props: {
@@ -87,6 +87,7 @@ init(document.getElementById('lce'));
 ```
 
 ### Engineering configuration:
+
 ```json
 {
   "externals": {
@@ -97,35 +98,37 @@ init(document.getElementById('lce'));
 ```
 
 ### cdn optional method:
+
 #### Method 1: alifd cdn
+
 ```html
 https://alifd.alicdn.com/npm/@alilc/lowcode-engine@1.0.18/dist/js/engine-core.js
-
 https://alifd.alicdn.com/npm/@alilc/lowcode-react-simulator-renderer@1.0.18/dist/js/react-simulator-renderer.js
 ```
 
 #### Method 2: uipaas cdn
+
 ```html
 https://uipaas-assets.com/prod/npm/@alilc/lowcode-engine/1.0.18/dist/js/engine-core.js
-
 https://uipaas-assets.com/prod/npm/@alilc/lowcode-react-simulator-renderer/1.0.18/dist/js/react-simulator-renderer.js
 ```
 
 #### Method 3: unpkg
+
 ```html
 https://unpkg.com/@alilc/lowcode-engine@1.0.18/dist/js/engine-core.js
-
 https://unpkg.com/@alilc/lowcode-react-simulator-renderer@1.0.18/dist/js/react-simulator-renderer.js
 ```
 
 #### Method 4: jsdelivr
+
 ```html
 https://cdn.jsdelivr.net/npm/@alilc/lowcode-engine@1.0.18/dist/js/engine-core.js
-
 https://cdn.jsdelivr.net/npm/@alilc/lowcode-react-simulator-renderer@1.0.18/dist/js/react-simulator-renderer.js
 ```
 
 #### Method 5: Use your own cdn
+
 Pass the files under packages/engine/dist and packages/react-simulator-renderer/dist in the source code to your cdn provider
 
 ## 🔗 Related Links
@@ -160,6 +163,7 @@ After lowcode-engine is started, several umd files are provided, which can be de
 ## 🤝 Participation
 
 Please read first:
+
 1. [How to configure the engine debugging environment? ](https://lowcode-engine.cn/site/docs/participate/prepare)
 2. [About the R&D collaboration process of the engine](https://lowcode-engine.cn/site/docs/participate/flow)
 3. [Engineering Configuration of Engine](https://lowcode-engine.cn/site/docs/participate/config)
@@ -167,6 +171,7 @@ Please read first:
 > Strongly recommend reading ["The Wisdom of Asking Questions"](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way), ["How to Ask Questions to the Open Source Community"](https: //github.com/seajs/seajs/issues/545) and [How to Report Bugs Effectively](http://www.chiark.greenend.org.uk/%7Esgtatham/bugs-cn.html), [ "How to Submit Unanswerable Questions to Open Source Projects"](https://zhuanlan.zhihu.com/p/25795393), better questions are easier to get help. (This paragraph refers to [antd](https://github.com/ant-design/ant-design))
 
 About Pull Request:
+
 - set the target branch to **develop** other than **main**
 
 ## ❤️ Contributors
