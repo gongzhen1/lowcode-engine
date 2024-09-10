@@ -3,10 +3,10 @@ title: 复杂组件
 order: 2
 ---
 
-````jsx
+```jsx
 import React, { PureComponent } from 'react';
 import ReactDOM from 'react-dom';
-import ReactRenderer from '@alilc/lowcode-react-renderer';
+import ReactRenderer from '@lce/lowcode-react-renderer';
 import schema from './schemas/compose';
 import components from './config/components/index';
 import utils from './config/utils';
@@ -23,7 +23,7 @@ class Demo extends PureComponent {
           components={components}
           appHelper={{
             utils,
-            constants
+            constants,
           }}
         />
       </div>
@@ -31,7 +31,5 @@ class Demo extends PureComponent {
   }
 }
 
-ReactDOM.render((
-  <Demo />
-), mountNode);
-````
+ReactDOM.render(<Demo />, mountNode);
+```

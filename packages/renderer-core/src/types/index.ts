@@ -1,6 +1,11 @@
 import type { ComponentLifecycle, CSSProperties } from 'react';
-import { BuiltinSimulatorHost, BuiltinSimulatorRenderer } from '@alilc/lowcode-designer';
-import { RequestHandler, IPublicTypeNodeSchema, IPublicTypeRootSchema, IPublicTypeJSONObject } from '@alilc/lowcode-types';
+import { BuiltinSimulatorHost, BuiltinSimulatorRenderer } from '@lce/lowcode-designer';
+import {
+  RequestHandler,
+  IPublicTypeNodeSchema,
+  IPublicTypeRootSchema,
+  IPublicTypeJSONObject,
+} from '@lce/lowcode-types';
 
 export type ISchema = IPublicTypeNodeSchema | IPublicTypeRootSchema;
 
@@ -13,8 +18,10 @@ interface IGeneralComponent<P = {}, S = {}, SS = any> extends ComponentLifecycle
   refs: Record<string, any>;
   context: any;
   setState<K extends keyof S>(
-    state: ((prevState: Readonly<S>, props: Readonly<P>) => (Pick<S, K> | S | null)) | (Pick<S, K> | S | null),
-    callback?: () => void
+    state:
+      | ((prevState: Readonly<S>, props: Readonly<P>) => Pick<S, K> | S | null)
+      | (Pick<S, K> | S | null),
+    callback?: () => void,
   ): void;
   forceUpdate(callback?: () => void): void;
   render(): any;
@@ -23,9 +30,11 @@ interface IGeneralComponent<P = {}, S = {}, SS = any> extends ComponentLifecycle
 export type IGeneralConstructor<
   T = {
     [key: string]: any;
-  }, S = {
+  },
+  S = {
     [key: string]: any;
-  }, D = any
+  },
+  D = any,
 > = new <TT = T, SS = S, DD = D>(props: TT, context: any) => IGeneralComponent<TT, SS, DD>;
 
 /**
@@ -60,7 +69,6 @@ export interface ILocationLike {
 }
 
 export type IRendererAppHelper = Partial<{
-
   /** 全局公共函数 */
   utils: Record<string, any>;
 
@@ -83,9 +91,12 @@ export type IRendererAppHelper = Partial<{
   addons: Record<string, any>;
 
   /** @experimental 内部使用 */
-  requestHandlersMap: Record<string, RequestHandler<{
-    data: unknown;
-  }>>;
+  requestHandlersMap: Record<
+    string,
+    RequestHandler<{
+      data: unknown;
+    }>
+  >;
 }>;
 
 /**
@@ -94,7 +105,6 @@ export type IRendererAppHelper = Partial<{
  * @see @todo @承虎
  */
 export interface IRendererProps {
-
   /** 符合低代码搭建协议的数据 */
   schema: IPublicTypeRootSchema | IPublicTypeNodeSchema;
 
@@ -281,44 +291,48 @@ export type IBaseRendererInstance = IGeneralComponent<
   IBaseRendererProps,
   Record<string, any>,
   any
->
-  & {
-    reloadDataSource(): Promise<any>;
-    __beforeInit(props: IBaseRendererProps): void;
-    __init(props: IBaseRendererProps): void;
-    __afterInit(props: IBaseRendererProps): void;
-    __executeLifeCycleMethod(method: string, args?: any[]): void;
-    __bindCustomMethods(props: IBaseRendererProps): void;
-    __generateCtx(ctx: Record<string, any>): void;
-    __parseData(data: any, ctx?: any): any;
-    __initDataSource(props: IBaseRendererProps): void;
-    __render(): void;
-    __getRef(ref: any): void;
-    __getSchemaChildrenVirtualDom(
-      schema: IPublicTypeNodeSchema | undefined,
-      Comp: any,
-      nodeChildrenMap?: any
-    ): any;
-    __getComponentProps(schema: IPublicTypeNodeSchema | undefined, scope: any, Comp: any, componentInfo?: any): any;
-    __createDom(): any;
-    __createVirtualDom(schema: any, self: any, parentInfo: INodeInfo, idx: string | number): any;
-    __createLoopVirtualDom(schema: any, self: any, parentInfo: INodeInfo, idx: number | string): any;
-    __parseProps(props: any, self: any, path: string, info: INodeInfo): any;
-    __initDebug?(): void;
-    __debug(...args: any[]): void;
-    __renderContextProvider(customProps?: object, children?: any): any;
-    __renderContextConsumer(children: any): any;
-    __renderContent(children: any): any;
-    __checkSchema(schema: IPublicTypeNodeSchema | undefined, extraComponents?: string | string[]): any;
-    __renderComp(Comp: any, ctxProps: object): any;
-    $(filedId: string, instance?: any): any;
-  };
+> & {
+  reloadDataSource(): Promise<any>;
+  __beforeInit(props: IBaseRendererProps): void;
+  __init(props: IBaseRendererProps): void;
+  __afterInit(props: IBaseRendererProps): void;
+  __executeLifeCycleMethod(method: string, args?: any[]): void;
+  __bindCustomMethods(props: IBaseRendererProps): void;
+  __generateCtx(ctx: Record<string, any>): void;
+  __parseData(data: any, ctx?: any): any;
+  __initDataSource(props: IBaseRendererProps): void;
+  __render(): void;
+  __getRef(ref: any): void;
+  __getSchemaChildrenVirtualDom(
+    schema: IPublicTypeNodeSchema | undefined,
+    Comp: any,
+    nodeChildrenMap?: any,
+  ): any;
+  __getComponentProps(
+    schema: IPublicTypeNodeSchema | undefined,
+    scope: any,
+    Comp: any,
+    componentInfo?: any,
+  ): any;
+  __createDom(): any;
+  __createVirtualDom(schema: any, self: any, parentInfo: INodeInfo, idx: string | number): any;
+  __createLoopVirtualDom(schema: any, self: any, parentInfo: INodeInfo, idx: number | string): any;
+  __parseProps(props: any, self: any, path: string, info: INodeInfo): any;
+  __initDebug?(): void;
+  __debug(...args: any[]): void;
+  __renderContextProvider(customProps?: object, children?: any): any;
+  __renderContextConsumer(children: any): any;
+  __renderContent(children: any): any;
+  __checkSchema(
+    schema: IPublicTypeNodeSchema | undefined,
+    extraComponents?: string | string[],
+  ): any;
+  __renderComp(Comp: any, ctxProps: object): any;
+  $(filedId: string, instance?: any): any;
+};
 
 export interface IBaseRenderComponent {
-  new(
-    props: IBaseRendererProps,
-    context: any
-  ): IBaseRendererInstance;
+  new (props: IBaseRendererProps, context: any): IBaseRendererInstance;
 }
 
 export interface IRenderComponent {
@@ -326,7 +340,7 @@ export interface IRenderComponent {
   defaultProps: IRendererProps;
   findDOMNode: (...args: any) => any;
 
-  new(props: IRendererProps, context: any): IGeneralComponent<IRendererProps, IRendererState> & {
+  new (props: IRendererProps, context: any): IGeneralComponent<IRendererProps, IRendererState> & {
     [x: string]: any;
     __getRef: (ref: any) => void;
     componentDidMount(): Promise<void> | void;

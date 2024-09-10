@@ -1,6 +1,6 @@
 import { IEventBus, createModuleEventBus } from '../event-bus';
 import { obx, computed } from '../utils/obx';
-import { Logger } from '@alilc/lowcode-utils';
+import { Logger } from '@lce/lowcode-utils';
 
 const logger = new Logger({ level: 'warn', bizName: 'globalLocale' });
 
@@ -72,7 +72,7 @@ class GlobalLocale {
       // store 3: config from system
       const { navigator } = window as any;
       if (navigator.language) {
-        const lang = (navigator.language as string);
+        const lang = navigator.language as string;
         return languageMap[lang] || lang.replace('_', '-');
       } else if (navigator.browserLanguage) {
         const it = navigator.browserLanguage.split('-');
@@ -85,7 +85,9 @@ class GlobalLocale {
       }
     }
     if (!result) {
-      logger.warn('something when wrong when trying to get locale, use zh-CN as default, please check it out!');
+      logger.warn(
+        'something when wrong when trying to get locale, use zh-CN as default, please check it out!',
+      );
       result = 'zh-CN';
     }
     this._locale = result;
@@ -136,11 +138,7 @@ class GlobalLocale {
 
 function getConfig(name: string) {
   const win: any = window;
-  return (
-    win[name]
-    || (win.g_config || {})[name]
-    || (win.pageConfig || {})[name]
-  );
+  return win[name] || (win.g_config || {})[name] || (win.pageConfig || {})[name];
 }
 
 function hasLocalStorage(obj: any): obj is WindowLocalStorage {

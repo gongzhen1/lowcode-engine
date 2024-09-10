@@ -1,4 +1,12 @@
-import React, { Component, PureComponent, createElement, createContext, forwardRef, ReactInstance, ContextType } from 'react';
+import React, {
+  Component,
+  PureComponent,
+  createElement,
+  createContext,
+  forwardRef,
+  ReactInstance,
+  ContextType,
+} from 'react';
 import ReactDOM from 'react-dom';
 import {
   adapter,
@@ -9,7 +17,7 @@ import {
   tempRendererFactory,
   rendererFactory,
   types,
-} from '@alilc/lowcode-renderer-core';
+} from '@lce/lowcode-renderer-core';
 import ConfigProvider from '@alifd/next/lib/config-provider';
 
 window.React = React;
@@ -42,10 +50,7 @@ function factory(): types.IRenderComponent {
 
     context: ContextType<any>;
 
-    setState: (
-      state: types.IRendererState,
-      callback?: () => void,
-    ) => void;
+    setState: (state: types.IRendererState, callback?: () => void) => void;
 
     forceUpdate: (callback?: () => void) => void;
 

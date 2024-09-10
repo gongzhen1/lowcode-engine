@@ -1,7 +1,11 @@
 import { Component, isValidElement, ReactNode } from 'react';
 import classNames from 'classnames';
-import { createIcon, isI18nData, isTitleConfig } from '@alilc/lowcode-utils';
-import { IPublicTypeI18nData, IPublicTypeTitleConfig, IPublicTypeTitleProps } from '@alilc/lowcode-types';
+import { createIcon, isI18nData, isTitleConfig } from '@lce/lowcode-utils';
+import {
+  IPublicTypeI18nData,
+  IPublicTypeTitleConfig,
+  IPublicTypeTitleProps,
+} from '@lce/lowcode-types';
 import { intl } from '../../intl';
 import { Tip } from '../tip';
 import './title.less';
@@ -13,7 +17,7 @@ import './title.less';
  * @param keywords 关键字
  * @returns 文字片段列表
  */
- function splitLabelByKeywords(label: string, keywords: string): string[] {
+function splitLabelByKeywords(label: string, keywords: string): string[] {
   const len = keywords.length;
   const fragments = [];
   let str = label;
@@ -72,12 +76,12 @@ export class Title extends Component<IPublicTypeTitleProps> {
     if (match && keywords) {
       const fragments = splitLabelByKeywords(intlLabel as string, keywords);
 
-      labelToRender = fragments.map(f => <span style={{ color: f === keywords ? 'red' : 'inherit' }}>{f}</span>);
+      labelToRender = fragments.map((f) => (
+        <span style={{ color: f === keywords ? 'red' : 'inherit' }}>{f}</span>
+      ));
     }
 
-    return (
-      <span className="lc-title-txt">{labelToRender}</span>
-    );
+    return <span className="lc-title-txt">{labelToRender}</span>;
   };
 
   render() {

@@ -1,14 +1,23 @@
-import { IPublicTypeAssetsJson, IPublicTypeMetadataTransducer, IPublicTypeComponentAction, IPublicTypeNpmInfo, IPublicTypeDisposable, IPublicTypeContextMenuAction, IPublicTypeContextMenuItem } from '../type';
+import {
+  IPublicTypeAssetsJson,
+  IPublicTypeMetadataTransducer,
+  IPublicTypeComponentAction,
+  IPublicTypeNpmInfo,
+  IPublicTypeDisposable,
+  IPublicTypeContextMenuAction,
+  IPublicTypeContextMenuItem,
+} from '../type';
 import { IPublicModelComponentMeta } from '../model';
 import { ComponentType } from 'react';
 
 export interface IPublicApiMaterial {
-
   /**
    * 获取组件 map 结构
    * get map of components
    */
-  get componentsMap(): { [key: string]: IPublicTypeNpmInfo | ComponentType<any> | object } ;
+  get componentsMap(): {
+    [key: string]: IPublicTypeNpmInfo | ComponentType<any> | object;
+  };
 
   /**
    * 设置「资产包」结构
@@ -43,7 +52,7 @@ export interface IPublicApiMaterial {
   registerMetadataTransducer(
     transducer: IPublicTypeMetadataTransducer,
     level?: number,
-    id?: string | undefined
+    id?: string | undefined,
   ): void;
 
   /**
@@ -81,8 +90,8 @@ export interface IPublicApiMaterial {
    * @param action
    * @example
    * ```ts
-   * import { plugins } from '@alilc/lowcode-engine';
-   * import { IPublicModelPluginContext } from '@alilc/lowcode-types';
+   * import { plugins } from '@lce/lowcode-engine';
+   * import { IPublicModelPluginContext } from '@lce/lowcode-types';
    *
    * const removeCopyAction = (ctx: IPublicModelPluginContext) => {
    *   return {
@@ -112,9 +121,9 @@ export interface IPublicApiMaterial {
    * @param handle
    */
   modifyBuiltinComponentAction(
-      actionName: string,
-      handle: (action: IPublicTypeComponentAction) => void,
-    ): void;
+    actionName: string,
+    handle: (action: IPublicTypeComponentAction) => void,
+  ): void;
 
   /**
    * 监听 assets 变化的事件
@@ -145,5 +154,7 @@ export interface IPublicApiMaterial {
    * 调整右键菜单项布局
    * @param actions
    */
-  adjustContextMenuLayout(fn: (actions: IPublicTypeContextMenuItem[]) => IPublicTypeContextMenuItem[]): void;
+  adjustContextMenuLayout(
+    fn: (actions: IPublicTypeContextMenuItem[]) => IPublicTypeContextMenuItem[],
+  ): void;
 }

@@ -18,11 +18,11 @@ sidebar_position: 5
 ## 注册插件 API
 
 ```typescript
-import { plugins } from '@alilc/lowcode-engine';
-import { IPublicModelPluginContext } from '@alilc/lowcode-types';
+import { plugins } from '@lce/lowcode-engine';
+import { IPublicModelPluginContext } from '@lce/lowcode-types';
 
 const pluginA = (ctx: IPublicModelPluginContext, options: any) => {
-	return {
+  return {
     init() {
       console.log(options.key);
       // 往引擎增加面板
@@ -109,7 +109,7 @@ PanelDock 是以面板的形式展示在设计器的左侧区域的。其中主�
 接入可以参考代码
 
 ```javascript
-import { skeleton } from '@alilc/lowcode-engine';
+import { skeleton } from '@lce/lowcode-engine';
 
 skeleton.add({
   area: 'leftArea', // 插件区域
@@ -117,9 +117,9 @@ skeleton.add({
   name: 'sourceEditor',
   content: SourceEditor, // 插件组件实例
   props: {
-    align: "left",
-    icon: "wenjian",
-    description: "JS 面板",
+    align: 'left',
+    icon: 'wenjian',
+    description: 'JS 面板',
   },
   panelProps: {
     floatable: true, // 是否可浮动
@@ -127,7 +127,7 @@ skeleton.add({
     hideTitleBar: false,
     maxHeight: 800,
     maxWidth: 1200,
-    title: "JS 面板",
+    title: 'JS 面板',
     width: 600,
   },
 });
@@ -142,17 +142,17 @@ Widget 形式是直接渲染在当前编辑器的对应位置上。如 demo 中�
 接入可以参考代码：
 
 ```javascript
-import { skeleton } from '@alilc/lowcode-engine';
+import { skeleton } from '@lce/lowcode-engine';
 // 注册 logo 面板
 skeleton.add({
   area: 'topArea',
   type: 'Widget',
   name: 'logo',
   content: Logo, // Widget 组件实例
-  contentProps: { // Widget 插件 props
-    logo:
-    "https://img.alicdn.com/tfs/TB1_SocGkT2gK0jSZFkXXcIQFXa-66-66.png",
-    href: "/",
+  contentProps: {
+    // Widget 插件 props
+    logo: 'https://img.alicdn.com/tfs/TB1_SocGkT2gK0jSZFkXXcIQFXa-66-66.png',
+    href: '/',
   },
   props: {
     align: 'left',
@@ -166,7 +166,7 @@ skeleton.add({
 一个图标的表现形式，可以用于语言切换、跳转到外部链接、打开一个 widget 等场景。
 
 ```javascript
-import { skeleton } from '@alilc/lowcode-engine';
+import { skeleton } from '@lce/lowcode-engine';
 
 skeleton.add({
   area: 'leftArea',
@@ -180,8 +180,8 @@ skeleton.add({
       window.open('https://lowcode-engine.cn');
       // 显示 widget
       skeleton.showWidget('xxx');
-    }
-  }
+    },
+  },
 });
 ```
 
@@ -196,19 +196,19 @@ skeleton.add({
 - 仓库地址：[https://github.com/mark-ck/lowcode-portal](https://github.com/mark-ck/lowcode-portal)
 - 具体代码：[https://github.com/mark-ck/lowcode-portal/blob/master/src/plugins/pages-plugin/index.tsx](https://github.com/mark-ck/lowcode-portal/blob/master/src/plugins/pages-plugin/index.tsx)
 - 直播回放：
-   - [低代码引擎项目实战 (4)-自定义插件 - 页面管理](https://www.bilibili.com/video/BV17a411i73f/)
-   - [低代码引擎项目实战 (4)-自定义插件 - 页面管理 - 后端](https://www.bilibili.com/video/BV1uZ4y1U7Ly/)
-   - [低代码引擎项目实战 (4)-自定义插件 - 页面管理 - 前端](https://www.bilibili.com/video/BV1Yq4y1a74P/)
-   - [低代码引擎项目实战 (4)-自定义插件 - 页面管理 - 完结](https://www.bilibili.com/video/BV13Y4y1e7EV/)
+  - [低代码引擎项目实战 (4)-自定义插件 - 页面管理](https://www.bilibili.com/video/BV17a411i73f/)
+  - [低代码引擎项目实战 (4)-自定义插件 - 页面管理 - 后端](https://www.bilibili.com/video/BV1uZ4y1U7Ly/)
+  - [低代码引擎项目实战 (4)-自定义插件 - 页面管理 - 前端](https://www.bilibili.com/video/BV1Yq4y1a74P/)
+  - [低代码引擎项目实战 (4)-自定义插件 - 页面管理 - 完结](https://www.bilibili.com/video/BV13Y4y1e7EV/)
 
 ### 区块面板
 
 - 仓库地址：[https://github.com/alibaba/lowcode-plugins](https://github.com/alibaba/lowcode-plugins)
 - 具体代码：[https://github.com/alibaba/lowcode-plugins/tree/main/packages/plugin-block](https://github.com/alibaba/lowcode-plugins/tree/main/packages/plugin-block)
 - 直播回放：
-   - [低代码引擎项目实战 (9)-区块管理 (1)-保存为区块](https://www.bilibili.com/video/BV1YF411M7RK/)
-   - [低代码引擎项目实战 (10)-区块管理 - 区块面板](https://www.bilibili.com/video/BV1FB4y1S7tu/)
-   - [阿里巴巴低代码引擎项目实战 (11)-区块管理 - ICON 优化](https://www.bilibili.com/video/BV1zr4y1H7Km/)
-   - [阿里巴巴低代码引擎项目实战 (11)-区块管理 - 自动截图](https://www.bilibili.com/video/BV1GZ4y117VH/)
-   - [阿里巴巴低代码引擎项目实战 (11)-区块管理 - 样式优化](https://www.bilibili.com/video/BV1Pi4y1S7ZT/)
-   - [阿里低代码引擎项目实战 (12)-区块管理 (完结)-给引擎插件提个 PR](https://www.bilibili.com/video/BV1hB4y1277o/)
+  - [低代码引擎项目实战 (9)-区块管理 (1)-保存为区块](https://www.bilibili.com/video/BV1YF411M7RK/)
+  - [低代码引擎项目实战 (10)-区块管理 - 区块面板](https://www.bilibili.com/video/BV1FB4y1S7tu/)
+  - [阿里巴巴低代码引擎项目实战 (11)-区块管理 - ICON 优化](https://www.bilibili.com/video/BV1zr4y1H7Km/)
+  - [阿里巴巴低代码引擎项目实战 (11)-区块管理 - 自动截图](https://www.bilibili.com/video/BV1GZ4y117VH/)
+  - [阿里巴巴低代码引擎项目实战 (11)-区块管理 - 样式优化](https://www.bilibili.com/video/BV1Pi4y1S7ZT/)
+  - [阿里低代码引擎项目实战 (12)-区块管理 (完结)-给引擎插件提个 PR](https://www.bilibili.com/video/BV1hB4y1277o/)

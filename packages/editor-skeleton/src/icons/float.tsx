@@ -1,4 +1,4 @@
-import { SVGIcon, IconProps } from '@alilc/lowcode-utils';
+import { SVGIcon, IconProps } from '@lce/lowcode-utils';
 
 export function IconFloat(props: IconProps) {
   return (

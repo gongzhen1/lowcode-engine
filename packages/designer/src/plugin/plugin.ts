@@ -1,12 +1,6 @@
-import { getLogger, Logger } from '@alilc/lowcode-utils';
-import {
-  ILowCodePluginRuntime,
-  ILowCodePluginManager,
-} from './plugin-types';
-import {
-  IPublicTypePluginConfig,
-  IPublicTypePluginMeta,
-} from '@alilc/lowcode-types';
+import { getLogger, Logger } from '@lce/lowcode-utils';
+import { ILowCodePluginRuntime, ILowCodePluginManager } from './plugin-types';
+import { IPublicTypePluginConfig, IPublicTypePluginMeta } from '@lce/lowcode-types';
 import { invariant } from '../utils';
 
 export class LowCodePluginRuntime implements ILowCodePluginRuntime {

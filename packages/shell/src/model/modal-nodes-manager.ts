@@ -1,8 +1,8 @@
 import {
   IModalNodesManager as InnerModalNodesManager,
   INode as InnerNode,
-} from '@alilc/lowcode-designer';
-import { IPublicModelModalNodesManager, IPublicModelNode } from '@alilc/lowcode-types';
+} from '@lce/lowcode-designer';
+import { IPublicModelModalNodesManager, IPublicModelNode } from '@lce/lowcode-types';
 import { Node as ShellNode } from './node';
 import { nodeSymbol, modalNodesManagerSymbol } from '../symbols';
 
@@ -70,7 +70,7 @@ export class ModalNodesManager implements IPublicModelModalNodesManager {
    * 设置指定节点为不可见态
    * @param node Node
    */
-   setInvisible(node: IPublicModelNode): void {
+  setInvisible(node: IPublicModelNode): void {
     this[modalNodesManagerSymbol].setInvisible((node as any)[nodeSymbol]);
   }
 }

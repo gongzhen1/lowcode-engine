@@ -1,6 +1,6 @@
-import { obx, computed, makeObservable } from '@alilc/lowcode-editor-core';
-import { uniqueId } from '@alilc/lowcode-utils';
-import { IPublicTypeTitleContent, IPublicModelExclusiveGroup } from '@alilc/lowcode-types';
+import { obx, computed, makeObservable } from '@lce/lowcode-editor-core';
+import { uniqueId } from '@lce/lowcode-utils';
+import { IPublicTypeTitleContent, IPublicModelExclusiveGroup } from '@lce/lowcode-types';
 import type { INode } from './node';
 import { intl } from '../../locale';
 

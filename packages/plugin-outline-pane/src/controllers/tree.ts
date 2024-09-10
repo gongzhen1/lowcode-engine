@@ -1,5 +1,5 @@
 import TreeNode from './tree-node';
-import { IPublicModelNode, IPublicTypePropChangeOptions } from '@alilc/lowcode-types';
+import { IPublicModelNode, IPublicTypePropChangeOptions } from '@lce/lowcode-types';
 import { IOutlinePanelPluginContext, TreeMaster } from './tree-master';
 
 export class Tree {
@@ -24,7 +24,7 @@ export class Tree {
     const doc = this.pluginContext.project.currentDocument;
     this.id = doc?.id;
 
-    doc?.onChangeNodeChildren((info: {node: IPublicModelNode }) => {
+    doc?.onChangeNodeChildren((info: { node: IPublicModelNode }) => {
       const { node } = info;
       const treeNode = this.getTreeNodeById(node.id);
       treeNode?.notifyExpandableChanged();

@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
-import { obx, computed, makeObservable } from '@alilc/lowcode-editor-core';
-import { Logger } from '@alilc/lowcode-utils';
-import { IPublicTypeWidgetBaseConfig } from '@alilc/lowcode-types';
+import { obx, computed, makeObservable } from '@lce/lowcode-editor-core';
+import { Logger } from '@lce/lowcode-utils';
+import { IPublicTypeWidgetBaseConfig } from '@lce/lowcode-types';
 import { WidgetContainer } from './widget/widget-container';
 import { ISkeleton } from './skeleton';
 import { IWidget } from './widget/widget';
@@ -16,7 +16,9 @@ export interface IArea<C, T> {
   show(): void;
 }
 
-export class Area<C extends IPublicTypeWidgetBaseConfig = any, T extends IWidget = IWidget> implements IArea<C, T> {
+export class Area<C extends IPublicTypeWidgetBaseConfig = any, T extends IWidget = IWidget>
+  implements IArea<C, T>
+{
   @obx private _visible = true;
 
   @computed get visible() {
@@ -37,9 +39,21 @@ export class Area<C extends IPublicTypeWidgetBaseConfig = any, T extends IWidget
 
   private lastCurrent: T | null = null;
 
-  constructor(readonly skeleton: ISkeleton, readonly name: string, handle: (item: T | C) => T, private exclusive?: boolean, defaultSetCurrent = false) {
+  constructor(
+    readonly skeleton: ISkeleton,
+    readonly name: string,
+    handle: (item: T | C) => T,
+    private exclusive?: boolean,
+    defaultSetCurrent = false,
+  ) {
     makeObservable(this);
-    this.container = skeleton.createContainer(name, handle, exclusive, () => this.visible, defaultSetCurrent);
+    this.container = skeleton.createContainer(
+      name,
+      handle,
+      exclusive,
+      () => this.visible,
+      defaultSetCurrent,
+    );
   }
 
   isEmpty(): boolean {

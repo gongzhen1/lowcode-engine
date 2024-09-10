@@ -1,12 +1,10 @@
 import '../fixtures/window';
-import { Editor, globalContext } from '@alilc/lowcode-editor-core';
+import { Editor, globalContext } from '@lce/lowcode-editor-core';
 import { Project } from '../../src/project/project';
 import { DocumentModel } from '../../src/document/document-model';
 import { ScrollTarget, Scroller } from '../../src/designer/scroller';
 import { Designer } from '../../src/designer/designer';
-import {
-  Dragon,
-} from '../../src/designer/dragon';
+import { Dragon } from '../../src/designer/dragon';
 import formSchema from '../fixtures/schema/form';
 import { shellModelFactory } from '../../../engine/src/modules/shell-model-factory';
 
@@ -51,8 +49,12 @@ describe('Scroller 测试', () => {
           scrollY = x.top;
         }
       },
-      get scrollX() { return scrollX; },
-      get scrollY() { return scrollY; },
+      get scrollX() {
+        return scrollX;
+      },
+      get scrollY() {
+        return scrollY;
+      },
       scrollHeight: 1000,
       scrollWidth: 500,
       document: {},
@@ -91,7 +93,10 @@ describe('Scroller 测试', () => {
     it('scrollTarget: ScrollTarget', () => {
       const win = getMockWindow();
       const scrollTarget = new ScrollTarget(win);
-      const scroller = new Scroller({ scrollTarget, bounds: { width: 50, height: 50, top: 50, bottom: 50, left: 50, right: 50 } });
+      const scroller = new Scroller({
+        scrollTarget,
+        bounds: { width: 50, height: 50, top: 50, bottom: 50, left: 50, right: 50 },
+      });
       mockRAF();
       scroller.scrollTo({ left: 50, top: 50 });
 
@@ -102,7 +107,10 @@ describe('Scroller 测试', () => {
     it('scrollTarget: ScrollTarget, same left / top', () => {
       const win = getMockWindow();
       const scrollTarget = new ScrollTarget(win);
-      const scroller = new Scroller({ scrollTarget, bounds: { width: 50, height: 50, top: 50, bottom: 50, left: 50, right: 50 } });
+      const scroller = new Scroller({
+        scrollTarget,
+        bounds: { width: 50, height: 50, top: 50, bottom: 50, left: 50, right: 50 },
+      });
       mockRAF();
       scrollTarget.scrollTo({ left: 50, top: 50 });
       scroller.scrollTo({ left: 50, top: 50 });
@@ -114,7 +122,10 @@ describe('Scroller 测试', () => {
     it('scrollTarget: Element', () => {
       const win = getMockWindow();
       // const scrollTarget = new ScrollTarget(win);
-      const scroller = new Scroller({ scrollTarget: win, bounds: { width: 50, height: 50, top: 50, bottom: 50, left: 50, right: 50 } });
+      const scroller = new Scroller({
+        scrollTarget: win,
+        bounds: { width: 50, height: 50, top: 50, bottom: 50, left: 50, right: 50 },
+      });
       mockRAF();
       scroller.scrollTo({ left: 50, top: 50 });
 
@@ -125,7 +136,10 @@ describe('Scroller 测试', () => {
     it('scrollTarget: null', () => {
       const win = getMockWindow();
       // const scrollTarget = new ScrollTarget(win);
-      const scroller = new Scroller({ scrollTarget: null, bounds: { width: 50, height: 50, top: 50, bottom: 50, left: 50, right: 50 } });
+      const scroller = new Scroller({
+        scrollTarget: null,
+        bounds: { width: 50, height: 50, top: 50, bottom: 50, left: 50, right: 50 },
+      });
       mockRAF();
       scroller.scrollTo({ left: 50, top: 50 });
 

@@ -1,4 +1,4 @@
-import { IPublicTypeComponentMetadata } from "@alilc/lowcode-types";
+import { IPublicTypeComponentMetadata } from '@lce/lowcode-types';
 export default {
   componentName: 'Button',
   npm: {
@@ -90,7 +90,7 @@ export default {
             name: 'c',
             title: 'c',
             setter: {
-              componentName: 'ColorSetter'
+              componentName: 'ColorSetter',
             },
           },
         ],
@@ -254,7 +254,7 @@ export default {
         // parentWhitelist: 'Div',
         // childWhitelist: 'Div',
       },
-      descriptor: 'xTitle'
+      descriptor: 'xTitle',
     },
     supports: {},
   },

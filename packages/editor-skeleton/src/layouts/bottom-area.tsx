@@ -1,6 +1,6 @@
 import { Component, Fragment } from 'react';
 import classNames from 'classnames';
-import { observer } from '@alilc/lowcode-editor-core';
+import { observer } from '@lce/lowcode-editor-core';
 import { Area } from '../area';
 import { Panel } from '../widget/panel';
 
@@ -12,9 +12,10 @@ export default class BottomArea extends Component<{ area: Area<any, Panel> }> {
       return null;
     }
     return (
-      <div className={classNames('lc-bottom-area', {
-        'lc-area-visible': area.visible,
-      })}
+      <div
+        className={classNames('lc-bottom-area', {
+          'lc-area-visible': area.visible,
+        })}
       >
         <Contents area={area} />
       </div>
@@ -26,10 +27,6 @@ export default class BottomArea extends Component<{ area: Area<any, Panel> }> {
 class Contents extends Component<{ area: Area<any, Panel> }> {
   render() {
     const { area } = this.props;
-    return (
-      <Fragment>
-        {area.container.items.map((item) => item.content)}
-      </Fragment>
-    );
+    return <Fragment>{area.container.items.map((item) => item.content)}</Fragment>;
   }
 }

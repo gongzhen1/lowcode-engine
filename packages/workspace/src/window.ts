@@ -1,9 +1,9 @@
-import { uniqueId } from '@alilc/lowcode-utils';
-import { createModuleEventBus, IEventBus, makeObservable, obx } from '@alilc/lowcode-editor-core';
+import { uniqueId } from '@lce/lowcode-utils';
+import { createModuleEventBus, IEventBus, makeObservable, obx } from '@lce/lowcode-editor-core';
 import { Context, IViewContext } from './context/view-context';
 import { IWorkspace } from './workspace';
 import { IResource } from './resource';
-import { IPublicModelWindow, IPublicTypeDisposable } from '@alilc/lowcode-types';
+import { IPublicModelWindow, IPublicTypeDisposable } from '@lce/lowcode-types';
 
 interface IWindowCOnfig {
   title: string | undefined;
@@ -12,7 +12,11 @@ interface IWindowCOnfig {
   sleep?: boolean;
 }
 
-export interface IEditorWindow extends Omit<IPublicModelWindow<IResource>, 'changeViewType' | 'currentEditorView' | 'editorViews'> {
+export interface IEditorWindow
+  extends Omit<
+    IPublicModelWindow<IResource>,
+    'changeViewType' | 'currentEditorView' | 'editorViews'
+  > {
   readonly resource: IResource;
 
   editorViews: Map<string, IViewContext>;
@@ -41,7 +45,7 @@ export enum WINDOW_STATE {
   inactive = 'inactive',
 
   // 销毁
-  destroyed = 'destroyed'
+  destroyed = 'destroyed',
 }
 
 export class EditorWindow implements IEditorWindow {
@@ -69,7 +73,11 @@ export class EditorWindow implements IEditorWindow {
     return this._editorView;
   }
 
-  constructor(readonly resource: IResource, readonly workspace: IWorkspace, private config: IWindowCOnfig) {
+  constructor(
+    readonly resource: IResource,
+    readonly workspace: IWorkspace,
+    private config: IWindowCOnfig,
+  ) {
     makeObservable(this);
     this.title = config.title;
     this.icon = resource.icon;
@@ -99,7 +107,7 @@ export class EditorWindow implements IEditorWindow {
       return;
     }
 
-    Object.keys(newSchema).forEach(key => {
+    Object.keys(newSchema).forEach((key) => {
       const view = this.editorViews.get(key);
       view?.project.importSchema(newSchema[key]);
     });
@@ -133,10 +141,11 @@ export class EditorWindow implements IEditorWindow {
   async init() {
     await this.initViewTypes();
     await this.execViewTypesInit();
-    Promise.all(Array.from(this.editorViews.values()).map((d) => d.onSimulatorRendererReady()))
-      .then(() => {
-        this.workspace.emitWindowRendererReady();
-      });
+    Promise.all(
+      Array.from(this.editorViews.values()).map((d) => d.onSimulatorRendererReady()),
+    ).then(() => {
+      this.workspace.emitWindowRendererReady();
+    });
     this.url = await this.resource.url();
     this.setDefaultViewName();
     this.initReady = true;

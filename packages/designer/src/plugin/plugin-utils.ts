@@ -1,5 +1,5 @@
 import { isPlainObject } from 'lodash';
-import { IPublicTypePluginRegisterOptions, IPublicTypePluginDeclaration } from '@alilc/lowcode-types';
+import { IPublicTypePluginRegisterOptions, IPublicTypePluginDeclaration } from '@lce/lowcode-types';
 
 export function isValidPreferenceKey(
   key: string,
@@ -17,10 +17,7 @@ export function isLowCodeRegisterOptions(opts: any): opts is IPublicTypePluginRe
   return opts && ('autoInit' in opts || 'override' in opts);
 }
 
-export function filterValidOptions(
-    opts: any,
-    preferenceDeclaration: IPublicTypePluginDeclaration,
-  ) {
+export function filterValidOptions(opts: any, preferenceDeclaration: IPublicTypePluginDeclaration) {
   if (!opts || !isPlainObject(opts)) return opts;
   const filteredOpts = {} as any;
   Object.keys(opts).forEach((key) => {

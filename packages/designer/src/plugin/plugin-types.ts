@@ -20,7 +20,7 @@ import {
   IPublicEnumPluginRegisterLevel,
   IPublicApiCommonUI,
   IPublicApiCommand,
-} from '@alilc/lowcode-types';
+} from '@lce/lowcode-types';
 import PluginContext from './plugin-context';
 
 export type PluginPreference = Map<string, Record<string, IPublicTypePreferenceValueType>>;
@@ -44,7 +44,8 @@ interface ILowCodePluginRuntimeExportsAccessor {
 }
 
 // eslint-disable-next-line max-len
-export type ILowCodePluginRuntime = ILowCodePluginRuntimeCore & ILowCodePluginRuntimeExportsAccessor;
+export type ILowCodePluginRuntime = ILowCodePluginRuntimeCore &
+  ILowCodePluginRuntimeExportsAccessor;
 
 export interface ILowCodePluginContextPrivate {
   set hotkey(hotkey: IPublicApiHotkey);
@@ -84,14 +85,16 @@ export interface ILowCodePluginManagerCore {
     pluginOptions?: any,
     options?: IPublicTypePluginRegisterOptions,
   ): Promise<void>;
-  init(pluginPreference?: Map<string, Record<string, IPublicTypePreferenceValueType>>): Promise<void>;
+  init(
+    pluginPreference?: Map<string, Record<string, IPublicTypePreferenceValueType>>,
+  ): Promise<void>;
   get(pluginName: string): ILowCodePluginRuntime | undefined;
   getAll(): ILowCodePluginRuntime[];
   has(pluginName: string): boolean;
   delete(pluginName: string): any;
   setDisabled(pluginName: string, flag: boolean): void;
   dispose(): void;
-  _getLowCodePluginContext (options: IPluginContextOptions): PluginContext;
+  _getLowCodePluginContext(options: IPluginContextOptions): PluginContext;
 }
 
 export type ILowCodePluginManager = ILowCodePluginManagerCore & ILowCodePluginManagerPluginAccessor;

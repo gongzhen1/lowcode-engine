@@ -2,7 +2,7 @@ import React from 'react';
 import set from 'lodash/set';
 import cloneDeep from 'lodash/cloneDeep';
 import '../fixtures/window';
-import { Editor } from '@alilc/lowcode-editor-core';
+import { Editor } from '@lce/lowcode-editor-core';
 import { Project } from '../../src/project/project';
 import { Node } from '../../src/document/node/node';
 import TestRenderer from 'react-test-renderer';
@@ -12,7 +12,6 @@ import { Designer } from '../../src/designer/designer';
 import formSchema from '../fixtures/schema/form';
 import { getMockRenderer } from '../utils';
 import { isSimulatorRenderer } from '../../src/builtin-simulator/renderer';
-
 
 describe('renderer 测试', () => {
   it('renderer', () => {

@@ -1,9 +1,5 @@
-import {
-  compatibleLegaoSchema,
-  getNodeSchemaById,
-  applyActivities,
-} from '../../src/schema';
-import { ActivityType } from '@alilc/lowcode-types';
+import { compatibleLegaoSchema, getNodeSchemaById, applyActivities } from '../../src/schema';
+import { ActivityType } from '@lce/lowcode-types';
 
 describe('compatibleLegaoSchema', () => {
   it('should handle null input', () => {
@@ -126,30 +122,29 @@ describe('applyActivities', () => {
   // Add more test cases for other activity types and scenarios
 });
 
-
 describe('Schema Ut', () => {
   it('props', () => {
     const schema = {
       props: {
         mobileSlot: {
-          type: "JSBlock",
+          type: 'JSBlock',
           value: {
-            componentName: "Slot",
+            componentName: 'Slot',
             children: [
               {
                 loop: {
-                  variable: "props.content",
-                  type: "variable"
+                  variable: 'props.content',
+                  type: 'variable',
                 },
-              }
+              },
             ],
-          }
+          },
         },
       },
-  };
+    };
 
     const result = compatibleLegaoSchema(schema);
     expect(result).toMatchSnapshot();
     expect(result.props.mobileSlot.value[0].loop.type).toBe('JSExpression');
   });
-})
+});

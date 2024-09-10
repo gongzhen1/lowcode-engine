@@ -2,25 +2,31 @@
 title: 入料模块设计
 sidebar_position: 2
 ---
+
 ## 介绍
-入料模块负责物料接入，通过自动扫描、解析源码组件，产出一份符合《中后台低代码组件描述协议》的** **JSON Schema。这份 Schema 包含基础信息和属性描述信息部分，低代码引擎会基于它们在运行时自动生成一份 configure 配置，用作设置面板展示。
+
+入料模块负责物料接入，通过自动扫描、解析源码组件，产出一份符合《中后台低代码组件描述协议》的\*\* \*\*JSON Schema。这份 Schema 包含基础信息和属性描述信息部分，低代码引擎会基于它们在运行时自动生成一份 configure 配置，用作设置面板展示。
 
 ## npm 包与仓库信息
 
-- npm 包：@alilc/lowcode-material-parser
+- npm 包：@lce/lowcode-material-parser
 - 仓库：[https://github.com/alibaba/lowcode-engine](https://github.com/alibaba/lowcode-engine) 下的 modules/material-parser
 
 ## 原理
+
 入料模块使用动静态分析结合的方案，动态胜在真实，静态胜在细致，不过全都依赖源码中定义的属性，若未定义，或者定义错误，则无法正确入料。
 
 ### 整体流程
+
 大体分为本地化、扫描、解析、转换、校验 5 部分，如下图所示。
 ![image.png](https://img.alicdn.com/imgextra/i2/O1CN01sXf5fL1E5RcRxAlM1_!!6000000000300-2-tps-2116-206.png)
 
 ### 静态解析
+
 在静态分析时，分为 JS 和 TS 两种情况。
 
 #### 静态解析 JS
+
 在 JS 情况下，基于 react-docgen 进行扩展，自定义了 resolver 及 handler，前者用于寻找组件定义，后者用于解析 propTypes、defaultProps 等信息，整体流程图如下：
 
 ![image.png](https://img.alicdn.com/imgextra/i1/O1CN01VrhkEb1R6tsntvGhV_!!6000000002063-2-tps-2176-478.png)
@@ -28,6 +34,7 @@ sidebar_position: 2
 react-docgen 使用 babel 生成语法树，再使用 ast-types 进行遍历去寻找组件节点及其属性类型定义。原本的 react-docgen 只能解析单文件，且不能解析 IIFE、逗号表达式等语法结构 (一般出现在转码后的代码中)。笔者对其进行改造，使之可以递归解析多文件去查找组件定义，且能够解开 IIFE，以及对逗号表达式进行转换，以方便后续的组件解析。另外，还增加了子组件解析的功能，即类似 `Button.Group = Group` 这种定义。
 
 #### 静态解析 TS
+
 在 TS 情况下，还要再细分为 TS 源码和 TS 编译后的代码。
 TS 源码中，React 组件具有类型签名；TS 编译后的代码中，dts 文件 (如有) 包含全部的 class / interface / type 类型信息。可以从这些类型信息中获取组件属性描述。整体流程图如下：
 
@@ -75,6 +82,7 @@ TypeScript Compiler 会将合成类型的所有属性展开，比如 `boolean | 
 值得注意的是，有些 js 文件里还会引入 css 文件，而且从笔者了解的情况来看，这种情况在集团内部不在少数。这种组件不配合 webpack 使用，肯定会报错，但是使用 webpack 会明显拖慢速度，所以笔者采用了 sandbox 的方式，对 require 进来的类 css 文件进行 mock。这里，笔者使用了 vm2 这个库，它对 node 自带的 vm 进行了封装，可以劫持文件中的 require 方法。因为 parse-prop-types 的修改在沙箱中会失效，所以笔者也 mock 了组件中的 prop-types 库。
 
 ### 整体大图
+
 把上述的静态解析和动态解析流程结合起来，可以得到以下大图。
 
 ![image.png](https://img.alicdn.com/imgextra/i1/O1CN01TA9lQp27QmwVT7WUC_!!6000000007792-2-tps-2658-1072.png)

@@ -3,8 +3,13 @@
 /* eslint-disable react/prop-types */
 import classnames from 'classnames';
 import { create as createDataSourceEngine } from '@alilc/lowcode-datasource-engine/interpret';
-import { IPublicTypeNodeSchema, IPublicTypeNodeData, IPublicTypeJSONValue, IPublicTypeCompositeValue } from '@alilc/lowcode-types';
-import { checkPropTypes, isI18nData, isJSExpression, isJSFunction } from '@alilc/lowcode-utils';
+import {
+  IPublicTypeNodeSchema,
+  IPublicTypeNodeData,
+  IPublicTypeJSONValue,
+  IPublicTypeCompositeValue,
+} from '@lce/lowcode-types';
+import { checkPropTypes, isI18nData, isJSExpression, isJSFunction } from '@lce/lowcode-utils';
 import adapter from '../adapter';
 import divFactory from '../components/Div';
 import visualDomFactory from '../components/VisualDom';
@@ -28,7 +33,14 @@ import {
   isVariable,
   isJSSlot,
 } from '../utils';
-import { IBaseRendererProps, INodeInfo, IBaseRenderComponent, IBaseRendererContext, IRendererAppHelper, DataSource } from '../types';
+import {
+  IBaseRendererProps,
+  INodeInfo,
+  IBaseRenderComponent,
+  IBaseRendererContext,
+  IRendererAppHelper,
+  DataSource,
+} from '../types';
 import { compWrapper } from '../hoc';
 import { IComponentConstruct, leafWrapper } from '../hoc/leaf';
 import logger from '../utils/logger';
@@ -38,7 +50,13 @@ import isUseLoop from '../utils/is-use-loop';
  * execute method in schema.lifeCycles with context
  * @PRIVATE
  */
-export function executeLifeCycleMethod(context: any, schema: IPublicTypeNodeSchema, method: string, args: any, thisRequiredInJSE: boolean | undefined): any {
+export function executeLifeCycleMethod(
+  context: any,
+  schema: IPublicTypeNodeSchema,
+  method: string,
+  args: any,
+  thisRequiredInJSE: boolean | undefined,
+): any {
   if (!context || !isSchema(schema) || !method) {
     return;
   }
@@ -51,7 +69,9 @@ export function executeLifeCycleMethod(context: any, schema: IPublicTypeNodeSche
 
   // TODO: cache
   if (isJSExpression(fn) || isJSFunction(fn)) {
-    fn = thisRequiredInJSE ? parseThisRequiredExpression(fn, context) : parseExpression(fn, context);
+    fn = thisRequiredInJSE
+      ? parseThisRequiredExpression(fn, context)
+      : parseExpression(fn, context);
   }
 
   if (typeof fn !== 'function') {
@@ -159,7 +179,12 @@ export default function baseRendererFactory(): IBaseRenderComponent {
       super(props, context);
       this.context = context;
       this.__parseExpression = (str: string, self: any) => {
-        return parseExpression({ str, self, thisRequired: props?.thisRequiredInJSE, logScope: props.componentName });
+        return parseExpression({
+          str,
+          self,
+          thisRequired: props?.thisRequiredInJSE,
+          logScope: props.componentName,
+        });
       };
       this.__beforeInit(props);
       this.__init(props);
@@ -168,7 +193,7 @@ export default function baseRendererFactory(): IBaseRenderComponent {
     }
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    __beforeInit(_props: IBaseRendererProps) { }
+    __beforeInit(_props: IBaseRendererProps) {}
 
     __init(props: IBaseRendererProps) {
       this.__compScopes = {};
@@ -178,10 +203,16 @@ export default function baseRendererFactory(): IBaseRenderComponent {
     }
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    __afterInit(_props: IBaseRendererProps) { }
+    __afterInit(_props: IBaseRendererProps) {}
 
     static getDerivedStateFromProps(props: IBaseRendererProps, state: any) {
-      const result = executeLifeCycleMethod(this, props?.__schema, 'getDerivedStateFromProps', [props, state], props.thisRequiredInJSE);
+      const result = executeLifeCycleMethod(
+        this,
+        props?.__schema,
+        'getDerivedStateFromProps',
+        [props, state],
+        props.thisRequiredInJSE,
+      );
       return result === undefined ? null : result;
     }
 
@@ -211,23 +242,25 @@ export default function baseRendererFactory(): IBaseRenderComponent {
       logger.warn(args);
     }
 
-    reloadDataSource = () => new Promise((resolve, reject) => {
-      this.__debug('reload data source');
-      if (!this.__dataHelper) {
-        return resolve({});
-      }
-      this.__dataHelper.getInitData()
-        .then((res: any) => {
-          if (isEmpty(res)) {
-            this.forceUpdate();
-            return resolve({});
-          }
-          this.setState(res, resolve as () => void);
-        })
-        .catch((err: Error) => {
-          reject(err);
-        });
-    });
+    reloadDataSource = () =>
+      new Promise((resolve, reject) => {
+        this.__debug('reload data source');
+        if (!this.__dataHelper) {
+          return resolve({});
+        }
+        this.__dataHelper
+          .getInitData()
+          .then((res: any) => {
+            if (isEmpty(res)) {
+              this.forceUpdate();
+              return resolve({});
+            }
+            this.setState(res, resolve as () => void);
+          })
+          .catch((err: Error) => {
+            reject(err);
+          });
+      });
 
     shouldComponentUpdate() {
       if (this.props.getSchemaChangedSymbol?.() && this.props.__container?.rerender) {
@@ -313,46 +346,53 @@ export default function baseRendererFactory(): IBaseRenderComponent {
       const dataSource = schema.dataSource || defaultDataSource;
       // requestHandlersMap 存在才走数据源引擎方案
       // TODO: 下面if else 抽成独立函数
-      const useDataSourceEngine = !!(props.__appHelper?.requestHandlersMap);
+      const useDataSourceEngine = !!props.__appHelper?.requestHandlersMap;
       if (useDataSourceEngine) {
         this.__dataHelper = {
           updateConfig: (updateDataSource: any) => {
             const { dataSourceMap, reloadDataSource } = createDataSourceEngine(
               updateDataSource ?? {},
               this,
-              props.__appHelper.requestHandlersMap ? { requestHandlersMap: props.__appHelper.requestHandlersMap } : undefined,
+              props.__appHelper.requestHandlersMap
+                ? { requestHandlersMap: props.__appHelper.requestHandlersMap }
+                : undefined,
             );
 
-            this.reloadDataSource = () => new Promise((resolve) => {
-              this.__debug('reload data source');
-              reloadDataSource().then(() => {
-                resolve({});
+            this.reloadDataSource = () =>
+              new Promise((resolve) => {
+                this.__debug('reload data source');
+                reloadDataSource().then(() => {
+                  resolve({});
+                });
               });
-            });
             return dataSourceMap;
           },
         };
         this.dataSourceMap = this.__dataHelper.updateConfig(dataSource);
       } else {
         const appHelper = props.__appHelper;
-        this.__dataHelper = new DataHelper(this, dataSource, appHelper, (config: any) => this.__parseData(config));
+        this.__dataHelper = new DataHelper(this, dataSource, appHelper, (config: any) =>
+          this.__parseData(config),
+        );
         this.dataSourceMap = this.__dataHelper.dataSourceMap;
-        this.reloadDataSource = () => new Promise((resolve, reject) => {
-          this.__debug('reload data source');
-          if (!this.__dataHelper) {
-            return resolve({});
-          }
-          this.__dataHelper.getInitData()
-            .then((res: any) => {
-              if (isEmpty(res)) {
-                return resolve({});
-              }
-              this.setState(res, resolve as () => void);
-            })
-            .catch((err: Error) => {
-              reject(err);
-            });
-        });
+        this.reloadDataSource = () =>
+          new Promise((resolve, reject) => {
+            this.__debug('reload data source');
+            if (!this.__dataHelper) {
+              return resolve({});
+            }
+            this.__dataHelper
+              .getInitData()
+              .then((res: any) => {
+                if (isEmpty(res)) {
+                  return resolve({});
+                }
+                this.setState(res, resolve as () => void);
+              })
+              .catch((err: Error) => {
+                reject(err);
+              });
+          });
       }
     };
 
@@ -369,7 +409,9 @@ export default function baseRendererFactory(): IBaseRenderComponent {
       this.setLocale = (loc: string) => {
         const setLocaleFn = this.appHelper?.utils?.i18n?.setLocale;
         if (!setLocaleFn || typeof setLocaleFn !== 'function') {
-          logger.warn('initI18nAPIs Failed, i18n only works when appHelper.utils.i18n.setLocale() exists');
+          logger.warn(
+            'initI18nAPIs Failed, i18n only works when appHelper.utils.i18n.setLocale() exists',
+          );
           return undefined;
         }
         return setLocaleFn(loc);
@@ -444,10 +486,10 @@ export default function baseRendererFactory(): IBaseRenderComponent {
       if (!Comp) {
         this.__debug(`${__schema.componentName} is invalid!`);
       }
-      const parentNodeInfo = ({
+      const parentNodeInfo = {
         schema: __schema,
         Comp: this.__getHOCWrappedComponent(Comp, __schema, scope),
-      } as INodeInfo);
+      } as INodeInfo;
       return this.__createVirtualDom(_children, scope, parentNodeInfo);
     };
 
@@ -458,7 +500,12 @@ export default function baseRendererFactory(): IBaseRenderComponent {
      * @param parentInfo 父组件的信息，包含schema和Comp
      * @param idx 为循环渲染的循环Index
      */
-    __createVirtualDom = (originalSchema: IPublicTypeNodeData | IPublicTypeNodeData[] | undefined, originalScope: any, parentInfo: INodeInfo, idx: string | number = ''): any => {
+    __createVirtualDom = (
+      originalSchema: IPublicTypeNodeData | IPublicTypeNodeData[] | undefined,
+      originalScope: any,
+      parentInfo: INodeInfo,
+      idx: string | number = '',
+    ): any => {
       if (originalSchema === null || originalSchema === undefined) {
         return null;
       }
@@ -494,7 +541,14 @@ export default function baseRendererFactory(): IBaseRenderComponent {
           if (schema.length === 1) {
             return this.__createVirtualDom(schema[0], scope, parentInfo);
           }
-          return schema.map((item, idy) => this.__createVirtualDom(item, scope, parentInfo, (item as IPublicTypeNodeSchema)?.__ctx?.lceKey ? '' : String(idy)));
+          return schema.map((item, idy) =>
+            this.__createVirtualDom(
+              item,
+              scope,
+              parentInfo,
+              (item as IPublicTypeNodeSchema)?.__ctx?.lceKey ? '' : String(idy),
+            ),
+          );
         }
 
         // @ts-expect-error 如果直接转换好了，可以返回
@@ -504,12 +558,17 @@ export default function baseRendererFactory(): IBaseRenderComponent {
 
         const _children = getSchemaChildren(schema);
         if (!schema.componentName) {
-          logger.error('The componentName in the schema is invalid, please check the schema: ', schema);
+          logger.error(
+            'The componentName in the schema is invalid, please check the schema: ',
+            schema,
+          );
           return;
         }
         // 解析占位组件
         if (schema.componentName === 'Fragment' && _children) {
-          const tarChildren = isJSExpression(_children) ? this.__parseExpression(_children, scope) : _children;
+          const tarChildren = isJSExpression(_children)
+            ? this.__parseExpression(_children, scope)
+            : _children;
           return this.__createVirtualDom(tarChildren, scope, parentInfo);
         }
 
@@ -522,19 +581,24 @@ export default function baseRendererFactory(): IBaseRenderComponent {
         if (!isSchema(schema)) {
           return null;
         }
-        let Comp = components[schema.componentName] || this.props.__container?.components?.[schema.componentName];
+        let Comp =
+          components[schema.componentName] ||
+          this.props.__container?.components?.[schema.componentName];
 
         // 容器类组件的上下文通过props传递，避免context传递带来的嵌套问题
         const otherProps: any = isFileSchema(schema)
           ? {
-            __schema: schema,
-            __appHelper: appHelper,
-            __components: components,
-          }
+              __schema: schema,
+              __appHelper: appHelper,
+              __components: components,
+            }
           : {};
 
         if (!Comp) {
-          logger.error(`${schema.componentName} component is not found in components list! component list is:`, components || this.props.__container?.components);
+          logger.error(
+            `${schema.componentName} component is not found in components list! component list is:`,
+            components || this.props.__container?.components,
+          );
           return engine.createElement(
             engine.getNotFoundComponent(),
             {
@@ -565,7 +629,8 @@ export default function baseRendererFactory(): IBaseRenderComponent {
             );
           }
         }
-        const condition = schema.condition == null ? true : this.__parseData(schema.condition, scope);
+        const condition =
+          schema.condition == null ? true : this.__parseData(schema.condition, scope);
 
         // DesignMode 为 design 情况下，需要进入 leaf Hoc，进行相关事件注册
         const displayInHook = this.__designModeIsDesign;
@@ -608,10 +673,11 @@ export default function baseRendererFactory(): IBaseRenderComponent {
           otherProps.__tag = Math.random();
         }
         const componentInfo: any = {};
-        const props: any = this.__getComponentProps(schema, scope, Comp, {
-          ...componentInfo,
-          props: transformArrayToMap(componentInfo.props, 'name'),
-        }) || {};
+        const props: any =
+          this.__getComponentProps(schema, scope, Comp, {
+            ...componentInfo,
+            props: transformArrayToMap(componentInfo.props, 'name'),
+          }) || {};
 
         this.__componentHOCs.forEach((ComponentConstruct: IComponentConstruct) => {
           Comp = ComponentConstruct(Comp, {
@@ -639,7 +705,9 @@ export default function baseRendererFactory(): IBaseRenderComponent {
           if (!isFileSchema(schema)) {
             engine.props?.onCompGetCtx(schema, scope);
           }
-          props.key = props.key || `${schema.__ctx.lceKey}_${schema.__ctx.idx || 0}_${idx !== undefined ? idx : ''}`;
+          props.key =
+            props.key ||
+            `${schema.__ctx.lceKey}_${schema.__ctx.idx || 0}_${idx !== undefined ? idx : ''}`;
         } else if ((typeof idx === 'number' || typeof idx === 'string') && !props.key) {
           // 仅当循环场景走这里
           props.key = idx;
@@ -657,10 +725,14 @@ export default function baseRendererFactory(): IBaseRenderComponent {
           // 对于overlay,dialog等组件为了使其在设计模式下显示，外层需要增加一个div容器
           if (OVERLAY_LIST.includes(schema.componentName)) {
             const { ref, ...overlayProps } = otherProps;
-            return createElement(Div, {
-              ref,
-              __designMode: engine.props.designMode,
-            }, renderComp({ ...props, ...overlayProps }));
+            return createElement(
+              Div,
+              {
+                ref,
+                __designMode: engine.props.designMode,
+              },
+              renderComp({ ...props, ...overlayProps }),
+            );
           }
           // 虚拟dom显示
           if (componentInfo?.parentRule) {
@@ -710,7 +782,12 @@ export default function baseRendererFactory(): IBaseRenderComponent {
       return [compWrapper];
     }
 
-    __getSchemaChildrenVirtualDom = (schema: IPublicTypeNodeSchema | undefined, scope: any, Comp: any, condition = true) => {
+    __getSchemaChildrenVirtualDom = (
+      schema: IPublicTypeNodeSchema | undefined,
+      scope: any,
+      Comp: any,
+      condition = true,
+    ) => {
       let children = condition ? getSchemaChildren(schema) : null;
 
       // @todo 补完这里的 Element 定义 @承虎
@@ -740,21 +817,33 @@ export default function baseRendererFactory(): IBaseRenderComponent {
       return null;
     };
 
-    __getComponentProps = (schema: IPublicTypeNodeSchema | undefined, scope: any, Comp: any, componentInfo?: any) => {
+    __getComponentProps = (
+      schema: IPublicTypeNodeSchema | undefined,
+      scope: any,
+      Comp: any,
+      componentInfo?: any,
+    ) => {
       if (!schema) {
         return {};
       }
-      return this.__parseProps(schema?.props, scope, '', {
-        schema,
-        Comp,
-        componentInfo: {
-          ...(componentInfo || {}),
-          props: transformArrayToMap((componentInfo || {}).props, 'name'),
-        },
-      }) || {};
+      return (
+        this.__parseProps(schema?.props, scope, '', {
+          schema,
+          Comp,
+          componentInfo: {
+            ...(componentInfo || {}),
+            props: transformArrayToMap((componentInfo || {}).props, 'name'),
+          },
+        }) || {}
+      );
     };
 
-    __createLoopVirtualDom = (schema: IPublicTypeNodeSchema, scope: any, parentInfo: INodeInfo, idx: number | string) => {
+    __createLoopVirtualDom = (
+      schema: IPublicTypeNodeSchema,
+      scope: any,
+      parentInfo: INodeInfo,
+      idx: number | string,
+    ) => {
       if (isFileSchema(schema)) {
         logger.warn('file type not support Loop');
         return null;
@@ -809,7 +898,7 @@ export default function baseRendererFactory(): IBaseRenderComponent {
 
       const parseReactNode = (data: any, params: any) => {
         if (isEmpty(params)) {
-          const virtualDom = this.__createVirtualDom(data, scope, ({ schema, Comp } as INodeInfo));
+          const virtualDom = this.__createVirtualDom(data, scope, { schema, Comp } as INodeInfo);
           return checkProps(virtualDom);
         }
         return checkProps((...argValues: any[]) => {
@@ -824,7 +913,7 @@ export default function baseRendererFactory(): IBaseRenderComponent {
             });
           }
           args.__proto__ = scope;
-          return scope.__createVirtualDom(data, args, ({ schema, Comp } as INodeInfo));
+          return scope.__createVirtualDom(data, args, { schema, Comp } as INodeInfo);
         });
       };
 
@@ -836,7 +925,8 @@ export default function baseRendererFactory(): IBaseRenderComponent {
         }
       }
 
-      const handleI18nData = (innerProps: any) => innerProps[innerProps.use || (this.getLocale && this.getLocale()) || 'zh-CN'];
+      const handleI18nData = (innerProps: any) =>
+        innerProps[innerProps.use || (this.getLocale && this.getLocale()) || 'zh-CN'];
 
       // @LEGACY 兼容老平台设计态 i18n 数据
       if (isI18nData(props)) {
@@ -869,12 +959,14 @@ export default function baseRendererFactory(): IBaseRenderComponent {
 
       // 兼容通过componentInfo判断的情况
       if (isSchema(props)) {
-        const isReactNodeFunction = !!(propInfo?.type === 'ReactNode' && propInfo?.props?.type === 'function');
+        const isReactNodeFunction = !!(
+          propInfo?.type === 'ReactNode' && propInfo?.props?.type === 'function'
+        );
 
         const isMixinReactNodeFunction = !!(
-          propInfo?.type === 'Mixin'
-          && propInfo?.props?.types?.indexOf('ReactNode') > -1
-          && propInfo?.props?.reactNodeProps?.type === 'function'
+          propInfo?.type === 'Mixin' &&
+          propInfo?.props?.types?.indexOf('ReactNode') > -1 &&
+          propInfo?.props?.reactNodeProps?.type === 'function'
         );
 
         let params = null;
@@ -883,13 +975,14 @@ export default function baseRendererFactory(): IBaseRenderComponent {
         } else if (isMixinReactNodeFunction) {
           params = propInfo?.props?.reactNodeProps?.params;
         }
-        return parseReactNode(
-          props,
-          params,
-        );
+        return parseReactNode(props, params);
       }
       if (Array.isArray(props)) {
-        return checkProps(props.map((item, idx) => this.__parseProps(item, scope, path ? `${path}.${idx}` : `${idx}`, info)));
+        return checkProps(
+          props.map((item, idx) =>
+            this.__parseProps(item, scope, path ? `${path}.${idx}` : `${idx}`, info),
+          ),
+        );
       }
       if (typeof props === 'function') {
         return checkProps(props.bind(scope));
@@ -922,7 +1015,9 @@ export default function baseRendererFactory(): IBaseRenderComponent {
       return this.__instanceMap[filedId];
     }
 
-    __debug = (...args: any[]) => { logger.debug(...args); };
+    __debug = (...args: any[]) => {
+      logger.debug(...args);
+    };
 
     __renderContextProvider = (customProps?: object, children?: any) => {
       return createElement(AppContext.Provider, {
@@ -981,7 +1076,11 @@ export default function baseRendererFactory(): IBaseRenderComponent {
           ...data,
           ...this.props,
           ref: this.__getRef,
-          className: classnames(getFileCssName(__schema?.fileName), className, this.props.className),
+          className: classnames(
+            getFileCssName(__schema?.fileName),
+            className,
+            this.props.className,
+          ),
           __id: __schema?.id,
           ...otherProps,
         },
@@ -993,18 +1092,33 @@ export default function baseRendererFactory(): IBaseRenderComponent {
     __renderContent(children: any) {
       const { __schema } = this.props;
       const parsedProps = this.__parseData(__schema.props);
-      const className = classnames(`lce-${this.__namespace}`, getFileCssName(__schema.fileName), parsedProps.className, this.props.className);
-      const style = { ...(parsedProps.style || {}), ...(typeof this.props.style === 'object' ? this.props.style : {}) };
+      const className = classnames(
+        `lce-${this.__namespace}`,
+        getFileCssName(__schema.fileName),
+        parsedProps.className,
+        this.props.className,
+      );
+      const style = {
+        ...(parsedProps.style || {}),
+        ...(typeof this.props.style === 'object' ? this.props.style : {}),
+      };
       const id = this.props.id || parsedProps.id;
-      return createElement('div', {
-        ref: this.__getRef,
-        className,
-        id,
-        style,
-      }, children);
+      return createElement(
+        'div',
+        {
+          ref: this.__getRef,
+          className,
+          id,
+          style,
+        },
+        children,
+      );
     }
 
-    __checkSchema = (schema: IPublicTypeNodeSchema | undefined, originalExtraComponents: string | string[] = []) => {
+    __checkSchema = (
+      schema: IPublicTypeNodeSchema | undefined,
+      originalExtraComponents: string | string[] = [],
+    ) => {
       let extraComponents = originalExtraComponents;
       if (typeof extraComponents === 'string') {
         extraComponents = [extraComponents];

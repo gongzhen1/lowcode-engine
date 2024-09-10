@@ -1,11 +1,25 @@
-import { IPublicApiCommand, IPublicEnumTransitionType, IPublicModelPluginContext, IPublicTypeCommand, IPublicTypeCommandHandlerArgs, IPublicTypeListCommand } from '@alilc/lowcode-types';
-import { checkPropTypes } from '@alilc/lowcode-utils';
-export interface ICommand extends Omit<IPublicApiCommand, 'registerCommand' | 'batchExecuteCommand'> {
-  registerCommand(command: IPublicTypeCommand, options?: {
-    commandScope?: string;
-  }): void;
+import {
+  IPublicApiCommand,
+  IPublicEnumTransitionType,
+  IPublicModelPluginContext,
+  IPublicTypeCommand,
+  IPublicTypeCommandHandlerArgs,
+  IPublicTypeListCommand,
+} from '@lce/lowcode-types';
+import { checkPropTypes } from '@lce/lowcode-utils';
+export interface ICommand
+  extends Omit<IPublicApiCommand, 'registerCommand' | 'batchExecuteCommand'> {
+  registerCommand(
+    command: IPublicTypeCommand,
+    options?: {
+      commandScope?: string;
+    },
+  ): void;
 
-  batchExecuteCommand(commands: { name: string; args: IPublicTypeCommandHandlerArgs }[], pluginContext?: IPublicModelPluginContext): void;
+  batchExecuteCommand(
+    commands: { name: string; args: IPublicTypeCommandHandlerArgs }[],
+    pluginContext?: IPublicModelPluginContext,
+  ): void;
 }
 
 export interface ICommandOptions {
@@ -42,7 +56,7 @@ export class Command implements ICommand {
     if (!command) {
       throw new Error(`Command '${name}' is not registered.`);
     }
-    command.parameters?.forEach(d => {
+    command.parameters?.forEach((d) => {
       if (!checkPropTypes(args[d.name], d.name, d.propType, 'command')) {
         throw new Error(`Command '${name}' arguments ${d.name} is invalid.`);
       }
@@ -51,24 +65,27 @@ export class Command implements ICommand {
       command.handler(args);
     } catch (error) {
       if (this.commandErrors && this.commandErrors.length) {
-        this.commandErrors.forEach(callback => callback(name, error));
+        this.commandErrors.forEach((callback) => callback(name, error));
       } else {
         throw error;
       }
     }
   }
 
-  batchExecuteCommand(commands: { name: string; args: IPublicTypeCommandHandlerArgs }[], pluginContext: IPublicModelPluginContext): void {
+  batchExecuteCommand(
+    commands: { name: string; args: IPublicTypeCommandHandlerArgs }[],
+    pluginContext: IPublicModelPluginContext,
+  ): void {
     if (!commands || !commands.length) {
       return;
     }
     pluginContext.common.utils.executeTransaction(() => {
-      commands.forEach(command => this.executeCommand(command.name, command.args));
+      commands.forEach((command) => this.executeCommand(command.name, command.args));
     }, IPublicEnumTransitionType.REPAINT);
   }
 
   listCommands(): IPublicTypeListCommand[] {
-    return Array.from(this.commands.values()).map(d => {
+    return Array.from(this.commands.values()).map((d) => {
       const result: IPublicTypeListCommand = {
         name: d.name,
       };

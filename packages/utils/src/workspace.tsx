@@ -1,5 +1,10 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { IPublicModelPluginContext, IPublicEnumPluginRegisterLevel, IPublicModelWindow, IPublicModelEditorView } from '@alilc/lowcode-types';
+import {
+  IPublicModelPluginContext,
+  IPublicEnumPluginRegisterLevel,
+  IPublicModelWindow,
+  IPublicModelEditorView,
+} from '@lce/lowcode-types';
 
 /**
  * 高阶组件（HOC）：为组件提供 view 插件上下文。
@@ -24,7 +29,11 @@ export const ProvideViewPluginContext = (Component: any, viewName?: string | str
         return null;
       }
       if (viewName) {
-        const items = editorWindow?.editorViews.filter(d => (d as any).viewName === viewName || (Array.isArray(viewName) && viewName.includes((d as any).viewName)));
+        const items = editorWindow?.editorViews.filter(
+          (d) =>
+            (d as any).viewName === viewName ||
+            (Array.isArray(viewName) && viewName.includes((d as any).viewName)),
+        );
         return items[0];
       } else {
         return editorWindow.currentEditorView;
@@ -32,7 +41,9 @@ export const ProvideViewPluginContext = (Component: any, viewName?: string | str
     }, []);
 
     const { workspace } = props.pluginContext || {};
-    const [pluginContext, setPluginContext] = useState<IPublicModelEditorView | null>(getPluginContextFun(workspace?.window));
+    const [pluginContext, setPluginContext] = useState<IPublicModelEditorView | null>(
+      getPluginContextFun(workspace?.window),
+    );
 
     useEffect(() => {
       if (workspace?.window) {
@@ -45,7 +56,10 @@ export const ProvideViewPluginContext = (Component: any, viewName?: string | str
       });
     }, [workspace, getPluginContextFun]);
 
-    if (props.pluginContext?.registerLevel !== IPublicEnumPluginRegisterLevel.Workspace || !props.pluginContext) {
+    if (
+      props.pluginContext?.registerLevel !== IPublicEnumPluginRegisterLevel.Workspace ||
+      !props.pluginContext
+    ) {
       return <Component {...props} />;
     }
 

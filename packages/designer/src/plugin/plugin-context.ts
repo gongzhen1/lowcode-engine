@@ -1,5 +1,5 @@
 /* eslint-disable no-multi-assign */
-import { engineConfig, createModuleEventBus } from '@alilc/lowcode-editor-core';
+import { engineConfig, createModuleEventBus } from '@lce/lowcode-editor-core';
 import {
   IPublicApiHotkey,
   IPublicApiProject,
@@ -20,7 +20,7 @@ import {
   IPublicEnumPluginRegisterLevel,
   IPublicModelWindow,
   IPublicApiCommonUI,
-} from '@alilc/lowcode-types';
+} from '@lce/lowcode-types';
 import {
   IPluginContextOptions,
   ILowCodePluginContextApiAssembler,
@@ -28,8 +28,9 @@ import {
 } from './plugin-types';
 import { isValidPreferenceKey } from './plugin-utils';
 
-export default class PluginContext implements
-  IPublicModelPluginContext, ILowCodePluginContextPrivate {
+export default class PluginContext
+  implements IPublicModelPluginContext, ILowCodePluginContextPrivate
+{
   hotkey: IPublicApiHotkey;
   project: IPublicApiProject;
   skeleton: IPublicApiSkeleton;
@@ -50,9 +51,9 @@ export default class PluginContext implements
   isPluginRegisteredInWorkspace: false;
 
   constructor(
-      options: IPluginContextOptions,
-      contextApiAssembler: ILowCodePluginContextApiAssembler,
-    ) {
+    options: IPluginContextOptions,
+    contextApiAssembler: ILowCodePluginContextApiAssembler,
+  ) {
     const { pluginName = 'anonymous', meta = {} } = options;
     contextApiAssembler.assembleApis(this, pluginName, meta);
     this.pluginEvent = createModuleEventBus(pluginName, 200);
@@ -62,14 +63,11 @@ export default class PluginContext implements
     }
   }
 
-  setPreference(
-    pluginName: string,
-    preferenceDeclaration: IPublicTypePluginDeclaration,
-  ): void {
+  setPreference(pluginName: string, preferenceDeclaration: IPublicTypePluginDeclaration): void {
     const getPreferenceValue = (
       key: string,
       defaultValue?: IPublicTypePreferenceValueType,
-      ): IPublicTypePreferenceValueType | undefined => {
+    ): IPublicTypePreferenceValueType | undefined => {
       if (!isValidPreferenceKey(key, preferenceDeclaration)) {
         return undefined;
       }

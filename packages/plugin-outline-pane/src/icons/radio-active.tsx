@@ -1,4 +1,4 @@
-import { SVGIcon, IconProps } from '@alilc/lowcode-utils';
+import { SVGIcon, IconProps } from '@lce/lowcode-utils';
 
 export function IconRadioActive(props: IconProps) {
   return (
@@ -9,4 +9,3 @@ export function IconRadioActive(props: IconProps) {
 }
 
 IconRadioActive.displayName = 'IconRadioActive';
-

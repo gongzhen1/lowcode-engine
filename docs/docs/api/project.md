@@ -2,9 +2,11 @@
 title: project - 模型 API
 sidebar_position: 10
 ---
+
 ## 模块简介
 
 引擎编排模块中包含多种模型，包括：
+
 - [文档模型 DocumentModel](./model/document-model)
 - [节点模型 Node](./model/node)
 - [节点孩子模型 NodeChildren](./model/node-children)
@@ -15,6 +17,7 @@ sidebar_position: 10
 ![image.png](https://img.alicdn.com/imgextra/i3/O1CN01B1bAZi1asNU3KaSUJ_!!6000000003385-2-tps-1650-1352.png)
 
 在文档模型内部，又有一些引申模型，比如：
+
 - [历史操作 History）](./model/history)
 - [画布节点选中 Selection）](./model/selection)
 - [画布节点悬停 Detecting）](./model/detecting)
@@ -25,6 +28,7 @@ sidebar_position: 10
 下面来看看 project API 的具体介绍
 
 ## 变量
+
 ### currentDocument
 
 获取当前的 document 实例
@@ -68,8 +72,8 @@ get simulatorHost(): IPublicApiSimulatorHost | null;
 
 相关类型：[IPublicApiSimulatorHost](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/api/simulator-host.ts)
 
-
 ## 方法
+
 ### openDocument
 
 打开一个 document
@@ -84,6 +88,7 @@ openDocument(doc?: string | IPublicTypeRootSchema | undefined): IPublicModelDocu
 ```
 
 相关类型：
+
 - [IPublicApiSimulatorHost](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/api/simulator-host.ts)
 - [IPublicTypeRootSchema](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/root-schema.ts)
 
@@ -102,6 +107,7 @@ createDocument(data?: IPublicTypeRootSchema): IPublicModelDocumentModel | null;
 ```
 
 相关类型：
+
 - [IPublicApiSimulatorHost](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/api/simulator-host.ts)
 - [IPublicTypeRootSchema](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/root-schema.ts)
 
@@ -123,6 +129,7 @@ removeDocument(doc: IPublicModelDocumentModel): void;
 ### getDocumentByFileName
 
 根据 fileName 获取 document
+
 ```typescript
 /**
  * 根据 fileName 获取 document
@@ -165,6 +172,7 @@ exportSchema(stage: IPublicEnumTransformStage): IPublicTypeProjectSchema;
 ```
 
 相关类型：
+
 - [IPublicEnumTransformStage](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/enum/transform-stage.ts)
 - [IPublicTypeProjectSchema](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/project-schema.ts)
 
@@ -180,9 +188,11 @@ exportSchema(stage: IPublicEnumTransformStage): IPublicTypeProjectSchema;
  */
 importSchema(schema?: IPublicTypeProjectSchema): void;
 ```
+
 相关类型：[IPublicTypeProjectSchema](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/project-schema.ts)
 
 ### addPropsTransducer
+
 增加一个属性的管道处理函数
 
 ```typescript
@@ -197,32 +207,43 @@ addPropsTransducer(
     stage: IPublicEnumTransformStage,
   ): void;
 ```
+
 相关类型：
+
 - [IPublicTypePropsTransducer](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/props-transducer.ts)
 - [IPublicEnumTransformStage](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/enum/transform-stage.ts)
 
 **示例**
 在保存的时候删除每一个组件的 props.hidden
+
 ```typescript
-import { project } from '@alilc/lowcode-engine';
-import { IPublicTypeCompositeObject, IPublicEnumTransformStage, IPublicModelPluginContext } from '@alilc/lowcode-types';
+import { project } from '@lce/lowcode-engine';
+import {
+  IPublicTypeCompositeObject,
+  IPublicEnumTransformStage,
+  IPublicModelPluginContext,
+} from '@lce/lowcode-types';
 
 export const DeleteHiddenTransducer = (ctx: IPublicModelPluginContext) => {
   return {
     async init() {
       const { project } = ctx;
-      project.addPropsTransducer((props: IPublicTypeCompositeObject): IPublicTypeCompositeObject => {
-        delete props.hidden;
-        return props;
-      }, IPublicEnumTransformStage.Save);
+      project.addPropsTransducer(
+        (props: IPublicTypeCompositeObject): IPublicTypeCompositeObject => {
+          delete props.hidden;
+          return props;
+        },
+        IPublicEnumTransformStage.Save,
+      );
     },
   };
-}
+};
 
 DeleteHiddenTransducer.pluginName = 'DeleteHiddenTransducer';
 ```
 
 ### setI18n
+
 设置多语言语料
 
 ```typescript
@@ -240,6 +261,7 @@ setI18n(value: object): void;
 **@since v1.0.17**
 
 ### setConfig
+
 设置当前项目配置
 
 ```typescript
@@ -259,19 +281,19 @@ setI18n(value: object): void;
 
 ```typescript
 // shims.d.ts
-declare module '@alilc/lowcode-types' {
+declare module '@lce/lowcode-types' {
   export interface IPublicTypeAppConfig {
-    customProp: CustomPropType
+    customProp: CustomPropType;
   }
 }
 
 export {};
 ```
 
-
 ## 事件
 
 ### onRemoveDocument
+
 绑定删除文档事件
 
 ```typescript
@@ -283,6 +305,7 @@ export {};
  */
 onRemoveDocument(fn: (data: { id: string }) => void): IPublicTypeDisposable;
 ```
+
 相关类型：[IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 
 **@since v1.0.16**
@@ -300,6 +323,7 @@ onChangeDocument(fn: (doc: IPublicModelDocumentModel) => void): IPublicTypeDispo
 ```
 
 相关类型：
+
 - [IPublicModelDocumentModel](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/document-model.ts)
 - [IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 
@@ -314,7 +338,9 @@ onChangeDocument(fn: (doc: IPublicModelDocumentModel) => void): IPublicTypeDispo
  */
 onSimulatorHostReady(fn: (host: IPublicApiSimulatorHost) => void): IPublicTypeDisposable;
 ```
+
 相关类型：
+
 - [IPublicApiSimulatorHost](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/api/simulator-host.ts)
 - [IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 

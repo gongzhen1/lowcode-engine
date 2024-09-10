@@ -1,8 +1,25 @@
-import { IPublicTypeRootSchema, IPublicTypeDragNodeDataObject, IPublicTypeDragNodeObject, IPublicTypePropChangeOptions, IPublicTypeDisposable } from '../type';
+import {
+  IPublicTypeRootSchema,
+  IPublicTypeDragNodeDataObject,
+  IPublicTypeDragNodeObject,
+  IPublicTypePropChangeOptions,
+  IPublicTypeDisposable,
+} from '../type';
 import { IPublicEnumTransformStage } from '../enum';
 import { IPublicApiProject } from '../api';
-import { IPublicModelDropLocation, IPublicModelDetecting, IPublicModelNode, IPublicModelSelection, IPublicModelHistory, IPublicModelModalNodesManager } from './';
-import { IPublicTypeNodeData, IPublicTypeNodeSchema, IPublicTypeOnChangeOptions } from '@alilc/lowcode-types';
+import {
+  IPublicModelDropLocation,
+  IPublicModelDetecting,
+  IPublicModelNode,
+  IPublicModelSelection,
+  IPublicModelHistory,
+  IPublicModelModalNodesManager,
+} from './';
+import {
+  IPublicTypeNodeData,
+  IPublicTypeNodeSchema,
+  IPublicTypeOnChangeOptions,
+} from '@lce/lowcode-types';
 
 export interface IPublicModelDocumentModel<
   Selection = IPublicModelSelection,
@@ -10,13 +27,12 @@ export interface IPublicModelDocumentModel<
   Node = IPublicModelNode,
   DropLocation = IPublicModelDropLocation,
   ModalNodesManager = IPublicModelModalNodesManager,
-  Project = IPublicApiProject
+  Project = IPublicApiProject,
 > {
-
   /**
-     * 节点选中区模型实例
-     * instance of selection
-     */
+   * 节点选中区模型实例
+   * instance of selection
+   */
   selection: Selection;
 
   /**
@@ -89,7 +105,9 @@ export interface IPublicModelDocumentModel<
    * @param stage
    * @returns
    */
-  exportSchema(stage: IPublicEnumTransformStage): IPublicTypeRootSchema | undefined;
+  exportSchema(
+    stage: IPublicEnumTransformStage,
+  ): IPublicTypeRootSchema | undefined;
 
   /**
    * 插入节点
@@ -99,7 +117,7 @@ export interface IPublicModelDocumentModel<
     parent: Node,
     thing: Node | IPublicTypeNodeData,
     at?: number | null | undefined,
-    copy?: boolean | undefined
+    copy?: boolean | undefined,
   ): Node | null;
 
   /**
@@ -134,7 +152,7 @@ export interface IPublicModelDocumentModel<
    */
   checkNesting(
     dropTarget: Node,
-    dragObject: IPublicTypeDragNodeObject | IPublicTypeDragNodeDataObject
+    dragObject: IPublicTypeDragNodeObject | IPublicTypeDragNodeDataObject,
   ): boolean;
 
   /**
@@ -173,26 +191,34 @@ export interface IPublicModelDocumentModel<
    * set callback for event on visibility changed for certain node
    * @param fn
    */
-  onChangeNodeVisible(fn: (node: Node, visible: boolean) => void): IPublicTypeDisposable;
+  onChangeNodeVisible(
+    fn: (node: Node, visible: boolean) => void,
+  ): IPublicTypeDisposable;
 
   /**
    * 当前 document 的节点 children 变更事件
    * @param fn
    */
-  onChangeNodeChildren(fn: (info: IPublicTypeOnChangeOptions<Node>) => void): IPublicTypeDisposable;
+  onChangeNodeChildren(
+    fn: (info: IPublicTypeOnChangeOptions<Node>) => void,
+  ): IPublicTypeDisposable;
 
   /**
    * 当前 document 节点属性修改事件
    * @param fn
    */
-  onChangeNodeProp(fn: (info: IPublicTypePropChangeOptions<Node>) => void): IPublicTypeDisposable;
+  onChangeNodeProp(
+    fn: (info: IPublicTypePropChangeOptions<Node>) => void,
+  ): IPublicTypeDisposable;
 
   /**
    * import schema event
    * @param fn
    * @since v1.0.15
    */
-  onImportSchema(fn: (schema: IPublicTypeRootSchema) => void): IPublicTypeDisposable;
+  onImportSchema(
+    fn: (schema: IPublicTypeRootSchema) => void,
+  ): IPublicTypeDisposable;
 
   /**
    * 判断是否当前节点处于被探测状态
@@ -232,5 +258,7 @@ export interface IPublicModelDocumentModel<
    * @param fn
    * @since v1.1.0
    */
-  onDropLocationChanged(fn: (doc: IPublicModelDocumentModel) => void): IPublicTypeDisposable;
+  onDropLocationChanged(
+    fn: (doc: IPublicModelDocumentModel) => void,
+  ): IPublicTypeDisposable;
 }

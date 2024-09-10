@@ -1,5 +1,10 @@
-import { INode as InnerNode, INodeChildren } from '@alilc/lowcode-designer';
-import { IPublicTypeNodeData, IPublicEnumTransformStage, IPublicModelNodeChildren, IPublicModelNode } from '@alilc/lowcode-types';
+import { INode as InnerNode, INodeChildren } from '@lce/lowcode-designer';
+import {
+  IPublicTypeNodeData,
+  IPublicEnumTransformStage,
+  IPublicModelNodeChildren,
+  IPublicModelNode,
+} from '@lce/lowcode-types';
 import { Node as ShellNode } from './node';
 import { nodeSymbol, nodeChildrenSymbol } from '../symbols';
 
@@ -133,7 +138,7 @@ export class NodeChildren implements IPublicModelNodeChildren {
    * 类似数组的 reverse
    */
   reverse(): IPublicModelNode[] {
-    return this[nodeChildrenSymbol].reverse().map(d => {
+    return this[nodeChildrenSymbol].reverse().map((d) => {
       return ShellNode.create(d)!;
     });
   }

@@ -1,18 +1,14 @@
 import '../fixtures/window';
-import {
-  Editor,
-  globalContext,
-  Hotkey as InnerHotkey,
-} from '@alilc/lowcode-editor-core';
+import { Editor, globalContext, Hotkey as InnerHotkey } from '@lce/lowcode-editor-core';
 import { Designer } from '../../src/designer/designer';
 import formSchema from '../fixtures/schema/form';
 import { fireEvent } from '@testing-library/react';
 import { builtinHotkey } from '../../../engine/src/inner-plugins/builtin-hotkey';
 import { shellModelFactory } from '../../../engine/src/modules/shell-model-factory';
-import { ILowCodePluginContextPrivate, LowCodePluginManager } from '@alilc/lowcode-designer';
-import { IPublicApiPlugins } from '@alilc/lowcode-types';
-import { Logger, Project, Canvas } from '@alilc/lowcode-shell';
-import { Workspace } from '@alilc/lowcode-workspace';
+import { ILowCodePluginContextPrivate, LowCodePluginManager } from '@lce/lowcode-designer';
+import { IPublicApiPlugins } from '@lce/lowcode-types';
+import { Logger, Project, Canvas } from '@lce/lowcode-shell';
+import { Workspace } from '@lce/lowcode-workspace';
 
 const editor = new Editor();
 const workspace = new Workspace();
@@ -29,13 +25,13 @@ describe('快捷键测试', () => {
       const hotkey: any = new InnerHotkey();
       const logger = new Logger({ level: 'warn', bizName: 'common' });
       const contextApiAssembler = {
-        assembleApis(context: ILowCodePluginContextPrivate){
+        assembleApis(context: ILowCodePluginContextPrivate) {
           context.plugins = pluginManager as IPublicApiPlugins;
           context.hotkey = hotkey;
           context.logger = logger;
           context.project = project;
           context.canvas = new Canvas(editor);
-        }
+        },
       };
       pluginManager = new LowCodePluginManager(contextApiAssembler).toProxy();
       pluginManager.register(builtinHotkey);
@@ -45,7 +41,7 @@ describe('快捷键测试', () => {
       pluginManager.init().then(() => {
         resolve({});
       });
-    })
+    });
   });
   afterAll(() => {
     pluginManager.dispose();
@@ -138,12 +134,12 @@ describe('快捷键测试', () => {
     let secondButtonNode = designer.currentDocument?.getNode('node_k1ow3cbp')!;
 
     // 等待第一个 session 结束
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     firstButtonNode.remove();
     expect(secondButtonNode.getParent()?.children.size).toBe(1);
 
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     fireEvent.keyDown(document, { keyCode: 90, metaKey: true });
 
@@ -158,12 +154,12 @@ describe('快捷键测试', () => {
     let secondButtonNode = designer.currentDocument?.getNode('node_k1ow3cbp')!;
 
     // 等待第一个 session 结束
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     firstButtonNode.remove();
     expect(secondButtonNode.getParent()?.children.size).toBe(1);
 
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     fireEvent.keyDown(document, { keyCode: 90, metaKey: true });
 
@@ -171,7 +167,7 @@ describe('快捷键测试', () => {
     secondButtonNode = designer.currentDocument?.getNode('node_k1ow3cbp')!;
     expect(secondButtonNode.getParent()?.children.size).toBe(2);
 
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     fireEvent.keyDown(document, { keyCode: 89, metaKey: true });
 
@@ -195,7 +191,7 @@ describe('快捷键测试', () => {
 
     fireEvent.keyDown(document, { keyCode: 86, metaKey: true });
 
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     // clipboard 异步，先注释
     // expect(secondButtonNode.getParent()?.children.size).toBe(3);
@@ -225,7 +221,6 @@ describe('快捷键测试', () => {
 
     expect(secondButtonNode.prevSibling).toBeNull();
   });
-
 
   describe('非正常分支', () => {
     it('liveEditing mode', () => {

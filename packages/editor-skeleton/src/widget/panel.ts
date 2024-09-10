@@ -1,9 +1,19 @@
 import { createElement, ReactNode } from 'react';
-import { obx, computed, makeObservable, IEventBus, createModuleEventBus } from '@alilc/lowcode-editor-core';
-import { uniqueId, createContent } from '@alilc/lowcode-utils';
-import { IPublicTypeHelpTipConfig, IPublicTypePanelConfig, IPublicTypeTitleContent } from '@alilc/lowcode-types';
+import {
+  obx,
+  computed,
+  makeObservable,
+  IEventBus,
+  createModuleEventBus,
+} from '@lce/lowcode-editor-core';
+import { uniqueId, createContent } from '@lce/lowcode-utils';
+import {
+  IPublicTypeHelpTipConfig,
+  IPublicTypePanelConfig,
+  IPublicTypeTitleContent,
+} from '@lce/lowcode-types';
 import { WidgetContainer } from './widget-container';
-import { getEvent } from '@alilc/lowcode-shell';
+import { getEvent } from '@lce/lowcode-shell';
 import { TitledPanelView, TabsPanelView, PanelView } from '../components/widget-views';
 import { ISkeleton } from '../skeleton';
 import { composeTitle } from './utils';
@@ -217,7 +227,7 @@ export class Panel implements IWidget {
   }
 
   getAssocDocks(): PanelDock[] {
-    return this.skeleton.widgets.filter(item => {
+    return this.skeleton.widgets.filter((item) => {
       return isPanelDock(item) && item.panelName === this.name;
     }) as any;
   }

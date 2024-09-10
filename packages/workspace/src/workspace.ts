@@ -1,12 +1,27 @@
-import { IDesigner, ILowCodePluginManager, LowCodePluginManager } from '@alilc/lowcode-designer';
-import { createModuleEventBus, Editor, IEditor, IEventBus, makeObservable, obx } from '@alilc/lowcode-editor-core';
-import { IPublicApiPlugins, IPublicApiWorkspace, IPublicEnumPluginRegisterLevel, IPublicResourceList, IPublicTypeDisposable, IPublicTypeResourceType, IShellModelFactory } from '@alilc/lowcode-types';
+import { IDesigner, ILowCodePluginManager, LowCodePluginManager } from '@lce/lowcode-designer';
+import {
+  createModuleEventBus,
+  Editor,
+  IEditor,
+  IEventBus,
+  makeObservable,
+  obx,
+} from '@lce/lowcode-editor-core';
+import {
+  IPublicApiPlugins,
+  IPublicApiWorkspace,
+  IPublicEnumPluginRegisterLevel,
+  IPublicResourceList,
+  IPublicTypeDisposable,
+  IPublicTypeResourceType,
+  IShellModelFactory,
+} from '@lce/lowcode-types';
 import { BasicContext } from './context/base-context';
 import { EditorWindow, WINDOW_STATE } from './window';
 import type { IEditorWindow } from './window';
 import { IResource, Resource } from './resource';
 import { IResourceType, ResourceType } from './resource-type';
-import { ISkeleton } from '@alilc/lowcode-editor-skeleton';
+import { ISkeleton } from '@lce/lowcode-editor-skeleton';
 
 enum EVENT {
   CHANGE_WINDOW = 'change_window',
@@ -20,11 +35,16 @@ enum EVENT {
 
 const CHANGE_EVENT = 'resource.list.change';
 
-export interface IWorkspace extends Omit<IPublicApiWorkspace<
-  LowCodePluginManager,
-  IEditorWindow
->, 'resourceList' | 'plugins' | 'openEditorWindow' | 'removeEditorWindow'> {
-  readonly registryInnerPlugin: (designer: IDesigner, editor: Editor, plugins: IPublicApiPlugins) => Promise<IPublicTypeDisposable>;
+export interface IWorkspace
+  extends Omit<
+    IPublicApiWorkspace<LowCodePluginManager, IEditorWindow>,
+    'resourceList' | 'plugins' | 'openEditorWindow' | 'removeEditorWindow'
+  > {
+  readonly registryInnerPlugin: (
+    designer: IDesigner,
+    editor: Editor,
+    plugins: IPublicApiPlugins,
+  ) => Promise<IPublicTypeDisposable>;
 
   readonly shellModelFactory: IShellModelFactory;
 
@@ -66,7 +86,13 @@ export interface IWorkspace extends Omit<IPublicApiWorkspace<
   /**
    * @deprecated
    */
-  openEditorWindow(name: string, title: string, options: Object, viewName?: string, sleep?: boolean): Promise<void>;
+  openEditorWindow(
+    name: string,
+    title: string,
+    options: Object,
+    viewName?: string,
+    sleep?: boolean,
+  ): Promise<void>;
 }
 
 export class Workspace implements IWorkspace {
@@ -108,15 +134,22 @@ export class Workspace implements IWorkspace {
 
   @obx.ref window: IEditorWindow;
 
-  windowQueue: ({
-    name: string;
-    title: string;
-    options: Object;
-    viewName?: string;
-  } | IResource)[] = [];
+  windowQueue: (
+    | {
+        name: string;
+        title: string;
+        options: Object;
+        viewName?: string;
+      }
+    | IResource
+  )[] = [];
 
   constructor(
-    readonly registryInnerPlugin: (designer: IDesigner, editor: IEditor, plugins: IPublicApiPlugins) => Promise<IPublicTypeDisposable>,
+    readonly registryInnerPlugin: (
+      designer: IDesigner,
+      editor: IEditor,
+      plugins: IPublicApiPlugins,
+    ) => Promise<IPublicTypeDisposable>,
     readonly shellModelFactory: any,
   ) {
     this.context = new BasicContext(this, '', IPublicEnumPluginRegisterLevel.Workspace);
@@ -133,7 +166,12 @@ export class Workspace implements IWorkspace {
     if (windowInfo instanceof Resource) {
       this.openEditorWindowByResource(windowInfo);
     } else if (windowInfo) {
-      this.openEditorWindow(windowInfo.name, windowInfo.title, windowInfo.options, windowInfo.viewName);
+      this.openEditorWindow(
+        windowInfo.name,
+        windowInfo.title,
+        windowInfo.options,
+        windowInfo.viewName,
+      );
     }
   }
 
@@ -142,10 +180,14 @@ export class Workspace implements IWorkspace {
       return;
     }
     const resourceName = this.defaultResourceType.name;
-    const resource = new Resource({
-      resourceName,
-      options: {},
-    }, this.defaultResourceType, this);
+    const resource = new Resource(
+      {
+        resourceName,
+        options: {},
+      },
+      this.defaultResourceType,
+      this,
+    );
     this.window = new EditorWindow(resource, this, {
       title: resource.title,
     });
@@ -174,7 +216,9 @@ export class Workspace implements IWorkspace {
   }
 
   setResourceList(resourceList: IPublicResourceList) {
-    this.resourceList = resourceList.map(d => new Resource(d, this.getResourceType(d.resourceName), this));
+    this.resourceList = resourceList.map(
+      (d) => new Resource(d, this.getResourceType(d.resourceName), this),
+    );
     this.emitter.emit(CHANGE_EVENT, resourceList);
   }
 
@@ -207,7 +251,7 @@ export class Workspace implements IWorkspace {
   }
 
   removeEditorWindowById(id: string) {
-    const index = this.windows.findIndex(d => (d.id === id));
+    const index = this.windows.findIndex((d) => d.id === id);
     this.remove(index);
   }
 
@@ -230,12 +274,14 @@ export class Workspace implements IWorkspace {
   }
 
   removeEditorWindow(resourceName: string, id: string) {
-    const index = this.windows.findIndex(d => (d.resource?.name === resourceName && (d.title === id || d.resource.id === id)));
+    const index = this.windows.findIndex(
+      (d) => d.resource?.name === resourceName && (d.title === id || d.resource.id === id),
+    );
     this.remove(index);
   }
 
   removeEditorWindowByResource(resource: IResource) {
-    const index = this.windows.findIndex(d => (d.resource?.id === resource.id));
+    const index = this.windows.findIndex((d) => d.resource?.id === resource.id);
     this.remove(index);
   }
 
@@ -260,7 +306,7 @@ export class Workspace implements IWorkspace {
 
     this.window?.updateState(WINDOW_STATE.inactive);
 
-    const filterWindows = this.windows.filter(d => (d.resource?.id === resource.id));
+    const filterWindows = this.windows.filter((d) => d.resource?.id === resource.id);
     if (filterWindows && filterWindows.length) {
       this.window = filterWindows[0];
       if (!sleep && this.window.sleep) {
@@ -293,10 +339,19 @@ export class Workspace implements IWorkspace {
     this.window?.updateState(WINDOW_STATE.active);
   }
 
-  async openEditorWindow(name: string, title: string, options: Object, viewName?: string, sleep?: boolean) {
+  async openEditorWindow(
+    name: string,
+    title: string,
+    options: Object,
+    viewName?: string,
+    sleep?: boolean,
+  ) {
     if (this.window && !this.window.sleep && !this.window?.initReady && !sleep) {
       this.windowQueue.push({
-        name, title, options, viewName,
+        name,
+        title,
+        options,
+        viewName,
       });
       return;
     }
@@ -306,7 +361,9 @@ export class Workspace implements IWorkspace {
       return;
     }
     this.window?.updateState(WINDOW_STATE.inactive);
-    const filterWindows = this.windows.filter(d => (d.resource?.name === name && d.resource.title == title) || (d.resource.id == title));
+    const filterWindows = this.windows.filter(
+      (d) => (d.resource?.name === name && d.resource.title == title) || d.resource.id == title,
+    );
     if (filterWindows && filterWindows.length) {
       this.window = filterWindows[0];
       if (!sleep && this.window.sleep) {
@@ -318,12 +375,16 @@ export class Workspace implements IWorkspace {
       this.window?.updateState(WINDOW_STATE.active);
       return;
     }
-    const resource = new Resource({
-      resourceName: name,
-      title,
-      options,
-      id: title?.toString(),
-    }, resourceType, this);
+    const resource = new Resource(
+      {
+        resourceName: name,
+        title,
+        options,
+        id: title?.toString(),
+      },
+      resourceType,
+      this,
+    );
     const window = new EditorWindow(resource, this, {
       title,
       options,

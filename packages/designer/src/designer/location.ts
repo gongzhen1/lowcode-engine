@@ -7,7 +7,7 @@ import {
   IPublicTypeLocationDetail,
   IPublicTypeLocationData,
   IPublicModelLocateEvent,
-} from '@alilc/lowcode-types';
+} from '@lce/lowcode-types';
 
 export interface Point {
   clientX: number;
@@ -24,14 +24,14 @@ export type Rects = DOMRect[] & {
 };
 
 /**
- * @deprecated use same function in @alilc/lowcode-utils
+ * @deprecated use same function in @lce/lowcode-utils
  */
 export function isLocationData(obj: any): boolean {
   return obj && obj.target && obj.detail;
 }
 
 /**
- * @deprecated use same function in @alilc/lowcode-utils
+ * @deprecated use same function in @lce/lowcode-utils
  */
 export function isLocationChildrenDetail(obj: any): boolean {
   return obj && obj.type === IPublicTypeLocationDetailType.Children;
@@ -60,7 +60,10 @@ export function isChildInline(child: Element | Text, win?: Window) {
     return true;
   }
   const style = (win || getWindow(child)).getComputedStyle(child);
-  return /^inline/.test(style.getPropertyValue('display')) || /^(left|right)$/.test(style.getPropertyValue('float'));
+  return (
+    /^inline/.test(style.getPropertyValue('display')) ||
+    /^(left|right)$/.test(style.getPropertyValue('float'))
+  );
 }
 
 export function getRectTarget(rect: IPublicTypeRect | null) {
@@ -99,7 +102,6 @@ export function getWindow(elem: Element | Document): Window {
   return (isDocument(elem) ? elem : elem.ownerDocument!).defaultView!;
 }
 export interface IDropLocation extends Omit<IPublicModelDropLocation, 'target' | 'clone'> {
-
   readonly source: string;
 
   get target(): INode;

@@ -1,8 +1,8 @@
 import { ISimulatorHost } from '../../simulator';
 import { Designer, Point } from '../../designer';
-import { cursor } from '@alilc/lowcode-utils';
+import { cursor } from '@lce/lowcode-utils';
 import { makeEventsHandler } from '../../utils/misc';
-import { createModuleEventBus, IEventBus } from '@alilc/lowcode-editor-core';
+import { createModuleEventBus, IEventBus } from '@lce/lowcode-editor-core';
 
 // 拖动缩放
 export default class DragResizeEngine {
@@ -52,7 +52,7 @@ export default class DragResizeEngine {
       if (!sourceDocument || sourceDocument === document) {
         return e;
       }
-      const srcSim = masterSensors.find(sim => sim.contentDocument === sourceDocument);
+      const srcSim = masterSensors.find((sim) => sim.contentDocument === sourceDocument);
       if (srcSim) {
         return srcSim.viewport.toGlobalPoint(e);
       }
@@ -61,7 +61,7 @@ export default class DragResizeEngine {
 
     const over = (e: MouseEvent) => {
       const handleEvents = makeEventsHandler(e, masterSensors);
-      handleEvents(doc => {
+      handleEvents((doc) => {
         doc.removeEventListener('mousemove', move, true);
         doc.removeEventListener('mouseup', over, true);
       });
@@ -77,7 +77,7 @@ export default class DragResizeEngine {
       node = boost(e);
       startEvent = createResizeEvent(e);
       const handleEvents = makeEventsHandler(e, masterSensors);
-      handleEvents(doc => {
+      handleEvents((doc) => {
         doc.addEventListener('mousemove', move, true);
         doc.addEventListener('mouseup', over, true);
       });
@@ -118,7 +118,7 @@ export default class DragResizeEngine {
 
   private getMasterSensors(): ISimulatorHost[] {
     return this.designer.project.documents
-      .map(doc => {
+      .map((doc) => {
         if (doc.active && doc.simulator?.sensorAvailable) {
           return doc.simulator;
         }

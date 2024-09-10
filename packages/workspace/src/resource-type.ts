@@ -1,6 +1,7 @@
-import { IPublicTypeResourceType } from '@alilc/lowcode-types';
+import { IPublicTypeResourceType } from '@lce/lowcode-types';
 
-export interface IResourceType extends Omit<IPublicTypeResourceType, 'resourceName' | 'resourceType'> {
+export interface IResourceType
+  extends Omit<IPublicTypeResourceType, 'resourceName' | 'resourceType'> {
   name: string;
 
   type: 'editor' | 'webview';
@@ -9,8 +10,7 @@ export interface IResourceType extends Omit<IPublicTypeResourceType, 'resourceNa
 }
 
 export class ResourceType implements IResourceType {
-  constructor(readonly resourceTypeModel: IPublicTypeResourceType) {
-  }
+  constructor(readonly resourceTypeModel: IPublicTypeResourceType) {}
 
   get name() {
     return this.resourceTypeModel.resourceName;

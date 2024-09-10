@@ -1,4 +1,4 @@
-import { IPublicEnumDragObjectType } from '@alilc/lowcode-types';
+import { IPublicEnumDragObjectType } from '@lce/lowcode-types';
 import { isDragNodeObject } from '../../../src/check-types/is-drag-node-object';
 
 describe('isDragNodeObject', () => {

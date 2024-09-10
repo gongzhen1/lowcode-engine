@@ -1,6 +1,5 @@
-
-import { getLogger } from '@alilc/lowcode-utils';
-import { IPublicApiLogger, ILoggerOptions } from '@alilc/lowcode-types';
+import { getLogger } from '@lce/lowcode-utils';
+import { IPublicApiLogger, ILoggerOptions } from '@lce/lowcode-types';
 
 const innerLoggerSymbol = Symbol('logger');
 

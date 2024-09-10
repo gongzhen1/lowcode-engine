@@ -1,4 +1,4 @@
-import { SVGIcon, IconProps } from '@alilc/lowcode-utils';
+import { SVGIcon, IconProps } from '@lce/lowcode-utils';
 
 export function IconRadio(props: IconProps) {
   return (
@@ -9,4 +9,3 @@ export function IconRadio(props: IconProps) {
 }
 
 IconRadio.displayName = 'IconRadio';
-

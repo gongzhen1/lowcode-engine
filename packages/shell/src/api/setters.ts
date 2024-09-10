@@ -1,7 +1,11 @@
-import { IPublicTypeCustomView, IPublicApiSetters, IPublicTypeRegisteredSetter } from '@alilc/lowcode-types';
-import { ISetters, globalContext, untracked } from '@alilc/lowcode-editor-core';
+import {
+  IPublicTypeCustomView,
+  IPublicApiSetters,
+  IPublicTypeRegisteredSetter,
+} from '@lce/lowcode-types';
+import { ISetters, globalContext, untracked } from '@lce/lowcode-editor-core';
 import { ReactNode } from 'react';
-import { getLogger } from '@alilc/lowcode-utils';
+import { getLogger } from '@lce/lowcode-utils';
 
 const innerSettersSymbol = Symbol('setters');
 const settersSymbol = Symbol('setters');
@@ -47,9 +51,12 @@ export class Setters implements IPublicApiSetters {
    * 获取已注册的所有 settersMap
    * @returns
    */
-  getSettersMap = (): Map<string, IPublicTypeRegisteredSetter & {
-    type: string;
-  }> => {
+  getSettersMap = (): Map<
+    string,
+    IPublicTypeRegisteredSetter & {
+      type: string;
+    }
+  > => {
     return this[settersSymbol].getSettersMap();
   };
 

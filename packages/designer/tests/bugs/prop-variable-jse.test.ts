@@ -1,6 +1,6 @@
-import { Editor } from '@alilc/lowcode-editor-core';
-import { IPublicEnumTransformStage } from '@alilc/lowcode-types';
-import { isPlainObject, isVariable, isJSBlock } from '@alilc/lowcode-utils';
+import { Editor } from '@lce/lowcode-editor-core';
+import { IPublicEnumTransformStage } from '@lce/lowcode-types';
+import { isPlainObject, isVariable, isJSBlock } from '@lce/lowcode-utils';
 import '../fixtures/window';
 import { Designer } from '../../src/designer/designer';
 import { DocumentModel } from '../../src/document/document-model';
@@ -67,6 +67,6 @@ describe('Node 方法测试', () => {
     expect(form.getPropValue('dataSource')).toEqual({
       type: 'JSExpression',
       value: 'state.formData',
-    })
+    });
   });
 });

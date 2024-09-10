@@ -1,8 +1,11 @@
-import { isElement } from '@alilc/lowcode-utils';
-import { IPublicModelScrollTarget, IPublicTypeScrollable, IPublicModelScroller } from '@alilc/lowcode-types';
+import { isElement } from '@lce/lowcode-utils';
+import {
+  IPublicModelScrollTarget,
+  IPublicTypeScrollable,
+  IPublicModelScroller,
+} from '@lce/lowcode-types';
 
-export interface IScrollTarget extends IPublicModelScrollTarget {
-}
+export interface IScrollTarget extends IPublicModelScrollTarget {}
 
 export class ScrollTarget implements IScrollTarget {
   get left() {
@@ -48,9 +51,7 @@ function easing(n: number) {
 
 const SCROLL_ACCURACY = 30;
 
-export interface IScroller extends IPublicModelScroller {
-
-}
+export interface IScroller extends IPublicModelScroller {}
 export class Scroller implements IScroller {
   private pid: number | undefined;
   scrollable: IPublicTypeScrollable;

@@ -1,4 +1,4 @@
-import { IPublicTypeJSFunction } from '@alilc/lowcode-types';
+import { IPublicTypeJSFunction } from '@lce/lowcode-types';
 import { isObject } from '../is-object';
 
 interface InnerJsFunction {

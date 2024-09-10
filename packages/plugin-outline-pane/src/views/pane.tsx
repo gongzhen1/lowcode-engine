@@ -6,15 +6,18 @@ import './style.less';
 import Filter from './filter';
 import { TreeMaster } from '../controllers/tree-master';
 import { Tree } from '../controllers/tree';
-import { IPublicTypeDisposable } from '@alilc/lowcode-types';
+import { IPublicTypeDisposable } from '@lce/lowcode-types';
 
-export class Pane extends PureComponent<{
-  treeMaster: TreeMaster;
-  controller: PaneController;
-  hideFilter?: boolean;
-}, {
-  tree: Tree | null;
-}> {
+export class Pane extends PureComponent<
+  {
+    treeMaster: TreeMaster;
+    controller: PaneController;
+    hideFilter?: boolean;
+  },
+  {
+    tree: Tree | null;
+  }
+> {
   private controller;
 
   private simulatorRendererReadyDispose: IPublicTypeDisposable;
@@ -28,9 +31,14 @@ export class Pane extends PureComponent<{
     this.state = {
       tree: treeMaster.currentTree,
     };
-    this.simulatorRendererReadyDispose = this.props.treeMaster.pluginContext?.project?.onSimulatorRendererReady(this.changeTree);
-    this.changeDocumentDispose = this.props.treeMaster.pluginContext?.project?.onChangeDocument(this.changeTree);
-    this.removeDocumentDispose = this.props.treeMaster.pluginContext?.project?.onRemoveDocument(this.changeTree);
+    this.simulatorRendererReadyDispose =
+      this.props.treeMaster.pluginContext?.project?.onSimulatorRendererReady(this.changeTree);
+    this.changeDocumentDispose = this.props.treeMaster.pluginContext?.project?.onChangeDocument(
+      this.changeTree,
+    );
+    this.removeDocumentDispose = this.props.treeMaster.pluginContext?.project?.onRemoveDocument(
+      this.changeTree,
+    );
   }
 
   changeTree = () => {
@@ -67,8 +75,13 @@ export class Pane extends PureComponent<{
 
     return (
       <div className="lc-outline-pane">
-        { !this.props.hideFilter && <Filter tree={tree} /> }
-        <div ref={(shell) => this.controller.mount(shell)} className={`lc-outline-tree-container ${ this.props.hideFilter ? 'lc-hidden-outline-filter' : '' }`}>
+        {!this.props.hideFilter && <Filter tree={tree} />}
+        <div
+          ref={(shell) => this.controller.mount(shell)}
+          className={`lc-outline-tree-container ${
+            this.props.hideFilter ? 'lc-hidden-outline-filter' : ''
+          }`}
+        >
           <TreeView key={tree.id} tree={tree} />
         </div>
       </div>

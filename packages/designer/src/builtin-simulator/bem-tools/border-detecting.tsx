@@ -1,8 +1,8 @@
 import { Component, Fragment, PureComponent } from 'react';
 import classNames from 'classnames';
-import { computed, observer, Title } from '@alilc/lowcode-editor-core';
-import { IPublicTypeTitleContent } from '@alilc/lowcode-types';
-import { getClosestNode } from '@alilc/lowcode-utils';
+import { computed, observer, Title } from '@lce/lowcode-editor-core';
+import { IPublicTypeTitleContent } from '@lce/lowcode-types';
+import { getClosestNode } from '@lce/lowcode-utils';
 import { intl } from '../../locale';
 import { BuiltinSimulatorHost } from '../host';
 
@@ -35,9 +35,7 @@ export class BorderDetectingInstance extends PureComponent<{
     return (
       <div className={className} style={style}>
         <Title title={title} className="lc-borders-title" />
-        {
-          isLocked ? (<Title title={intl('locked')} className="lc-borders-status" />) : null
-        }
+        {isLocked ? <Title title={intl('locked')} className="lc-borders-status" /> : null}
       </div>
     );
   }
@@ -77,7 +75,10 @@ export class BorderDetecting extends Component<{ host: BuiltinSimulatorHost }> {
     const { current } = this;
 
     const canHoverHook = current?.componentMeta.advanced.callbacks?.onHoverHook;
-    const canHover = (canHoverHook && typeof canHoverHook === 'function') ? canHoverHook(current.internalToShellNode()) : true;
+    const canHover =
+      canHoverHook && typeof canHoverHook === 'function'
+        ? canHoverHook(current.internalToShellNode())
+        : true;
 
     if (!canHover || !current || host.viewport.scrolling || host.liveEditing.editing) {
       return null;
@@ -118,7 +119,10 @@ export class BorderDetecting extends Component<{ host: BuiltinSimulatorHost }> {
           scrollX={this.scrollX}
           scrollY={this.scrollY}
           // @ts-ignore
-          rect={host.computeComponentInstanceRect(host.getComponentInstances(lockedNode)[0], lockedNode.componentMeta.rootSelector)}
+          rect={host.computeComponentInstanceRect(
+            host.getComponentInstances(lockedNode)[0],
+            lockedNode.componentMeta.rootSelector,
+          )}
           isLocked={lockedNode?.getId() !== current.getId()}
         />
       );

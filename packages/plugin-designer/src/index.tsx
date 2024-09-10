@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
-import { Editor, engineConfig } from '@alilc/lowcode-editor-core';
-import { DesignerView, Designer } from '@alilc/lowcode-designer';
-import { Asset, getLogger } from '@alilc/lowcode-utils';
+import { Editor, engineConfig } from '@lce/lowcode-editor-core';
+import { DesignerView, Designer } from '@lce/lowcode-designer';
+import { Asset, getLogger } from '@lce/lowcode-utils';
 import './index.scss';
 
 const logger = getLogger({ level: 'warn', bizName: 'plugin:plugin-designer' });
@@ -58,7 +58,8 @@ export default class DesignerPlugin extends PureComponent<PluginProps, DesignerP
       const deviceClassName = engineConfig.get('deviceClassName') || editor.get('deviceClassName');
       const simulatorUrl = engineConfig.get('simulatorUrl') || editor.get('simulatorUrl');
       // @TODO setupAssets 里设置 requestHandlersMap 不太合适
-      const requestHandlersMap = engineConfig.get('requestHandlersMap') || editor.get('requestHandlersMap');
+      const requestHandlersMap =
+        engineConfig.get('requestHandlersMap') || editor.get('requestHandlersMap');
       if (!this._mounted) {
         return;
       }

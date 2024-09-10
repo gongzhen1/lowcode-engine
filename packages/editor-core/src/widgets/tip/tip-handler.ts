@@ -1,4 +1,4 @@
-import { IPublicTypeTipConfig } from '@alilc/lowcode-types';
+import { IPublicTypeTipConfig } from '@lce/lowcode-types';
 import { IEventBus, createModuleEventBus } from '../../event-bus';
 
 export interface TipOptions extends IPublicTypeTipConfig {

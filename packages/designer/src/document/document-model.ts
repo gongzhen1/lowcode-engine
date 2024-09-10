@@ -7,7 +7,7 @@ import {
   wrapWithEventSwitch,
   createModuleEventBus,
   IEventBus,
-} from '@alilc/lowcode-editor-core';
+} from '@lce/lowcode-editor-core';
 import {
   IPublicTypeNodeData,
   IPublicTypeNodeSchema,
@@ -19,13 +19,9 @@ import {
   IPublicEnumTransformStage,
   IPublicTypeOnChangeOptions,
   IPublicTypeDisposable,
-} from '@alilc/lowcode-types';
-import type {
-  IPublicTypeRootSchema,
-} from '@alilc/lowcode-types';
-import type {
-  IDropLocation,
-} from '@alilc/lowcode-designer';
+} from '@lce/lowcode-types';
+import type { IPublicTypeRootSchema } from '@lce/lowcode-types';
+import type { IDropLocation } from '@lce/lowcode-designer';
 import {
   uniqueId,
   isPlainObject,
@@ -36,7 +32,7 @@ import {
   isDragNodeObject,
   isDragNodeDataObject,
   isNode,
-} from '@alilc/lowcode-utils';
+} from '@lce/lowcode-utils';
 import { IProject } from '../project';
 import { ISimulatorHost } from '../simulator';
 import type { IComponentMeta } from '../component-meta';
@@ -50,37 +46,38 @@ import { EDITOR_EVENT } from '../types';
 
 export type GetDataType<T, NodeType> = T extends undefined
   ? NodeType extends {
-    schema: infer R;
-  }
-  ? R
-  : any
+      schema: infer R;
+    }
+    ? R
+    : any
   : T;
 
-export interface IDocumentModel extends Omit<IPublicModelDocumentModel<
-  ISelection,
-  IHistory,
-  INode,
-  IDropLocation,
-  IModalNodesManager,
-  IProject
->,
-  'detecting' |
-  'checkNesting' |
-  'getNodeById' |
-  // 以下属性在内部的 document 中不存在
-  'exportSchema' |
-  'importSchema' |
-  'onAddNode' |
-  'onRemoveNode' |
-  'onChangeDetecting' |
-  'onChangeSelection' |
-  'onChangeNodeProp' |
-  'onImportSchema' |
-  'isDetectingNode' |
-  'onFocusNodeChanged' |
-  'onDropLocationChanged'
-> {
-
+export interface IDocumentModel
+  extends Omit<
+    IPublicModelDocumentModel<
+      ISelection,
+      IHistory,
+      INode,
+      IDropLocation,
+      IModalNodesManager,
+      IProject
+    >,
+    | 'detecting'
+    | 'checkNesting'
+    | 'getNodeById'
+    // 以下属性在内部的 document 中不存在
+    | 'exportSchema'
+    | 'importSchema'
+    | 'onAddNode'
+    | 'onRemoveNode'
+    | 'onChangeDetecting'
+    | 'onChangeSelection'
+    | 'onChangeNodeProp'
+    | 'onImportSchema'
+    | 'isDetectingNode'
+    | 'onFocusNodeChanged'
+    | 'onDropLocationChanged'
+  > {
   readonly designer: IDesigner;
 
   selection: ISelection;
@@ -115,7 +112,11 @@ export interface IDocumentModel extends Omit<IPublicModelDocumentModel<
 
   checkNesting(
     dropTarget: INode,
-    dragObject: IPublicTypeDragNodeObject | IPublicTypeNodeSchema | INode | IPublicTypeDragNodeDataObject,
+    dragObject:
+      | IPublicTypeDragNodeObject
+      | IPublicTypeNodeSchema
+      | INode
+      | IPublicTypeDragNodeDataObject,
   ): boolean;
 
   getNodeCount(): number;
@@ -138,7 +139,12 @@ export interface IDocumentModel extends Omit<IPublicModelDocumentModel<
 
   getComponentMeta(componentName: string): IComponentMeta;
 
-  insertNodes(parent: INode, thing: INode[] | IPublicTypeNodeData[], at?: number | null, copy?: boolean): INode[];
+  insertNodes(
+    parent: INode,
+    thing: INode[] | IPublicTypeNodeData[],
+    at?: number | null,
+    copy?: boolean,
+  ): INode[];
 
   open(): IDocumentModel;
 
@@ -253,10 +259,10 @@ export class DocumentModel implements IDocumentModel {
   set dropLocation(loc: IDropLocation | null) {
     this._dropLocation = loc;
     // pub event
-    this.designer.editor.eventBus.emit(
-      'document.dropLocation.changed',
-      { document: this, location: loc },
-    );
+    this.designer.editor.eventBus.emit('document.dropLocation.changed', {
+      document: this,
+      location: loc,
+    });
   }
 
   /**
@@ -356,7 +362,9 @@ export class DocumentModel implements IDocumentModel {
     };
   }
 
-  onChangeNodeChildren(fn: (info: IPublicTypeOnChangeOptions<INode>) => void): IPublicTypeDisposable {
+  onChangeNodeChildren(
+    fn: (info: IPublicTypeOnChangeOptions<INode>) => void,
+  ): IPublicTypeDisposable {
     this.designer.editor?.eventBus.on(EDITOR_EVENT.NODE_CHILDREN_CHANGE, fn);
 
     return () => {
@@ -475,14 +483,24 @@ export class DocumentModel implements IDocumentModel {
   /**
    * 插入一个节点
    */
-  insertNode(parent: INode, thing: INode | IPublicTypeNodeData, at?: number | null, copy?: boolean): INode | null {
+  insertNode(
+    parent: INode,
+    thing: INode | IPublicTypeNodeData,
+    at?: number | null,
+    copy?: boolean,
+  ): INode | null {
     return insertChild(parent, thing, at, copy);
   }
 
   /**
    * 插入多个节点
    */
-  insertNodes(parent: INode, thing: INode[] | IPublicTypeNodeData[], at?: number | null, copy?: boolean) {
+  insertNodes(
+    parent: INode,
+    thing: INode[] | IPublicTypeNodeData[],
+    at?: number | null,
+    copy?: boolean,
+  ) {
     return insertChildren(parent, thing, at, copy);
   }
 
@@ -547,7 +565,7 @@ export class DocumentModel implements IDocumentModel {
     const drillDownNodeId = this._drillDownNode?.id;
     runWithGlobalEventOff(() => {
       // TODO: 暂时用饱和式删除，原因是 Slot 节点并不是树节点，无法正常递归删除
-      this.nodes.forEach(node => {
+      this.nodes.forEach((node) => {
         if (node.isRoot()) return;
         this.internalRemoveAndPurgeNode(node, true);
       });
@@ -560,14 +578,20 @@ export class DocumentModel implements IDocumentModel {
     });
   }
 
-  export(stage: IPublicEnumTransformStage = IPublicEnumTransformStage.Serilize): IPublicTypeRootSchema | undefined {
+  export(
+    stage: IPublicEnumTransformStage = IPublicEnumTransformStage.Serilize,
+  ): IPublicTypeRootSchema | undefined {
     stage = compatStage(stage);
     // 置顶只作用于 Page 的第一级子节点，目前还用不到里层的置顶；如果后面有需要可以考虑将这段写到 node-children 中的 export
     const currentSchema = this.rootNode?.export<IPublicTypeRootSchema>(stage);
-    if (Array.isArray(currentSchema?.children) && currentSchema?.children?.length && currentSchema?.children?.length > 0) {
+    if (
+      Array.isArray(currentSchema?.children) &&
+      currentSchema?.children?.length &&
+      currentSchema?.children?.length > 0
+    ) {
       const FixedTopNodeIndex = currentSchema?.children
-        .filter(i => isPlainObject(i))
-        .findIndex((i => (i as IPublicTypeNodeSchema).props?.__isTopFixed__));
+        .filter((i) => isPlainObject(i))
+        .findIndex((i) => (i as IPublicTypeNodeSchema).props?.__isTopFixed__);
       if (FixedTopNodeIndex > 0) {
         const FixedTopNode = currentSchema?.children.splice(FixedTopNodeIndex, 1);
         currentSchema?.children.unshift(FixedTopNode[0]);
@@ -672,7 +696,11 @@ export class DocumentModel implements IDocumentModel {
 
   checkNesting(
     dropTarget: INode,
-    dragObject: IPublicTypeDragNodeObject | IPublicTypeNodeSchema | INode | IPublicTypeDragNodeDataObject,
+    dragObject:
+      | IPublicTypeDragNodeObject
+      | IPublicTypeNodeSchema
+      | INode
+      | IPublicTypeDragNodeDataObject,
   ): boolean {
     let items: Array<INode | IPublicTypeNodeSchema>;
     if (isDragNodeDataObject(dragObject)) {
@@ -685,7 +713,9 @@ export class DocumentModel implements IDocumentModel {
       console.warn('the dragObject is not in the correct type, dragObject:', dragObject);
       return true;
     }
-    return items.every((item) => this.checkNestingDown(dropTarget, item) && this.checkNestingUp(dropTarget, item));
+    return items.every(
+      (item) => this.checkNestingDown(dropTarget, item) && this.checkNestingUp(dropTarget, item),
+    );
   }
 
   /**
@@ -693,7 +723,10 @@ export class DocumentModel implements IDocumentModel {
    * Will be deleted in version 2.0.0.
    * Use checkNesting method instead.
    */
-  checkDropTarget(dropTarget: INode, dragObject: IPublicTypeDragNodeObject | IPublicTypeDragNodeDataObject): boolean {
+  checkDropTarget(
+    dropTarget: INode,
+    dragObject: IPublicTypeDragNodeObject | IPublicTypeDragNodeDataObject,
+  ): boolean {
     let items: Array<INode | IPublicTypeNodeSchema>;
     if (isDragNodeDataObject(dragObject)) {
       items = Array.isArray(dragObject.data) ? dragObject.data : [dragObject.data];
@@ -760,7 +793,7 @@ export class DocumentModel implements IDocumentModel {
 
   /**
    * @deprecated
-  */
+   */
   /* istanbul ignore next */
   exportAddonData() {
     const addons: {
@@ -796,10 +829,7 @@ export class DocumentModel implements IDocumentModel {
   }
 
   /* istanbul ignore next */
-  acceptRootNodeVisitor(
-    visitorName = 'default',
-    visitorFn: (node: IRootNode) => any,
-  ) {
+  acceptRootNodeVisitor(visitorName = 'default', visitorFn: (node: IRootNode) => any) {
     let visitorResult = {};
     if (!visitorName) {
       /* eslint-disable-next-line no-console */

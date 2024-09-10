@@ -1,7 +1,12 @@
-import { computed, makeObservable, obx, action } from '@alilc/lowcode-editor-core';
-import { IPublicTypePropsList, IPublicTypeCompositeValue, IPublicEnumTransformStage, IBaseModelProps } from '@alilc/lowcode-types';
-import type { IPublicTypePropsMap } from '@alilc/lowcode-types';
-import { uniqueId, compatStage } from '@alilc/lowcode-utils';
+import { computed, makeObservable, obx, action } from '@lce/lowcode-editor-core';
+import {
+  IPublicTypePropsList,
+  IPublicTypeCompositeValue,
+  IPublicEnumTransformStage,
+  IBaseModelProps,
+} from '@lce/lowcode-types';
+import type { IPublicTypePropsMap } from '@lce/lowcode-types';
+import { uniqueId, compatStage } from '@lce/lowcode-utils';
 import { Prop, UNSET } from './prop';
 import type { IProp } from './prop';
 import { INode } from '../node';
@@ -27,7 +32,6 @@ export function getOriginalExtraKey(key: string): string {
 }
 
 export interface IPropParent {
-
   readonly props: IProps;
 
   readonly owner: INode;
@@ -37,8 +41,12 @@ export interface IPropParent {
   delete(prop: IProp): void;
 }
 
-export interface IProps extends Omit<IBaseModelProps<IProp>, | 'getExtraProp' | 'getExtraPropValue' | 'setExtraPropValue' | 'node'>, IPropParent {
-
+export interface IProps
+  extends Omit<
+      IBaseModelProps<IProp>,
+      'getExtraProp' | 'getExtraPropValue' | 'setExtraPropValue' | 'node'
+    >,
+    IPropParent {
   /**
    * 获取 props 对应的 node
    */
@@ -96,7 +104,11 @@ export class Props implements IProps, IPropParent {
 
   private purged = false;
 
-  constructor(owner: INode, value?: IPublicTypePropsMap | IPublicTypePropsList | null, extras?: ExtrasObject) {
+  constructor(
+    owner: INode,
+    value?: IPublicTypePropsMap | IPublicTypePropsList | null,
+    extras?: ExtrasObject,
+  ) {
     makeObservable(this);
     this.owner = owner;
     if (Array.isArray(value)) {

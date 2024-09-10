@@ -1,15 +1,17 @@
 import { Component } from 'react';
-import { observer } from '@alilc/lowcode-editor-core';
+import { observer } from '@lce/lowcode-editor-core';
 import { BuiltinSimulatorHost } from '../host';
-import {
-  DropLocation,
-  isVertical,
-} from '../../designer';
+import { DropLocation, isVertical } from '../../designer';
 import { ISimulatorHost } from '../../simulator';
 import { INode } from '../../document';
 import './insertion.less';
-import { IPublicTypeNodeData, IPublicTypeNodeSchema, IPublicTypeLocationChildrenDetail, IPublicTypeRect } from '@alilc/lowcode-types';
-import { isLocationChildrenDetail } from '@alilc/lowcode-utils';
+import {
+  IPublicTypeNodeData,
+  IPublicTypeNodeSchema,
+  IPublicTypeLocationChildrenDetail,
+  IPublicTypeRect,
+} from '@lce/lowcode-types';
+import { isLocationChildrenDetail } from '@lce/lowcode-utils';
 
 interface InsertionData {
   edge?: DOMRect;
@@ -23,7 +25,11 @@ interface InsertionData {
 /**
  * 处理拖拽子节点(INode)情况
  */
-function processChildrenDetail(sim: ISimulatorHost, container: INode, detail: IPublicTypeLocationChildrenDetail): InsertionData {
+function processChildrenDetail(
+  sim: ISimulatorHost,
+  container: INode,
+  detail: IPublicTypeLocationChildrenDetail,
+): InsertionData {
   let edge = detail.edge || null;
 
   if (!edge) {

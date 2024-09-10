@@ -1,5 +1,9 @@
-import { IPublicModelActiveTracker, IPublicModelNode, IPublicTypeActiveTarget } from '@alilc/lowcode-types';
-import { IActiveTracker as InnerActiveTracker, ActiveTarget } from '@alilc/lowcode-designer';
+import {
+  IPublicModelActiveTracker,
+  IPublicModelNode,
+  IPublicTypeActiveTarget,
+} from '@lce/lowcode-types';
+import { IActiveTracker as InnerActiveTracker, ActiveTarget } from '@lce/lowcode-designer';
 import { Node as ShellNode } from './node';
 import { nodeSymbol } from '../symbols';
 

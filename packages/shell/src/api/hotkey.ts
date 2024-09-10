@@ -1,6 +1,11 @@
-import { globalContext, Hotkey as InnerHotkey } from '@alilc/lowcode-editor-core';
+import { globalContext, Hotkey as InnerHotkey } from '@lce/lowcode-editor-core';
 import { hotkeySymbol } from '../symbols';
-import { IPublicTypeDisposable, IPublicTypeHotkeyCallback, IPublicTypeHotkeyCallbacks, IPublicApiHotkey } from '@alilc/lowcode-types';
+import {
+  IPublicTypeDisposable,
+  IPublicTypeHotkeyCallback,
+  IPublicTypeHotkeyCallbacks,
+  IPublicApiHotkey,
+} from '@lce/lowcode-types';
 
 const innerHotkeySymbol = Symbol('innerHotkey');
 
@@ -41,10 +46,10 @@ export class Hotkey implements IPublicApiHotkey {
    * @returns
    */
   bind(
-      combos: string[] | string,
-      callback: IPublicTypeHotkeyCallback,
-      action?: string,
-    ): IPublicTypeDisposable {
+    combos: string[] | string,
+    callback: IPublicTypeHotkeyCallback,
+    action?: string,
+  ): IPublicTypeDisposable {
     this[hotkeySymbol].bind(combos, callback, action);
     return () => {
       this[hotkeySymbol].unbind(combos, callback, action);

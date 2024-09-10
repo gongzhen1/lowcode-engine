@@ -1,6 +1,6 @@
 import { ReactInstance } from 'react';
 import { findDOMNode } from 'react-dom';
-import { isElement } from '@alilc/lowcode-utils';
+import { isElement } from '@lce/lowcode-utils';
 import { isDOMNode } from './is-dom-node';
 
 export const getReactInternalFiber = (el: any) => {

@@ -1,5 +1,13 @@
 import { ComponentType } from 'react';
-import { IPublicTypeComponentMetadata, IPublicTypeNodeSchema, IPublicTypeScrollable, IPublicTypeComponentInstance, IPublicModelSensor, IPublicTypeNodeInstance, IPublicTypePackage } from '@alilc/lowcode-types';
+import {
+  IPublicTypeComponentMetadata,
+  IPublicTypeNodeSchema,
+  IPublicTypeScrollable,
+  IPublicTypeComponentInstance,
+  IPublicModelSensor,
+  IPublicTypeNodeInstance,
+  IPublicTypePackage,
+} from '@lce/lowcode-types';
 import { Point, ScrollTarget, ILocateEvent, IDesigner } from './designer';
 import { BuiltinSimulatorRenderer } from './builtin-simulator/renderer';
 import { INode } from './document';
@@ -9,10 +17,8 @@ export type AutoFit = '100%';
 // eslint-disable-next-line no-redeclare
 export const AutoFit = '100%';
 
-export interface IScrollable extends IPublicTypeScrollable {
-}
+export interface IScrollable extends IPublicTypeScrollable {}
 export interface IViewport extends IScrollable {
-
   /**
    * 视口大小
    */
@@ -164,13 +170,22 @@ export interface ISimulatorHost<P = object> extends IPublicModelSensor<INode> {
    */
   getComponentContext(node: INode): object | null;
 
-  getClosestNodeInstance(from: IPublicTypeComponentInstance, specId?: string): IPublicTypeNodeInstance | null;
+  getClosestNodeInstance(
+    from: IPublicTypeComponentInstance,
+    specId?: string,
+  ): IPublicTypeNodeInstance | null;
 
   computeRect(node: INode): DOMRect | null;
 
-  computeComponentInstanceRect(instance: IPublicTypeComponentInstance, selector?: string): DOMRect | null;
+  computeComponentInstanceRect(
+    instance: IPublicTypeComponentInstance,
+    selector?: string,
+  ): DOMRect | null;
 
-  findDOMNodes(instance: IPublicTypeComponentInstance, selector?: string): Array<Element | Text> | null;
+  findDOMNodes(
+    instance: IPublicTypeComponentInstance,
+    selector?: string,
+  ): Array<Element | Text> | null;
 
   getDropContainer(e: ILocateEvent): DropContainer | null;
 

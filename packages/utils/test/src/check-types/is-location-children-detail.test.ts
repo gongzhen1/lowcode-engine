@@ -1,5 +1,8 @@
 import { isLocationChildrenDetail } from '../../../src/check-types/is-location-children-detail';
-import { IPublicTypeLocationChildrenDetail, IPublicTypeLocationDetailType } from '@alilc/lowcode-types';
+import {
+  IPublicTypeLocationChildrenDetail,
+  IPublicTypeLocationDetailType,
+} from '@lce/lowcode-types';
 
 describe('isLocationChildrenDetail', () => {
   it('should return true when obj is IPublicTypeLocationChildrenDetail', () => {

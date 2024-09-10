@@ -1,8 +1,5 @@
 import '../../fixtures/window';
-import {
-  Editor,
-  Setters as InnerSetters,
-} from '@alilc/lowcode-editor-core';
+import { Editor, Setters as InnerSetters } from '@lce/lowcode-editor-core';
 import { SettingTopEntry } from '../../../src/designer/setting/setting-top-entry';
 import { SettingPropEntry } from '../../../src/designer/setting/setting-prop-entry';
 import { Node } from '../../../src/document/node/node';
@@ -48,7 +45,7 @@ describe('setting-prop-entry 测试', () => {
             type: 'JSExpression',
             value: 'state.a',
             mock: 111,
-          }
+          },
         },
       });
       mockTopEntry = new SettingTopEntry(editor, [mockNode]);
@@ -77,7 +74,9 @@ describe('setting-prop-entry 测试', () => {
       prop1.extraProps = {
         getValue: (prop, val) => `prefix ${val}`,
         // prop 是 shell prop entry
-        setValue: (prop, val) => { prop.setValue(`modified ${val}`, { disableMutator: true }) },
+        setValue: (prop, val) => {
+          prop.setValue(`modified ${val}`, { disableMutator: true });
+        },
         defaultValue: 'default',
       };
 
@@ -107,7 +106,9 @@ describe('setting-prop-entry 测试', () => {
 
       const prop4 = mockTopEntry.getProp('b');
       prop4.extraProps = {
-        getValue: () => { throw 'error'; },
+        getValue: () => {
+          throw 'error';
+        },
       };
       expect(prop4.getValue()).toBe(222);
     });

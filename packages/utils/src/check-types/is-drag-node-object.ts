@@ -1,7 +1,13 @@
-import { IPublicEnumDragObjectType, IPublicModelNode, IPublicTypeDragNodeObject } from '@alilc/lowcode-types';
+import {
+  IPublicEnumDragObjectType,
+  IPublicModelNode,
+  IPublicTypeDragNodeObject,
+} from '@lce/lowcode-types';
 import { isObject } from '../is-object';
 
-export function isDragNodeObject<Node = IPublicModelNode>(obj: any): obj is IPublicTypeDragNodeObject<Node> {
+export function isDragNodeObject<Node = IPublicModelNode>(
+  obj: any,
+): obj is IPublicTypeDragNodeObject<Node> {
   if (!isObject(obj)) {
     return false;
   }

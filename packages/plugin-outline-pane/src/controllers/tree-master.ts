@@ -1,5 +1,11 @@
-import { isLocationChildrenDetail } from '@alilc/lowcode-utils';
-import { IPublicModelPluginContext, IPublicTypeActiveTarget, IPublicModelNode, IPublicTypeDisposable, IPublicEnumPluginRegisterLevel } from '@alilc/lowcode-types';
+import { isLocationChildrenDetail } from '@lce/lowcode-utils';
+import {
+  IPublicModelPluginContext,
+  IPublicTypeActiveTarget,
+  IPublicModelNode,
+  IPublicTypeDisposable,
+  IPublicEnumPluginRegisterLevel,
+} from '@lce/lowcode-types';
 import TreeNode from './tree-node';
 import { Tree } from './tree';
 import EventEmitter from 'events';
@@ -33,9 +39,12 @@ export class TreeMaster {
 
   event = new EventEmitter();
 
-  constructor(pluginContext: IPublicModelPluginContext, readonly options: {
-    extraTitle?: string;
-  }) {
+  constructor(
+    pluginContext: IPublicModelPluginContext,
+    readonly options: {
+      extraTitle?: string;
+    },
+  ) {
     this.setPluginContext(pluginContext);
     const { workspace } = this.pluginContext;
     this.initEvent();
@@ -79,7 +88,7 @@ export class TreeMaster {
   }
 
   private disposeEvent() {
-    this.disposeEvents.forEach(d => {
+    this.disposeEvents.forEach((d) => {
       d && d();
     });
   }
@@ -90,7 +99,7 @@ export class TreeMaster {
     const setExpandByActiveTracker = (target: IPublicTypeActiveTarget) => {
       const { node, detail } = target;
       const tree = this.currentTree;
-      if (!tree/* || node.document !== tree.document */) {
+      if (!tree /* || node.document !== tree.document */) {
         return;
       }
       const treeNode = tree.getTreeNode(node);
@@ -121,14 +130,15 @@ export class TreeMaster {
               }
               const npm = n?.componentMeta?.npm;
               return (
-                [npm?.package, npm?.componentName].filter((item) => !!item).join('-') || n?.componentMeta?.componentName
+                [npm?.package, npm?.componentName].filter((item) => !!item).join('-') ||
+                n?.componentMeta?.componentName
               );
             })
             .join('&'),
           time: (endTime - startTime).toFixed(2),
         });
       }),
-      project.onRemoveDocument((data: {id: string}) => {
+      project.onRemoveDocument((data: { id: string }) => {
         const { id } = data;
         this.treeMap.delete(id);
       }),

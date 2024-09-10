@@ -1,4 +1,4 @@
-import { IPublicModelClipboard } from '@alilc/lowcode-types';
+import { IPublicModelClipboard } from '@lce/lowcode-types';
 
 function getDataFromPasteEvent(event: ClipboardEvent) {
   const { clipboardData } = event;
@@ -21,12 +21,11 @@ function getDataFromPasteEvent(event: ClipboardEvent) {
     }
   } catch (error) {
     // TODO: open the parser implement
-    return { };
+    return {};
   }
 }
 
 export interface IClipboard extends IPublicModelClipboard {
-
   initCopyPaster(el: HTMLTextAreaElement): void;
 
   injectCopyPaster(document: Document): void;

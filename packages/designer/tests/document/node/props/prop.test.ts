@@ -1,9 +1,9 @@
 import '../../../fixtures/window';
-import { Editor, engineConfig } from '@alilc/lowcode-editor-core';
+import { Editor, engineConfig } from '@lce/lowcode-editor-core';
 import { Designer } from '../../../../src/designer/designer';
 import { DocumentModel } from '../../../../src/document/document-model';
 import { Prop, isProp, isValidArrayIndex } from '../../../../src/document/node/props/prop';
-import { GlobalEvent, IPublicEnumTransformStage } from '@alilc/lowcode-types';
+import { GlobalEvent, IPublicEnumTransformStage } from '@lce/lowcode-types';
 import { shellModelFactory } from '../../../../../engine/src/modules/shell-model-factory';
 
 const slotNodeImportMockFn = jest.fn();
@@ -416,7 +416,7 @@ describe('Prop 类测试', () => {
         expect(prop.get(0).getValue()).toBeTruthy();
 
         // map / list 级联测试
-        prop.get('loopArgs.0', true).setValue('newItem');;
+        prop.get('loopArgs.0', true).setValue('newItem');
         expect(prop.get('loopArgs.0').getValue()).toBe('newItem');
       });
 
@@ -502,7 +502,9 @@ describe('Prop 类测试', () => {
     slotProp.export();
 
     expect(slotProp.export().value[0].componentName).toBe('Button');
-    expect(slotProp.export(IPublicEnumTransformStage.Serilize).value[0].componentName).toBe('Button');
+    expect(slotProp.export(IPublicEnumTransformStage.Serilize).value[0].componentName).toBe(
+      'Button',
+    );
 
     slotProp.purge();
     expect(slotProp.purged).toBeTruthy();
@@ -529,14 +531,14 @@ describe('Prop 类测试', () => {
         componentName: 'Slot',
         id: 'node_oclei5rv2e2',
         props: {
-          slotName: "content",
-          slotTitle: "主内容"
+          slotName: 'content',
+          slotTitle: '主内容',
         },
         children: [
           {
             componentName: 'Button',
-          }
-        ]
+          },
+        ],
       },
     });
 
@@ -554,7 +556,9 @@ describe('Prop 类测试', () => {
     expect(slotProp.export()?.name).toBe('content');
 
     // Render
-    expect(slotProp.export(IPublicEnumTransformStage.Render)?.value.children[0].componentName).toBe('Button');
+    expect(slotProp.export(IPublicEnumTransformStage.Render)?.value.children[0].componentName).toBe(
+      'Button',
+    );
     expect(slotProp.export(IPublicEnumTransformStage.Render)?.value.componentName).toBe('Slot');
 
     slotProp.purge();
@@ -583,7 +587,7 @@ describe('setValue with event', () => {
 
   beforeEach(() => {
     // Initialize the instance of your class
-    propInstance = new Prop(mockPropsInst, true, 'stringProp');;
+    propInstance = new Prop(mockPropsInst, true, 'stringProp');
 
     // Mock necessary methods and properties
     mockEmitChange = jest.spyOn(propInstance, 'emitChange');
@@ -623,7 +627,10 @@ describe('setValue with event', () => {
     expect(propInstance.getValue()).toBe(newValue);
     expect(propInstance.type).toBe('literal');
     expect(mockEmitChange).toHaveBeenCalledWith({ oldValue });
-    expect(mockEventBusEmit).toHaveBeenCalledWith(GlobalEvent.Node.Prop.InnerChange, expectedPartialPropsInfo);
+    expect(mockEventBusEmit).toHaveBeenCalledWith(
+      GlobalEvent.Node.Prop.InnerChange,
+      expectedPartialPropsInfo,
+    );
     expect(mockEmitPropChange).toHaveBeenCalledWith(expectedPartialPropsInfo);
   });
 
@@ -642,7 +649,10 @@ describe('setValue with event', () => {
     expect(propInstance.getValue()).toEqual(newValue);
     expect(propInstance.type).toBe('literal');
     expect(mockEmitChange).toHaveBeenCalledWith({ oldValue });
-    expect(mockEventBusEmit).toHaveBeenCalledWith(GlobalEvent.Node.Prop.InnerChange, expectedPartialPropsInfo);
+    expect(mockEventBusEmit).toHaveBeenCalledWith(
+      GlobalEvent.Node.Prop.InnerChange,
+      expectedPartialPropsInfo,
+    );
     expect(mockEmitPropChange).toHaveBeenCalledWith(expectedPartialPropsInfo);
   });
 
@@ -663,7 +673,10 @@ describe('setValue with event', () => {
       oldValue,
       newValue: undefined,
     });
-    expect(mockEventBusEmit).toHaveBeenCalledWith(GlobalEvent.Node.Prop.InnerChange, expectedPartialPropsInfo);
+    expect(mockEventBusEmit).toHaveBeenCalledWith(
+      GlobalEvent.Node.Prop.InnerChange,
+      expectedPartialPropsInfo,
+    );
     expect(mockEmitPropChange).toHaveBeenCalledWith(expectedPartialPropsInfo);
 
     propInstance.unset();
@@ -688,7 +701,10 @@ describe('setValue with event', () => {
       oldValue,
       newValue: undefined,
     });
-    expect(mockEventBusEmit).toHaveBeenCalledWith(GlobalEvent.Node.Prop.InnerChange, expectedPartialPropsInfo);
+    expect(mockEventBusEmit).toHaveBeenCalledWith(
+      GlobalEvent.Node.Prop.InnerChange,
+      expectedPartialPropsInfo,
+    );
     expect(mockEmitPropChange).toHaveBeenCalledWith(expectedPartialPropsInfo);
 
     propInstance.remove();

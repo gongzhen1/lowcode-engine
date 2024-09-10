@@ -1,5 +1,5 @@
 import '../../fixtures/window';
-import { Editor, globalContext } from '@alilc/lowcode-editor-core';
+import { Editor, globalContext } from '@lce/lowcode-editor-core';
 import { Project } from '../../../src/project/project';
 import { DocumentModel } from '../../../src/document/document-model';
 import { Designer } from '../../../src/designer/designer';
@@ -46,10 +46,9 @@ describe('DragResizeEngine 测试', () => {
     const offResize = resizeEngine.onResize(resizeMockFn);
     const offResizeEnd = resizeEngine.onResizeEnd(resizeEndMockFn);
     const boostedNode = doc.getNode('node_k1ow3cbn');
-    const mockBoostFn = jest
-      .fn((e) => {
-        return boostedNode;
-      });
+    const mockBoostFn = jest.fn((e) => {
+      return boostedNode;
+    });
 
     // do nothing
     const noop = resizeEngine.from();
@@ -114,10 +113,9 @@ describe('DragResizeEngine 测试', () => {
       contentDocument: document,
     });
 
-    const mockBoostFn = jest
-      .fn((e) => {
-        return doc.getNode('node_k1ow3cbn');
-      });
+    const mockBoostFn = jest.fn((e) => {
+      return doc.getNode('node_k1ow3cbn');
+    });
 
     const offFrom = resizeEngine.from(document, 'e', mockBoostFn);
 

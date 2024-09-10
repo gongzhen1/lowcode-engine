@@ -1,4 +1,4 @@
-import { IPublicTypeComponentMetadata } from "@alilc/lowcode-types";
+import { IPublicTypeComponentMetadata } from '@lce/lowcode-types';
 export default {
   componentName: 'Div',
   npm: {
@@ -225,13 +225,17 @@ export default {
       nestingRule: {
         // parentWhitelist: 'Div',
         // childWhitelist: 'Div',
-      }
+      },
     },
     supports: {},
     advanced: {
       callbacks: {
-        onNodeAdd: (dragment, self) => { console.log(dragment); },
-        onNodeRemove: (dragment, self) => { console.log(dragment); }
+        onNodeAdd: (dragment, self) => {
+          console.log(dragment);
+        },
+        onNodeRemove: (dragment, self) => {
+          console.log(dragment);
+        },
       },
       initials: [
         {

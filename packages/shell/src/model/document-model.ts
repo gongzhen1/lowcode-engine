@@ -1,7 +1,4 @@
-import {
-  IDocumentModel as InnerDocumentModel,
-  INode as InnerNode,
-} from '@alilc/lowcode-designer';
+import { IDocumentModel as InnerDocumentModel, INode as InnerNode } from '@lce/lowcode-designer';
 import {
   IPublicEnumTransformStage,
   IPublicTypeRootSchema,
@@ -22,8 +19,8 @@ import {
   IPublicTypeDisposable,
   IPublicModelEditor,
   IPublicTypeNodeSchema,
-} from '@alilc/lowcode-types';
-import { isDragNodeObject } from '@alilc/lowcode-utils';
+} from '@lce/lowcode-types';
+import { isDragNodeObject } from '@lce/lowcode-utils';
 import { Node as ShellNode } from './node';
 import { Selection as ShellSelection } from './selection';
 import { Detecting as ShellDetecting } from './detecting';
@@ -108,10 +105,10 @@ export class DocumentModel implements IPublicModelDocumentModel {
 
   set focusNode(node: IPublicModelNode | null) {
     this._focusNode = node;
-    this[editorSymbol].eventBus.emit(
-      'shell.document.focusNodeChanged',
-        { document: this, focusNode: node },
-      );
+    this[editorSymbol].eventBus.emit('shell.document.focusNodeChanged', {
+      document: this,
+      focusNode: node,
+    });
   }
 
   /**
@@ -164,7 +161,9 @@ export class DocumentModel implements IPublicModelDocumentModel {
    * @param stage
    * @returns
    */
-  exportSchema(stage: IPublicEnumTransformStage = IPublicEnumTransformStage.Render): IPublicTypeRootSchema | undefined {
+  exportSchema(
+    stage: IPublicEnumTransformStage = IPublicEnumTransformStage.Render,
+  ): IPublicTypeRootSchema | undefined {
     return this[documentSymbol].export(stage);
   }
 
@@ -224,14 +223,14 @@ export class DocumentModel implements IPublicModelDocumentModel {
    * @returns boolean 是否可以放置
    */
   checkNesting(
-      dropTarget: IPublicModelNode,
-      dragObject: IPublicTypeDragNodeObject | IPublicTypeDragNodeDataObject,
-    ): boolean {
+    dropTarget: IPublicModelNode,
+    dragObject: IPublicTypeDragNodeObject | IPublicTypeDragNodeDataObject,
+  ): boolean {
     let innerDragObject = dragObject;
     if (isDragNodeObject(dragObject)) {
       innerDragObject.nodes = innerDragObject.nodes?.map(
-          (node: IPublicModelNode) => ((node as any)[nodeSymbol] || node),
-        );
+        (node: IPublicModelNode) => (node as any)[nodeSymbol] || node,
+      );
     }
     return this[documentSymbol].checkNesting(
       ((dropTarget as any)[nodeSymbol] || dropTarget) as any,
@@ -252,9 +251,7 @@ export class DocumentModel implements IPublicModelDocumentModel {
    * 当前 document 新增节点事件，此时节点已经挂载到 document 上
    */
   onMountNode(fn: (payload: { node: IPublicModelNode }) => void): IPublicTypeDisposable {
-    return this[documentSymbol].onMountNode(({
-      node,
-    }) => {
+    return this[documentSymbol].onMountNode(({ node }) => {
       fn({ node: ShellNode.create(node)! });
     });
   }
@@ -290,7 +287,9 @@ export class DocumentModel implements IPublicModelDocumentModel {
    * 当前 document 的节点显隐状态变更事件
    * @param fn
    */
-  onChangeNodeVisible(fn: (node: IPublicModelNode, visible: boolean) => void): IPublicTypeDisposable {
+  onChangeNodeVisible(
+    fn: (node: IPublicModelNode, visible: boolean) => void,
+  ): IPublicTypeDisposable {
     return this[documentSymbol].onChangeNodeVisible((node: InnerNode, visible: boolean) => {
       fn(ShellNode.create(node)!, visible);
     });
@@ -301,15 +300,17 @@ export class DocumentModel implements IPublicModelDocumentModel {
    * @param fn
    */
   onChangeNodeChildren(fn: (info: IPublicTypeOnChangeOptions) => void): IPublicTypeDisposable {
-    return this[documentSymbol].onChangeNodeChildren((info?: IPublicTypeOnChangeOptions<InnerNode>) => {
-      if (!info) {
-        return;
-      }
-      fn({
-        type: info.type,
-        node: ShellNode.create(info.node)!,
-      });
-    });
+    return this[documentSymbol].onChangeNodeChildren(
+      (info?: IPublicTypeOnChangeOptions<InnerNode>) => {
+        if (!info) {
+          return;
+        }
+        fn({
+          type: info.type,
+          node: ShellNode.create(info.node)!,
+        });
+      },
+    );
   }
 
   /**
@@ -326,16 +327,10 @@ export class DocumentModel implements IPublicModelDocumentModel {
         node: ShellNode.create(info.node as any)!,
       });
     };
-    this[editorSymbol].on(
-      GlobalEvent.Node.Prop.InnerChange,
-      callback,
-    );
+    this[editorSymbol].on(GlobalEvent.Node.Prop.InnerChange, callback);
 
     return () => {
-      this[editorSymbol].off(
-        GlobalEvent.Node.Prop.InnerChange,
-        callback,
-      );
+      this[editorSymbol].off(GlobalEvent.Node.Prop.InnerChange, callback);
     };
   }
 
@@ -357,25 +352,19 @@ export class DocumentModel implements IPublicModelDocumentModel {
     if (!fn) {
       return () => {};
     }
-    return this[editorSymbol].eventBus.on(
-      'shell.document.focusNodeChanged',
-      (payload) => {
-        const { document, focusNode } = payload;
-        fn(document, focusNode);
-      },
-    );
+    return this[editorSymbol].eventBus.on('shell.document.focusNodeChanged', (payload) => {
+      const { document, focusNode } = payload;
+      fn(document, focusNode);
+    });
   }
 
   onDropLocationChanged(fn: (doc: IPublicModelDocumentModel) => void): IPublicTypeDisposable {
     if (!fn) {
       return () => {};
     }
-    return this[editorSymbol].eventBus.on(
-      'document.dropLocation.changed',
-      (payload) => {
-        const { document } = payload;
-        fn(document);
-      },
-    );
+    return this[editorSymbol].eventBus.on('document.dropLocation.changed', (payload) => {
+      const { document } = payload;
+      fn(document);
+    });
   }
 }

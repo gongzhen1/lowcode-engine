@@ -1,5 +1,5 @@
 import '../fixtures/window';
-import { Editor, globalContext } from '@alilc/lowcode-editor-core';
+import { Editor, globalContext } from '@lce/lowcode-editor-core';
 import { Project } from '../../src/project/project';
 import { DocumentModel } from '../../src/document/document-model';
 import { Designer } from '../../src/designer/designer';
@@ -14,7 +14,7 @@ import {
   isInvalidPoint,
   isSameAs,
 } from '../../src/designer/dragon';
-import { IPublicEnumDragObjectType } from '@alilc/lowcode-types';
+import { IPublicEnumDragObjectType } from '@lce/lowcode-types';
 import formSchema from '../fixtures/schema/form';
 import { fireEvent } from '@testing-library/react';
 import { shellModelFactory } from '../../../engine/src/modules/shell-model-factory';
@@ -327,7 +327,9 @@ describe('导出的其他函数', () => {
     expect(isDragNodeObject({ type: IPublicEnumDragObjectType.Node, nodes: [] })).toBeTruthy();
   });
   it('isDragNodeDataObject', () => {
-    expect(isDragNodeDataObject({ type: IPublicEnumDragObjectType.NodeData, data: [] })).toBeTruthy();
+    expect(
+      isDragNodeDataObject({ type: IPublicEnumDragObjectType.NodeData, data: [] }),
+    ).toBeTruthy();
   });
   it('isDragAnyObject', () => {
     expect(isDragAnyObject()).toBeFalsy();

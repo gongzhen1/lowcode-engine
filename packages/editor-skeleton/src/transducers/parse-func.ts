@@ -1,5 +1,5 @@
-import { IPublicTypeTransformedComponentMetadata } from '@alilc/lowcode-types';
-import { isPlainObject, isJSFunction, getLogger } from '@alilc/lowcode-utils';
+import { IPublicTypeTransformedComponentMetadata } from '@lce/lowcode-types';
+import { isPlainObject, isJSFunction, getLogger } from '@lce/lowcode-utils';
 
 const leadingFnRe = /^function/;
 const leadingFnNameRe = /^\w+\s*\(/;
@@ -43,19 +43,21 @@ function transformStringToFunction(str: string) {
 
 function parseJSFunc(obj: any, enableAllowedKeys = true) {
   if (!obj) return;
-  Object.keys(obj).forEach(key => {
+  Object.keys(obj).forEach((key) => {
     const item = obj[key];
     if (isJSFunction(item)) {
       obj[key] = transformStringToFunction(item.value);
     } else if (Array.isArray(item)) {
-      item.forEach(o => parseJSFunc(o, enableAllowedKeys));
+      item.forEach((o) => parseJSFunc(o, enableAllowedKeys));
     } else if (isPlainObject(item)) {
       parseJSFunc(item, enableAllowedKeys);
     }
   });
 }
 
-export default function (metadata: IPublicTypeTransformedComponentMetadata): IPublicTypeTransformedComponentMetadata {
+export default function (
+  metadata: IPublicTypeTransformedComponentMetadata,
+): IPublicTypeTransformedComponentMetadata {
   parseJSFunc(metadata, false);
 
   return metadata;

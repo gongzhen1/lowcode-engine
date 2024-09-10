@@ -17,9 +17,11 @@ sidebar_position: 0
    npm install -g @alilc/create-element@latest
    ```
 4. 通过命令行工具创建
+
    ```bash
    npm init @alilc/element editor-project-name
    ```
+
    这时会看到一个选项列表
 
    <img src="https://img.alicdn.com/imgextra/i3/O1CN01LAaw2R1veHDYUzGB1_!!6000000006197-2-tps-676-142.png" width="350"/>
@@ -27,6 +29,7 @@ sidebar_position: 0
    选择`编辑器`，并填写对应的问题，即可完成创建。
 
    > 注 @alilc/create-element 版本需 >= 1.0.4，若看不到`编辑器`选项，请重新执行步骤 3
+
 5. 进入创建后的目录
    ```bash
    cd editor-project-name
@@ -41,7 +44,7 @@ sidebar_position: 0
    ```
    执行后如果看到这个界面，说明项目启动成功。您可以继续看后续章节了。本章节后续内容均为高级配置方式。
 
-  ![image.png](https://img.alicdn.com/imgextra/i4/O1CN013qJVoV1OAcFNKFrIQ_!!6000000001665-2-tps-3060-1634.png)
+![image.png](https://img.alicdn.com/imgextra/i4/O1CN013qJVoV1OAcFNKFrIQ_!!6000000001665-2-tps-3060-1634.png)
 
 ## 方法 2: 使用 UMD 包方式配置
 
@@ -50,17 +53,27 @@ sidebar_position: 0
 ### 引入 UMD 包资源
 
 我们需要在启动前，正确在项目中通过 UMD 包方式直接依赖如下内容：
+
 > 亦可使用异步加载工具，如果您按照正确的顺序进行加载
 
 ```html
 <!-- 低代码引擎的页面框架样式 -->
-<link rel="stylesheet" href="https://uipaas-assets.com/prod/npm/@alilc/lowcode-engine/1.0.18/dist/css/engine-core.css" />
+<link
+  rel="stylesheet"
+  href="https://uipaas-assets.com/prod/npm/@lce/lowcode-engine/1.0.18/dist/css/engine-core.css"
+/>
 <!-- Fusion Next 控件样式 -->
-<link rel="stylesheet" href="https://g.alicdn.com/code/lib/alifd__next/1.23.24/next.min.css">
+<link rel="stylesheet" href="https://g.alicdn.com/code/lib/alifd__next/1.23.24/next.min.css" />
 <!-- 低代码引擎的页面主题样式，可以替换为 theme-lowcode-dark -->
-<link rel="stylesheet" href="https://alifd.alicdn.com/npm/@alifd/theme-lowcode-light/0.2.0/next.min.css">
+<link
+  rel="stylesheet"
+  href="https://alifd.alicdn.com/npm/@alifd/theme-lowcode-light/0.2.0/next.min.css"
+/>
 <!-- 低代码引擎官方扩展的样式 -->
-<link rel="stylesheet" href="https://uipaas-assets.com/prod/npm/@alilc/lowcode-engine-ext/1.0.5/dist/css/engine-ext.css" />
+<link
+  rel="stylesheet"
+  href="https://uipaas-assets.com/prod/npm/@lce/lowcode-engine-ext/1.0.5/dist/css/engine-ext.css"
+/>
 
 <!-- React，可替换为 production 包 -->
 <script src="https://g.alicdn.com/code/lib/react/16.14.0/umd/react.development.js"></script>
@@ -76,13 +89,20 @@ sidebar_position: 0
 <!-- Fusion Next 的主包，低代码编辑器的依赖 -->
 <script src="https://g.alicdn.com/code/lib/alifd__next/1.23.24/next.min.js"></script>
 <!-- 低代码引擎的主包 -->
-<script crossorigin="anonymous" src="https://uipaas-assets.com/prod/npm/@alilc/lowcode-engine/1.0.18/dist/js/engine-core.js"></script>
+<script
+  crossorigin="anonymous"
+  src="https://uipaas-assets.com/prod/npm/@lce/lowcode-engine/1.0.18/dist/js/engine-core.js"
+></script>
 <!-- 低代码引擎官方扩展的主包 -->
-<script crossorigin="anonymous" src="https://uipaas-assets.com/prod/npm/@alilc/lowcode-engine-ext/1.0.5/dist/js/engine-ext.js"></script>
+<script
+  crossorigin="anonymous"
+  src="https://uipaas-assets.com/prod/npm/@lce/lowcode-engine-ext/1.0.5/dist/js/engine-ext.js"
+></script>
 ```
-> 注：如果 unpkg 的服务比较缓慢，您可以使用官方 CDN 来获得确定版本的低代码引擎，如对于引擎的 1.0.18 版本，可用以下官方 CDN 替代
-> - [https://uipaas-assets.com/prod/npm/@alilc/lowcode-engine/1.0.18/dist/js/engine-core.js](https://uipaas-assets.com/prod/npm/@alilc/lowcode-engine/1.0.18/dist/js/engine-core.js)
 
+> 注：如果 unpkg 的服务比较缓慢，您可以使用官方 CDN 来获得确定版本的低代码引擎，如对于引擎的 1.0.18 版本，可用以下官方 CDN 替代
+>
+> - [https://uipaas-assets.com/prod/npm/@lce/lowcode-engine/1.0.18/dist/js/engine-core.js](https://uipaas-assets.com/prod/npm/@lce/lowcode-engine/1.0.18/dist/js/engine-core.js)
 
 ### 配置打包
 
@@ -95,8 +115,8 @@ sidebar_position: 0
     "react-dom": "var window.ReactDOM",
     "prop-types": "var window.PropTypes",
     "@alifd/next": "var window.Next",
-    "@alilc/lowcode-engine": "var window.AliLowCodeEngine",
-    "@alilc/lowcode-engine-ext": "var window.AliLowCodeEngineExt",
+    "@lce/lowcode-engine": "var window.AliLowCodeEngine",
+    "@lce/lowcode-engine-ext": "var window.AliLowCodeEngineExt",
     "moment": "var window.moment",
     "lodash": "var window._"
   }
@@ -116,17 +136,19 @@ window.AliLowCodeEngine.init(document.getElementById('lce-container'), {
 ```
 
 如果您的项目中使用了 TypeScript，您可以通过如下 devDependencies 引入相关包，并获得对应的类型推断。
+
 ```javascript
 // package.json
 {
   "devDependencies": {
-    "@alilc/lowcode-engine": "^1.0.0"
+    "@lce/lowcode-engine": "^1.0.0"
   }
 }
 ```
+
 ```javascript
 // src/index.tsx
-import { init } from '@alilc/lowcode-engine';
+import { init } from '@lce/lowcode-engine';
 
 init(document.getElementById('lce-container'), {
   enableCondition: true,
@@ -143,4 +165,5 @@ init 的功能包括但不限于：
 > 本节中的低代码编辑器例子可以在 demo 中找到：[https://github.com/alibaba/lowcode-demo/blob/main/demo-general/src/index.ts](https://github.com/alibaba/lowcode-demo/blob/main/demo-general/src/index.ts)
 
 ## 配置低代码编辑器
+
 详见[低代码扩展简述](/site/docs/guide/expand/editor/summary)章节。

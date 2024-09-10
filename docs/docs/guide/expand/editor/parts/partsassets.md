@@ -48,25 +48,27 @@ sidebar_position: 4
 构建历史界面会显示当前资产包所有的构建历史记录，表格状态栏展示了构建的状态：`成功`,`失败`,`正在运行` 三种状态，操作列可以在构建成功时复制或者下载资产包结果
 
 ## 使用资产包
+
 你可以在 [lowcode-demo](https://github.com/alibaba/lowcode-demo) 中直接引用，可直接替换 demo 中原来的资产包文件：
 例如，在 [demo-lowcode-component](https://github.com/alibaba/lowcode-demo/tree/main/demo-lowcode-component) 中，直接用你的资产包文件替换文件[assets.json](https://github.com/alibaba/lowcode-demo/blob/main/demo-lowcode-component/src/services/assets.json)，即可快速使用自己的物料了。
 
 ### 在编辑器中使用资产包
+
 在使用含有低代码组件的资产包注意 注意引擎版本必须大于等于 `1.1.0-beta.9`。
 然后直接替换 [lowcode-demo](https://github.com/alibaba/lowcode-demo) demo 中的 `assets.json` 文件即可。
 
 ### 在预览中使用资产包
+
 在预览中使用资产包的整体思路是从 `资产包` 中提取并转换出 `ReactRenderer` 渲染所需要的 react 组件列表 (`components` 参数)，然后将 `schema` 以及 `components` 传入到 `ReactRenderer` 中进行渲染，需要注意的是，在 `资产包` 的转换过程中，我们也需要将 `低代码组件` 转换成 react 组件，具体逻辑可以参考下 [demo-lowcode-component](https://github.com/alibaba/lowcode-demo/tree/main/demo-lowcode-component) 中 `src/parse-assets.ts` 文件的实现。
 基于资产包进行预览的整体逻辑如下： [详见](https://github.com/alibaba/lowcode-demo/blob/main/demo-lowcode-component/src/preview.tsx)：
+
 ```ts
 import ReactDOM from 'react-dom';
 import React, { useState } from 'react';
 import { Loading } from '@alifd/next';
-import ReactRenderer from '@alilc/lowcode-react-renderer';
+import ReactRenderer from '@lce/lowcode-react-renderer';
 import { createFetchHandler } from '@alilc/lowcode-datasource-fetch-handler';
-import {
-  getProjectSchemaFromLocalStorage,
-} from './services/mockService';
+import { getProjectSchemaFromLocalStorage } from './services/mockService';
 import assets from './services/assets.json';
 import { parseAssets } from './parse-assets';
 
@@ -126,10 +128,15 @@ ReactDOM.render(<SamplePreview />, document.getElementById('ice-container'));
 ```
 
 从资产包中解析 react 组件列表的逻辑如下，[详见](https://github.com/alibaba/lowcode-demo/blob/main/demo-lowcode-component/src/parse-assets.ts)：
+
 ```ts
-import { ComponentDescription, ComponentSchema, RemoteComponentDescription } from '@alilc/lowcode-types';
-import { buildComponents, AssetsJson, AssetLoader } from '@alilc/lowcode-utils';
-import ReactRenderer from '@alilc/lowcode-react-renderer';
+import {
+  ComponentDescription,
+  ComponentSchema,
+  RemoteComponentDescription,
+} from '@lce/lowcode-types';
+import { buildComponents, AssetsJson, AssetLoader } from '@lce/lowcode-utils';
+import ReactRenderer from '@lce/lowcode-react-renderer';
 import { injectComponents } from '@alilc/lowcode-plugin-inject';
 import React, { createElement } from 'react';
 
@@ -138,7 +145,7 @@ export async function parseAssets(assets: AssetsJson) {
   const libraryAsset = [];
   const libraryMap = {};
   const packagesMap = {};
-  packages.forEach(pkg => {
+  packages.forEach((pkg) => {
     const { package: _package, library, urls, renderUrls, id } = pkg;
     if (_package) {
       libraryMap[id || _package] = library;
@@ -173,38 +180,48 @@ export async function parseAssets(assets: AssetsJson) {
       await Promise.all(
         remoteComponentDescriptions.map(async (component: any) => {
           const { exportName, url, npm } = component;
-          await (new AssetLoader()).load(url);
+          await new AssetLoader().load(url);
           function setAssetsComponent(component: any, extraNpmInfo: any = {}) {
             const components = component.components;
             if (Array.isArray(components)) {
-              components.forEach(d => {
-                newComponents = newComponents.concat({
-                  npm: {
-                    ...npm,
-                    ...extraNpmInfo,
-                  },
-                  ...d,
-                } || []);
+              components.forEach((d) => {
+                newComponents = newComponents.concat(
+                  {
+                    npm: {
+                      ...npm,
+                      ...extraNpmInfo,
+                    },
+                    ...d,
+                  } || [],
+                );
               });
               return;
             }
-            newComponents = newComponents.concat({
-              npm: {
-                ...npm,
-                ...extraNpmInfo,
-              },
-              ...component.components,
-            } || []);
+            newComponents = newComponents.concat(
+              {
+                npm: {
+                  ...npm,
+                  ...extraNpmInfo,
+                },
+                ...component.components,
+              } || [],
+            );
           }
 
-          function setArrayAssets(value: any[], preExportName: string = '', preSubName: string = '') {
+          function setArrayAssets(
+            value: any[],
+            preExportName: string = '',
+            preSubName: string = '',
+          ) {
             value.forEach((d: any, i: number) => {
-              const exportName = [preExportName, i.toString()].filter(d => !!d).join('.');
-              const subName = [preSubName, i.toString()].filter(d => !!d).join('.');
-              Array.isArray(d) ? setArrayAssets(d, exportName, subName) : setAssetsComponent(d, {
-                exportName,
-                subName,
-              });
+              const exportName = [preExportName, i.toString()].filter((d) => !!d).join('.');
+              const subName = [preSubName, i.toString()].filter((d) => !!d).join('.');
+              Array.isArray(d)
+                ? setArrayAssets(d, exportName, subName)
+                : setAssetsComponent(d, {
+                    exportName,
+                    subName,
+                  });
             });
           }
           if (window[exportName]) {
@@ -230,14 +247,14 @@ export async function parseAssets(assets: AssetsJson) {
       };
     }
     return acc;
-  }, {})
+  }, {});
 
   function genLowCodeComponentsMap(components) {
     const lowcodeComponentsMap = {};
     lowcodeComponentsArray.forEach((lowcode) => {
       const id = lowcode.reference?.id;
       const schema = packagesMap[id]?.schema;
-      const comp = genLowcodeComp(schema, {...components, ...lowcodeComponentsMap});
+      const comp = genLowcodeComp(schema, { ...components, ...lowcodeComponentsMap });
       lowcodeComponentsMap[lowcode.componentName] = comp;
     });
     return lowcodeComponentsMap;
@@ -245,8 +262,8 @@ export async function parseAssets(assets: AssetsJson) {
   let components = await injectComponents(buildComponents(libraryMap, proCodeComponentsMap));
   const lowCodeComponents = genLowCodeComponentsMap(components);
   return {
-    components: { ...components, ...lowCodeComponents }
-  }
+    components: { ...components, ...lowCodeComponents },
+  };
 }
 
 function genLowcodeComp(schema: ComponentSchema, components: any) {
@@ -262,6 +279,7 @@ function genLowcodeComp(schema: ComponentSchema, components: any) {
   };
 }
 ```
+
 ## 联系我们
 
 <img src="https://img.alicdn.com/imgextra/i2/O1CN01UF88Xi1jC5SZ6m4wt_!!6000000004511-2-tps-750-967.png" width="300" />

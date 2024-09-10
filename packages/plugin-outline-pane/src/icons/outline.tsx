@@ -1,4 +1,4 @@
-import { SVGIcon, IconProps } from '@alilc/lowcode-utils';
+import { SVGIcon, IconProps } from '@lce/lowcode-utils';
 
 export function IconOutline(props: IconProps) {
   return (
@@ -9,4 +9,3 @@ export function IconOutline(props: IconProps) {
 }
 
 IconOutline.displayName = 'IconOutline';
-

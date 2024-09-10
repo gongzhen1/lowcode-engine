@@ -9,9 +9,9 @@ import {
   ComponentType,
 } from 'react';
 import classNames from 'classnames';
-import { observer, computed, Tip, engineConfig } from '@alilc/lowcode-editor-core';
-import { createIcon, isReactComponent, isActionContentObject } from '@alilc/lowcode-utils';
-import { IPublicTypeActionContentObject } from '@alilc/lowcode-types';
+import { observer, computed, Tip, engineConfig } from '@lce/lowcode-editor-core';
+import { createIcon, isReactComponent, isActionContentObject } from '@lce/lowcode-utils';
+import { IPublicTypeActionContentObject } from '@lce/lowcode-types';
 import { BuiltinSimulatorHost } from '../host';
 import { INode, OffsetObserver } from '../../designer';
 import NodeSelector from '../node-selector';
@@ -54,11 +54,8 @@ export class BorderSelectingInstance extends Component<{
     }
 
     return (
-      <div
-        className={className}
-        style={style}
-      >
-        {(!dragging && !hideComponentAction) ? <Toolbar observed={observed} /> : null}
+      <div className={className} style={style}>
+        {!dragging && !hideComponentAction ? <Toolbar observed={observed} /> : null}
       </div>
     );
   }
@@ -107,7 +104,10 @@ class Toolbar extends Component<{ observed: OffsetObserver }> {
         // FIXME: need this?
         return;
       }
-      if (important && (typeof condition === 'function' ? condition(node) !== false : condition !== false)) {
+      if (
+        important &&
+        (typeof condition === 'function' ? condition(node) !== false : condition !== false)
+      ) {
         actions.push(createAction(content, name, node));
       }
     });
@@ -120,7 +120,11 @@ class Toolbar extends Component<{ observed: OffsetObserver }> {
   }
 }
 
-function createAction(content: ReactNode | ComponentType<any> | IPublicTypeActionContentObject, key: string, node: INode) {
+function createAction(
+  content: ReactNode | ComponentType<any> | IPublicTypeActionContentObject,
+  key: string,
+  node: INode,
+) {
   if (isValidElement<{ key: string; node: INode }>(content)) {
     return cloneElement(content, { key, node });
   }
@@ -187,7 +191,13 @@ export class BorderSelectingForNode extends Component<{ host: ISimulatorHost; no
           if (!observed) {
             return null;
           }
-          return <BorderSelectingInstance key={observed.id} dragging={this.dragging} observed={observed} />;
+          return (
+            <BorderSelectingInstance
+              key={observed.id}
+              dragging={this.dragging}
+              observed={observed}
+            />
+          );
         })}
       </Fragment>
     );

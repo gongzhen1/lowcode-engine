@@ -1,7 +1,18 @@
-import { obx, computed, makeObservable, IEventBus, createModuleEventBus } from '@alilc/lowcode-editor-core';
+import {
+  obx,
+  computed,
+  makeObservable,
+  IEventBus,
+  createModuleEventBus,
+} from '@lce/lowcode-editor-core';
 import { Node, INode } from './node';
-import { IPublicTypeNodeData, IPublicModelNodeChildren, IPublicEnumTransformStage, IPublicTypeDisposable } from '@alilc/lowcode-types';
-import { shallowEqual, compatStage, isNodeSchema } from '@alilc/lowcode-utils';
+import {
+  IPublicTypeNodeData,
+  IPublicModelNodeChildren,
+  IPublicEnumTransformStage,
+  IPublicTypeDisposable,
+} from '@lce/lowcode-types';
+import { shallowEqual, compatStage, isNodeSchema } from '@lce/lowcode-utils';
 import { foreachReverse } from '../../utils/tree';
 import { NodeRemoveOptions } from '../../types';
 
@@ -10,12 +21,11 @@ export interface IOnChangeOptions {
   node: Node;
 }
 
-export interface INodeChildren extends Omit<IPublicModelNodeChildren<INode>,
-  'importSchema' |
-  'exportSchema' |
-  'isEmpty' |
-  'notEmpty'
-> {
+export interface INodeChildren
+  extends Omit<
+    IPublicModelNodeChildren<INode>,
+    'importSchema' | 'exportSchema' | 'isEmpty' | 'notEmpty'
+  > {
   children: INode[];
 
   get owner(): INode;
@@ -28,11 +38,11 @@ export interface INodeChildren extends Omit<IPublicModelNodeChildren<INode>,
    * 删除一个节点
    */
   internalDelete(
-      node: INode,
-      purge: boolean,
-      useMutator: boolean,
-      options: NodeRemoveOptions
-    ): boolean;
+    node: INode,
+    purge: boolean,
+    useMutator: boolean,
+    options: NodeRemoveOptions,
+  ): boolean;
 
   /**
    * 插入一个节点，返回新长度
@@ -97,14 +107,16 @@ export class NodeChildren implements INodeChildren {
   }
 
   constructor(
-      readonly owner: INode,
-      data: IPublicTypeNodeData | IPublicTypeNodeData[],
-      options: any = {},
-    ) {
+    readonly owner: INode,
+    data: IPublicTypeNodeData | IPublicTypeNodeData[],
+    options: any = {},
+  ) {
     makeObservable(this);
-    this.children = (Array.isArray(data) ? data : [data]).filter(child => !!child).map((child) => {
-      return this.owner.document?.createNode(child, options.checkId);
-    });
+    this.children = (Array.isArray(data) ? data : [data])
+      .filter((child) => !!child)
+      .map((child) => {
+        return this.owner.document?.createNode(child, options.checkId);
+      });
   }
 
   internalInitParent() {
@@ -127,7 +139,7 @@ export class NodeChildren implements INodeChildren {
   }
 
   import(data?: IPublicTypeNodeData | IPublicTypeNodeData[], checkId = false) {
-    data = (data ? (Array.isArray(data) ? data : [data]) : []).filter(d => !!d);
+    data = (data ? (Array.isArray(data) ? data : [data]) : []).filter((d) => !!d);
 
     const originChildren = this.children.slice();
     this.children.forEach((child) => child.internalSetParent(null));
@@ -187,7 +199,7 @@ export class NodeChildren implements INodeChildren {
   }
 
   unlinkChild(node: INode) {
-    const i = this.children.map(d => d.id).indexOf(node.id);
+    const i = this.children.map((d) => d.id).indexOf(node.id);
     if (i < 0) {
       return false;
     }
@@ -208,7 +220,12 @@ export class NodeChildren implements INodeChildren {
   /**
    * 删除一个节点
    */
-  internalDelete(node: INode, purge = false, useMutator = true, options: NodeRemoveOptions = {}): boolean {
+  internalDelete(
+    node: INode,
+    purge = false,
+    useMutator = true,
+    options: NodeRemoveOptions = {},
+  ): boolean {
     node.internalPurgeStart();
     if (node.isParentalNode) {
       foreachReverse(
@@ -227,7 +244,7 @@ export class NodeChildren implements INodeChildren {
       );
     }
     // 需要在从 children 中删除 node 前记录下 index，internalSetParent 中会执行删除 (unlink) 操作
-    const i = this.children.map(d => d.id).indexOf(node.id);
+    const i = this.children.map((d) => d.id).indexOf(node.id);
     if (purge) {
       // should set parent null
       node.internalSetParent(null, useMutator);
@@ -275,7 +292,7 @@ export class NodeChildren implements INodeChildren {
     const { children } = this;
     let index = at == null || at === -1 ? children.length : at;
 
-    const i = children.map(d => d.id).indexOf(node.id);
+    const i = children.map((d) => d.id).indexOf(node.id);
 
     if (node.parent) {
       const editor = node.document?.designer.editor;
@@ -344,7 +361,7 @@ export class NodeChildren implements INodeChildren {
    * 取得节点索引编号
    */
   indexOf(node: INode): number {
-    return this.children.map(d => d.id).indexOf(node.id);
+    return this.children.map((d) => d.id).indexOf(node.id);
   }
 
   /**
@@ -446,7 +463,7 @@ export class NodeChildren implements INodeChildren {
       const willRemove = this.children.filter(remover);
       if (willRemove.length > 0) {
         willRemove.forEach((node) => {
-          const i = this.children.map(d => d.id).indexOf(node.id);
+          const i = this.children.map((d) => d.id).indexOf(node.id);
           if (i > -1) {
             this.children.splice(i, 1);
             node.remove(false);

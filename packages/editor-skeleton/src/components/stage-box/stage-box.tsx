@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import { observer } from '@alilc/lowcode-editor-core';
+import { observer } from '@lce/lowcode-editor-core';
 import StageChain from './stage-chain';
 import Stage from './stage';
 import { ISkeleton } from '../../skeleton';
@@ -104,8 +104,12 @@ export default class StageBox extends Component<StageBoxProps> {
     let contentRefer = null;
 
     if (refer) {
-      contentCurrent = <Stage key={stage.getId()} stage={stage} direction={refer.direction} current />;
-      contentRefer = <Stage key={refer?.stage?.getId()} stage={refer?.stage} direction={refer.direction} />;
+      contentCurrent = (
+        <Stage key={stage.getId()} stage={stage} direction={refer.direction} current />
+      );
+      contentRefer = (
+        <Stage key={refer?.stage?.getId()} stage={refer?.stage} direction={refer.direction} />
+      );
     } else {
       contentCurrent = <Stage key={stage.getId()} stage={stage} current />;
     }
@@ -117,12 +121,9 @@ export default class StageBox extends Component<StageBoxProps> {
         }}
         className={className}
       >
-
         <PopupService popupPipe={this.popupPipe}>
-
           {contentRefer}
           {contentCurrent}
-
         </PopupService>
       </div>
     );

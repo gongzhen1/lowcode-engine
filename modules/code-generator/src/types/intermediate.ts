@@ -3,7 +3,7 @@ import {
   IPublicTypeUtilsMap,
   IPublicTypeContainerSchema,
   IPublicTypeJSONObject,
-} from '@alilc/lowcode-types';
+} from '@lce/lowcode-types';
 
 import { IDependency, INpmPackage } from './deps';
 import { ICompAnalyzeResult } from './analyze';

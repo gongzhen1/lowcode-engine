@@ -1,19 +1,20 @@
-import { IPublicModelNode, IPublicTypeComponentAction, IPublicTypeMetadataTransducer } from '@alilc/lowcode-types';
-import { engineConfig } from '@alilc/lowcode-editor-core';
-import { intlNode } from './locale';
 import {
-  IconLock,
-  IconUnlock,
-  IconRemove,
-  IconClone,
-  IconHidden,
-} from './icons';
+  IPublicModelNode,
+  IPublicTypeComponentAction,
+  IPublicTypeMetadataTransducer,
+} from '@lce/lowcode-types';
+import { engineConfig } from '@lce/lowcode-editor-core';
+import { intlNode } from './locale';
+import { IconLock, IconUnlock, IconRemove, IconClone, IconHidden } from './icons';
 import { componentDefaults, legacyIssues } from './transducers';
 
 function deduplicateRef(node: IPublicModelNode | null | undefined) {
   const currentRef = node?.getPropValue('ref');
   if (currentRef) {
-    node?.setPropValue('ref', `${node.componentName.toLowerCase()}-${Math.random().toString(36).slice(2, 9)}`);
+    node?.setPropValue(
+      'ref',
+      `${node.componentName.toLowerCase()}-${Math.random().toString(36).slice(2, 9)}`,
+    );
   }
   node?.children?.forEach(deduplicateRef);
 }
@@ -67,7 +68,9 @@ export class ComponentActions {
             if (isRGL) {
               // 复制 layout 信息
               const layout: any = rglNode?.getPropValue('layout') || [];
-              const curLayout = layout.filter((item: any) => item.i === node.getPropValue('fieldId'));
+              const curLayout = layout.filter(
+                (item: any) => item.i === node.getPropValue('fieldId'),
+              );
               if (curLayout && curLayout[0]) {
                 layout.push({
                   ...curLayout[0],
@@ -75,7 +78,10 @@ export class ComponentActions {
                 });
                 rglNode?.setPropValue('layout', layout);
                 // 如果是磁贴块复制，则需要滚动到影响位置
-                setTimeout(() => newNode?.document?.project?.simulatorHost?.scrollToNode(newNode), 10);
+                setTimeout(
+                  () => newNode?.document?.project?.simulatorHost?.scrollToNode(newNode),
+                  10,
+                );
               }
             }
           }
@@ -95,7 +101,9 @@ export class ComponentActions {
       },
       /* istanbul ignore next */
       condition: (node: IPublicModelNode) => {
-        return engineConfig.get('enableCanvasLock', false) && node.isContainerNode && !node.isLocked;
+        return (
+          engineConfig.get('enableCanvasLock', false) && node.isContainerNode && !node.isLocked
+        );
       },
       important: true,
     },
@@ -142,14 +150,12 @@ export class ComponentActions {
     }
   }
 
-  registerMetadataTransducer(
-    transducer: IPublicTypeMetadataTransducer,
-    level = 100,
-    id?: string,
-  ) {
+  registerMetadataTransducer(transducer: IPublicTypeMetadataTransducer, level = 100, id?: string) {
     transducer.level = level;
     transducer.id = id;
-    const i = this.metadataTransducers.findIndex((item) => item.level != null && item.level > level);
+    const i = this.metadataTransducers.findIndex(
+      (item) => item.level != null && item.level > level,
+    );
     if (i < 0) {
       this.metadataTransducers.push(transducer);
     } else {

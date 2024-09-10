@@ -1,5 +1,5 @@
 import '../fixtures/window';
-import { Editor } from '@alilc/lowcode-editor-core';
+import { Editor } from '@lce/lowcode-editor-core';
 import { Project } from '../../src/project/project';
 import { DocumentModel } from '../../src/document/document-model';
 import { Designer } from '../../src/designer/designer';
@@ -46,37 +46,51 @@ describe.only('Project 方法测试', () => {
   });
 
   it('load', () => {
-    project.load({
-      componentsTree: [{
-        componentName: 'Page',
-        fileName: 'f1',
-      }],
-    }, 'f1');
+    project.load(
+      {
+        componentsTree: [
+          {
+            componentName: 'Page',
+            fileName: 'f1',
+          },
+        ],
+      },
+      'f1',
+    );
     expect(project.currentDocument?.fileName).toBe('f1');
   });
 
   it.skip('setSchema', () => {
-    project.load({
-      componentsTree: [{
-        componentName: 'Page',
-        fileName: 'f1',
-      }],
-    }, true);
+    project.load(
+      {
+        componentsTree: [
+          {
+            componentName: 'Page',
+            fileName: 'f1',
+          },
+        ],
+      },
+      true,
+    );
     project.setSchema({
-      componentsTree: [{
-        componentName: 'Page',
-        props: { a: 1 },
-      }],
+      componentsTree: [
+        {
+          componentName: 'Page',
+          props: { a: 1 },
+        },
+      ],
     });
     expect(project.currentDocument?.rootNode?.propsData).toEqual({ a: 1 });
   });
 
   it('open / getDocument / checkExclusive', () => {
     project.load({
-      componentsTree: [{
-        componentName: 'Page',
-        fileName: 'f1',
-      }],
+      componentsTree: [
+        {
+          componentName: 'Page',
+          fileName: 'f1',
+        },
+      ],
     });
     const doc1 = project.createDocument({
       componentName: 'Page',

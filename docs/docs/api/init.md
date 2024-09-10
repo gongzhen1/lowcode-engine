@@ -5,24 +5,28 @@ sidebar_position: 0
 
 > **@since** v1.0.0
 
-
 ## 模块简介
+
 提供 init 等方法
+
 ## 方法
+
 #### init
+
 初始化引擎
 
 **方法定义**
+
 ```typescript
-function init(container?: Element, options?: IPublicTypeEngineOptions): void
+function init(container?: Element, options?: IPublicTypeEngineOptions): void;
 ```
 
 [**初始化引擎配置参数列表**](./configOptions)
 
-
 ## 使用示例
+
 ```typescript
-import { init } from '@alilc/lowcode-engine';
+import { init } from '@lce/lowcode-engine';
 
 init(document.getElementById('engine'), {
   enableCondition: false,
@@ -30,8 +34,9 @@ init(document.getElementById('engine'), {
 ```
 
 ### 默认打开移动端画布
+
 ```typescript
-import { init } from '@alilc/lowcode-engine';
+import { init } from '@lce/lowcode-engine';
 
 init({
   device: 'mobile',
@@ -39,8 +44,9 @@ init({
 ```
 
 ### 使用 utils 第三方工具扩展
+
 ```json
-import { init } from '@alilc/lowcode-engine';
+import { init } from '@lce/lowcode-engine';
 
 init({
   device: 'mobile',

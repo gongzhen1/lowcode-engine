@@ -1,5 +1,5 @@
-import { EditingTarget, Node as DocNode, SaveHandler, LiveEditing } from '@alilc/lowcode-designer';
-import { isJSExpression } from '@alilc/lowcode-utils';
+import { EditingTarget, Node as DocNode, SaveHandler, LiveEditing } from '@lce/lowcode-designer';
+import { isJSExpression } from '@lce/lowcode-utils';
 
 function getText(node: DocNode, prop: string) {
   const p = node.getProp(prop, false);

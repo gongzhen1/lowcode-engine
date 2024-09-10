@@ -2,7 +2,11 @@ import { PureComponent } from 'react';
 import classNames from 'classnames';
 import TreeNode from '../controllers/tree-node';
 import TreeNodeView from './tree-node';
-import { IPublicModelExclusiveGroup, IPublicTypeDisposable, IPublicTypeLocationChildrenDetail } from '@alilc/lowcode-types';
+import {
+  IPublicModelExclusiveGroup,
+  IPublicTypeDisposable,
+  IPublicTypeLocationChildrenDetail,
+} from '@lce/lowcode-types';
 
 export default class TreeBranches extends PureComponent<{
   treeNode: TreeNode;
@@ -49,9 +53,7 @@ export default class TreeBranches extends PureComponent<{
 
     return (
       <div className="tree-node-branches">
-        {
-          !isModal && <TreeNodeSlots treeNode={treeNode} />
-        }
+        {!isModal && <TreeNodeSlots treeNode={treeNode} />}
         <TreeNodeChildren
           treeNode={treeNode}
           isModal={isModal || false}
@@ -68,11 +70,14 @@ interface ITreeNodeChildrenState {
   keywords: string | null;
   dropDetail: IPublicTypeLocationChildrenDetail | undefined | null;
 }
-class TreeNodeChildren extends PureComponent<{
+class TreeNodeChildren extends PureComponent<
+  {
     treeNode: TreeNode;
     isModal?: boolean;
     treeChildren: TreeNode[] | null;
-  }, ITreeNodeChildrenState> {
+  },
+  ITreeNodeChildrenState
+> {
   state: ITreeNodeChildrenState = {
     filterWorking: false,
     matchSelf: false,
@@ -96,18 +101,16 @@ class TreeNodeChildren extends PureComponent<{
         filterWorking: newFilterWorking,
         matchSelf: newMatchChild,
         keywords: newKeywords,
-       } = treeNode.filterReult;
+      } = treeNode.filterReult;
       this.setState({
         filterWorking: newFilterWorking,
         matchSelf: newMatchChild,
         keywords: newKeywords,
       });
     });
-    this.offLocationChanged = project.currentDocument?.onDropLocationChanged(
-        () => {
-          this.setState({ dropDetail: treeNode.dropDetail });
-        },
-      );
+    this.offLocationChanged = project.currentDocument?.onDropLocationChanged(() => {
+      this.setState({ dropDetail: treeNode.dropDetail });
+    });
   }
   componentWillUnmount(): void {
     this.offLocationChanged && this.offLocationChanged();
@@ -124,7 +127,11 @@ class TreeNodeChildren extends PureComponent<{
     const endGroup = () => {
       if (groupContents.length > 0) {
         children.push(
-          <div key={currentGrp.id} className="condition-group-container" data-id={currentGrp.firstNode?.id}>
+          <div
+            key={currentGrp.id}
+            className="condition-group-container"
+            data-id={currentGrp.firstNode?.id}
+          >
             <div className="condition-group-title">
               {/* @ts-ignore */}
               <Title
@@ -188,8 +195,8 @@ class TreeNodeChildren extends PureComponent<{
 }
 
 class TreeNodeSlots extends PureComponent<{
-    treeNode: TreeNode;
-  }> {
+  treeNode: TreeNode;
+}> {
   render() {
     const { treeNode } = this.props;
     if (!treeNode.hasSlots()) {
@@ -205,9 +212,11 @@ class TreeNodeSlots extends PureComponent<{
       >
         <div className="tree-node-slots-title">
           {/* @ts-ignore */}
-          <Title title={{ type: 'i18n', intl: this.props.treeNode.pluginContext.intlNode('Slots') }} />
+          <Title
+            title={{ type: 'i18n', intl: this.props.treeNode.pluginContext.intlNode('Slots') }}
+          />
         </div>
-        {treeNode.slots.map(tnode => (
+        {treeNode.slots.map((tnode) => (
           <TreeNodeView key={tnode.nodeId} treeNode={tnode} />
         ))}
       </div>

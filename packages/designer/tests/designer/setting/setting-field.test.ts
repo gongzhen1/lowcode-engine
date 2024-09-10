@@ -1,12 +1,7 @@
 // @ts-nocheck
 import '../../fixtures/window';
-import {
-  Editor,
-  Setters as InnerSetters,
-} from '@alilc/lowcode-editor-core';
-import {
-  Setters,
-} from '@alilc/lowcode-shell';
+import { Editor, Setters as InnerSetters } from '@lce/lowcode-editor-core';
+import { Setters } from '@lce/lowcode-shell';
 import { SettingTopEntry } from '../../../src/designer/setting/setting-top-entry';
 import { SettingField } from '../../../src/designer/setting/setting-field';
 import { Node } from '../../../src/document/node/node';
@@ -79,7 +74,7 @@ describe('setting-field 测试', () => {
       });
       expect(field.items).toHaveLength(0);
       expect(field.getItems()).toHaveLength(0);
-      expect(field.getItems(x => x)).toHaveLength(0);
+      expect(field.getItems((x) => x)).toHaveLength(0);
 
       expect(field.setter.componentName).toBe('MixedSetter');
       field.purge();
@@ -110,7 +105,7 @@ describe('setting-field 测试', () => {
       const objField = settingEntry.get('obj');
       expect(objField.items).toHaveLength(3);
       expect(objField.getItems()).toHaveLength(3);
-      expect(objField.getItems(x => x.name === 'a')).toHaveLength(1);
+      expect(objField.getItems((x) => x.name === 'a')).toHaveLength(1);
       objField.purge();
       expect(objField.items).toHaveLength(0);
       const objAField = settingEntry.get('obj.a');
@@ -155,17 +150,17 @@ describe('setting-field 测试', () => {
         name: '2',
         title: 'sub',
       });
-      subArrField.setValue({name: '1'});
+      subArrField.setValue({ name: '1' });
       expect(subArrField.path).toEqual(['arr', 0]);
       expect(subArrField02.path).toEqual(['arr', 1]);
-      subArrField02.setValue({name: '2'});
-      expect(subArrField.getValue()).toEqual({name: '1'});
-      expect(arrField.getHotValue()).toEqual([{name: '1'}, {name: '2'}]);
+      subArrField02.setValue({ name: '2' });
+      expect(subArrField.getValue()).toEqual({ name: '1' });
+      expect(arrField.getHotValue()).toEqual([{ name: '1' }, { name: '2' }]);
       subArrField.clearValue();
       expect(subArrField.getValue()).toBeUndefined();
-      expect(arrField.getHotValue()).toEqual([undefined, {name: '2'}]);
-      subArrField03.setValue({name: '3'});
-      expect(arrField.getHotValue()).toEqual([undefined, {name: '2'}, {name: '3'}]);
+      expect(arrField.getHotValue()).toEqual([undefined, { name: '2' }]);
+      subArrField03.setValue({ name: '3' });
+      expect(arrField.getHotValue()).toEqual([undefined, { name: '2' }, { name: '3' }]);
     });
 
     it('js expression setValue / setHotValue', () => {
@@ -232,10 +227,10 @@ describe('setting-field 测试', () => {
       const mockFnSubArrField = jest.fn();
       const mockFnObjSubField = jest.fn();
 
-      arrField.setValue([{ objSub: "subMock0.Index.0" }]);
+      arrField.setValue([{ objSub: 'subMock0.Index.0' }]);
       // 这里需要 setValue 两遍，触发 prop 的 purge 方法，使 purged 为 true，之后的 purge 方法不会正常执行，prop 才能正常缓存，autorun 才能正常执行
       // TODO: 该机制后续得研究一下，再确定是否要修改
-      arrField.setValue([{ objSub: "subMock0.Index.0" }]);
+      arrField.setValue([{ objSub: 'subMock0.Index.0' }]);
 
       arrField.onEffect(() => {
         mockFnArrField(arrField.getValue());
@@ -250,32 +245,32 @@ describe('setting-field 测试', () => {
       await delayObxTick();
 
       expect(mockFnObjSubField).toHaveBeenCalledWith('subMock0.Index.0');
-      expect(mockFnSubArrField).toHaveBeenCalledWith({ objSub: "subMock0.Index.0" });
-      expect(mockFnArrField).toHaveBeenCalledWith([{ objSub: "subMock0.Index.0" }]);
+      expect(mockFnSubArrField).toHaveBeenCalledWith({ objSub: 'subMock0.Index.0' });
+      expect(mockFnArrField).toHaveBeenCalledWith([{ objSub: 'subMock0.Index.0' }]);
 
-      arrField.setValue([{ objSub: "subMock0.Index.1" }]);
+      arrField.setValue([{ objSub: 'subMock0.Index.1' }]);
 
       await delayObxTick();
 
       expect(mockFnObjSubField).toHaveBeenCalledWith('subMock0.Index.1');
-      expect(mockFnSubArrField).toHaveBeenCalledWith({ objSub: "subMock0.Index.1" });
-      expect(mockFnArrField).toHaveBeenCalledWith([{ objSub: "subMock0.Index.1" }]);
+      expect(mockFnSubArrField).toHaveBeenCalledWith({ objSub: 'subMock0.Index.1' });
+      expect(mockFnArrField).toHaveBeenCalledWith([{ objSub: 'subMock0.Index.1' }]);
 
-      subArrField.setValue({ objSub: "subMock0.Index.2" });
+      subArrField.setValue({ objSub: 'subMock0.Index.2' });
 
       await delayObxTick();
 
       expect(mockFnObjSubField).toHaveBeenCalledWith('subMock0.Index.2');
-      expect(mockFnSubArrField).toHaveBeenCalledWith({ objSub: "subMock0.Index.2" });
-      expect(mockFnArrField).toHaveBeenCalledWith([{ objSub: "subMock0.Index.2" }]);
+      expect(mockFnSubArrField).toHaveBeenCalledWith({ objSub: 'subMock0.Index.2' });
+      expect(mockFnArrField).toHaveBeenCalledWith([{ objSub: 'subMock0.Index.2' }]);
 
       objSubField.setValue('subMock0.Index.3');
 
       await delayObxTick();
 
       expect(mockFnObjSubField).toHaveBeenCalledWith('subMock0.Index.3');
-      expect(mockFnSubArrField).toHaveBeenCalledWith({ objSub: "subMock0.Index.3" });
-      expect(mockFnArrField).toHaveBeenCalledWith([{ objSub: "subMock0.Index.3" }]);
-    })
+      expect(mockFnSubArrField).toHaveBeenCalledWith({ objSub: 'subMock0.Index.3' });
+      expect(mockFnArrField).toHaveBeenCalledWith([{ objSub: 'subMock0.Index.3' }]);
+    });
   });
 });

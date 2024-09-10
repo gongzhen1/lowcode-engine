@@ -1,7 +1,7 @@
 import '../fixtures/window';
-import { Editor, engineConfig } from '@alilc/lowcode-editor-core';
+import { Editor, engineConfig } from '@lce/lowcode-editor-core';
 import { LowCodePluginManager } from '../../src/plugin/plugin-manager';
-import { IPublicModelPluginContext, IPublicApiPlugins } from '@alilc/lowcode-types';
+import { IPublicModelPluginContext, IPublicApiPlugins } from '@lce/lowcode-types';
 import { ILowCodePluginContextPrivate } from '../../src/plugin/plugin-types';
 
 const editor = new Editor();
@@ -11,10 +11,10 @@ describe('plugin 测试', () => {
   let pluginManager: IPublicApiPlugins;
   beforeEach(() => {
     contextApiAssembler = {
-      assembleApis(context: ILowCodePluginContextPrivate){
+      assembleApis(context: ILowCodePluginContextPrivate) {
         context.plugins = pluginManager as IPublicApiPlugins;
         // mock set apis
-      }
+      },
     };
     pluginManager = new LowCodePluginManager(contextApiAssembler).toProxy();
   });

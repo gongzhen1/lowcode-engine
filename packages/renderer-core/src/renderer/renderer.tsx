@@ -5,7 +5,7 @@ import { isFileSchema, isEmpty } from '../utils';
 import baseRendererFactory from './base';
 import divFactory from '../components/Div';
 import { IRenderComponent, IRendererProps, IRendererState } from '../types';
-import { IPublicTypeNodeSchema, IPublicTypeRootSchema } from '@alilc/lowcode-types';
+import { IPublicTypeNodeSchema, IPublicTypeRootSchema } from '@lce/lowcode-types';
 import logger from '../utils/logger';
 
 export default function rendererFactory(): IRenderComponent {
@@ -21,29 +21,44 @@ export default function rendererFactory(): IRenderComponent {
 
   class FaultComponent extends PureComponent<IPublicTypeNodeSchema | any> {
     render() {
-      logger.error(`%c${this.props.componentName || ''} 组件渲染异常, 异常原因: ${this.props.error?.message || this.props.error || '未知'}`, 'color: #ff0000;');
-      return createElement(Div, {
-        style: {
-          width: '100%',
-          height: '50px',
-          lineHeight: '50px',
-          textAlign: 'center',
-          fontSize: '15px',
-          color: '#ff0000',
-          border: '2px solid #ff0000',
+      logger.error(
+        `%c${this.props.componentName || ''} 组件渲染异常, 异常原因: ${
+          this.props.error?.message || this.props.error || '未知'
+        }`,
+        'color: #ff0000;',
+      );
+      return createElement(
+        Div,
+        {
+          style: {
+            width: '100%',
+            height: '50px',
+            lineHeight: '50px',
+            textAlign: 'center',
+            fontSize: '15px',
+            color: '#ff0000',
+            border: '2px solid #ff0000',
+          },
         },
-      }, `${this.props.componentName || ''} 组件渲染异常，请查看控制台日志`);
+        `${this.props.componentName || ''} 组件渲染异常，请查看控制台日志`,
+      );
     }
   }
 
-  class NotFoundComponent extends PureComponent<{
-    componentName: string;
-  } & IRendererProps> {
+  class NotFoundComponent extends PureComponent<
+    {
+      componentName: string;
+    } & IRendererProps
+  > {
     render() {
       if (this.props.enableStrictNotFoundMode) {
         return `${this.props.componentName || ''} Component Not Found`;
       }
-      return createElement(Div, this.props, this.props.children || `${this.props.componentName || ''} Component Not Found`);
+      return createElement(
+        Div,
+        this.props,
+        this.props.children || `${this.props.componentName || ''} Component Not Found`,
+      );
     }
   }
 
@@ -60,8 +75,8 @@ export default function rendererFactory(): IRenderComponent {
       designMode: '',
       suspended: false,
       schema: {} as IPublicTypeRootSchema,
-      onCompGetRef: () => { },
-      onCompGetCtx: () => { },
+      onCompGetRef: () => {},
+      onCompGetCtx: () => {},
       thisRequiredInJSE: true,
     };
 
@@ -142,7 +157,10 @@ export default function rendererFactory(): IRenderComponent {
       }
       // 兼容乐高区块模板
       if (schema.componentName !== 'Div' && !isFileSchema(schema)) {
-        logger.error('The root component name needs to be one of Page、Block、Component, please check the schema: ', schema);
+        logger.error(
+          'The root component name needs to be one of Page、Block、Component, please check the schema: ',
+          schema,
+        );
         return '模型结构异常';
       }
       debug('entry.render');
@@ -157,24 +175,32 @@ export default function rendererFactory(): IRenderComponent {
       }
 
       if (Comp) {
-        return createElement(AppContext.Provider, {
-          value: {
-            appHelper,
-            components: allComponents,
-            engine: this,
+        return createElement(
+          AppContext.Provider,
+          {
+            value: {
+              appHelper,
+              components: allComponents,
+              engine: this,
+            },
           },
-        }, createElement(ConfigProvider, {
-          device: this.props.device,
-          locale: this.props.locale,
-        }, createElement(Comp, {
-          key: schema.__ctx && `${schema.__ctx.lceKey}_${schema.__ctx.idx || '0'}`,
-          ref: this.__getRef,
-          __appHelper: appHelper,
-          __components: allComponents,
-          __schema: schema,
-          __designMode: designMode,
-          ...this.props,
-        })));
+          createElement(
+            ConfigProvider,
+            {
+              device: this.props.device,
+              locale: this.props.locale,
+            },
+            createElement(Comp, {
+              key: schema.__ctx && `${schema.__ctx.lceKey}_${schema.__ctx.idx || '0'}`,
+              ref: this.__getRef,
+              __appHelper: appHelper,
+              __components: allComponents,
+              __schema: schema,
+              __designMode: designMode,
+              ...this.props,
+            }),
+          ),
+        );
       }
       return null;
     }

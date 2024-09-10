@@ -5,7 +5,7 @@ import {
   isDragNodeObject,
   isDragAnyObject,
   isLocationChildrenDetail,
-} from '@alilc/lowcode-utils';
+} from '@lce/lowcode-utils';
 import {
   IPublicModelDragObject,
   IPublicTypeScrollable,
@@ -17,7 +17,7 @@ import {
   IPublicModelScroller,
   IPublicModelScrollTarget,
   IPublicModelLocateEvent,
-} from '@alilc/lowcode-types';
+} from '@lce/lowcode-types';
 import TreeNode from './tree-node';
 import { IndentTrack } from '../helper/indent-track';
 import DwellTimer from '../helper/dwell-timer';
@@ -175,7 +175,12 @@ export class PaneController implements IPublicModelSensor, ITreeBoard, IPublicTy
     const originLoc = document?.dropLocation;
 
     const componentMeta = e.dragObject?.nodes ? e.dragObject.nodes[0].componentMeta : null;
-    if (e.dragObject?.type === 'node' && componentMeta && componentMeta.isModal && document?.focusNode) {
+    if (
+      e.dragObject?.type === 'node' &&
+      componentMeta &&
+      componentMeta.isModal &&
+      document?.focusNode
+    ) {
       return canvas.createLocation({
         target: document?.focusNode,
         detail: {
@@ -188,9 +193,12 @@ export class PaneController implements IPublicModelSensor, ITreeBoard, IPublicTy
       });
     }
 
-    if (originLoc
-      && ((pos && pos === 'unchanged') || (irect && globalY >= irect.top && globalY <= irect.bottom))
-      && dragObject) {
+    if (
+      originLoc &&
+      ((pos && pos === 'unchanged') ||
+        (irect && globalY >= irect.top && globalY <= irect.bottom)) &&
+      dragObject
+    ) {
       const loc = originLoc.clone(e);
       const indented = this.indentTrack.getIndentParent(originLoc, loc);
       if (indented) {
@@ -219,7 +227,7 @@ export class PaneController implements IPublicModelSensor, ITreeBoard, IPublicTy
         } else {
           this.dwell.reset();
         }
-      // FIXME: recreate new location
+        // FIXME: recreate new location
       } else if ((originLoc.detail as IPublicTypeLocationChildrenDetail).near) {
         (originLoc.detail as IPublicTypeLocationChildrenDetail).near = undefined;
         this.dwell.reset();
@@ -286,7 +294,12 @@ export class PaneController implements IPublicModelSensor, ITreeBoard, IPublicTy
       return false;
     }
     const rect = this._shell.getBoundingClientRect();
-    return e.globalY >= rect.top && e.globalY <= rect.bottom && e.globalX >= rect.left && e.globalX <= rect.right;
+    return (
+      e.globalY >= rect.top &&
+      e.globalY <= rect.bottom &&
+      e.globalX >= rect.left &&
+      e.globalX <= rect.right
+    );
   }
 
   /**
@@ -325,7 +338,9 @@ export class PaneController implements IPublicModelSensor, ITreeBoard, IPublicTy
 
     if (!rect) {
       if (tryTimes < 3) {
-        this.tryScrollAgain = requestIdleCallback(() => this.scrollToNode(treeNode, detail, tryTimes + 1));
+        this.tryScrollAgain = requestIdleCallback(() =>
+          this.scrollToNode(treeNode, detail, tryTimes + 1),
+        );
       }
       return;
     }
@@ -333,7 +348,10 @@ export class PaneController implements IPublicModelSensor, ITreeBoard, IPublicTy
     const { height, top, bottom } = this.bounds;
     if (rect.top < top || rect.bottom > bottom) {
       const opt: any = {};
-      opt.top = Math.min(rect.top + rect.height / 2 + scrollTop - top - height / 2, scrollHeight - height);
+      opt.top = Math.min(
+        rect.top + rect.height / 2 + scrollTop - top - height / 2,
+        scrollHeight - height,
+      );
       if (rect.height >= height) {
         opt.top = Math.min(scrollTop + rect.top - top, opt.top);
       }
@@ -347,7 +365,12 @@ export class PaneController implements IPublicModelSensor, ITreeBoard, IPublicTy
 
   /** -------------------- ITreeBoard end -------------------- */
 
-  private getNear(treeNode: TreeNode, e: IPublicModelLocateEvent, originalIndex?: number, originalRect?: DOMRect) {
+  private getNear(
+    treeNode: TreeNode,
+    e: IPublicModelLocateEvent,
+    originalIndex?: number,
+    originalRect?: DOMRect,
+  ) {
     const { canvas, project } = this.pluginContext;
     const document = project.getCurrentDocument();
     const { globalY, dragObject } = e;
@@ -419,7 +442,9 @@ export class PaneController implements IPublicModelSensor, ITreeBoard, IPublicTy
           index,
           valid: document?.checkNesting(node.parent!, dragObject as any),
           near: { node, pos: 'before' },
-          focus: checkRecursion(focusNode, dragObject) ? { type: 'node', node: focusNode } : undefined,
+          focus: checkRecursion(focusNode, dragObject)
+            ? { type: 'node', node: focusNode }
+            : undefined,
         },
       });
     }
@@ -446,12 +471,17 @@ export class PaneController implements IPublicModelSensor, ITreeBoard, IPublicTy
         index: (index || 0) + 1,
         valid: document?.checkNesting(node.parent!, dragObject as any),
         near: { node, pos: 'after' },
-        focus: checkRecursion(focusNode, dragObject) ? { type: 'node', node: focusNode } : undefined,
+        focus: checkRecursion(focusNode, dragObject)
+          ? { type: 'node', node: focusNode }
+          : undefined,
       },
     });
   }
 
-  private drillLocate(treeNode: TreeNode, e: IPublicModelLocateEvent): IPublicModelDropLocation | null {
+  private drillLocate(
+    treeNode: TreeNode,
+    e: IPublicModelLocateEvent,
+  ): IPublicModelDropLocation | null {
     const { canvas, project } = this.pluginContext;
     const document = project.getCurrentDocument();
     const { dragObject, globalY } = e;
@@ -615,25 +645,34 @@ export class PaneController implements IPublicModelSensor, ITreeBoard, IPublicTy
     if (!this._shell) {
       return undefined;
     }
-    return this._shell.querySelector(`.tree-node[data-id="${treeNode.nodeId}"]`)?.getBoundingClientRect();
+    return this._shell
+      .querySelector(`.tree-node[data-id="${treeNode.nodeId}"]`)
+      ?.getBoundingClientRect();
   }
 
   private getTreeTitleRect(treeNode: TreeNode): DOMRect | undefined {
     if (!this._shell) {
       return undefined;
     }
-    return this._shell.querySelector(`.tree-node-title[data-id="${treeNode.nodeId}"]`)?.getBoundingClientRect();
+    return this._shell
+      .querySelector(`.tree-node-title[data-id="${treeNode.nodeId}"]`)
+      ?.getBoundingClientRect();
   }
 
   private getTreeSlotsRect(treeNode: TreeNode): DOMRect | undefined {
     if (!this._shell) {
       return undefined;
     }
-    return this._shell.querySelector(`.tree-node-slots[data-id="${treeNode.nodeId}"]`)?.getBoundingClientRect();
+    return this._shell
+      .querySelector(`.tree-node-slots[data-id="${treeNode.nodeId}"]`)
+      ?.getBoundingClientRect();
   }
 }
 
-function checkRecursion(parent: IPublicModelNode | undefined | null, dragObject: IPublicModelDragObject): boolean {
+function checkRecursion(
+  parent: IPublicModelNode | undefined | null,
+  dragObject: IPublicModelDragObject,
+): boolean {
   if (!parent) {
     return false;
   }

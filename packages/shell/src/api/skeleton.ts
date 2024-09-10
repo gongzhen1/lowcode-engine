@@ -1,11 +1,15 @@
-import { globalContext } from '@alilc/lowcode-editor-core';
-import {
-  ISkeleton,
-  SkeletonEvents,
-} from '@alilc/lowcode-editor-skeleton';
+import { globalContext } from '@lce/lowcode-editor-core';
+import { ISkeleton, SkeletonEvents } from '@lce/lowcode-editor-skeleton';
 import { skeletonSymbol } from '../symbols';
-import { IPublicApiSkeleton, IPublicModelSkeletonItem, IPublicTypeConfigTransducer, IPublicTypeDisposable, IPublicTypeSkeletonConfig, IPublicTypeWidgetConfigArea } from '@alilc/lowcode-types';
-import { getLogger } from '@alilc/lowcode-utils';
+import {
+  IPublicApiSkeleton,
+  IPublicModelSkeletonItem,
+  IPublicTypeConfigTransducer,
+  IPublicTypeDisposable,
+  IPublicTypeSkeletonConfig,
+  IPublicTypeWidgetConfigArea,
+} from '@lce/lowcode-types';
+import { getLogger } from '@lce/lowcode-utils';
 import { SkeletonItem } from '../model/skeleton-item';
 
 const innerSkeletonSymbol = Symbol('skeleton');
@@ -32,11 +36,7 @@ export class Skeleton implements IPublicApiSkeleton {
     return this[innerSkeletonSymbol];
   }
 
-  constructor(
-      skeleton: ISkeleton,
-      pluginName: string,
-      readonly workspaceMode: boolean = false,
-    ) {
+  constructor(skeleton: ISkeleton, pluginName: string, readonly workspaceMode: boolean = false) {
     this[innerSkeletonSymbol] = skeleton;
     this.pluginName = pluginName;
   }
@@ -47,7 +47,10 @@ export class Skeleton implements IPublicApiSkeleton {
    * @param extraConfig
    * @returns
    */
-  add(config: IPublicTypeSkeletonConfig, extraConfig?: Record<string, any>): IPublicModelSkeletonItem | undefined {
+  add(
+    config: IPublicTypeSkeletonConfig,
+    extraConfig?: Record<string, any>,
+  ): IPublicModelSkeletonItem | undefined {
     const configWithName = {
       ...config,
       pluginName: this.pluginName,
@@ -73,7 +76,9 @@ export class Skeleton implements IPublicApiSkeleton {
   }
 
   getAreaItems(areaName: IPublicTypeWidgetConfigArea): IPublicModelSkeletonItem[] {
-    return this[skeletonSymbol][normalizeArea(areaName)].container.items?.map(d => new SkeletonItem(d));
+    return this[skeletonSymbol][normalizeArea(areaName)].container.items?.map(
+      (d) => new SkeletonItem(d),
+    );
   }
 
   getPanel(name: string) {
@@ -154,7 +159,9 @@ export class Skeleton implements IPublicApiSkeleton {
    * @param listener
    * @returns
    */
-  onShowPanel(listener: (paneName: string, panel: IPublicModelSkeletonItem) => void): IPublicTypeDisposable {
+  onShowPanel(
+    listener: (paneName: string, panel: IPublicModelSkeletonItem) => void,
+  ): IPublicTypeDisposable {
     const { editor } = this[skeletonSymbol];
     editor.eventBus.on(SkeletonEvents.PANEL_SHOW, (name: any, panel: any) => {
       listener(name, new SkeletonItem(panel));
@@ -222,7 +229,19 @@ export class Skeleton implements IPublicApiSkeleton {
   }
 }
 
-function normalizeArea(area: IPublicTypeWidgetConfigArea | undefined): 'leftArea' | 'rightArea' | 'topArea' | 'toolbar' | 'mainArea' | 'bottomArea' | 'leftFixedArea' | 'leftFloatArea' | 'stages' | 'subTopArea' {
+function normalizeArea(
+  area: IPublicTypeWidgetConfigArea | undefined,
+):
+  | 'leftArea'
+  | 'rightArea'
+  | 'topArea'
+  | 'toolbar'
+  | 'mainArea'
+  | 'bottomArea'
+  | 'leftFixedArea'
+  | 'leftFloatArea'
+  | 'stages'
+  | 'subTopArea' {
   switch (area) {
     case 'leftArea':
     case 'left':

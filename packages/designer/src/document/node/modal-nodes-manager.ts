@@ -1,7 +1,7 @@
 import { INode } from './node';
 import { DocumentModel } from '../document-model';
-import { IPublicModelModalNodesManager } from '@alilc/lowcode-types';
-import { createModuleEventBus, IEventBus } from '@alilc/lowcode-editor-core';
+import { IPublicModelModalNodesManager } from '@lce/lowcode-types';
+import { createModuleEventBus, IEventBus } from '@lce/lowcode-editor-core';
 
 export function getModalNodes(node: INode) {
   if (!node) return [];
@@ -18,8 +18,7 @@ export function getModalNodes(node: INode) {
   return nodes;
 }
 
-export interface IModalNodesManager extends IPublicModelModalNodesManager<INode> {
-}
+export interface IModalNodesManager extends IPublicModelModalNodesManager<INode> {}
 
 export class ModalNodesManager implements IModalNodesManager {
   willDestroy: any;
@@ -107,10 +106,9 @@ export class ModalNodesManager implements IModalNodesManager {
   }
 
   private addNodeEvent(node: INode) {
-    this.nodeRemoveEvents[node.id] =
-      node.onVisibleChange(() => {
-        this.emitter.emit('visibleChange');
-      });
+    this.nodeRemoveEvents[node.id] = node.onVisibleChange(() => {
+      this.emitter.emit('visibleChange');
+    });
   }
 
   private removeNodeEvent(node: INode) {

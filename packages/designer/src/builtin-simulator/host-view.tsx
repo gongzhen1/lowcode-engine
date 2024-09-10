@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { observer } from '@alilc/lowcode-editor-core';
+import { observer } from '@lce/lowcode-editor-core';
 import { BuiltinSimulatorHost, BuiltinSimulatorProps } from './host';
 import { BemTools } from './bem-tools';
 import { Project } from '../project';
@@ -24,7 +24,8 @@ export class BuiltinSimulatorHostView extends Component<SimulatorHostProps> {
   constructor(props: any) {
     super(props);
     const { project, onMount, designer } = this.props;
-    this.host = (project.simulator as BuiltinSimulatorHost) || new BuiltinSimulatorHost(project, designer);
+    this.host =
+      (project.simulator as BuiltinSimulatorHost) || new BuiltinSimulatorHost(project, designer);
     this.host.setProps(this.props);
     onMount?.(this.host);
   }
@@ -58,7 +59,11 @@ class Canvas extends Component<{ host: BuiltinSimulatorHost }> {
 
     return (
       <div className={className} style={canvas}>
-        <div ref={(elmt) => sim.mountViewport(elmt)} className="lc-simulator-canvas-viewport" style={viewport}>
+        <div
+          ref={(elmt) => sim.mountViewport(elmt)}
+          className="lc-simulator-canvas-viewport"
+          style={viewport}
+        >
           <BemTools host={sim} />
           <Content host={sim} />
         </div>

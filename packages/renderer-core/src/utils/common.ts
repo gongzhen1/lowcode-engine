@@ -1,15 +1,26 @@
 /* eslint-disable no-console */
 /* eslint-disable no-new-func */
 import logger from './logger';
-import { IPublicTypeRootSchema, IPublicTypeNodeSchema, IPublicTypeJSSlot } from '@alilc/lowcode-types';
-import { isI18nData, isJSExpression } from '@alilc/lowcode-utils';
+import {
+  IPublicTypeRootSchema,
+  IPublicTypeNodeSchema,
+  IPublicTypeJSSlot,
+} from '@lce/lowcode-types';
+import { isI18nData, isJSExpression } from '@lce/lowcode-utils';
 import { isEmpty } from 'lodash';
 import IntlMessageFormat from 'intl-messageformat';
 import pkg from '../../package.json';
 
 (window as any).sdkVersion = pkg.version;
 
-export { pick, isEqualWith as deepEqual, cloneDeep as clone, isEmpty, throttle, debounce } from 'lodash';
+export {
+  pick,
+  isEqualWith as deepEqual,
+  cloneDeep as clone,
+  isEmpty,
+  throttle,
+  debounce,
+} from 'lodash';
 
 const EXPRESSION_TYPE = {
   JSEXPRESSION: 'JSExpression',
@@ -43,7 +54,7 @@ export function isSchema(schema: any): schema is IPublicTypeNodeSchema {
     if (isJSExpression(props)) {
       return true;
     }
-    return (typeof schema.props === 'object' && !Array.isArray(props));
+    return typeof schema.props === 'object' && !Array.isArray(props);
   };
   return !!(schema.componentName && isValidProps(schema.props));
 }
@@ -82,7 +93,7 @@ export function getFileCssName(fileName: string) {
     return;
   }
   const name = fileName.replace(/([A-Z])/g, '-$1').toLowerCase();
-  return (`lce-${name}`)
+  return `lce-${name}`
     .split('-')
     .filter((p) => !!p)
     .join('-');
@@ -134,7 +145,12 @@ export function getValue(obj: any, path: string, defaultValue = {}) {
  * @param {*} locale 国际化标识，例如 zh-CN、en-US
  * @param {*} messages 国际化语言包
  */
-export function getI18n(key: string, values = {}, locale = 'zh-CN', messages: Record<string, any> = {}) {
+export function getI18n(
+  key: string,
+  values = {},
+  locale = 'zh-CN',
+  messages: Record<string, any> = {},
+) {
   if (!messages || !messages[locale] || !messages[locale][key]) {
     return '';
   }
@@ -150,7 +166,12 @@ export function canAcceptsRef(Comp: any) {
   const hasSymbol = typeof Symbol === 'function' && Symbol.for;
   const REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for('react.forward_ref') : 0xead0;
   // eslint-disable-next-line max-len
-  return Comp?.$$typeof === REACT_FORWARD_REF_TYPE || Comp?.prototype?.isReactComponent || Comp?.prototype?.setState || Comp._forwardRef;
+  return (
+    Comp?.$$typeof === REACT_FORWARD_REF_TYPE ||
+    Comp?.prototype?.isReactComponent ||
+    Comp?.prototype?.setState ||
+    Comp._forwardRef
+  );
 }
 
 /**
@@ -202,7 +223,10 @@ export function transformStringToFunction(str: string) {
  */
 
 function parseExpression(options: {
-  str: any; self: any; thisRequired?: boolean; logScope?: string;
+  str: any;
+  self: any;
+  thisRequired?: boolean;
+  logScope?: string;
 }): any;
 function parseExpression(str: any, self: any, thisRequired?: boolean): any;
 function parseExpression(a: any, b?: any, c = false) {
@@ -244,9 +268,7 @@ function parseExpression(a: any, b?: any, c = false) {
   }
 }
 
-export {
-  parseExpression,
-};
+export { parseExpression };
 
 export function parseThisRequiredExpression(str: any, self: any) {
   return parseExpression(str, self, true);
@@ -291,10 +313,13 @@ export function isVariable(obj: any) {
  * @param self context
  */
 export function parseI18n(i18nInfo: any, self: any) {
-  return parseExpression({
-    type: EXPRESSION_TYPE.JSEXPRESSION,
-    value: `this.i18n('${i18nInfo.key}')`,
-  }, self);
+  return parseExpression(
+    {
+      type: EXPRESSION_TYPE.JSEXPRESSION,
+      value: `this.i18n('${i18nInfo.key}')`,
+    },
+    self,
+  );
 }
 
 /**
@@ -304,7 +329,12 @@ export function parseI18n(i18nInfo: any, self: any) {
  * @param context
  */
 export function forEach(targetObj: any, fn: any, context?: any) {
-  if (!targetObj || Array.isArray(targetObj) || isString(targetObj) || typeof targetObj !== 'object') {
+  if (
+    !targetObj ||
+    Array.isArray(targetObj) ||
+    isString(targetObj) ||
+    typeof targetObj !== 'object'
+  ) {
     return;
   }
 

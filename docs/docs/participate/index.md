@@ -29,23 +29,24 @@ npm install && npm run setup
 本质上是将 demo 页面引入的几个 js/css 代理到 engine 项目，可以使用趁手的代理工具，这里推荐 [XSwitch](https://chrome.google.com/webstore/detail/xswitch/idkjhjggpffolpidfkikidcokdkdaogg?hl=en-US)。
 
 本地开发代理规则如下：
+
 ```json
 {
   "proxy": [
     [
-      "https://uipaas-assets.com/prod/npm/@alilc/lowcode-engine/(.*)/dist/js/engine-core.js",
+      "https://uipaas-assets.com/prod/npm/@lce/lowcode-engine/(.*)/dist/js/engine-core.js",
       "http://localhost:5555/js/AliLowCodeEngine.js"
     ],
     [
-      "https://uipaas-assets.com/prod/npm/@alilc/lowcode-engine/(.*)/dist/css/engine-core.css",
+      "https://uipaas-assets.com/prod/npm/@lce/lowcode-engine/(.*)/dist/css/engine-core.css",
       "http://localhost:5555/css/AliLowCodeEngine.css"
     ],
     [
-      "https?://uipaas-assets.com/prod/npm/@alilc/lowcode-engine/(.*)/dist/js/react-simulator-renderer.js",
+      "https?://uipaas-assets.com/prod/npm/@lce/lowcode-engine/(.*)/dist/js/react-simulator-renderer.js",
       "http://localhost:5555/js/ReactSimulatorRenderer.js"
     ],
     [
-      "https?://uipaas-assets.com/prod/npm/@alilc/lowcode-engine/(.*)/dist/css/react-simulator-renderer.css",
+      "https?://uipaas-assets.com/prod/npm/@lce/lowcode-engine/(.*)/dist/css/react-simulator-renderer.css",
       "http://localhost:5555/css/ReactSimulatorRenderer.css"
     ]
   ]
@@ -62,12 +63,12 @@ npm start
 
 开启代理之后，就可以进行开发调试了。
 
-
 ### 贡献低代码引擎文档
 
 #### 开发文档
 
 在 lowcode-engine 目录下执行下面命令
+
 ```
 cd docs
 
@@ -75,6 +76,7 @@ npm start
 ```
 
 #### 维护方式
+
 - 官方文档通过 github 管理文档源，官网文档与[主仓库 develop 分支](https://github.com/alibaba/lowcode-engine/tree/develop/docs)保持同步。
 - 点击每篇文档下发的 `编辑此页` 可直接定位到 github 中位置。
 - 欢迎 PR，文档 PR 也会作为贡献者贡献，会用于贡献度统计。
@@ -87,7 +89,6 @@ npm start
 
 使用 vscode 进行编辑的朋友可以安装 vscode 插件 [huacnlee.autocorrect](https://github.com/huacnlee/autocorrect) 辅助文档 lint。
 
-
 ### 贡献低代码引擎生态
 
 相关源码详见[NPM 包对应源码位置汇总](/site/docs/guide/appendix/npms)
@@ -99,6 +100,7 @@ npm start
 PR 被合并之后，我们会尽快发布相关的正式版本或者 beta 版本。
 
 ### 加入 Contributor 群
+
 提交过 Bugfix 或 Feature 类 PR 的同学，如果有兴趣一起参与维护 LowcodeEngine，我们提供了一个核心贡献者交流群。
 
 1. 可以通过[填写问卷](https://survey.taobao.com/apps/zhiliao/4YEtu9gHF)的方式，参与到其中。
@@ -115,4 +117,4 @@ PR 被合并之后，我们会尽快发布相关的正式版本或者 beta 版�
 - 如果你修复了 bug 或者添加了代码，而这些内容需要测试，请添加测试！
 - 确保通过测试套件（yarn test）。
 - 请签订贡献者许可证协议（Contributor License Agreement）。
-   > 如已签署 CLA 仍被提示需要签署，[解决办法](/site/docs/faq/faq021)
+  > 如已签署 CLA 仍被提示需要签署，[解决办法](/site/docs/faq/faq021)

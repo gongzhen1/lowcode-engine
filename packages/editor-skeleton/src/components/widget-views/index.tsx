@@ -1,6 +1,6 @@
 import { Component, ReactElement } from 'react';
 import classNames from 'classnames';
-import { Title, observer, HelpTip } from '@alilc/lowcode-editor-core';
+import { Title, observer, HelpTip } from '@lce/lowcode-editor-core';
 import { DockProps } from '../../types';
 import { PanelDock } from '../../widget/panel-dock';
 import { composeTitle } from '../../widget/utils';
@@ -257,7 +257,14 @@ export class TabsPanelView extends Component<{
     const contents: ReactElement[] = [];
     // 如果只有一个标签且 shouldHideSingleTab 为 true，则不显示 Tabs
     if (this.props.shouldHideSingleTab && container.items.length === 1) {
-      contents.push(<PanelView key={container.items[0].id} panel={container.items[0]} hideOperationRow hideDragLine />);
+      contents.push(
+        <PanelView
+          key={container.items[0].id}
+          panel={container.items[0]}
+          hideOperationRow
+          hideDragLine
+        />,
+      );
     } else {
       container.items.forEach((item: any) => {
         titles.push(<PanelTitle key={item.id} panel={item} className="lc-tab-title" />);

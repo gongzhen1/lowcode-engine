@@ -1,4 +1,10 @@
-import { autorun, makeObservable, obx, createModuleEventBus, IEventBus } from '@alilc/lowcode-editor-core';
+import {
+  autorun,
+  makeObservable,
+  obx,
+  createModuleEventBus,
+  IEventBus,
+} from '@lce/lowcode-editor-core';
 import { BuiltinSimulatorHost } from './host';
 import { BuiltinSimulatorRenderer, isSimulatorRenderer } from './renderer';
 

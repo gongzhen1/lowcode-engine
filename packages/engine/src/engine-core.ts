@@ -11,7 +11,7 @@ import {
   Hotkey as InnerHotkey,
   IEditor,
   Command as InnerCommand,
-} from '@alilc/lowcode-editor-core';
+} from '@lce/lowcode-editor-core';
 import {
   IPublicTypeEngineOptions,
   IPublicModelDocumentModel,
@@ -21,7 +21,7 @@ import {
   IPublicApiWorkspace,
   IPublicEnumPluginRegisterLevel,
   IPublicModelPluginContext,
-} from '@alilc/lowcode-types';
+} from '@lce/lowcode-types';
 import {
   Designer,
   LowCodePluginManager,
@@ -29,16 +29,13 @@ import {
   ILowCodePluginContextApiAssembler,
   PluginPreference,
   IDesigner,
-} from '@alilc/lowcode-designer';
-import {
-  Skeleton as InnerSkeleton,
-  registerDefaults,
-} from '@alilc/lowcode-editor-skeleton';
+} from '@lce/lowcode-designer';
+import { Skeleton as InnerSkeleton, registerDefaults } from '@lce/lowcode-editor-skeleton';
 import {
   Workspace as InnerWorkspace,
   Workbench as WorkSpaceWorkbench,
   IWorkspace,
-} from '@alilc/lowcode-workspace';
+} from '@lce/lowcode-workspace';
 
 import {
   Hotkey,
@@ -55,8 +52,8 @@ import {
   Config,
   CommonUI,
   Command,
-} from '@alilc/lowcode-shell';
-import { isPlainObject } from '@alilc/lowcode-utils';
+} from '@lce/lowcode-shell';
+import { isPlainObject } from '@lce/lowcode-utils';
 import './modules/live-editing';
 import * as classes from './modules/classes';
 import symbols from './modules/symbols';
@@ -66,14 +63,18 @@ import { defaultPanelRegistry } from './inner-plugins/default-panel-registry';
 import { shellModelFactory } from './modules/shell-model-factory';
 import { builtinHotkey } from './inner-plugins/builtin-hotkey';
 import { defaultContextMenu } from './inner-plugins/default-context-menu';
-import { CommandPlugin } from '@alilc/lowcode-plugin-command';
-import { OutlinePlugin } from '@alilc/lowcode-plugin-outline-pane';
+import { CommandPlugin } from '@lce/lowcode-plugin-command';
+import { OutlinePlugin } from '@lce/lowcode-plugin-outline-pane';
 
 export * from './modules/skeleton-types';
 export * from './modules/designer-types';
 export * from './modules/lowcode-types';
 
-async function registryInnerPlugin(designer: IDesigner, editor: IEditor, plugins: IPublicApiPlugins): Promise<IPublicTypeDisposable> {
+async function registryInnerPlugin(
+  designer: IDesigner,
+  editor: IEditor,
+  plugins: IPublicApiPlugins,
+): Promise<IPublicTypeDisposable> {
   // 注册一批内置插件
   const componentMetaParserPlugin = componentMetaParser(designer);
   const defaultPanelRegistryPlugin = defaultPanelRegistry(editor);
@@ -139,7 +140,11 @@ let plugins: Plugins;
 
 const pluginContextApiAssembler: ILowCodePluginContextApiAssembler = {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  assembleApis: (context: ILowCodePluginContextPrivate, pluginName: string, meta: IPublicTypePluginMeta) => {
+  assembleApis: (
+    context: ILowCodePluginContextPrivate,
+    pluginName: string,
+    meta: IPublicTypePluginMeta,
+  ) => {
     context.hotkey = hotkey;
     context.project = project;
     context.skeleton = new Skeleton(innerSkeleton, pluginName, false);
@@ -219,7 +224,7 @@ export async function init(
   container?: HTMLElement,
   options?: IPublicTypeEngineOptions,
   pluginPreference?: PluginPreference,
-  ) {
+) {
   await destroy();
   let engineOptions = null;
   if (isPlainObject(container)) {
@@ -275,7 +280,7 @@ export async function destroy() {
   // remove all documents
   const { documents } = project;
   if (Array.isArray(documents) && documents.length > 0) {
-    documents.forEach(((doc: IPublicModelDocumentModel) => project.removeDocument(doc)));
+    documents.forEach((doc: IPublicModelDocumentModel) => project.removeDocument(doc));
   }
 
   // TODO: delete plugins except for core plugins

@@ -1,10 +1,8 @@
 import '../../fixtures/window';
-import { Editor } from '@alilc/lowcode-editor-core';
+import { Editor } from '@lce/lowcode-editor-core';
 import { Project } from '../../../src/project/project';
 import { DocumentModel } from '../../../src/document/document-model';
-import {
-  Node,
-} from '../../../src/document/node/node';
+import { Node } from '../../../src/document/node/node';
 import { Designer } from '../../../src/designer/designer';
 import formSchema from '../../fixtures/schema/form';
 import divMetadata from '../../fixtures/component-metadata/div';

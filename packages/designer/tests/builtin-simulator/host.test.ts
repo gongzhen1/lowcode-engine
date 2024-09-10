@@ -5,14 +5,10 @@ import {
   globalContext,
   Hotkey as InnerHotkey,
   Setters as InnerSetters,
-} from '@alilc/lowcode-editor-core';
-import { Workspace as InnerWorkspace } from '@alilc/lowcode-workspace';
-import {
-  AssetType,
-} from '@alilc/lowcode-utils';
-import {
-  IPublicEnumDragObjectType,
-} from '@alilc/lowcode-types';
+} from '@lce/lowcode-editor-core';
+import { Workspace as InnerWorkspace } from '@lce/lowcode-workspace';
+import { AssetType } from '@lce/lowcode-utils';
+import { IPublicEnumDragObjectType } from '@lce/lowcode-types';
 import { Project } from '../../src/project/project';
 import pageMetadata from '../fixtures/component-metadata/page';
 import { Designer } from '../../src/designer/designer';
@@ -22,11 +18,13 @@ import { getMockDocument, getMockWindow, getMockEvent, delayObxTick } from '../u
 import { BuiltinSimulatorHost } from '../../src/builtin-simulator/host';
 import { fireEvent } from '@testing-library/react';
 import { shellModelFactory } from '../../../engine/src/modules/shell-model-factory';
-import { Setters, Workspace } from '@alilc/lowcode-shell';
-import { ILowCodePluginContextApiAssembler, ILowCodePluginContextPrivate, LowCodePluginManager } from '@alilc/lowcode-designer';
+import { Setters, Workspace } from '@lce/lowcode-shell';
 import {
-  Skeleton as InnerSkeleton,
-} from '@alilc/lowcode-editor-skeleton';
+  ILowCodePluginContextApiAssembler,
+  ILowCodePluginContextPrivate,
+  LowCodePluginManager,
+} from '@lce/lowcode-designer';
+import { Skeleton as InnerSkeleton } from '@lce/lowcode-editor-skeleton';
 
 describe('Host 测试', () => {
   let editor: Editor;
@@ -39,7 +37,11 @@ describe('Host 测试', () => {
     editor = new Editor();
     const pluginContextApiAssembler: ILowCodePluginContextApiAssembler = {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      assembleApis: (context: ILowCodePluginContextPrivate, pluginName: string, meta: IPublicTypePluginMeta) => {
+      assembleApis: (
+        context: ILowCodePluginContextPrivate,
+        pluginName: string,
+        meta: IPublicTypePluginMeta,
+      ) => {
         context.project = project;
         const eventPrefix = meta?.eventPrefix || 'common';
         context.workspace = workspace;
@@ -50,7 +52,7 @@ describe('Host 测试', () => {
     const workspace = new Workspace(innerWorkspace);
     const innerSkeleton = new InnerSkeleton(editor);
     editor.set('skeleton' as any, innerSkeleton);
-    editor.set('innerHotkey', new InnerHotkey())
+    editor.set('innerHotkey', new InnerHotkey());
     editor.set('setters', new Setters(new InnerSetters()));
     editor.set('innerPlugins' as any, innerPlugins);
     !globalContext.has(Editor) && globalContext.register(editor, Editor);
@@ -219,19 +221,25 @@ describe('Host 测试', () => {
     });
 
     it('findDOMNodes', () => {
-      host.connect({
-        findDOMNodes: () => {
-          return null;
+      host.connect(
+        {
+          findDOMNodes: () => {
+            return null;
+          },
         },
-      }, () => {});
+        () => {},
+      );
       expect(host.findDOMNodes()).toBeNull();
 
       const mockElems = [document.createElement('div')];
-      host.connect({
-        findDOMNodes: () => {
-          return mockElems;
+      host.connect(
+        {
+          findDOMNodes: () => {
+            return mockElems;
+          },
         },
-      }, () => {});
+        () => {},
+      );
       expect(host.findDOMNodes({})).toBe(mockElems);
       expect(host.findDOMNodes({}, 'xxx')).toBeNull();
       expect(host.findDOMNodes({}, 'div')).toEqual(mockElems);
@@ -245,9 +253,12 @@ describe('Host 测试', () => {
           docId: 'docId',
         };
       });
-      host.connect({
-        getClosestNodeInstance: mockFn,
-      }, () => {});
+      host.connect(
+        {
+          getClosestNodeInstance: mockFn,
+        },
+        () => {},
+      );
       expect(host.getClosestNodeInstance()).toEqual({
         node: {},
         nodeId: 'id',
@@ -296,8 +307,7 @@ describe('Host 测试', () => {
           },
         },
       };
-      expect(host.getComponentInstances(mockNode))
-        .toEqual([{ comp: true }, { comp2: true }]);
+      expect(host.getComponentInstances(mockNode)).toEqual([{ comp: true }, { comp2: true }]);
 
       const mockInst = { inst: true };
       host.getClosestNodeInstance = () => {
@@ -305,8 +315,10 @@ describe('Host 测试', () => {
           instance: mockInst,
         };
       };
-      expect(host.getComponentInstances(mockNode, { instance: mockInst }))
-        .toEqual([{ comp: true }, { comp2: true }]);
+      expect(host.getComponentInstances(mockNode, { instance: mockInst })).toEqual([
+        { comp: true },
+        { comp2: true },
+      ]);
     });
 
     it('setNativeSelection / setDraggingState / setCopyState / clearState', () => {
@@ -314,12 +326,15 @@ describe('Host 测试', () => {
       const mockFn2 = jest.fn();
       const mockFn3 = jest.fn();
       const mockFn4 = jest.fn();
-      host.connect({
-        setNativeSelection: mockFn1,
-        setDraggingState: mockFn2,
-        setCopyState: mockFn3,
-        clearState: mockFn4,
-      }, () => {});
+      host.connect(
+        {
+          setNativeSelection: mockFn1,
+          setDraggingState: mockFn2,
+          setCopyState: mockFn3,
+          clearState: mockFn4,
+        },
+        () => {},
+      );
       host.setNativeSelection(true);
       expect(mockFn1).toHaveBeenCalledWith(true);
       host.setDraggingState(false);
@@ -337,11 +352,14 @@ describe('Host 测试', () => {
     });
 
     it('getComponent', () => {
-      host.connect({
-        getComponent: () => {
-          return {};
+      host.connect(
+        {
+          getComponent: () => {
+            return {};
+          },
         },
-      }, () => {});
+        () => {},
+      );
       expect(host.getComponent()).toEqual({});
       expect(host.createComponent()).toBeNull();
       expect(host.setSuspense()).toBeFalsy();
@@ -372,30 +390,36 @@ describe('Host 测试', () => {
       });
     });
     it('locate，没有 nodes', () => {
-      expect(host.locate({
-        dragObject: {
-          type: IPublicEnumDragObjectType.Node,
-          nodes: [],
-        },
-      })).toBeUndefined();
+      expect(
+        host.locate({
+          dragObject: {
+            type: IPublicEnumDragObjectType.Node,
+            nodes: [],
+          },
+        }),
+      ).toBeUndefined();
     });
     it('locate，没有 document', () => {
       project.removeDocument(doc);
-      expect(host.locate({
-        dragObject: {
-          type: IPublicEnumDragObjectType.Node,
-          nodes: [doc.getNode('page')],
-        },
-      })).toBeNull();
+      expect(
+        host.locate({
+          dragObject: {
+            type: IPublicEnumDragObjectType.Node,
+            nodes: [doc.getNode('page')],
+          },
+        }),
+      ).toBeNull();
     });
     it('notFoundComponent', () => {
-      expect(host.locate({
-        dragObject: {
-          type: IPublicEnumDragObjectType.Node,
-          nodes: [doc.getNode('form')],
-        },
-      })).toBeUndefined();
-    })
+      expect(
+        host.locate({
+          dragObject: {
+            type: IPublicEnumDragObjectType.Node,
+            nodes: [doc.getNode('form')],
+          },
+        }),
+      ).toBeUndefined();
+    });
     it('locate', () => {
       host.locate({
         dragObject: {
@@ -432,7 +456,15 @@ describe('Host 测试', () => {
       host.setupContextMenu();
       host.getNodeInstanceFromElement = () => {
         return {
-          node: { componentMeta: { componentName: 'Button', getMetadata() { return {} } }, contains() {} },
+          node: {
+            componentMeta: {
+              componentName: 'Button',
+              getMetadata() {
+                return {};
+              },
+            },
+            contains() {},
+          },
         };
       };
       const mockFn = jest.fn();

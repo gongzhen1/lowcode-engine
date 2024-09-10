@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import { isFormEvent, isNodeSchema, isNode } from '@alilc/lowcode-utils';
+import { isFormEvent, isNodeSchema, isNode } from '@lce/lowcode-utils';
 import {
   IPublicModelPluginContext,
   IPublicEnumTransformStage,
@@ -8,7 +8,7 @@ import {
   IPublicTypeNodeData,
   IPublicEnumDragObjectType,
   IPublicTypeDragNodeObject,
-} from '@alilc/lowcode-types';
+} from '@lce/lowcode-types';
 
 function insertChild(
   container: IPublicModelNode,
@@ -21,7 +21,7 @@ function insertChild(
   }
   let node = null;
   if (isNode(child)) {
-    node = (child as IPublicModelNode);
+    node = child as IPublicModelNode;
     container.children?.insert(node, at);
   } else {
     node = container.document?.createNode(child) || null;
@@ -99,7 +99,11 @@ function getSuitableInsertion(
 }
 
 /* istanbul ignore next */
-function getNextForSelect(next: IPublicModelNode | null, head?: any, parent?: IPublicModelNode | null): any {
+function getNextForSelect(
+  next: IPublicModelNode | null,
+  head?: any,
+  parent?: IPublicModelNode | null,
+): any {
   if (next) {
     if (!head) {
       return next;
@@ -130,7 +134,11 @@ function getNextForSelect(next: IPublicModelNode | null, head?: any, parent?: IP
 }
 
 /* istanbul ignore next */
-function getPrevForSelect(prev: IPublicModelNode | null, head?: any, parent?: IPublicModelNode | null): any {
+function getPrevForSelect(
+  prev: IPublicModelNode | null,
+  head?: any,
+  parent?: IPublicModelNode | null,
+): any {
   if (prev) {
     let ret;
     if (!head && prev.isContainerNode) {
@@ -160,7 +168,11 @@ function getPrevForSelect(prev: IPublicModelNode | null, head?: any, parent?: IP
   return null;
 }
 
-function getSuitablePlaceForNode(targetNode: IPublicModelNode, node: IPublicModelNode, ref: any): any {
+function getSuitablePlaceForNode(
+  targetNode: IPublicModelNode,
+  node: IPublicModelNode,
+  ref: any,
+): any {
   const { document } = targetNode;
   if (!document) {
     return null;
@@ -292,7 +304,9 @@ export const builtinHotkey = (ctx: IPublicModelPluginContext) => {
         }
 
         const componentsMap = {};
-        const componentsTree = selected.map((item) => item?.exportSchema(IPublicEnumTransformStage.Clone));
+        const componentsTree = selected.map((item) =>
+          item?.exportSchema(IPublicEnumTransformStage.Clone),
+        );
 
         // FIXME: clear node.id
 

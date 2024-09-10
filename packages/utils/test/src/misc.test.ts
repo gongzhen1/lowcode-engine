@@ -12,7 +12,7 @@ import {
   isRegExp,
   shouldUseVariableSetter,
 } from '../../src/misc';
-import { IPublicModelComponentMeta } from '@alilc/lowcode-types';
+import { IPublicModelComponentMeta } from '@lce/lowcode-types';
 
 describe('isVariable', () => {
   it('should return true for a variable object', () => {
@@ -30,14 +30,22 @@ describe('isVariable', () => {
 
 describe('isUseI18NSetter', () => {
   it('should return true for a property with I18nSetter', () => {
-    const prototype = { options: { configure: [{ name: 'propName', setter: { type: { displayName: 'I18nSetter' } } }] } };
+    const prototype = {
+      options: {
+        configure: [{ name: 'propName', setter: { type: { displayName: 'I18nSetter' } } }],
+      },
+    };
     const propName = 'propName';
     const result = isUseI18NSetter(prototype, propName);
     expect(result).toBe(true);
   });
 
   it('should return false for a property without I18nSetter', () => {
-    const prototype = { options: { configure: [{ name: 'propName', setter: { type: { displayName: 'OtherSetter' } } }] } };
+    const prototype = {
+      options: {
+        configure: [{ name: 'propName', setter: { type: { displayName: 'OtherSetter' } } }],
+      },
+    };
     const propName = 'propName';
     const result = isUseI18NSetter(prototype, propName);
     expect(result).toBe(false);
@@ -240,7 +248,7 @@ describe('executePendingFn', () => {
     expect(fn).not.toHaveBeenCalled();
 
     // Wait for the specified timeout
-    await new Promise(resolve => setTimeout(resolve, 100));
+    await new Promise((resolve) => setTimeout(resolve, 100));
 
     // Ensure the function has been called after the timeout
     expect(fn).toHaveBeenCalled();
@@ -257,7 +265,7 @@ describe('executePendingFn', () => {
     expect(fn).not.toHaveBeenCalled();
 
     // Wait for the default timeout (2000 milliseconds)
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
 
     // Ensure the function has been called after the default timeout
     expect(fn).toHaveBeenCalled();
@@ -275,7 +283,7 @@ describe('compatStage', () => {
     const result = compatStage(2);
     expect(result).toBe('serilize');
     expect(warnSpy).toHaveBeenCalledWith(
-      'stage 直接指定为数字的使用方式已经过时，将在下一版本移除，请直接使用 IPublicEnumTransformStage.Render|Serilize|Save|Clone|Init|Upgrade'
+      'stage 直接指定为数字的使用方式已经过时，将在下一版本移除，请直接使用 IPublicEnumTransformStage.Render|Serilize|Save|Clone|Init|Upgrade',
     );
     warnSpy.mockRestore();
   });
@@ -293,7 +301,7 @@ describe('invariant', () => {
 
   it('should throw an error if the check is false', () => {
     expect(() => invariant(false, 'Test invariant', 'thing')).toThrowError(
-      "Invariant failed: Test invariant in 'thing'"
+      "Invariant failed: Test invariant in 'thing'",
     );
   });
 });

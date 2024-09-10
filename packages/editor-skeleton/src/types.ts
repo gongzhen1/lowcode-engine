@@ -6,7 +6,7 @@ import {
   IPublicTypePanelDockProps,
   IPublicTypePanelConfigProps,
   IPublicTypePanelConfig,
-} from '@alilc/lowcode-types';
+} from '@lce/lowcode-types';
 import { IWidget } from './widget/widget';
 
 export interface WidgetConfig extends IPublicTypeWidgetBaseConfig {
@@ -23,8 +23,7 @@ export function isWidgetConfig(obj: any): obj is WidgetConfig {
   return obj && obj.type === 'Widget';
 }
 
-export interface DockProps extends IPublicTypePanelDockProps {
-}
+export interface DockProps extends IPublicTypePanelDockProps {}
 
 export interface DividerConfig extends IPublicTypeWidgetBaseConfig {
   type: 'Divider';

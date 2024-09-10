@@ -1,14 +1,12 @@
-import {
-  ILowCodePluginManager,
-} from '@alilc/lowcode-designer';
-import { globalContext } from '@alilc/lowcode-editor-core';
+import { ILowCodePluginManager } from '@lce/lowcode-designer';
+import { globalContext } from '@lce/lowcode-editor-core';
 import {
   IPublicApiPlugins,
   IPublicModelPluginInstance,
   IPublicTypePlugin,
   IPublicTypePluginRegisterOptions,
   IPublicTypePreferenceValueType,
-} from '@alilc/lowcode-types';
+} from '@lce/lowcode-types';
 import { PluginInstance as ShellPluginInstance } from '../model';
 import { pluginsSymbol } from '../symbols';
 
@@ -44,8 +42,8 @@ export class Plugins implements IPublicApiPlugins {
   }
 
   getPluginPreference(
-      pluginName: string,
-    ): Record<string, IPublicTypePreferenceValueType> | null | undefined {
+    pluginName: string,
+  ): Record<string, IPublicTypePreferenceValueType> | null | undefined {
     return this[pluginsSymbol].getPluginPreference(pluginName);
   }
 

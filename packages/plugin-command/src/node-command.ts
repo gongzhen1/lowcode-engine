@@ -1,5 +1,10 @@
-import { IPublicModelPluginContext, IPublicTypeNodeSchema, IPublicTypePlugin, IPublicTypePropType } from '@alilc/lowcode-types';
-import { isNodeSchema } from '@alilc/lowcode-utils';
+import {
+  IPublicModelPluginContext,
+  IPublicTypeNodeSchema,
+  IPublicTypePlugin,
+  IPublicTypePropType,
+} from '@lce/lowcode-types';
+import { isNodeSchema } from '@lce/lowcode-utils';
 
 const sampleNodeSchema: IPublicTypePropType = {
   type: 'shape',
@@ -234,11 +239,7 @@ export const nodeCommand: IPublicTypePlugin = (ctx: IPublicModelPluginContext) =
           nodeSchema: IPublicTypeNodeSchema;
           index: number;
         }) => {
-          const {
-            parentNodeId,
-            nodeSchema,
-            index,
-          } = param;
+          const { parentNodeId, nodeSchema, index } = param;
           const { project } = ctx;
           const parentNode = project.currentDocument?.getNodeById(parentNodeId);
           if (!parentNode) {
@@ -281,16 +282,8 @@ export const nodeCommand: IPublicTypePlugin = (ctx: IPublicModelPluginContext) =
       command.registerCommand({
         name: 'move',
         description: 'Move a node to another node.',
-        handler(param: {
-          nodeId: string;
-          targetNodeId: string;
-          index: number;
-        }) {
-          const {
-            nodeId,
-            targetNodeId,
-            index = 0,
-          } = param;
+        handler(param: { nodeId: string; targetNodeId: string; index: number }) {
+          const { nodeId, targetNodeId, index = 0 } = param;
 
           if (!nodeId) {
             throw new Error('Invalid node id.');
@@ -349,12 +342,8 @@ export const nodeCommand: IPublicTypePlugin = (ctx: IPublicModelPluginContext) =
       command.registerCommand({
         name: 'remove',
         description: 'Remove a node from the canvas.',
-        handler(param: {
-          nodeId: string;
-        }) {
-          const {
-            nodeId,
-          } = param;
+        handler(param: { nodeId: string }) {
+          const { nodeId } = param;
 
           const node = project.currentDocument?.getNodeById(nodeId);
           if (!node) {
@@ -375,14 +364,8 @@ export const nodeCommand: IPublicTypePlugin = (ctx: IPublicModelPluginContext) =
       command.registerCommand({
         name: 'update',
         description: 'Update a node.',
-        handler(param: {
-          nodeId: string;
-          nodeSchema: IPublicTypeNodeSchema;
-        }) {
-          const {
-            nodeId,
-            nodeSchema,
-          } = param;
+        handler(param: { nodeId: string; nodeSchema: IPublicTypeNodeSchema }) {
+          const { nodeId, nodeSchema } = param;
 
           const node = project.currentDocument?.getNodeById(nodeId);
           if (!node) {
@@ -412,21 +395,15 @@ export const nodeCommand: IPublicTypePlugin = (ctx: IPublicModelPluginContext) =
       command.registerCommand({
         name: 'updateProps',
         description: 'Update the properties of a node.',
-        handler(param: {
-          nodeId: string;
-          props: Record<string, any>;
-        }) {
-          const {
-            nodeId,
-            props,
-          } = param;
+        handler(param: { nodeId: string; props: Record<string, any> }) {
+          const { nodeId, props } = param;
 
           const node = project.currentDocument?.getNodeById(nodeId);
           if (!node) {
             throw new Error(`Can not find node '${nodeId}'.`);
           }
 
-          Object.keys(props).forEach(key => {
+          Object.keys(props).forEach((key) => {
             node.setPropValue(key, props[key]);
           });
         },
@@ -447,21 +424,15 @@ export const nodeCommand: IPublicTypePlugin = (ctx: IPublicModelPluginContext) =
       command.registerCommand({
         name: 'removeProps',
         description: 'Remove the properties of a node.',
-        handler(param: {
-          nodeId: string;
-          propNames: string[];
-        }) {
-          const {
-            nodeId,
-            propNames,
-          } = param;
+        handler(param: { nodeId: string; propNames: string[] }) {
+          const { nodeId, propNames } = param;
 
           const node = project.currentDocument?.getNodeById(nodeId);
           if (!node) {
             throw new Error(`Can not find node '${nodeId}'.`);
           }
 
-          propNames.forEach(key => {
+          propNames.forEach((key) => {
             node.props?.getProp(key)?.remove();
           });
         },
@@ -494,4 +465,3 @@ nodeCommand.pluginName = '___node_command___';
 nodeCommand.meta = {
   commandScope: 'node',
 };
-

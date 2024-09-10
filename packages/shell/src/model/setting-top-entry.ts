@@ -1,7 +1,11 @@
-import { ISettingTopEntry } from '@alilc/lowcode-designer';
+import { ISettingTopEntry } from '@lce/lowcode-designer';
 import { settingTopEntrySymbol } from '../symbols';
 import { Node as ShellNode } from './node';
-import { IPublicModelSettingTopEntry, IPublicModelNode, IPublicModelSettingField } from '@alilc/lowcode-types';
+import {
+  IPublicModelSettingTopEntry,
+  IPublicModelNode,
+  IPublicModelSettingField,
+} from '@lce/lowcode-types';
 import { SettingField } from './setting-field';
 
 export class SettingTopEntry implements IPublicModelSettingTopEntry {

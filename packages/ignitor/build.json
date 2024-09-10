@@ -16,15 +16,13 @@
     "prop-types": "var window.PropTypes",
     "@alifd/next": "var window.Next",
     "rax": "var window.Rax",
-    "@alilc/lowcode-engine": "var window.AliLowCodeEngine",
-    "@alilc/lowcode-engine-ext": "var window.AliLowCodeEngineExt",
+    "@lce/lowcode-engine": "var window.AliLowCodeEngine",
+    "@lce/lowcode-engine-ext": "var window.AliLowCodeEngineExt",
     "moment": "var moment",
     "lodash": "var _"
   },
   "plugins": [
-    [
-      "build-plugin-react-app"
-    ],
+    ["build-plugin-react-app"],
     [
       "build-plugin-fusion",
       {
@@ -35,9 +33,7 @@
     [
       "build-plugin-moment-locales",
       {
-        "locales": [
-          "zh-cn"
-        ]
+        "locales": ["zh-cn"]
       }
     ],
     "./build.plugin.js"

@@ -1,6 +1,6 @@
-import { IPublicModelClipboard } from '@alilc/lowcode-types';
+import { IPublicModelClipboard } from '@lce/lowcode-types';
 import { clipboardSymbol } from '../symbols';
-import { IClipboard, clipboard } from '@alilc/lowcode-designer';
+import { IClipboard, clipboard } from '@lce/lowcode-designer';
 
 export class Clipboard implements IPublicModelClipboard {
   private readonly [clipboardSymbol]: IClipboard;
@@ -14,9 +14,9 @@ export class Clipboard implements IPublicModelClipboard {
   }
 
   waitPasteData(
-      keyboardEvent: KeyboardEvent,
-      cb: (data: any, clipboardEvent: ClipboardEvent) => void,
-    ): void {
+    keyboardEvent: KeyboardEvent,
+    cb: (data: any, clipboardEvent: ClipboardEvent) => void,
+  ): void {
     this[clipboardSymbol].waitPasteData(keyboardEvent, cb);
   }
 }

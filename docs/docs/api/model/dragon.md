@@ -2,16 +2,17 @@
 title: Dragon
 sidebar_position: 99
 ---
-> **@types** [IPublicModelDragon](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/dragon.ts)<br/>
-> **@since** v1.0.0
+
+> **@types** [IPublicModelDragon](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/dragon.ts)<br/> > **@since** v1.0.0
 
 ## 基本介绍
 
 拖拽对象
 
 ### 对应接口
+
 ```typescript
-import { IPublicModelDragon } from '@alilc/lowcode-types';
+import { IPublicModelDragon } from '@lce/lowcode-types';
 ```
 
 ### 支持版本
@@ -50,6 +51,7 @@ onDragstart(func: (e: IPublicModelLocateEvent) => any): () => void;
 ### onDrag
 
 绑定 drag 事件
+
 ```typescript
 /**
  * 绑定 drag 事件
@@ -93,6 +95,7 @@ from(shell: Element, boost: (e: MouseEvent) => IPublicTypeDragNodeDataObject | n
 ### boost
 
 发射拖拽对象
+
 ```typescript
 /**
  * 发射拖拽对象

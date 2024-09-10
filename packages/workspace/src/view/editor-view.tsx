@@ -1,18 +1,19 @@
-import { BuiltinLoading } from '@alilc/lowcode-designer';
-import { engineConfig, observer } from '@alilc/lowcode-editor-core';
-import {
-  Workbench,
-} from '@alilc/lowcode-editor-skeleton';
+import { BuiltinLoading } from '@lce/lowcode-designer';
+import { engineConfig, observer } from '@lce/lowcode-editor-core';
+import { Workbench } from '@lce/lowcode-editor-skeleton';
 import { PureComponent } from 'react';
 import { Context } from '../context/view-context';
 
 export * from '../context/base-context';
 
 @observer
-export class EditorView extends PureComponent<{
-  editorView: Context;
-  active: boolean;
-}, any> {
+export class EditorView extends PureComponent<
+  {
+    editorView: Context;
+    active: boolean;
+  },
+  any
+> {
   render() {
     const { active } = this.props;
     const editorView = this.props.editorView;

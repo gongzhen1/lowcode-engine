@@ -1,6 +1,10 @@
-import { reaction, untracked, IEventBus, createModuleEventBus } from '@alilc/lowcode-editor-core';
-import { IPublicTypeNodeSchema, IPublicModelHistory, IPublicTypeDisposable } from '@alilc/lowcode-types';
-import { Logger } from '@alilc/lowcode-utils';
+import { reaction, untracked, IEventBus, createModuleEventBus } from '@lce/lowcode-editor-core';
+import {
+  IPublicTypeNodeSchema,
+  IPublicModelHistory,
+  IPublicTypeDisposable,
+} from '@lce/lowcode-types';
+import { Logger } from '@lce/lowcode-utils';
 import { IDocumentModel } from '../designer';
 
 const logger = new Logger({ level: 'warn', bizName: 'history' });
@@ -41,41 +45,45 @@ export class History<T = IPublicTypeNodeSchema> implements IHistory {
   private timeGap: number = 1000;
 
   constructor(
-      dataFn: () => T | null,
-      private redoer: (data: T) => void,
-      private document?: IDocumentModel,
-    ) {
+    dataFn: () => T | null,
+    private redoer: (data: T) => void,
+    private document?: IDocumentModel,
+  ) {
     this.session = new Session(0, null, this.timeGap);
     this.records = [this.session];
 
-    reaction((): any => {
-      return dataFn();
-    }, (data: T) => {
-      if (this.asleep) return;
-      untracked(() => {
-        const log = this.currentSerialization.serialize(data);
+    reaction(
+      (): any => {
+        return dataFn();
+      },
+      (data: T) => {
+        if (this.asleep) return;
+        untracked(() => {
+          const log = this.currentSerialization.serialize(data);
 
-        // do not record unchanged data
-        if (this.session.data === log) {
-          return;
-        }
-
-        if (this.session.isActive()) {
-          this.session.log(log);
-        } else {
-          this.session.end();
-          const lastState = this.getState();
-          const cursor = this.session.cursor + 1;
-          const session = new Session(cursor, log, this.timeGap);
-          this.session = session;
-          this.records.splice(cursor, this.records.length - cursor, session);
-          const currentState = this.getState();
-          if (currentState !== lastState) {
-            this.emitter.emit('statechange', currentState);
+          // do not record unchanged data
+          if (this.session.data === log) {
+            return;
           }
-        }
-      });
-    }, { fireImmediately: true });
+
+          if (this.session.isActive()) {
+            this.session.log(log);
+          } else {
+            this.session.end();
+            const lastState = this.getState();
+            const cursor = this.session.cursor + 1;
+            const session = new Session(cursor, log, this.timeGap);
+            this.session = session;
+            this.records.splice(cursor, this.records.length - cursor, session);
+            const currentState = this.getState();
+            if (currentState !== lastState) {
+              this.emitter.emit('statechange', currentState);
+            }
+          }
+        });
+      },
+      { fireImmediately: true },
+    );
   }
 
   setSerialization(serialization: Serialization<T, string>) {

@@ -1,11 +1,11 @@
 import { ReactInstance, Fragment, Component, createElement } from 'react';
 import { Router, Route, Switch } from 'react-router';
 import cn from 'classnames';
-import { Node } from '@alilc/lowcode-designer';
-import LowCodeRenderer from '@alilc/lowcode-react-renderer';
+import { Node } from '@lce/lowcode-designer';
+import LowCodeRenderer from '@lce/lowcode-react-renderer';
 import { observer } from 'mobx-react';
-import { getClosestNode, isFromVC, isReactComponent } from '@alilc/lowcode-utils';
-import { GlobalEvent } from '@alilc/lowcode-types';
+import { getClosestNode, isFromVC, isReactComponent } from '@lce/lowcode-utils';
+import { GlobalEvent } from '@lce/lowcode-types';
 import { SimulatorRendererContainer, DocumentInstance } from './renderer';
 import { host } from './host';
 import { isRendererDetached } from './utils/misc';
@@ -14,7 +14,11 @@ import { createIntl } from './locale';
 
 // patch cloneElement avoid lost keyProps
 const originCloneElement = window.React.cloneElement;
-(window as any).React.cloneElement = (child: any, { _leaf, ...props }: any = {}, ...rest: any[]) => {
+(window as any).React.cloneElement = (
+  child: any,
+  { _leaf, ...props }: any = {},
+  ...rest: any[]
+) => {
   if (child.ref && props.ref) {
     const dRef = props.ref;
     const cRef = child.ref;
@@ -46,7 +50,9 @@ const originCloneElement = window.React.cloneElement;
   return originCloneElement(child, props, ...rest);
 };
 
-export default class SimulatorRendererView extends Component<{ rendererContainer: SimulatorRendererContainer }> {
+export default class SimulatorRendererView extends Component<{
+  rendererContainer: SimulatorRendererContainer;
+}> {
   render() {
     const { rendererContainer } = this.props;
     return (
@@ -70,7 +76,13 @@ export class Routes extends Component<{ rendererContainer: SimulatorRendererCont
             <Route
               path={instance.path}
               key={instance.id}
-              render={(routeProps) => <Renderer documentInstance={instance} rendererContainer={rendererContainer} {...routeProps} />}
+              render={(routeProps) => (
+                <Renderer
+                  documentInstance={instance}
+                  rendererContainer={rendererContainer}
+                  {...routeProps}
+                />
+              )}
             />
           );
         })}
@@ -106,7 +118,11 @@ class Layout extends Component<{ rendererContainer: SimulatorRendererContainer }
     if (layout) {
       const { Component, props, componentName } = layout;
       if (Component) {
-        return <Component key="layout" props={props}>{children}</Component>;
+        return (
+          <Component key="layout" props={props}>
+            {children}
+          </Component>
+        );
       }
       if (componentName && rendererContainer.getComponent(componentName)) {
         return createElement(
@@ -219,7 +235,10 @@ class Renderer extends Component<{
               defaultPlaceholder = intl('Locked elements and child elements cannot be edited');
             }
             children = (
-              <div className={cn('lc-container-placeholder', { 'lc-container-locked': !!lockedNode })} style={viewProps.placeholderStyle}>
+              <div
+                className={cn('lc-container-placeholder', { 'lc-container-locked': !!lockedNode })}
+                style={viewProps.placeholderStyle}
+              >
                 {viewProps.placeholder || defaultPlaceholder}
               </div>
             );
@@ -255,7 +274,13 @@ class Renderer extends Component<{
           return createElement(
             getDeviceView(Component, device, designMode),
             viewProps,
-            leaf?.isContainer() ? (children == null ? [] : Array.isArray(children) ? children : [children]) : children,
+            leaf?.isContainer()
+              ? children == null
+                ? []
+                : Array.isArray(children)
+                ? children
+                : [children]
+              : children,
           );
         }}
         __host={host}

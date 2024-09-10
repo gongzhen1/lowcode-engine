@@ -1,41 +1,47 @@
-import { obx, computed, makeObservable, action, IEventBus, createModuleEventBus } from '@alilc/lowcode-editor-core';
+import {
+  obx,
+  computed,
+  makeObservable,
+  action,
+  IEventBus,
+  createModuleEventBus,
+} from '@lce/lowcode-editor-core';
 import { IDesigner } from '../designer';
 import { DocumentModel, isDocumentModel } from '../document';
 import type { IDocumentModel } from '../document';
-import { IPublicEnumTransformStage } from '@alilc/lowcode-types';
+import { IPublicEnumTransformStage } from '@lce/lowcode-types';
 import type {
   IBaseApiProject,
   IPublicTypeProjectSchema,
   IPublicTypeRootSchema,
   IPublicTypeComponentsMap,
   IPublicTypeSimulatorRenderer,
-} from '@alilc/lowcode-types';
-import { isLowCodeComponentType, isProCodeComponentType } from '@alilc/lowcode-utils';
+} from '@lce/lowcode-types';
+import { isLowCodeComponentType, isProCodeComponentType } from '@lce/lowcode-utils';
 import { ISimulatorHost } from '../simulator';
 
-export interface IProject extends Omit<IBaseApiProject<
-  IDocumentModel
->,
-  'simulatorHost' |
-  'importSchema' |
-  'exportSchema' |
-  'openDocument' |
-  'getDocumentById' |
-  'getCurrentDocument' |
-  'addPropsTransducer' |
-  'onRemoveDocument' |
-  'onChangeDocument' |
-  'onSimulatorHostReady' |
-  'onSimulatorRendererReady' |
-  'setI18n' |
-  'setConfig' |
-  'currentDocument' |
-  'selection' |
-  'documents' |
-  'createDocument' |
-  'getDocumentByFileName'
-> {
-
+export interface IProject
+  extends Omit<
+    IBaseApiProject<IDocumentModel>,
+    | 'simulatorHost'
+    | 'importSchema'
+    | 'exportSchema'
+    | 'openDocument'
+    | 'getDocumentById'
+    | 'getCurrentDocument'
+    | 'addPropsTransducer'
+    | 'onRemoveDocument'
+    | 'onChangeDocument'
+    | 'onSimulatorHostReady'
+    | 'onSimulatorRendererReady'
+    | 'setI18n'
+    | 'setConfig'
+    | 'currentDocument'
+    | 'selection'
+    | 'documents'
+    | 'createDocument'
+    | 'getDocumentByFileName'
+  > {
   get designer(): IDesigner;
 
   get simulator(): ISimulatorHost | null;
@@ -60,9 +66,7 @@ export interface IProject extends Omit<IBaseApiProject<
 
   load(schema?: IPublicTypeProjectSchema, autoOpen?: boolean | string): void;
 
-  getSchema(
-    stage?: IPublicEnumTransformStage,
-  ): IPublicTypeProjectSchema;
+  getSchema(stage?: IPublicEnumTransformStage): IPublicTypeProjectSchema;
 
   getDocument(id: string): IDocumentModel | null;
 
@@ -136,41 +140,48 @@ export class Project implements IProject {
 
   private documentsMap = new Map<string, DocumentModel>();
 
-  constructor(readonly designer: IDesigner, schema?: IPublicTypeProjectSchema, readonly viewName = 'global') {
+  constructor(
+    readonly designer: IDesigner,
+    schema?: IPublicTypeProjectSchema,
+    readonly viewName = 'global',
+  ) {
     makeObservable(this);
     this.load(schema);
   }
 
   private getComponentsMap(): IPublicTypeComponentsMap {
-    return this.documents.reduce<IPublicTypeComponentsMap>((
-      componentsMap: IPublicTypeComponentsMap,
-      curDoc: IDocumentModel,
-    ): IPublicTypeComponentsMap => {
-      const curComponentsMap = curDoc.getComponentsMap();
-      if (Array.isArray(curComponentsMap)) {
-        curComponentsMap.forEach((item) => {
-          const found = componentsMap.find((eItem) => {
-            if (
-              isProCodeComponentType(eItem) &&
-              isProCodeComponentType(item) &&
-              eItem.package === item.package &&
-              eItem.componentName === item.componentName
-            ) {
-              return true;
-            } else if (
-              isLowCodeComponentType(eItem) &&
-              eItem.componentName === item.componentName
-            ) {
-              return true;
-            }
-            return false;
+    return this.documents.reduce<IPublicTypeComponentsMap>(
+      (
+        componentsMap: IPublicTypeComponentsMap,
+        curDoc: IDocumentModel,
+      ): IPublicTypeComponentsMap => {
+        const curComponentsMap = curDoc.getComponentsMap();
+        if (Array.isArray(curComponentsMap)) {
+          curComponentsMap.forEach((item) => {
+            const found = componentsMap.find((eItem) => {
+              if (
+                isProCodeComponentType(eItem) &&
+                isProCodeComponentType(item) &&
+                eItem.package === item.package &&
+                eItem.componentName === item.componentName
+              ) {
+                return true;
+              } else if (
+                isLowCodeComponentType(eItem) &&
+                eItem.componentName === item.componentName
+              ) {
+                return true;
+              }
+              return false;
+            });
+            if (found) return;
+            componentsMap.push(item);
           });
-          if (found) return;
-          componentsMap.push(item);
-        });
-      }
-      return componentsMap;
-    }, [] as IPublicTypeComponentsMap);
+        }
+        return componentsMap;
+      },
+      [] as IPublicTypeComponentsMap,
+    );
   }
 
   /**
@@ -184,7 +195,7 @@ export class Project implements IProject {
       componentsMap: this.getComponentsMap(),
       componentsTree: this.documents
         .filter((doc) => !doc.isBlank())
-        .map((doc) => doc.export(stage) || {} as IPublicTypeRootSchema),
+        .map((doc) => doc.export(stage) || ({} as IPublicTypeRootSchema)),
       i18n: this.i18n,
     };
   }
@@ -319,7 +330,9 @@ export class Project implements IProject {
       return doc.open();
     }
     if (typeof doc === 'string' || typeof doc === 'number') {
-      const got = this.documents.find((item) => item.fileName === String(doc) || String(item.id) === String(doc));
+      const got = this.documents.find(
+        (item) => item.fileName === String(doc) || String(item.id) === String(doc),
+      );
       if (got) {
         return got.open();
       }

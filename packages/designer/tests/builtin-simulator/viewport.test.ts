@@ -1,12 +1,11 @@
 import '../fixtures/window';
 import { getMockWindow, getMockElement, delay } from '../utils';
-import { Editor, globalContext } from '@alilc/lowcode-editor-core';
+import { Editor, globalContext } from '@lce/lowcode-editor-core';
 import { Project } from '../../src/project/project';
 import { DocumentModel } from '../../src/document/document-model';
 import Viewport from '../../src/builtin-simulator/viewport';
 import { Designer } from '../../src/designer/designer';
 import { shellModelFactory } from '../../../engine/src/modules/shell-model-factory';
-
 
 describe('Viewport 测试', () => {
   let editor: Editor;
@@ -117,8 +116,12 @@ describe('Viewport 测试', () => {
     viewportElem.setHeight(300);
     expect(viewport.contentHeight).toBe(300 / 2);
 
-    expect(() => { viewport.scale = NaN; }).toThrow();
-    expect(() => { viewport.scale = -1; }).toThrow();
+    expect(() => {
+      viewport.scale = NaN;
+    }).toThrow();
+    expect(() => {
+      viewport.scale = -1;
+    }).toThrow();
   });
 
   it('setScrollTarget / scrollTarget / scrolling', async () => {
@@ -170,11 +173,23 @@ describe('Viewport 测试', () => {
     viewport = new Viewport();
     viewport.mount(viewportElem);
 
-    expect(viewport.toGlobalPoint({ clientX: 100, clientY: 100 })).toEqual({ clientX: 200, clientY: 200 });
-    expect(viewport.toLocalPoint({ clientX: 200, clientY: 200 })).toEqual({ clientX: 100, clientY: 100 });
+    expect(viewport.toGlobalPoint({ clientX: 100, clientY: 100 })).toEqual({
+      clientX: 200,
+      clientY: 200,
+    });
+    expect(viewport.toLocalPoint({ clientX: 200, clientY: 200 })).toEqual({
+      clientX: 100,
+      clientY: 100,
+    });
 
     viewport.scale = 2;
-    expect(viewport.toGlobalPoint({ clientX: 100, clientY: 100 })).toEqual({ clientX: 300, clientY: 300 });
-    expect(viewport.toLocalPoint({ clientX: 300, clientY: 300 })).toEqual({ clientX: 100, clientY: 100 });
+    expect(viewport.toGlobalPoint({ clientX: 100, clientY: 100 })).toEqual({
+      clientX: 300,
+      clientY: 300,
+    });
+    expect(viewport.toLocalPoint({ clientX: 300, clientY: 300 })).toEqual({
+      clientX: 100,
+      clientY: 100,
+    });
   });
 });

@@ -1,5 +1,5 @@
 import '../fixtures/window';
-import { Editor, globalContext, Setters } from '@alilc/lowcode-editor-core';
+import { Editor, globalContext, Setters } from '@lce/lowcode-editor-core';
 import { Project } from '../../src/project/project';
 import { DocumentModel } from '../../src/document/document-model';
 import { Designer } from '../../src/designer/designer';
@@ -11,7 +11,7 @@ import pageMetadata from '../fixtures/component-metadata/page';
 import divMetadata from '../fixtures/component-metadata/div';
 import { delayObxTick } from '../utils';
 import { fireEvent } from '@testing-library/react';
-import { IPublicEnumDragObjectType, IPublicEnumTransformStage } from '@alilc/lowcode-types';
+import { IPublicEnumDragObjectType, IPublicEnumTransformStage } from '@lce/lowcode-types';
 import { shellModelFactory } from '../../../engine/src/modules/shell-model-factory';
 
 const mockNode = {
@@ -142,9 +142,11 @@ describe('Designer 测试', () => {
       dragon.boost(
         {
           type: IPublicEnumDragObjectType.NodeData,
-          data: [{
-            componentName: 'Button',
-          }],
+          data: [
+            {
+              componentName: 'Button',
+            },
+          ],
         },
         new MouseEvent('mousedown', { clientX: 100, clientY: 100 }),
       );
@@ -192,9 +194,13 @@ describe('Designer 测试', () => {
 
   it('addPropsReducer / transformProps', () => {
     // 没有相应的 reducer
-    expect(designer.transformProps({ num: 1 }, mockNode, IPublicEnumTransformStage.Init)).toEqual({ num: 1 });
+    expect(designer.transformProps({ num: 1 }, mockNode, IPublicEnumTransformStage.Init)).toEqual({
+      num: 1,
+    });
     // props 是数组
-    expect(designer.transformProps([{ num: 1 }], mockNode, IPublicEnumTransformStage.Init)).toEqual([{ num: 1 }]);
+    expect(designer.transformProps([{ num: 1 }], mockNode, IPublicEnumTransformStage.Init)).toEqual(
+      [{ num: 1 }],
+    );
 
     designer.addPropsReducer((props, node) => {
       props.num += 1;
@@ -231,17 +237,31 @@ describe('Designer 测试', () => {
       return props;
     }, IPublicEnumTransformStage.Upgrade);
 
-    expect(designer.transformProps({ num: 1 }, mockNode, IPublicEnumTransformStage.Init)).toEqual({ num: 3 });
-    expect(designer.transformProps({ num: 1 }, mockNode, IPublicEnumTransformStage.Clone)).toEqual({ num: 2 });
-    expect(designer.transformProps({ num: 1 }, mockNode, IPublicEnumTransformStage.Serilize)).toEqual({ num: 2 });
-    expect(designer.transformProps({ num: 1 }, mockNode, IPublicEnumTransformStage.Render)).toEqual({ num: 2 });
-    expect(designer.transformProps({ num: 1 }, mockNode, IPublicEnumTransformStage.Save)).toEqual({ num: 2 });
-    expect(designer.transformProps({ num: 1 }, mockNode, IPublicEnumTransformStage.Upgrade)).toEqual({ num: 2 });
+    expect(designer.transformProps({ num: 1 }, mockNode, IPublicEnumTransformStage.Init)).toEqual({
+      num: 3,
+    });
+    expect(designer.transformProps({ num: 1 }, mockNode, IPublicEnumTransformStage.Clone)).toEqual({
+      num: 2,
+    });
+    expect(
+      designer.transformProps({ num: 1 }, mockNode, IPublicEnumTransformStage.Serilize),
+    ).toEqual({ num: 2 });
+    expect(designer.transformProps({ num: 1 }, mockNode, IPublicEnumTransformStage.Render)).toEqual(
+      { num: 2 },
+    );
+    expect(designer.transformProps({ num: 1 }, mockNode, IPublicEnumTransformStage.Save)).toEqual({
+      num: 2,
+    });
+    expect(
+      designer.transformProps({ num: 1 }, mockNode, IPublicEnumTransformStage.Upgrade),
+    ).toEqual({ num: 2 });
 
     designer.addPropsReducer((props, node) => {
       throw new Error('calculate error');
     }, IPublicEnumTransformStage.Upgrade);
-    expect(designer.transformProps({ num: 1 }, mockNode, IPublicEnumTransformStage.Upgrade)).toEqual({ num: 2 });
+    expect(
+      designer.transformProps({ num: 1 }, mockNode, IPublicEnumTransformStage.Upgrade),
+    ).toEqual({ num: 2 });
   });
 
   it('setProps', () => {
@@ -256,14 +276,18 @@ describe('Designer 测试', () => {
       editor,
       shellModelFactory,
       ...initialProps,
-     });
+    });
 
     expect(designer.simulatorComponent).toEqual({ isSimulatorComp: true });
     expect(designer.simulatorProps).toEqual({ designMode: 'design' });
     expect(designer.suspensed).toBeTruthy();
     expect((designer as any)._componentMetasMap.has('Div')).toBeTruthy();
     expect((designer as any)._componentMetasMap.has('Button')).toBeTruthy();
-    const { editor: editorFromDesigner, shellModelFactory: shellModelFactoryFromDesigner, ...others } = (designer as any).props;
+    const {
+      editor: editorFromDesigner,
+      shellModelFactory: shellModelFactoryFromDesigner,
+      ...others
+    } = (designer as any).props;
     expect(others).toEqual(initialProps);
     expect(designer.get('simulatorProps')).toEqual({ designMode: 'design' });
     expect(designer.get('suspensed')).toBeTruthy();
@@ -283,7 +307,11 @@ describe('Designer 测试', () => {
     expect(designer.suspensed).toBeFalsy();
     expect((designer as any)._componentMetasMap.has('Button')).toBeTruthy();
     expect((designer as any)._componentMetasMap.has('Div')).toBeTruthy();
-    const { editor: editorFromDesigner2, shellModelFactory: shellModelFactoryFromDesigner2,  ...others2 } = (designer as any).props;
+    const {
+      editor: editorFromDesigner2,
+      shellModelFactory: shellModelFactoryFromDesigner2,
+      ...others2
+    } = (designer as any).props;
     expect(others2).toEqual(updatedProps);
 
     // 第三次设置 props，跟第二次值一样，for 覆盖率测试
@@ -295,7 +323,11 @@ describe('Designer 测试', () => {
     expect(designer.suspensed).toBeFalsy();
     expect((designer as any)._componentMetasMap.has('Button')).toBeTruthy();
     expect((designer as any)._componentMetasMap.has('Div')).toBeTruthy();
-    const { editor: editorFromDesigner3, shellModelFactory: shellModelFactoryFromDesigner3, ...others3 } = (designer as any).props;
+    const {
+      editor: editorFromDesigner3,
+      shellModelFactory: shellModelFactoryFromDesigner3,
+      ...others3
+    } = (designer as any).props;
     expect(others3).toEqual(updatedProps);
   });
 
@@ -373,13 +405,16 @@ describe('Designer 测试', () => {
         setupComponents: fn,
       });
       await designer.loadIncrementalAssets({
-        components: [{
-          componentName: 'Div2',
-          title: '容器',
-          docUrl: 'http://gitlab.alibaba-inc.com/vision-components/vc-block/blob/master/README.md',
-          devMode: 'proCode',
-          tags: ['布局'],
-        }],
+        components: [
+          {
+            componentName: 'Div2',
+            title: '容器',
+            docUrl:
+              'http://gitlab.alibaba-inc.com/vision-components/vc-block/blob/master/README.md',
+            devMode: 'proCode',
+            tags: ['布局'],
+          },
+        ],
         packages: [],
       });
 

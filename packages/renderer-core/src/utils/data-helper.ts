@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable max-len */
 /* eslint-disable object-curly-newline */
-import { isJSFunction } from '@alilc/lowcode-utils';
+import { isJSFunction } from '@lce/lowcode-utils';
 import { transformArrayToMap, transformStringToFunction } from './common';
 import { jsonp, request, get, post } from './request';
 import logger from './logger';
@@ -40,7 +40,10 @@ export function doRequest(type: DataSourceType, options: any) {
     }
   }
 
-  logger.log(`Engine default dataSource does not support type:[${type}] dataSource request!`, options);
+  logger.log(
+    `Engine default dataSource does not support type:[${type}] dataSource request!`,
+    options,
+  );
 }
 
 // TODO: according to protocol, we should implement errorHandler/shouldFetch/willFetch/requestHandler and isSync controll.
@@ -200,9 +203,9 @@ export class DataHelper {
             Array.isArray(options.params) || Array.isArray(params)
               ? params || options.params
               : {
-                ...options.params,
-                ...params,
-              },
+                  ...options.params,
+                  ...params,
+                },
           headers: {
             ...options.headers,
             ...headers,
@@ -211,22 +214,22 @@ export class DataHelper {
         },
       },
     ])
-    .then((res: any) => {
-      try {
-        callbackFn && callbackFn(res && res[id]);
-      } catch (e) {
-        logger.error('load请求回调函数报错', e);
-      }
-      return res && res[id];
-    })
-    .catch((err) => {
-      try {
-        callbackFn && callbackFn(null, err);
-      } catch (e) {
-        logger.error('load请求回调函数报错', e);
-      }
-      return err;
-    });
+      .then((res: any) => {
+        try {
+          callbackFn && callbackFn(res && res[id]);
+        } catch (e) {
+          logger.error('load请求回调函数报错', e);
+        }
+        return res && res[id];
+      })
+      .catch((err) => {
+        try {
+          callbackFn && callbackFn(null, err);
+        } catch (e) {
+          logger.error('load请求回调函数报错', e);
+        }
+        return err;
+      });
   }
 
   asyncDataHandler(asyncDataList: any[]) {
@@ -270,11 +273,13 @@ export class DataHelper {
             doFetch(type, options);
           });
         }),
-      ).then(() => {
-        resolve(res);
-      }).catch((e) => {
-        reject(e);
-      });
+      )
+        .then(() => {
+          resolve(res);
+        })
+        .catch((e) => {
+          reject(e);
+        });
     });
   }
 

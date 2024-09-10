@@ -1,6 +1,10 @@
 import { windowSymbol } from '../symbols';
-import { IPublicModelResource, IPublicModelWindow, IPublicTypeDisposable } from '@alilc/lowcode-types';
-import { IEditorWindow } from '@alilc/lowcode-workspace';
+import {
+  IPublicModelResource,
+  IPublicModelWindow,
+  IPublicTypeDisposable,
+} from '@lce/lowcode-types';
+import { IEditorWindow } from '@lce/lowcode-workspace';
 import { Resource as ShellResource } from './resource';
 import { EditorView } from './editor-view';
 
@@ -55,6 +59,8 @@ export class Window implements IPublicModelWindow {
   }
 
   get editorViews() {
-    return Array.from(this[windowSymbol].editorViews.values()).map(d => new EditorView(d).toProxy() as any);
+    return Array.from(this[windowSymbol].editorViews.values()).map(
+      (d) => new EditorView(d).toProxy() as any,
+    );
   }
 }

@@ -10,7 +10,7 @@ sidebar_position: 5
 #### init API
 
 ```javascript
-import { init } from '@alilc/lowcode-engine';
+import { init } from '@lce/lowcode-engine';
 
 init(document.getElementById('engine'), {
   enableCondition: false,
@@ -22,9 +22,9 @@ init(document.getElementById('engine'), {
 #### config API
 
 ```javascript
-import { config } from '@alilc/lowcode-engine';
+import { config } from '@lce/lowcode-engine';
 
-config.set('enableCondition', false)
+config.set('enableCondition', false);
 ```
 
 [**config api**](./config)
@@ -32,7 +32,6 @@ config.set('enableCondition', false)
 ## 配置详情
 
 > 源码详见 [IPublicTypeEngineOptions](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/engine-options.ts)
-
 
 ### 画布
 
@@ -72,7 +71,6 @@ config.set('enableCondition', false)
 #### appHelper
 
 与 react-renderer 的 appHelper 一致，https://lowcode-engine.cn/site/docs/guide/expand/runtime/renderer#apphelper
-
 
 #### enableCondition
 
@@ -159,8 +157,8 @@ config.set('enableCondition', false)
     '.next-calendar-header',
     '.next-calendar-table',
     '.editor-container', // 富文本组件
-  ]
-}
+  ];
+};
 ```
 
 #### enableCanvasLock
@@ -196,7 +194,6 @@ config.set('enableCondition', false)
 `@type {boolean}` `@default {false}`
 
 关闭拖拽组件时的虚线响应，性能考虑
-
 
 #### disableDefaultSettingPanel
 
@@ -303,4 +300,3 @@ customPluginTransducer: async (originPlugin: IPublicTypePlugin, ctx: IPublicMode
 `@type {object}`
 
 大纲树插件面板默认 props
-

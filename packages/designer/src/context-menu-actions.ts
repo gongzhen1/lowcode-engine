@@ -1,8 +1,19 @@
-import { IPublicTypeContextMenuAction, IPublicEnumContextMenuType, IPublicTypeContextMenuItem, IPublicApiMaterial, IPublicModelPluginContext } from '@alilc/lowcode-types';
+import {
+  IPublicTypeContextMenuAction,
+  IPublicEnumContextMenuType,
+  IPublicTypeContextMenuItem,
+  IPublicApiMaterial,
+  IPublicModelPluginContext,
+} from '@lce/lowcode-types';
 import { IDesigner, INode } from './designer';
-import { createContextMenu, parseContextMenuAsReactNode, parseContextMenuProperties, uniqueId } from '@alilc/lowcode-utils';
+import {
+  createContextMenu,
+  parseContextMenuAsReactNode,
+  parseContextMenuProperties,
+  uniqueId,
+} from '@lce/lowcode-utils';
 import { Menu } from '@alifd/next';
-import { engineConfig } from '@alilc/lowcode-editor-core';
+import { engineConfig } from '@lce/lowcode-editor-core';
 import './context-menu-actions.scss';
 
 export interface IContextMenuActions {
@@ -34,16 +45,14 @@ export class GlobalContextMenuActions {
         return;
       }
       this.enableContextMenu = enable;
-      this.dispose.forEach(d => d());
+      this.dispose.forEach((d) => d());
       if (enable) {
         this.initEvent();
       }
     });
   }
 
-  handleContextMenu = (
-    event: MouseEvent,
-  ) => {
+  handleContextMenu = (event: MouseEvent) => {
     event.stopPropagation();
     event.preventDefault();
 
@@ -58,7 +67,9 @@ export class GlobalContextMenuActions {
     const destroy = () => {
       destroyFn?.();
     };
-    const pluginContext: IPublicModelPluginContext = contextMenu.designer.editor.get('pluginContext') as IPublicModelPluginContext;
+    const pluginContext: IPublicModelPluginContext = contextMenu.designer.editor.get(
+      'pluginContext',
+    ) as IPublicModelPluginContext;
 
     const menus: IPublicTypeContextMenuItem[] = parseContextMenuProperties(actions, {
       nodes: [],
@@ -125,7 +136,7 @@ export class ContextMenuActions implements IContextMenuActions {
 
   enableContextMenu: boolean;
 
-  id: string = uniqueId('contextMenu');;
+  id: string = uniqueId('contextMenu');
 
   constructor(designer: IDesigner) {
     this.designer = designer;
@@ -136,7 +147,7 @@ export class ContextMenuActions implements IContextMenuActions {
         return;
       }
       this.enableContextMenu = enable;
-      this.dispose.forEach(d => d());
+      this.dispose.forEach((d) => d());
       if (enable) {
         this.initEvent();
       }
@@ -145,10 +156,7 @@ export class ContextMenuActions implements IContextMenuActions {
     globalContextMenuActions.registerContextMenuActions(this);
   }
 
-  handleContextMenu = (
-    nodes: INode[],
-    event: MouseEvent,
-  ) => {
+  handleContextMenu = (nodes: INode[], event: MouseEvent) => {
     const designer = this.designer;
     event.stopPropagation();
     event.preventDefault();
@@ -164,10 +172,12 @@ export class ContextMenuActions implements IContextMenuActions {
       destroyFn?.();
     };
 
-    const pluginContext: IPublicModelPluginContext = this.designer.editor.get('pluginContext') as IPublicModelPluginContext;
+    const pluginContext: IPublicModelPluginContext = this.designer.editor.get(
+      'pluginContext',
+    ) as IPublicModelPluginContext;
 
     const menus: IPublicTypeContextMenuItem[] = parseContextMenuProperties(actions, {
-      nodes: nodes.map(d => designer.shellModelFactory.createNode(d)!),
+      nodes: nodes.map((d) => designer.shellModelFactory.createNode(d)!),
       destroy,
       event,
       pluginContext,
@@ -181,7 +191,7 @@ export class ContextMenuActions implements IContextMenuActions {
 
     const menuNode = parseContextMenuAsReactNode(layoutMenu, {
       destroy,
-      nodes: nodes.map(d => designer.shellModelFactory.createNode(d)!),
+      nodes: nodes.map((d) => designer.shellModelFactory.createNode(d)!),
       pluginContext,
     });
 
@@ -194,22 +204,19 @@ export class ContextMenuActions implements IContextMenuActions {
   initEvent() {
     const designer = this.designer;
     this.dispose.push(
-      designer.editor.eventBus.on('designer.builtinSimulator.contextmenu', ({
-        node,
-        originalEvent,
-      }: {
-        node: INode;
-        originalEvent: MouseEvent;
-      }) => {
-        originalEvent.stopPropagation();
-        originalEvent.preventDefault();
-        // 如果右键的节点不在 当前选中的节点中，选中该节点
-        if (!designer.currentSelection.has(node.id)) {
-          designer.currentSelection.select(node.id);
-        }
-        const nodes = designer.currentSelection.getNodes();
-        this.handleContextMenu(nodes, originalEvent);
-      }),
+      designer.editor.eventBus.on(
+        'designer.builtinSimulator.contextmenu',
+        ({ node, originalEvent }: { node: INode; originalEvent: MouseEvent }) => {
+          originalEvent.stopPropagation();
+          originalEvent.preventDefault();
+          // 如果右键的节点不在 当前选中的节点中，选中该节点
+          if (!designer.currentSelection.has(node.id)) {
+            designer.currentSelection.select(node.id);
+          }
+          const nodes = designer.currentSelection.getNodes();
+          this.handleContextMenu(nodes, originalEvent);
+        },
+      ),
     );
   }
 

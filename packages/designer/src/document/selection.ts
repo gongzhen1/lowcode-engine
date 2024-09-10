@@ -1,7 +1,7 @@
-import { obx, makeObservable, IEventBus, createModuleEventBus } from '@alilc/lowcode-editor-core';
+import { obx, makeObservable, IEventBus, createModuleEventBus } from '@lce/lowcode-editor-core';
 import { INode, comparePosition, PositionNO } from './node/node';
 import { DocumentModel } from './document-model';
-import { IPublicModelSelection } from '@alilc/lowcode-types';
+import { IPublicModelSelection } from '@lce/lowcode-types';
 
 export interface ISelection extends Omit<IPublicModelSelection<INode>, 'node'> {
   containsNode(node: INode, excludeRoot: boolean): boolean;
@@ -48,7 +48,7 @@ export class Selection implements ISelection {
   selectAll(ids: string[]) {
     const selectIds: string[] = [];
 
-    ids.forEach(d => {
+    ids.forEach((d) => {
       const node = this.doc.getNode(d);
 
       if (node?.canSelect()) {

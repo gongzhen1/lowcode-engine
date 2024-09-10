@@ -2,6 +2,7 @@
 title: 设置器扩展
 sidebar_position: 7
 ---
+
 ## 设置器简述
 
 设置器主要用于低代码组件属性值的设置，顾名思义叫"设置器"，又称为 Setter。由于组件的属性有各种类型，需要有与之对应的设置器支持，每一个设置器对应一个值的类型。
@@ -101,6 +102,7 @@ props 字段是入料模块扫描自动填入的类型，用户可以通过 conf
 ```
 
 ## 自定义设置器
+
 ### 编写 AltStringSetter
 
 我们编写一个简单的 Setter，它的功能如下：
@@ -108,10 +110,11 @@ props 字段是入料模块扫描自动填入的类型，用户可以通过 conf
 ![image.png](https://img.alicdn.com/imgextra/i3/O1CN01fQ4GLd1RzrPSdULiw_!!6000000002183-2-tps-720-90.png)
 
 **代码如下：**
+
 ```tsx
-import * as React from "react";
-import { Input } from "@alifd/next";
-import "./index.scss";
+import * as React from 'react';
+import { Input } from '@alifd/next';
+import './index.scss';
 
 interface AltStringSetterProps {
   // 当前值
@@ -126,7 +129,7 @@ interface AltStringSetterProps {
 
 export default class AltStringSetter extends React.PureComponent<AltStringSetterProps> {
   // 声明 Setter 的 title
- 	static displayName = 'AltStringSetter';
+  static displayName = 'AltStringSetter';
 
   componentDidMount() {
     const { onChange, value, defaultValue } = this.props;
@@ -140,7 +143,7 @@ export default class AltStringSetter extends React.PureComponent<AltStringSetter
     return (
       <Input
         value={value}
-        placeholder={placeholder || ""}
+        placeholder={placeholder || ''}
         onChange={(val: any) => onChange(val)}
       ></Input>
     );
@@ -153,7 +156,7 @@ export default class AltStringSetter extends React.PureComponent<AltStringSetter
 我们采用 emit 来进行相互之前的通信，首先我们在 A setter 中进行事件注册：
 
 ```javascript
-import { event } from '@alilc/lowcode-engine';
+import { event } from '@lce/lowcode-engine';
 
 componentDidMount() {
 		// 这里由于面板上会有多个 setter，这里我用 field.id 来标记 setter 名
@@ -174,13 +177,13 @@ componentWillUnmount() {
 在 B setter 中触发事件，来完成通信：
 
 ```javascript
-import { event } from '@alilc/lowcode-engine';
+import { event } from '@lce/lowcode-engine';
 
 bindFunction = () => {
   const { field, value } = this.props;
   // 这里展示的和插件进行通信，事件规则是插件名 + 方法
   event.emit('eventBindDialog.openDialog', field.name, this.emitEventName);
-}
+};
 ```
 
 #### 修改同级 props 的其他属性值
@@ -189,13 +192,13 @@ setter 本身只影响其中一个 props 的值，如果需要影响其他组件
 
 ```javascript
 bindFunction = () => {
-    const { field, value } = this.props;
-    const propsField = field.parent;
-		// 获取同级其他属性 showJump 的值
-    const otherValue = propsField.getPropValue('showJump');
-    // set 同级其他属性 showJump 的值
-    propsField.setPropValue('showJump', false);
-}
+  const { field, value } = this.props;
+  const propsField = field.parent;
+  // 获取同级其他属性 showJump 的值
+  const otherValue = propsField.getPropValue('showJump');
+  // set 同级其他属性 showJump 的值
+  propsField.setPropValue('showJump', false);
+};
 ```
 
 ### 注册 AltStringSetter

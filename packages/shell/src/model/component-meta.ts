@@ -1,8 +1,16 @@
+import { IComponentMeta as InnerComponentMeta, INode } from '@lce/lowcode-designer';
 import {
-  IComponentMeta as InnerComponentMeta,
-  INode,
-} from '@alilc/lowcode-designer';
-import { IPublicTypeNodeData, IPublicTypeNodeSchema, IPublicModelComponentMeta, IPublicTypeI18nData, IPublicTypeIconType, IPublicTypeNpmInfo, IPublicTypeTransformedComponentMetadata, IPublicModelNode, IPublicTypeAdvanced, IPublicTypeFieldConfig } from '@alilc/lowcode-types';
+  IPublicTypeNodeData,
+  IPublicTypeNodeSchema,
+  IPublicModelComponentMeta,
+  IPublicTypeI18nData,
+  IPublicTypeIconType,
+  IPublicTypeNpmInfo,
+  IPublicTypeTransformedComponentMetadata,
+  IPublicModelNode,
+  IPublicTypeAdvanced,
+  IPublicTypeFieldConfig,
+} from '@lce/lowcode-types';
 import { componentMetaSymbol, nodeSymbol } from '../symbols';
 import { ReactElement } from 'react';
 
@@ -130,14 +138,14 @@ export class ComponentMeta implements IPublicModelComponentMeta {
    * @returns
    */
   checkNestingDown(
-      my: IPublicModelNode | IPublicTypeNodeData,
-      target: IPublicTypeNodeSchema | IPublicModelNode | IPublicTypeNodeSchema[],
-    ) {
+    my: IPublicModelNode | IPublicTypeNodeData,
+    target: IPublicTypeNodeSchema | IPublicModelNode | IPublicTypeNodeSchema[],
+  ) {
     const curNode = (my as any)?.isNode ? (my as any)[nodeSymbol] : my;
     return this[componentMetaSymbol].checkNestingDown(
-        curNode as any,
-        (target as any)[nodeSymbol] || target,
-      );
+      curNode as any,
+      (target as any)[nodeSymbol] || target,
+    );
   }
 
   refreshMetadata(): void {

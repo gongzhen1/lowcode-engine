@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { isValidElement } from 'react';
-import { isElement } from '@alilc/lowcode-utils';
-import { IPublicTypePropConfig } from '@alilc/lowcode-types';
+import { isElement } from '@lce/lowcode-utils';
+import { IPublicTypePropConfig } from '@lce/lowcode-types';
 
 export const primitiveTypes = [
   'string',
@@ -42,7 +42,10 @@ function makeRequired(propType: any, lowcodeType: string | object): LowcodeCheck
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-function define(propType: any = PropTypes.any, lowcodeType: string | object = {}): LowcodeCheckType {
+function define(
+  propType: any = PropTypes.any,
+  lowcodeType: string | object = {},
+): LowcodeCheckType {
   if (!propType._inner && propType.name !== 'lowcodeCheckType') {
     propType.lowcodeType = lowcodeType;
   }

@@ -1,7 +1,29 @@
-import { untracked, computed, obx, engineConfig, action, makeObservable, mobx, runInAction } from '@alilc/lowcode-editor-core';
-import { GlobalEvent, IPublicEnumTransformStage } from '@alilc/lowcode-types';
-import type { IPublicTypeCompositeValue, IPublicTypeJSSlot, IPublicTypeSlotSchema, IPublicModelProp } from '@alilc/lowcode-types';
-import { uniqueId, isPlainObject, hasOwnProperty, compatStage, isJSExpression, isJSSlot, isNodeSchema } from '@alilc/lowcode-utils';
+import {
+  untracked,
+  computed,
+  obx,
+  engineConfig,
+  action,
+  makeObservable,
+  mobx,
+  runInAction,
+} from '@lce/lowcode-editor-core';
+import { GlobalEvent, IPublicEnumTransformStage } from '@lce/lowcode-types';
+import type {
+  IPublicTypeCompositeValue,
+  IPublicTypeJSSlot,
+  IPublicTypeSlotSchema,
+  IPublicModelProp,
+} from '@lce/lowcode-types';
+import {
+  uniqueId,
+  isPlainObject,
+  hasOwnProperty,
+  compatStage,
+  isJSExpression,
+  isJSSlot,
+  isNodeSchema,
+} from '@lce/lowcode-utils';
 import { valueToSource } from './value-to-source';
 import { IPropParent } from './props';
 import type { IProps } from './props';
@@ -13,9 +35,7 @@ export const UNSET = Symbol.for('unset');
 // eslint-disable-next-line no-redeclare
 export type UNSET = typeof UNSET;
 
-export interface IProp extends Omit<IPublicModelProp<
-  INode
->, 'exportSchema' | 'node'>, IPropParent {
+export interface IProp extends Omit<IPublicModelProp<INode>, 'exportSchema' | 'node'>, IPropParent {
   spread: boolean;
 
   key: string | number | undefined;
@@ -274,7 +294,9 @@ export class Prop implements IProp, IPropParent {
     this.get(propName, false)?.unset();
   }
 
-  export(stage: IPublicEnumTransformStage = IPublicEnumTransformStage.Save): IPublicTypeCompositeValue {
+  export(
+    stage: IPublicEnumTransformStage = IPublicEnumTransformStage.Save,
+  ): IPublicTypeCompositeValue {
     stage = compatStage(stage);
     const type = this._type;
     if (stage === IPublicEnumTransformStage.Render && this.key === '___condition___') {
@@ -294,7 +316,7 @@ export class Prop implements IProp, IPropParent {
     }
 
     if (type === 'slot') {
-      const schema = this._slotNode?.export(stage) || {} as any;
+      const schema = this._slotNode?.export(stage) || ({} as any);
       if (stage === IPublicEnumTransformStage.Render) {
         return {
           type: 'JSSlot',
@@ -372,7 +394,7 @@ export class Prop implements IProp, IPropParent {
       } else {
         this._type = 'map';
       }
-    } else /* istanbul ignore next */ {
+    } /* istanbul ignore next */ else {
       this._type = 'expression';
       this._value = {
         type: 'JSExpression',
@@ -389,11 +411,7 @@ export class Prop implements IProp, IPropParent {
     }
   }
 
-  emitChange = ({
-    oldValue,
-  }: {
-    oldValue: IPublicTypeCompositeValue | UNSET;
-  }) => {
+  emitChange = ({ oldValue }: { oldValue: IPublicTypeCompositeValue | UNSET }) => {
     const editor = this.owner.document?.designer.editor;
     const propsInfo = {
       key: this.key,
@@ -432,7 +450,11 @@ export class Prop implements IProp, IPropParent {
     this._type = 'slot';
     let slotSchema: IPublicTypeSlotSchema;
     // 当 data.value 的结构为 { componentName: 'Slot' } 时，复用部分 slotSchema 数据
-    if ((isPlainObject(data.value) && isNodeSchema(data.value) && data.value?.componentName === 'Slot')) {
+    if (
+      isPlainObject(data.value) &&
+      isNodeSchema(data.value) &&
+      data.value?.componentName === 'Slot'
+    ) {
       const value = data.value as IPublicTypeSlotSchema;
       slotSchema = {
         componentName: 'Slot',

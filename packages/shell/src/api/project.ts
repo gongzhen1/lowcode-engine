@@ -1,8 +1,5 @@
-import {
-  BuiltinSimulatorHost,
-  IProject as InnerProject,
-} from '@alilc/lowcode-designer';
-import { globalContext } from '@alilc/lowcode-editor-core';
+import { BuiltinSimulatorHost, IProject as InnerProject } from '@lce/lowcode-designer';
+import { globalContext } from '@lce/lowcode-editor-core';
 import {
   IPublicTypeRootSchema,
   IPublicTypeProjectSchema,
@@ -14,11 +11,11 @@ import {
   IPublicEnumTransformStage,
   IPublicTypeDisposable,
   IPublicTypeAppConfig,
-} from '@alilc/lowcode-types';
+} from '@lce/lowcode-types';
 import { DocumentModel as ShellDocumentModel } from '../model';
 import { SimulatorHost } from './simulator-host';
 import { editorSymbol, projectSymbol, simulatorHostSymbol, documentSymbol } from '../symbols';
-import { getLogger } from '@alilc/lowcode-utils';
+import { getLogger } from '@lce/lowcode-utils';
 
 const logger = getLogger({ level: 'warn', bizName: 'shell-project' });
 
@@ -74,7 +71,9 @@ export class Project implements IPublicApiProject {
    * 获取模拟器的 host
    */
   get simulatorHost(): IPublicApiSimulatorHost | null {
-    return SimulatorHost.create(this[projectSymbol].simulator as any || this[simulatorHostSymbol]);
+    return SimulatorHost.create(
+      (this[projectSymbol].simulator as any) || this[simulatorHostSymbol],
+    );
   }
 
   /**
@@ -164,9 +163,9 @@ export class Project implements IPublicApiProject {
    * @param stage
    */
   addPropsTransducer(
-      transducer: IPublicTypePropsTransducer,
-      stage: IPublicEnumTransformStage,
-    ): void {
+    transducer: IPublicTypePropsTransducer,
+    stage: IPublicEnumTransformStage,
+  ): void {
     this[projectSymbol].designer.addPropsReducer(transducer, stage);
   }
 
@@ -175,11 +174,10 @@ export class Project implements IPublicApiProject {
    * @param fn
    * @returns
    */
-  onRemoveDocument(fn: (data: { id: string}) => void): IPublicTypeDisposable {
-    return this[editorSymbol].eventBus.on(
-        'designer.document.remove',
-        (data: { id: string }) => fn(data),
-      );
+  onRemoveDocument(fn: (data: { id: string }) => void): IPublicTypeDisposable {
+    return this[editorSymbol].eventBus.on('designer.document.remove', (data: { id: string }) =>
+      fn(data),
+    );
   }
 
   /**

@@ -1,9 +1,6 @@
-import { globalContext } from '@alilc/lowcode-editor-core';
-import {
-  IDesigner,
-  isComponentMeta,
-} from '@alilc/lowcode-designer';
-import { IPublicTypeAssetsJson, getLogger } from '@alilc/lowcode-utils';
+import { globalContext } from '@lce/lowcode-editor-core';
+import { IDesigner, isComponentMeta } from '@lce/lowcode-designer';
+import { IPublicTypeAssetsJson, getLogger } from '@lce/lowcode-utils';
 import {
   IPublicTypeComponentAction,
   IPublicTypeComponentMetadata,
@@ -15,8 +12,8 @@ import {
   IPublicTypeDisposable,
   IPublicTypeContextMenuAction,
   IPublicTypeContextMenuItem,
-} from '@alilc/lowcode-types';
-import { Workspace as InnerWorkspace } from '@alilc/lowcode-workspace';
+} from '@lce/lowcode-types';
+import { Workspace as InnerWorkspace } from '@lce/lowcode-workspace';
 import { editorSymbol, designerSymbol } from '../symbols';
 import { ComponentMeta as ShellComponentMeta } from '../model';
 import { ComponentType } from 'react';
@@ -176,9 +173,9 @@ export class Material implements IPublicApiMaterial {
    * @param handle
    */
   modifyBuiltinComponentAction(
-      actionName: string,
-      handle: (action: IPublicTypeComponentAction) => void,
-    ) {
+    actionName: string,
+    handle: (action: IPublicTypeComponentAction) => void,
+  ) {
     this[designerSymbol].componentActions.modifyBuiltinComponentAction(actionName, handle);
   }
 
@@ -195,7 +192,7 @@ export class Material implements IPublicApiMaterial {
     ];
 
     return () => {
-      dispose.forEach(d => d && d());
+      dispose.forEach((d) => d && d());
     };
   }
 
@@ -207,7 +204,9 @@ export class Material implements IPublicApiMaterial {
     this[designerSymbol].contextMenuActions.removeMenuAction(name);
   }
 
-  adjustContextMenuLayout(fn: (actions: IPublicTypeContextMenuItem[]) => IPublicTypeContextMenuItem[]) {
+  adjustContextMenuLayout(
+    fn: (actions: IPublicTypeContextMenuItem[]) => IPublicTypeContextMenuItem[],
+  ) {
     this[designerSymbol].contextMenuActions.adjustMenuLayout(fn);
   }
 }

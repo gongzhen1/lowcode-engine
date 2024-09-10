@@ -2,6 +2,7 @@
 title: 物料描述详解
 sidebar_position: 2
 ---
+
 ## 物料描述概述
 
 中后台前端体系中，存在大量的组件，程序员可以通过阅读文档，知悉组件的用法。可是搭建平台无法理解 README，而且很多时候，README 里并没有属性列表。这时，我们需要一份额外的描述，来告诉低代码搭建平台，组件接受哪些属性，又是该用怎样的方式来配置这些属性，于是，[**《中后台低代码组件描述协议》**](/site/docs/specs/material-spec)应运而生。协议主要包含三部分：基础信息、属性信息 props、能力配置/体验增强 configure。
@@ -14,9 +15,10 @@ sidebar_position: 2
 
 ## 自动生成物料描述
 
-可以使用官方提供的 `@alilc/lowcode-material-parser` 解析本地组件，自动生成物料描述。把物料描述放到资产包定义中，就能让低代码引擎理解如何制作物料。详见上一个章节“物料扩展”。
+可以使用官方提供的 `@lce/lowcode-material-parser` 解析本地组件，自动生成物料描述。把物料描述放到资产包定义中，就能让低代码引擎理解如何制作物料。详见上一个章节“物料扩展”。
 
 下面以某个组件代码片段为例：
+
 ```typescript
 // /path/to/component
 import { PureComponent } from 'react';
@@ -28,8 +30,8 @@ export default class FusionForm extends PureComponent {
   static defaultProps = {
     name: '张三',
     age: 18,
-    friends: ['李四','王五','赵六'],
-  }
+    friends: ['李四', '王五', '赵六'],
+  };
 
   static propTypes = {
     /**
@@ -43,7 +45,7 @@ export default class FusionForm extends PureComponent {
     /**
      * 这是用于描述好友列表
      */
-    friends: PropTypes.array
+    friends: PropTypes.array,
   };
 
   render() {
@@ -55,7 +57,7 @@ export default class FusionForm extends PureComponent {
 引入 parse 工具自动解析
 
 ```typescript
-import parse from '@alilc/lowcode-material-parser';
+import parse from '@lce/lowcode-material-parser';
 (async () => {
   const result = await parse({ entry: '/path/to/component' });
   console.log(JSON.stringify(result, null, 2));
@@ -97,11 +99,7 @@ import parse from '@alilc/lowcode-material-parser';
         "name": "friends",
         "propType": "array",
         "description": "这是用于描述好友列表",
-        "defaultValue": [
-          "李四",
-          "王五",
-          "赵六"
-        ]
+        "defaultValue": ["李四", "王五", "赵六"]
       }
     ]
   }
@@ -153,11 +151,7 @@ import parse from '@alilc/lowcode-material-parser';
         "name": "friends",
         "propType": "array",
         "description": "这是用于描述好友列表",
-        "defaultValue": [
-          "李四",
-          "王五",
-          "赵六"
-        ]
+        "defaultValue": ["李四", "王五", "赵六"]
       }
     ],
     // 手工增加的 size 属性
@@ -168,7 +162,7 @@ import parse from '@alilc/lowcode-material-parser';
           "title": "尺寸",
           "name": "size",
           "setter": {
-            "componentName": 'RadioGroupSetter',
+            "componentName": "RadioGroupSetter",
             "isRequired": true,
             "props": {
               "options": [
@@ -176,7 +170,7 @@ import parse from '@alilc/lowcode-material-parser';
                 { "title": "中", "value": "normal" },
                 { "title": "小", "value": "small" }
               ]
-            },
+            }
           }
         }
       ]
@@ -287,10 +281,12 @@ import parse from '@alilc/lowcode-material-parser';
 ```javascript
 {
   configure: {
-    props: [{
-      description: '标签文本',
-      display: 'inline',
-    }]
+    props: [
+      {
+        description: '标签文本',
+        display: 'inline',
+      },
+    ];
   }
 }
 ```
@@ -302,10 +298,12 @@ import parse from '@alilc/lowcode-material-parser';
 ```javascript
 {
   configure: {
-    props: [{
-      description: '高级',
-      display: 'block',
-    }]
+    props: [
+      {
+        description: '高级',
+        display: 'block',
+      },
+    ];
   }
 }
 ```
@@ -317,10 +315,12 @@ import parse from '@alilc/lowcode-material-parser';
 ```javascript
 {
   configure: {
-    props: [{
-      description: '表单项配置',
-      display: 'accordion',
-    }]
+    props: [
+      {
+        description: '表单项配置',
+        display: 'accordion',
+      },
+    ];
   }
 }
 ```
@@ -329,16 +329,17 @@ import parse from '@alilc/lowcode-material-parser';
 
 ![image.png](https://img.alicdn.com/imgextra/i4/O1CN01zkjBak1YY6igYUO1n_!!6000000003070-2-tps-796-424.png)
 
-
 ![image.png](https://img.alicdn.com/imgextra/i3/O1CN01lmuRTl1LOPKMnsfLJ_!!6000000001289-2-tps-794-632.png)
 
 ```javascript
 {
   configure: {
-    props: [{
-      description: '风格与样式',
-      display: 'entry',
-    }]
+    props: [
+      {
+        description: '风格与样式',
+        display: 'entry',
+      },
+    ];
   }
 }
 ```
@@ -350,14 +351,15 @@ import parse from '@alilc/lowcode-material-parser';
 ```javascript
 {
   configure: {
-    props: [{
-      description: '返回上级',
-      display: 'plain',
-    }]
+    props: [
+      {
+        description: '返回上级',
+        display: 'plain',
+      },
+    ];
   }
 }
 ```
-
 
 ### 进阶配置
 
@@ -401,6 +403,7 @@ import parse from '@alilc/lowcode-material-parser';
   },
 }
 ```
+
 #### 组件的非 children 属性允许传入 ReactNode
 
 这就需要使用 `SlotSetter` 开启插槽了，如下面示例，给 Tab 的 title 开启插槽，允许拖拽组件
@@ -410,25 +413,21 @@ import parse from '@alilc/lowcode-material-parser';
 ```json
 {
   // ...
-  configure: {
-    isExtend: true,
-    props: [
+  "configure": {
+    "isExtend": true,
+    "props": [
       {
-        title: '选项卡标题',
-        name: 'title',
-        setter: {
-          componentName: 'MixedSetter',
-          props: {
-            setters: [
-              'StringSetter',
-              'SlotSetter',
-              'VariableSetter',
-            ],
-          },
-        },
-      },
-    ],
-  },
+        "title": "选项卡标题",
+        "name": "title",
+        "setter": {
+          "componentName": "MixedSetter",
+          "props": {
+            "setters": ["StringSetter", "SlotSetter", "VariableSetter"]
+          }
+        }
+      }
+    ]
+  }
 }
 ```
 
@@ -465,7 +464,7 @@ import parse from '@alilc/lowcode-material-parser';
 }
 
 // BackwardSetter
-import { SettingTarget, DynamicSetter } from '@alilc/lowcode-types';
+import { SettingTarget, DynamicSetter } from '@lce/lowcode-types';
 const BackwardSetter: DynamicSetter = (target: SettingTarget) => {
   return {
     componentName: (
@@ -501,7 +500,7 @@ const BackwardSetter: DynamicSetter = (target: SettingTarget) => {
   // direction 为 hoz 则展示当前 prop 配置
   condition: (target) => {
     return target.getProps().getPropValue('direction') === 'hoz';
-  }
+  };
 }
 ```
 

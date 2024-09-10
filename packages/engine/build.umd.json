@@ -15,7 +15,7 @@
     "monaco-editor/esm/vs/editor/editor.api": "var window.monaco",
     "monaco-editor/esm/vs/editor/editor.main.js": "var window.monaco",
     "@alifd/next": "var Next",
-    "@alilc/lowcode-engine-ext": "var window.AliLowCodeEngineExt",
+    "@lce/lowcode-engine-ext": "var window.AliLowCodeEngineExt",
     "moment": "var moment",
     "lodash": "var _"
   },
@@ -32,9 +32,12 @@
         "externalNext": "umd"
       }
     ],
-    ["build-plugin-moment-locales", {
-      "locales": ["zh-cn"]
-    }],
+    [
+      "build-plugin-moment-locales",
+      {
+        "locales": ["zh-cn"]
+      }
+    ],
     "./build.plugin.js"
   ]
 }

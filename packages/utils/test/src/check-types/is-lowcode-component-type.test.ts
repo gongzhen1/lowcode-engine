@@ -1,5 +1,5 @@
 import { isLowCodeComponentType } from '../../../src/check-types/is-lowcode-component-type';
-import { IPublicTypeLowCodeComponent, IPublicTypeProCodeComponent } from '@alilc/lowcode-types';
+import { IPublicTypeLowCodeComponent, IPublicTypeProCodeComponent } from '@lce/lowcode-types';
 
 describe('isLowCodeComponentType', () => {
   test('should return true for a low code component type', () => {
@@ -13,7 +13,7 @@ describe('isLowCodeComponentType', () => {
   test('should return false for a pro code component type', () => {
     const desc: IPublicTypeProCodeComponent = {
       // create a valid pro code component description
-      package: 'pro-code'
+      package: 'pro-code',
     };
 
     expect(isLowCodeComponentType(desc)).toBe(false);

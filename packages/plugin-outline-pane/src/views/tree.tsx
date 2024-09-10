@@ -1,8 +1,8 @@
 import { MouseEvent as ReactMouseEvent, PureComponent } from 'react';
-import { isFormEvent, canClickNode, isShaken } from '@alilc/lowcode-utils';
+import { isFormEvent, canClickNode, isShaken } from '@lce/lowcode-utils';
 import { Tree } from '../controllers/tree';
 import TreeNodeView from './tree-node';
-import { IPublicEnumDragObjectType, IPublicModelNode } from '@alilc/lowcode-types';
+import { IPublicEnumDragObjectType, IPublicModelNode } from '@lce/lowcode-types';
 import TreeNode from '../controllers/tree-node';
 
 function getTreeNodeIdByEvent(e: ReactMouseEvent, stop: Element): null | string {
@@ -202,18 +202,16 @@ export default class TreeView extends PureComponent<{
     return (
       <div
         className="lc-outline-tree"
-        ref={(shell) => { this.shell = shell; }}
+        ref={(shell) => {
+          this.shell = shell;
+        }}
         onMouseDownCapture={this.onMouseDown}
         onMouseOver={this.onMouseOver}
         onClick={this.onClick}
         onDoubleClick={this.onDoubleClick}
         onMouseLeave={this.onMouseLeave}
       >
-        <TreeNodeView
-          key={this.state.root?.id}
-          treeNode={this.state.root}
-          isRootNode
-        />
+        <TreeNodeView key={this.state.root?.id} treeNode={this.state.root} isRootNode />
       </div>
     );
   }

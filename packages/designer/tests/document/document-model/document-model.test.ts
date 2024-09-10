@@ -1,6 +1,6 @@
 import '../../fixtures/window';
 import { DocumentModel, isDocumentModel, isPageSchema } from '../../../src/document/document-model';
-import { Editor } from '@alilc/lowcode-editor-core';
+import { Editor } from '@lce/lowcode-editor-core';
 import { Project } from '../../../src/project/project';
 import { Designer } from '../../../src/designer/designer';
 import formSchema from '../../fixtures/schema/form';
@@ -239,26 +239,18 @@ describe('document-model 测试', () => {
         data: { componentName: 'Form' },
       }),
     ).toBeTruthy();
-    expect(
-      doc.checkNesting(doc.getNode('page'), doc.getNode('form'))
-    ).toBeTruthy();
-    expect(
-      doc.checkNesting(doc.getNode('page'), null)
-    ).toBeTruthy();
+    expect(doc.checkNesting(doc.getNode('page'), doc.getNode('form'))).toBeTruthy();
+    expect(doc.checkNesting(doc.getNode('page'), null)).toBeTruthy();
     expect(
       doc.checkNesting(doc.getNode('page'), {
         type: 'nodedata',
         data: { componentName: 'Other' },
-      })
+      }),
     ).toBeFalsy();
 
-    expect(
-      doc.checkNestingUp(doc.getNode('page'), { componentName: 'Other' })
-    ).toBeFalsy();
+    expect(doc.checkNestingUp(doc.getNode('page'), { componentName: 'Other' })).toBeFalsy();
 
-    expect(
-      doc.checkNestingDown(doc.getNode('page'), { componentName: 'Other' })
-    ).toBeTruthy();
+    expect(doc.checkNestingDown(doc.getNode('page'), { componentName: 'Other' })).toBeTruthy();
 
     expect(doc.checkNestingUp(doc.getNode('page'), null)).toBeTruthy();
   });
@@ -268,15 +260,18 @@ describe('document-model 测试', () => {
     designer.createComponentMeta(otherMeta);
     const doc = new DocumentModel(project, formSchema);
     const comps = doc.getComponentsMap(['Other']);
-    expect(comps.find(comp => comp.componentName === 'Div')).toEqual(
-      { componentName: 'Div', package: '@ali/vc-div' }
-    );
-    expect(comps.find(comp => comp.componentName === 'Other')).toEqual(
-      { componentName: 'Other', package: '@ali/vc-other' }
-    );
-    expect(comps.find(comp => comp.componentName === 'Page')).toEqual(
-      { componentName: 'Page', devMode: 'lowCode' }
-    );
+    expect(comps.find((comp) => comp.componentName === 'Div')).toEqual({
+      componentName: 'Div',
+      package: '@ali/vc-div',
+    });
+    expect(comps.find((comp) => comp.componentName === 'Other')).toEqual({
+      componentName: 'Other',
+      package: '@ali/vc-other',
+    });
+    expect(comps.find((comp) => comp.componentName === 'Page')).toEqual({
+      componentName: 'Page',
+      devMode: 'lowCode',
+    });
 
     const comps2 = doc.getComponentsMap(['Div']);
   });

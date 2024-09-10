@@ -1,13 +1,9 @@
 // @ts-nocheck
 import '../../fixtures/window';
 import { set } from '../../utils';
-import {
-  Editor,
-  globalContext,
-  Setters as InnerSetters,
-} from '@alilc/lowcode-editor-core';
+import { Editor, globalContext, Setters as InnerSetters } from '@lce/lowcode-editor-core';
 import { Project } from '../../../src/project/project';
-import { Workspace as InnerWorkspace } from '@alilc/lowcode-workspace';
+import { Workspace as InnerWorkspace } from '@lce/lowcode-workspace';
 import { DocumentModel } from '../../../src/document/document-model';
 import {
   isRootNode,
@@ -27,8 +23,8 @@ import rootHeaderMetadata from '../../fixtures/component-metadata/root-header';
 import rootContentMetadata from '../../fixtures/component-metadata/root-content';
 import rootFooterMetadata from '../../fixtures/component-metadata/root-footer';
 import { shellModelFactory } from '../../../../engine/src/modules/shell-model-factory';
-import { isNode } from '@alilc/lowcode-utils';
-import { Setters } from '@alilc/lowcode-shell';
+import { isNode } from '@lce/lowcode-utils';
+import { Setters } from '@lce/lowcode-shell';
 
 describe('Node 方法测试', () => {
   let editor: Editor;
@@ -73,7 +69,10 @@ describe('Node 方法测试', () => {
   // Case 3: When children is array
   test('initialChildren returns result of initialChildren function when children is null ', () => {
     const node = new Node(doc, { componentName: 'Button', props: { a: 1 } });
-    const childrenArray = [{ id: 1, name: 'Child 1' }, { id: 2, name: 'Child 2' }];
+    const childrenArray = [
+      { id: 1, name: 'Child 1' },
+      { id: 2, name: 'Child 2' },
+    ];
     const result = node.initialChildren(childrenArray);
     // 预期结果是一个数组
     expect(result).toEqual(childrenArray);
@@ -106,8 +105,7 @@ describe('Node 方法测试', () => {
     expect(result).toEqual([false]);
   });
 
-
-  it('condition group', () => { });
+  it('condition group', () => {});
 
   it('getExtraProp / setExtraProp', () => {
     const firstBtn = doc.getNode('node_k1ow3cbn')!;
@@ -420,7 +418,7 @@ describe('Node 方法测试', () => {
     expect(mockFn).not.toHaveBeenCalled();
   });
 
-  it('addSlot / unlinkSlot / removeSlot', () => { });
+  it('addSlot / unlinkSlot / removeSlot', () => {});
 
   it('setProps', () => {
     const firstBtn = doc.getNode('node_k1ow3cbn')!;
@@ -536,8 +534,8 @@ describe('Node 方法测试', () => {
     designer.createComponentMeta(divMetadata);
     designer.createComponentMeta(formMetadata);
     const callbacks = form.componentMeta.advanced.callbacks;
-    const fn1 = callbacks.onNodeAdd = jest.fn();
-    const fn2 = callbacks.onNodeRemove = jest.fn();
+    const fn1 = (callbacks.onNodeAdd = jest.fn());
+    const fn2 = (callbacks.onNodeRemove = jest.fn());
     const textField = doc.getNode('node_k1ow3cc9');
     form.didDropIn(textField);
     expect(fn1).toHaveBeenCalledWith(textField.internalToShellNode(), form.internalToShellNode());
@@ -599,7 +597,7 @@ describe('Node 方法测试', () => {
     expect(comparePosition(firstBtn, firstCard)).toBe(PositionNO.BeforeOrAfter);
   });
 
-  it('getZLevelTop', () => { });
+  it('getZLevelTop', () => {});
   it('propsData', () => {
     expect(new Node(doc, { componentName: 'Leaf' }).propsData).toBeNull();
     expect(new Node(doc, { componentName: 'Fragment' }).propsData).toBeNull();

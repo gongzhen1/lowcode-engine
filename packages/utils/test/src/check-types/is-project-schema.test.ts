@@ -1,8 +1,8 @@
-import { IPublicTypeProjectSchema } from "@alilc/lowcode-types";
-import { isProjectSchema } from "../../../src/check-types/is-project-schema";
+import { IPublicTypeProjectSchema } from '@lce/lowcode-types';
+import { isProjectSchema } from '../../../src/check-types/is-project-schema';
 
-describe("isProjectSchema", () => {
-  it("should return true if data has componentsTree property", () => {
+describe('isProjectSchema', () => {
+  it('should return true if data has componentsTree property', () => {
     const data: IPublicTypeProjectSchema = {
       // ...
       componentsTree: {
@@ -12,14 +12,14 @@ describe("isProjectSchema", () => {
     expect(isProjectSchema(data)).toBe(true);
   });
 
-  it("should return false if data does not have componentsTree property", () => {
+  it('should return false if data does not have componentsTree property', () => {
     const data = {
       // ...
     };
     expect(isProjectSchema(data)).toBe(false);
   });
 
-  it("should return false if data is null or undefined", () => {
+  it('should return false if data is null or undefined', () => {
     expect(isProjectSchema(null)).toBe(false);
     expect(isProjectSchema(undefined)).toBe(false);
   });

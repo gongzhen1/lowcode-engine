@@ -1,5 +1,13 @@
 import { ComponentType } from 'react';
-import { obx, computed, autorun, makeObservable, IReactionPublic, IReactionOptions, IReactionDisposer } from '@alilc/lowcode-editor-core';
+import {
+  obx,
+  computed,
+  autorun,
+  makeObservable,
+  IReactionPublic,
+  IReactionOptions,
+  IReactionDisposer,
+} from '@lce/lowcode-editor-core';
 import {
   IPublicTypeProjectSchema,
   IPublicTypeComponentMetadata,
@@ -17,8 +25,16 @@ import {
   IPublicTypeLocationData,
   IPublicEnumTransformStage,
   IPublicModelLocateEvent,
-} from '@alilc/lowcode-types';
-import { mergeAssets, IPublicTypeAssetsJson, isNodeSchema, isDragNodeObject, isDragNodeDataObject, isLocationChildrenDetail, Logger } from '@alilc/lowcode-utils';
+} from '@lce/lowcode-types';
+import {
+  mergeAssets,
+  IPublicTypeAssetsJson,
+  isNodeSchema,
+  isDragNodeObject,
+  isDragNodeDataObject,
+  isLocationChildrenDetail,
+  Logger,
+} from '@lce/lowcode-utils';
 import { IProject, Project } from '../project';
 import { Node, DocumentModel, insertChildren, INode, ISelection } from '../document';
 import { ComponentMeta, IComponentMeta } from '../component-meta';
@@ -55,9 +71,9 @@ export interface DesignerProps {
   onDragstart?: (e: IPublicModelLocateEvent) => void;
   onDrag?: (e: IPublicModelLocateEvent) => void;
   onDragend?: (
-      e: { dragObject: IPublicModelDragObject; copy: boolean },
-      loc?: DropLocation,
-    ) => void;
+    e: { dragObject: IPublicModelDragObject; copy: boolean },
+    loc?: DropLocation,
+  ) => void;
 }
 
 export interface IDesigner {
@@ -113,11 +129,18 @@ export interface IDesigner {
 
   postEvent(event: string, ...args: any[]): void;
 
-  transformProps(props: IPublicTypeCompositeObject | IPublicTypePropsList, node: Node, stage: IPublicEnumTransformStage): IPublicTypeCompositeObject | IPublicTypePropsList;
+  transformProps(
+    props: IPublicTypeCompositeObject | IPublicTypePropsList,
+    node: Node,
+    stage: IPublicEnumTransformStage,
+  ): IPublicTypeCompositeObject | IPublicTypePropsList;
 
   createSettingEntry(nodes: INode[]): ISettingTopEntry;
 
-  autorun(effect: (reaction: IReactionPublic) => void, options?: IReactionOptions<any, any>): IReactionDisposer;
+  autorun(
+    effect: (reaction: IReactionPublic) => void,
+    options?: IReactionOptions<any, any>,
+  ): IReactionDisposer;
 }
 
 export class Designer implements IDesigner {
@@ -313,7 +336,11 @@ export class Designer implements IDesigner {
    */
   createLocation(locationData: IPublicTypeLocationData<INode>): DropLocation {
     const loc = new DropLocation(locationData);
-    if (this._dropLocation && this._dropLocation.document && this._dropLocation.document !== loc.document) {
+    if (
+      this._dropLocation &&
+      this._dropLocation.document &&
+      this._dropLocation.document !== loc.document
+    ) {
       this._dropLocation.document.dropLocation = null;
     }
     this._dropLocation = loc;
@@ -612,7 +639,11 @@ export class Designer implements IDesigner {
     return maps;
   }
 
-  transformProps(props: IPublicTypeCompositeObject | IPublicTypePropsList, node: Node, stage: IPublicEnumTransformStage) {
+  transformProps(
+    props: IPublicTypeCompositeObject | IPublicTypePropsList,
+    node: Node,
+    stage: IPublicEnumTransformStage,
+  ) {
     if (Array.isArray(props)) {
       // current not support, make this future
       return props;
@@ -647,7 +678,10 @@ export class Designer implements IDesigner {
     }
   }
 
-  autorun(effect: (reaction: IReactionPublic) => void, options?: IReactionOptions<any, any>): IReactionDisposer {
+  autorun(
+    effect: (reaction: IReactionPublic) => void,
+    options?: IReactionOptions<any, any>,
+  ): IReactionDisposer {
     return autorun(effect, options);
   }
 

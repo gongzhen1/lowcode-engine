@@ -2,33 +2,38 @@
 title: plugins - 插件 API
 sidebar_position: 2
 ---
-> **@types** [IPublicApiPlugins](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/api/plugins.ts)<br/>
-> **@since** v1.0.0
+
+> **@types** [IPublicApiPlugins](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/api/plugins.ts)<br/> > **@since** v1.0.0
 
 ## 模块简介
+
 插件管理器，提供编排模块中管理插件的能力。
 
 ## 方法
+
 ### register
+
 注册插件
 
 ```typescript
 async function register(
   plugin: IPublicTypePlugin,
   options?: IPublicTypePluginRegisterOptions,
-): Promise<void>
+): Promise<void>;
 ```
+
 相关 types:
+
 - [IPublicTypePlugin](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/plugin.ts)
 - [IPublicTypePluginRegisterOptions](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/plugin-register-options.ts)
 
 其中第一个参数 plugin 通过低代码工具链的插件脚手架生成编写模板，开发者可以参考[这个章节](/site/docs/guide/expand/editor/cli)进行创建
 
-
 #### 简单示例
+
 ```typescript
-import { plugins } from '@alilc/lowcode-engine';
-import { IPublicModelPluginContext } from '@alilc/lowcode-types';
+import { plugins } from '@lce/lowcode-engine';
+import { IPublicModelPluginContext } from '@lce/lowcode-types';
 
 const builtinPluginRegistry = (ctx: IPublicModelPluginContext) => {
   return {
@@ -51,24 +56,28 @@ const builtinPluginRegistry = (ctx: IPublicModelPluginContext) => {
       componentsPane?.disable?.();
       project.onSimulatorRendererReady(() => {
         componentsPane?.enable?.();
-      })
+      });
     },
   };
-}
+};
 builtinPluginRegistry.pluginName = 'builtinPluginRegistry';
 await plugins.register(builtinPluginRegistry);
 ```
+
 #### 使用 exports 示例
+
 ```typescript
-import { plugins } from '@alilc/lowcode-engine';
-import { IPublicModelPluginContext } from '@alilc/lowcode-types';
+import { plugins } from '@lce/lowcode-engine';
+import { IPublicModelPluginContext } from '@lce/lowcode-types';
 
 const PluginA = (ctx: IPublicModelPluginContext) => {
   return {
     async init() {},
-    exports() { return { x: 1, } },
+    exports() {
+      return { x: 1 };
+    },
   };
-}
+};
 PluginA.pluginName = 'PluginA';
 
 const PluginB = (ctx: IPublicModelPluginContext) => {
@@ -78,22 +87,23 @@ const PluginB = (ctx: IPublicModelPluginContext) => {
       console.log(ctx.plugins.PluginA.x); // => 1
     },
   };
-}
+};
 PluginA.pluginName = 'pluginA';
 PluginB.pluginName = 'PluginB';
 PluginB.meta = {
   dependencies: ['PluginA'],
-}
+};
 await plugins.register(PluginA);
 await plugins.register(PluginB);
 ```
+
 > 注：ctx 是在插件中获取引擎 API 的唯一渠道，具体定义参见 [IPublicModelPluginContext](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/plugin-context.ts)
 
-
 #### 设置兼容引擎版本示例
+
 ```typescript
-import { plugins } from '@alilc/lowcode-engine';
-import { IPublicModelPluginContext } from '@alilc/lowcode-types';
+import { plugins } from '@lce/lowcode-engine';
+import { IPublicModelPluginContext } from '@lce/lowcode-types';
 
 const BuiltinPluginRegistry = (ctx: IPublicModelPluginContext) => {
   return {
@@ -110,10 +120,12 @@ BuiltinPluginRegistry.meta = {
 }
 await plugins.register(BuiltinPluginRegistry);
 ```
+
 #### 设置插件参数版本示例
+
 ```typescript
-import { plugins } from '@alilc/lowcode-engine';
-import { IPublicModelPluginContext } from '@alilc/lowcode-types';
+import { plugins } from '@lce/lowcode-engine';
+import { IPublicModelPluginContext } from '@lce/lowcode-types';
 
 const BuiltinPluginRegistry = (ctx: IPublicModelPluginContext, options: any) => {
   return {
@@ -121,13 +133,12 @@ const BuiltinPluginRegistry = (ctx: IPublicModelPluginContext, options: any) => 
       // 直接传值方式：
       //   通过 register(xxx, options) 传入
       //   通过 options 取出
-
       // 引擎初始化时也可以设置某插件的全局配置项：
       //   通过 engine.init(..., preference) 传入
       //   通过 ctx.preference.getValue() 取出
     },
   };
-}
+};
 BuiltinPluginRegistry.pluginName = 'BuiltinPluginRegistry';
 BuiltinPluginRegistry.meta = {
   preferenceDeclaration: {
@@ -155,7 +166,7 @@ BuiltinPluginRegistry.meta = {
       },
     ],
   },
-}
+};
 
 await plugins.register(BuiltinPluginRegistry, { key1: 'abc', key5: 'willNotPassToPlugin' });
 ```
@@ -233,7 +244,9 @@ getPluginPreference(
 - [IPublicModelPluginInstance](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/plugin-instance.ts)
 
 ## 插件元数据工程转化示例
+
 your-plugin/package.json
+
 ```json
 {
 	"name": "@alilc/lowcode-plugin-debug",
@@ -248,7 +261,9 @@ your-plugin/package.json
   }
 }
 ```
+
 转换后的结构：
+
 ```typescript
 const debug = (ctx: IPublicModelPluginContext, options: any) => {
 	return {};

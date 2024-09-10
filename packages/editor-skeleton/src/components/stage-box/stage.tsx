@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { IconArrow } from '../../icons/arrow';
 import { IconExit } from '../../icons/exit';
 import { Stage as StageWidget } from '../../widget/stage';
-import { isTitleConfig } from '@alilc/lowcode-utils';
+import { isTitleConfig } from '@lce/lowcode-utils';
 
 export const StageDefaultProps = {
   current: false,
@@ -78,9 +78,17 @@ export default class Stage extends Component<StageProps> {
 
     const stageBacker = stage?.hasBack() ? (
       <div className="skeleton-stagebox-stagebacker">
-        <IconArrow className="skeleton-stagebox-stage-arrow" size="medium" data-stage-target="stageback" />
+        <IconArrow
+          className="skeleton-stagebox-stage-arrow"
+          size="medium"
+          data-stage-target="stageback"
+        />
         <span className="skeleton-stagebox-stage-title">{newTitle}</span>
-        <IconExit className="skeleton-stagebox-stage-exit" size="medium" data-stage-target="stageexit" />
+        <IconExit
+          className="skeleton-stagebox-stage-exit"
+          size="medium"
+          data-stage-target="stageexit"
+        />
       </div>
     ) : null;
 

@@ -1,11 +1,11 @@
 // all this file for polyfill vision logic
 import { isValidElement } from 'react';
-import { IPublicTypeFieldConfig, IPublicTypeSetterConfig } from '@alilc/lowcode-types';
-import { isSetterConfig, isDynamicSetter } from '@alilc/lowcode-utils';
+import { IPublicTypeFieldConfig, IPublicTypeSetterConfig } from '@lce/lowcode-types';
+import { isSetterConfig, isDynamicSetter } from '@lce/lowcode-utils';
 import { ISettingField } from './setting-field';
 
 function getHotterFromSetter(setter) {
-  return setter && (setter.Hotter || (setter.type && setter.type.Hotter)) || []; // eslint-disable-line
+  return (setter && (setter.Hotter || (setter.type && setter.type.Hotter))) || []; // eslint-disable-line
 }
 
 function getTransducerFromSetter(setter) {
@@ -25,8 +25,8 @@ function combineTransducer(transducer, arr, context) {
   }
 
   return {
-    toHot: (transducer && transducer.toHot || (x => x)).bind(context), // eslint-disable-line
-    toNative: (transducer && transducer.toNative || (x => x)).bind(context), // eslint-disable-line
+    toHot: ((transducer && transducer.toHot) || ((x) => x)).bind(context), // eslint-disable-line
+    toNative: ((transducer && transducer.toNative) || ((x) => x)).bind(context), // eslint-disable-line
   };
 }
 
@@ -71,10 +71,16 @@ export class Transducer {
     if (isDynamicSetter(setter) && isDynamic) {
       try {
         setter = setter.call(context.internalToShellField(), context.internalToShellField());
-      } catch (e) { console.error(e); }
+      } catch (e) {
+        console.error(e);
+      }
     }
 
-    this.setterTransducer = combineTransducer(getTransducerFromSetter(setter), getHotterFromSetter(setter), context);
+    this.setterTransducer = combineTransducer(
+      getTransducerFromSetter(setter),
+      getHotterFromSetter(setter),
+      context,
+    );
     this.context = context;
   }
 

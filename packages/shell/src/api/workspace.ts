@@ -1,5 +1,10 @@
-import { IPublicApiWorkspace, IPublicResourceList, IPublicTypeDisposable, IPublicTypeResourceType } from '@alilc/lowcode-types';
-import { IWorkspace } from '@alilc/lowcode-workspace';
+import {
+  IPublicApiWorkspace,
+  IPublicResourceList,
+  IPublicTypeDisposable,
+  IPublicTypeResourceType,
+} from '@lce/lowcode-types';
+import { IWorkspace } from '@lce/lowcode-workspace';
 import { resourceSymbol, workspaceSymbol } from '../symbols';
 import { Resource as ShellResource, Window as ShellWindow } from '../model';
 import { Plugins } from './plugins';
@@ -38,21 +43,16 @@ export class Workspace implements IPublicApiWorkspace {
   get resourceTypeList() {
     return Array.from(this[workspaceSymbol].resourceTypeMap.values()).map((d) => {
       const { name: resourceName, type: resourceType } = d;
-      const {
-        description,
-        editorViews,
-      } = d.resourceTypeModel({} as any, {});
+      const { description, editorViews } = d.resourceTypeModel({} as any, {});
 
       return {
         resourceName,
         resourceType,
         description,
-        editorViews: editorViews.map(d => (
-          {
-            viewName: d.viewName,
-            viewType: d.viewType || 'editor',
-          }
-        )),
+        editorViews: editorViews.map((d) => ({
+          viewName: d.viewName,
+          viewType: d.viewType || 'editor',
+        })),
       };
     });
   }
@@ -67,9 +67,18 @@ export class Workspace implements IPublicApiWorkspace {
 
   async openEditorWindow(): Promise<void> {
     if (typeof arguments[0] === 'string') {
-      await this[workspaceSymbol].openEditorWindow(arguments[0], arguments[1], arguments[2], arguments[3], arguments[4]);
+      await this[workspaceSymbol].openEditorWindow(
+        arguments[0],
+        arguments[1],
+        arguments[2],
+        arguments[3],
+        arguments[4],
+      );
     } else {
-      await this[workspaceSymbol].openEditorWindowByResource(arguments[0]?.[resourceSymbol], arguments[1]);
+      await this[workspaceSymbol].openEditorWindowByResource(
+        arguments[0]?.[resourceSymbol],
+        arguments[1],
+      );
     }
   }
 

@@ -1,6 +1,9 @@
-import type { IDocumentModel as InnerDocumentModel, IHistory as InnerHistory } from '@alilc/lowcode-designer';
+import type {
+  IDocumentModel as InnerDocumentModel,
+  IHistory as InnerHistory,
+} from '@lce/lowcode-designer';
 import { historySymbol, documentSymbol } from '../symbols';
-import { IPublicModelHistory, IPublicTypeDisposable } from '@alilc/lowcode-types';
+import { IPublicModelHistory, IPublicTypeDisposable } from '@lce/lowcode-types';
 
 export class History implements IPublicModelHistory {
   private readonly [documentSymbol]: InnerDocumentModel;

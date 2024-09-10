@@ -15,9 +15,10 @@ sidebar_position: 6
 - 样式：展示该物料样式的属性；
 - 事件：如果该物料有声明事件，则会出现事件面板，用于绑定事件；
 - 高级：两个逻辑相关的属性，**条件渲染**和**循环。**
+
 ## npm 包与仓库信息
 
-- npm 包：@alilc/lowcode-engine-ext
+- npm 包：@lce/lowcode-engine-ext
 - 仓库：[https://github.com/alibaba/lowcode-engine-ext](https://github.com/alibaba/lowcode-engine-ext)
 
 ## 设置器模块原理
@@ -75,6 +76,7 @@ interface SettingTargetProp extends SettingTarget {
 ```
 
 ### SettingField 抽象
+
 ![image.png](https://img.alicdn.com/imgextra/i2/O1CN01D855j01j8sg9GdtJr_!!6000000004504-2-tps-2022-402.png)
 
 ```typescript

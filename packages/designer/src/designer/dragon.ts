@@ -1,4 +1,4 @@
-import { obx, makeObservable, IEventBus, createModuleEventBus } from '@alilc/lowcode-editor-core';
+import { obx, makeObservable, IEventBus, createModuleEventBus } from '@lce/lowcode-editor-core';
 import {
   IPublicTypeDragNodeObject,
   IPublicTypeDragAnyObject,
@@ -9,8 +9,8 @@ import {
   IPublicModelDragon,
   IPublicModelLocateEvent,
   IPublicModelSensor,
-} from '@alilc/lowcode-types';
-import { setNativeSelection, cursor } from '@alilc/lowcode-utils';
+} from '@lce/lowcode-types';
+import { setNativeSelection, cursor } from '@lce/lowcode-utils';
 import { INode, Node } from '../document';
 import { ISimulatorHost, isSimulatorHost } from '../simulator';
 import { IDesigner } from './designer';
@@ -26,24 +26,28 @@ export interface ILocateEvent extends IPublicModelLocateEvent {
 }
 
 /**
- * @deprecated use same function in @alilc/lowcode-utils
+ * @deprecated use same function in @lce/lowcode-utils
  */
 export function isDragNodeObject(obj: any): obj is IPublicTypeDragNodeObject {
   return obj && obj.type === IPublicEnumDragObjectType.Node;
 }
 
 /**
- * @deprecated use same function in @alilc/lowcode-utils
+ * @deprecated use same function in @lce/lowcode-utils
  */
 export function isDragNodeDataObject(obj: any): obj is IPublicTypeDragNodeDataObject {
   return obj && obj.type === IPublicEnumDragObjectType.NodeData;
 }
 
 /**
- * @deprecated use same function in @alilc/lowcode-utils
+ * @deprecated use same function in @lce/lowcode-utils
  */
 export function isDragAnyObject(obj: any): obj is IPublicTypeDragAnyObject {
-  return obj && obj.type !== IPublicEnumDragObjectType.NodeData && obj.type !== IPublicEnumDragObjectType.Node;
+  return (
+    obj &&
+    obj.type !== IPublicEnumDragObjectType.NodeData &&
+    obj.type !== IPublicEnumDragObjectType.Node
+  );
 }
 
 export function isLocateEvent(e: any): e is ILocateEvent {
@@ -95,10 +99,7 @@ function isDragEvent(e: any): e is DragEvent {
   return e?.type?.startsWith('drag');
 }
 
-export interface IDragon extends IPublicModelDragon<
-  INode,
-  ILocateEvent
-> {
+export interface IDragon extends IPublicModelDragon<INode, ILocateEvent> {
   emitter: IEventBus;
 }
 
@@ -170,13 +171,20 @@ export class Dragon implements IDragon {
    * @param dragObject 拖拽对象
    * @param boostEvent 拖拽初始时事件
    */
-  boost(dragObject: IPublicModelDragObject, boostEvent: MouseEvent | DragEvent, fromRglNode?: INode | IPublicModelNode) {
+  boost(
+    dragObject: IPublicModelDragObject,
+    boostEvent: MouseEvent | DragEvent,
+    fromRglNode?: INode | IPublicModelNode,
+  ) {
     const { designer } = this;
     const masterSensors = this.getMasterSensors();
     const handleEvents = makeEventsHandler(boostEvent, masterSensors);
     const newBie = !isDragNodeObject(dragObject);
     const forceCopyState =
-      isDragNodeObject(dragObject) && dragObject.nodes.some((node: Node | IPublicModelNode) => (typeof node.isSlot === 'function' ? node.isSlot() : node.isSlot));
+      isDragNodeObject(dragObject) &&
+      dragObject.nodes.some((node: Node | IPublicModelNode) =>
+        typeof node.isSlot === 'function' ? node.isSlot() : node.isSlot,
+      );
     const isBoostFromDragAPI = isDragEvent(boostEvent);
     let lastSensor: IPublicModelSensor | undefined;
 
@@ -433,7 +441,7 @@ export class Dragon implements IDragon {
       if (!sourceDocument || sourceDocument === document) {
         evt.globalX = e.clientX;
         evt.globalY = e.clientY;
-      } else /* istanbul ignore next */ {
+      } /* istanbul ignore next */ else {
         // event from simulator sandbox
         let srcSim: ISimulatorHost | undefined;
         const lastSim = lastSensor && isSimulatorHost(lastSensor) ? lastSensor : null;
@@ -467,7 +475,9 @@ export class Dragon implements IDragon {
     /* istanbul ignore next */
     const chooseSensor = (e: ILocateEvent) => {
       // this.sensors will change on dragstart
-      const sensors: IPublicModelSensor[] = this.sensors.concat(masterSensors as IPublicModelSensor[]);
+      const sensors: IPublicModelSensor[] = this.sensors.concat(
+        masterSensors as IPublicModelSensor[],
+      );
       let sensor =
         e.sensor && e.sensor.isEnter(e)
           ? e.sensor

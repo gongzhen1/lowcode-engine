@@ -1,10 +1,14 @@
 import { Component, ReactElement } from 'react';
-import { observer, obx, Title, makeObservable } from '@alilc/lowcode-editor-core';
+import { observer, obx, Title, makeObservable } from '@lce/lowcode-editor-core';
 import { Designer } from '../designer';
 import { isDragNodeObject } from '../dragon';
 import { isSimulatorHost } from '../../simulator';
 import './ghost.less';
-import { IPublicTypeI18nData, IPublicTypeNodeSchema, IPublicModelDragObject } from '@alilc/lowcode-types';
+import {
+  IPublicTypeI18nData,
+  IPublicTypeNodeSchema,
+  IPublicModelDragObject,
+} from '@lce/lowcode-types';
 
 type offBinding = () => any;
 
@@ -26,7 +30,7 @@ export default class DragGhost extends Component<{ designer: Designer }> {
     super(props);
     makeObservable(this);
     this.dispose = [
-      this.dragon.onDragstart(e => {
+      this.dragon.onDragstart((e) => {
         if (e.originalEvent.type.slice(0, 4) === 'drag') {
           return;
         }
@@ -34,7 +38,7 @@ export default class DragGhost extends Component<{ designer: Designer }> {
         this.x = e.globalX;
         this.y = e.globalY;
       }),
-      this.dragon.onDrag(e => {
+      this.dragon.onDrag((e) => {
         this.x = e.globalX;
         this.y = e.globalY;
         if (isSimulatorHost(e.sensor)) {
@@ -61,12 +65,15 @@ export default class DragGhost extends Component<{ designer: Designer }> {
 
     const dataList = Array.isArray(dragObject.data) ? dragObject.data : [dragObject.data];
 
-    return dataList.map((item: IPublicTypeNodeSchema, i) => (this.props.designer.getComponentMeta(item.componentName).title));
+    return dataList.map(
+      (item: IPublicTypeNodeSchema, i) =>
+        this.props.designer.getComponentMeta(item.componentName).title,
+    );
   }
 
   componentWillUnmount() {
     if (this.dispose) {
-      this.dispose.forEach(off => off());
+      this.dispose.forEach((off) => off());
     }
   }
 

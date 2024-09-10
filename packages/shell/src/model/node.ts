@@ -1,7 +1,4 @@
-import {
-  IDocumentModel as InnerDocumentModel,
-  INode as InnerNode,
-} from '@alilc/lowcode-designer';
+import { IDocumentModel as InnerDocumentModel, INode as InnerNode } from '@lce/lowcode-designer';
 import {
   IPublicTypeCompositeValue,
   IPublicTypeNodeSchema,
@@ -18,7 +15,7 @@ import {
   IPublicTypePropsList,
   IPublicModelSettingTopEntry,
   IPublicModelExclusiveGroup,
-} from '@alilc/lowcode-types';
+} from '@lce/lowcode-types';
 import { Prop as ShellProp } from './prop';
 import { Props as ShellProps } from './props';
 import { DocumentModel as ShellDocumentModel } from './document-model';
@@ -518,9 +515,9 @@ export class Node implements IPublicModelNode {
    * @returns
    */
   exportSchema(
-      stage: IPublicEnumTransformStage = IPublicEnumTransformStage.Render,
-      options?: any,
-    ): IPublicTypeNodeSchema {
+    stage: IPublicEnumTransformStage = IPublicEnumTransformStage.Render,
+    options?: any,
+  ): IPublicTypeNodeSchema {
     return this[nodeSymbol].export(stage, options);
   }
 
@@ -531,15 +528,15 @@ export class Node implements IPublicModelNode {
    * @param useMutator
    */
   insertBefore(
-      node: IPublicModelNode,
-      ref?: IPublicModelNode | undefined,
-      useMutator?: boolean,
-    ): void {
+    node: IPublicModelNode,
+    ref?: IPublicModelNode | undefined,
+    useMutator?: boolean,
+  ): void {
     this[nodeSymbol].insertBefore(
-        (node as any)[nodeSymbol] || node,
-        (ref as any)?.[nodeSymbol],
-        useMutator,
-      );
+      (node as any)[nodeSymbol] || node,
+      (ref as any)?.[nodeSymbol],
+      useMutator,
+    );
   }
 
   /**
@@ -549,15 +546,15 @@ export class Node implements IPublicModelNode {
    * @param useMutator
    */
   insertAfter(
-      node: IPublicModelNode,
-      ref?: IPublicModelNode | undefined,
-      useMutator?: boolean,
-    ): void {
+    node: IPublicModelNode,
+    ref?: IPublicModelNode | undefined,
+    useMutator?: boolean,
+  ): void {
     this[nodeSymbol].insertAfter(
-        (node as any)[nodeSymbol] || node,
-        (ref as any)?.[nodeSymbol],
-        useMutator,
-      );
+      (node as any)[nodeSymbol] || node,
+      (ref as any)?.[nodeSymbol],
+      useMutator,
+    );
   }
 
   /**
@@ -657,14 +654,8 @@ export class Node implements IPublicModelNode {
   }
 
   getRGL() {
-    const {
-      isContainerNode,
-      isEmptyNode,
-      isRGLContainerNode,
-      isRGLNode,
-      isRGL,
-      rglNode,
-    } = this[nodeSymbol].getRGL();
+    const { isContainerNode, isEmptyNode, isRGLContainerNode, isRGLNode, isRGL, rglNode } =
+      this[nodeSymbol].getRGL();
 
     return {
       isContainerNode,

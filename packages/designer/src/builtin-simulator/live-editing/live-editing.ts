@@ -1,5 +1,5 @@
-import { obx } from '@alilc/lowcode-editor-core';
-import { IPublicTypePluginConfig, IPublicTypeLiveTextEditingConfig } from '@alilc/lowcode-types';
+import { obx } from '@lce/lowcode-editor-core';
+import { IPublicTypePluginConfig, IPublicTypeLiveTextEditingConfig } from '@lce/lowcode-types';
 import { INode, Prop } from '../../document';
 
 const EDITOR_KEY = 'data-setter-prop';
@@ -59,7 +59,9 @@ export class LiveEditing {
     const editor = node.document?.designer.editor;
     const npm = node?.componentMeta?.npm;
     const selected =
-      [npm?.package, npm?.componentName].filter((item) => !!item).join('-') || node?.componentMeta?.componentName || '';
+      [npm?.package, npm?.componentName].filter((item) => !!item).join('-') ||
+      node?.componentMeta?.componentName ||
+      '';
     editor?.eventBus.emit('designer.builtinSimulator.liveEditing', {
       selected,
     });
@@ -70,10 +72,10 @@ export class LiveEditing {
     if (liveTextEditing) {
       if (propTarget) {
         // 已埋点命中 data-setter-prop="proptarget", 从 liveTextEditing 读取配置（mode|onSaveContent）
-        matched = liveTextEditing.find(config => config.propTarget == propTarget);
+        matched = liveTextEditing.find((config) => config.propTarget == propTarget);
       } else {
         // 执行 embedTextEditing selector 规则，获得第一个节点 是否 contains e.target，若匹配，读取配置
-        matched = liveTextEditing.find(config => {
+        matched = liveTextEditing.find((config) => {
           if (!config.selector) {
             return false;
           }
@@ -89,7 +91,8 @@ export class LiveEditing {
       });
       if (matched) {
         propTarget = matched.propTarget;
-        setterPropElement = matched.propElement || queryPropElement(rootElement, targetElement, matched.selector);
+        setterPropElement =
+          matched.propElement || queryPropElement(rootElement, targetElement, matched.selector);
       }
     }
 
@@ -117,9 +120,15 @@ export class LiveEditing {
       //  4. 监听 blur 事件
       //  5. 设置编辑锁定：disable hover | disable select | disable canvas drag
 
-      const onSaveContent = matched?.onSaveContent || saveHandlers.find(item => item.condition(prop))?.onSaveContent || defaultSaveContent;
+      const onSaveContent =
+        matched?.onSaveContent ||
+        saveHandlers.find((item) => item.condition(prop))?.onSaveContent ||
+        defaultSaveContent;
 
-      setterPropElement.setAttribute('contenteditable', matched?.mode && matched.mode !== 'plaintext' ? 'true' : 'plaintext-only');
+      setterPropElement.setAttribute(
+        'contenteditable',
+        matched?.mode && matched.mode !== 'plaintext' ? 'true' : 'plaintext-only',
+      );
       setterPropElement.classList.add('engine-live-editing');
       // be sure
       setterPropElement.focus();
@@ -134,7 +143,7 @@ export class LiveEditing {
         switch (e.code) {
           case 'Enter':
             break;
-            // TODO: check is richtext?
+          // TODO: check is richtext?
           case 'Escape':
             break;
           case 'Tab':
@@ -186,9 +195,11 @@ export class LiveEditing {
   }
 }
 
-export type SpecificRule = (target: EditingTarget) => (IPublicTypeLiveTextEditingConfig & {
-  propElement?: HTMLElement;
-}) | null;
+export type SpecificRule = (target: EditingTarget) =>
+  | (IPublicTypeLiveTextEditingConfig & {
+      propElement?: HTMLElement;
+    })
+  | null;
 
 export interface SaveHandler {
   condition: (prop: Prop) => boolean;
@@ -223,7 +234,9 @@ function queryPropElement(rootElement: HTMLElement, targetElement: HTMLElement, 
   }
   if (!propElement.contains(targetElement)) {
     // try selectorAll
-    propElement = Array.from(rootElement.querySelectorAll(selector)).find(item => item.contains(targetElement)) as HTMLElement;
+    propElement = Array.from(rootElement.querySelectorAll(selector)).find((item) =>
+      item.contains(targetElement),
+    ) as HTMLElement;
     if (!propElement) {
       return null;
     }

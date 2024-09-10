@@ -9,11 +9,8 @@ import {
   IPublicModelDragon,
   IPublicModelActiveTracker,
   IPublicModelClipboard,
-} from '@alilc/lowcode-types';
-import {
-  ScrollTarget as InnerScrollTarget,
-  IDesigner,
-} from '@alilc/lowcode-designer';
+} from '@lce/lowcode-types';
+import { ScrollTarget as InnerScrollTarget, IDesigner } from '@lce/lowcode-designer';
 import { editorSymbol, designerSymbol, nodeSymbol } from '../symbols';
 import {
   Dragon as ShellDragon,
@@ -67,10 +64,12 @@ export class Canvas implements IPublicApiCanvas {
    * 创建插入位置，考虑放到 dragon 中
    */
   createLocation(locationData: IPublicTypeLocationData): IPublicModelDropLocation {
-    return new DropLocation(this[designerSymbol].createLocation({
-      ...locationData,
-      target: (locationData.target as any)[nodeSymbol],
-    }));
+    return new DropLocation(
+      this[designerSymbol].createLocation({
+        ...locationData,
+        target: (locationData.target as any)[nodeSymbol],
+      }),
+    );
   }
 
   /**

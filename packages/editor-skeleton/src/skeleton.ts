@@ -1,4 +1,11 @@
-import { action, makeObservable, obx, engineConfig, IEditor, FocusTracker } from '@alilc/lowcode-editor-core';
+import {
+  action,
+  makeObservable,
+  obx,
+  engineConfig,
+  IEditor,
+  FocusTracker,
+} from '@lce/lowcode-editor-core';
 import {
   DockConfig,
   WidgetConfig,
@@ -18,7 +25,7 @@ import { PanelDock } from './widget/panel-dock';
 import { Dock } from './widget/dock';
 import { Stage, StageConfig } from './widget/stage';
 import { isValidElement } from 'react';
-import { isPlainObject, uniqueId, Logger } from '@alilc/lowcode-utils';
+import { isPlainObject, uniqueId, Logger } from '@lce/lowcode-utils';
 import { Divider } from '@alifd/next';
 import {
   EditorConfig,
@@ -29,7 +36,7 @@ import {
   IPublicApiSkeleton,
   IPublicTypeConfigTransducer,
   IPublicTypePanelConfig,
-} from '@alilc/lowcode-types';
+} from '@lce/lowcode-types';
 
 const logger = new Logger({ level: 'warn', bizName: 'skeleton' });
 
@@ -44,22 +51,24 @@ export enum SkeletonEvents {
   WIDGET_ENABLE = 'skeleton.widget.enable',
 }
 
-export interface ISkeleton extends Omit<IPublicApiSkeleton,
-  'showPanel' |
-  'hidePanel' |
-  'showWidget' |
-  'enableWidget' |
-  'hideWidget' |
-  'disableWidget' |
-  'showArea' |
-  'onShowPanel' |
-  'onHidePanel' |
-  'onShowWidget' |
-  'onHideWidget' |
-  'remove' |
-  'hideArea' |
-  'add'
-> {
+export interface ISkeleton
+  extends Omit<
+    IPublicApiSkeleton,
+    | 'showPanel'
+    | 'hidePanel'
+    | 'showWidget'
+    | 'enableWidget'
+    | 'hideWidget'
+    | 'disableWidget'
+    | 'showArea'
+    | 'onShowPanel'
+    | 'onHidePanel'
+    | 'onShowWidget'
+    | 'onHideWidget'
+    | 'remove'
+    | 'hideArea'
+    | 'add'
+  > {
   editor: IEditor;
 
   readonly leftArea: Area<DockConfig | PanelDockConfig | DialogDockConfig>;
@@ -106,7 +115,10 @@ export interface ISkeleton extends Omit<IPublicApiSkeleton,
 
   createPanel(config: IPublicTypePanelConfig): Panel;
 
-  add(config: IPublicTypeSkeletonConfig, extraConfig?: Record<string, any>): IWidget | Widget | Panel | Stage | Dock | PanelDock | undefined;
+  add(
+    config: IPublicTypeSkeletonConfig,
+    extraConfig?: Record<string, any>,
+  ): IWidget | Widget | Panel | Stage | Dock | PanelDock | undefined;
 }
 
 export class Skeleton implements ISkeleton {
@@ -264,9 +276,13 @@ export class Skeleton implements ISkeleton {
     // adjust pinned status when panel shown
     this.editor.eventBus.on(SkeletonEvents.PANEL_SHOW, (panelName, panel) => {
       const panelNameKey = `${panelName}-pinned-status-isFloat`;
-      const isInFloatAreaPreferenceExists = engineConfig.getPreference()?.contains(panelNameKey, 'skeleton');
+      const isInFloatAreaPreferenceExists = engineConfig
+        .getPreference()
+        ?.contains(panelNameKey, 'skeleton');
       if (isInFloatAreaPreferenceExists) {
-        const isInFloatAreaFromPreference = engineConfig.getPreference()?.get(panelNameKey, 'skeleton');
+        const isInFloatAreaFromPreference = engineConfig
+          .getPreference()
+          ?.get(panelNameKey, 'skeleton');
         const isCurrentInFloatArea = panel?.isChildOfFloatArea();
         if (isInFloatAreaFromPreference !== isCurrentInFloatArea) {
           this.toggleFloatStatus(panel);
@@ -385,14 +401,19 @@ export class Skeleton implements ISkeleton {
   }
 
   getWidget(name: string): IWidget | undefined {
-    return this.widgets.find(widget => widget.name === name);
+    return this.widgets.find((widget) => widget.name === name);
   }
 
   createPanel(config: IPublicTypePanelConfig) {
     const parsedConfig = this.parseConfig(config);
     const panel = new Panel(this, parsedConfig as IPublicTypePanelConfig);
     this.panels.set(panel.name, panel);
-    logger.debug(`Panel created with name: ${panel.name} \nconfig:`, config, '\n current panels: ', this.panels);
+    logger.debug(
+      `Panel created with name: ${panel.name} \nconfig:`,
+      config,
+      '\n current panels: ',
+      this.panels,
+    );
     return panel;
   }
 
@@ -451,11 +472,7 @@ export class Skeleton implements ISkeleton {
     return restConfig;
   }
 
-  registerConfigTransducer(
-    transducer: IPublicTypeConfigTransducer,
-    level = 100,
-    id?: string,
-  ) {
+  registerConfigTransducer(transducer: IPublicTypeConfigTransducer, level = 100, id?: string) {
     transducer.level = level;
     transducer.id = id;
     const i = this.configTransducers.findIndex((item) => item.level != null && item.level > level);
@@ -470,15 +487,21 @@ export class Skeleton implements ISkeleton {
     return this.configTransducers;
   }
 
-  add(config: IPublicTypeSkeletonConfig, extraConfig?: Record<string, any>): IWidget | Widget | Panel | Stage | Dock | PanelDock | undefined {
+  add(
+    config: IPublicTypeSkeletonConfig,
+    extraConfig?: Record<string, any>,
+  ): IWidget | Widget | Panel | Stage | Dock | PanelDock | undefined {
     const registeredTransducers = this.getRegisteredConfigTransducers();
 
-    const parsedConfig = registeredTransducers.reduce((prevConfig, current) => {
-      return current(prevConfig);
-    }, {
-      ...this.parseConfig(config),
-      ...extraConfig,
-    });
+    const parsedConfig = registeredTransducers.reduce(
+      (prevConfig, current) => {
+        return current(prevConfig);
+      },
+      {
+        ...this.parseConfig(config),
+        ...extraConfig,
+      },
+    );
 
     let { area } = parsedConfig;
     if (!area) {
@@ -519,7 +542,7 @@ export class Skeleton implements ISkeleton {
       case 'stages':
         return this.stages.add(parsedConfig as StageConfig);
       default:
-        // do nothing
+      // do nothing
     }
   }
 }

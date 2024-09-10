@@ -1,15 +1,18 @@
 import { PureComponent } from 'react';
 import { ResourceView } from './resource-view';
-import { engineConfig, observer } from '@alilc/lowcode-editor-core';
+import { engineConfig, observer } from '@lce/lowcode-editor-core';
 import { EditorWindow } from '../window';
-import { BuiltinLoading } from '@alilc/lowcode-designer';
+import { BuiltinLoading } from '@lce/lowcode-designer';
 import { DesignerView } from '../inner-plugins/webview';
 
 @observer
-export class WindowView extends PureComponent<{
-  window: EditorWindow;
-  active: boolean;
-}, any> {
+export class WindowView extends PureComponent<
+  {
+    window: EditorWindow;
+    active: boolean;
+  },
+  any
+> {
   render() {
     const { active } = this.props;
     const { resource, initReady, url } = this.props.window;
@@ -29,10 +32,7 @@ export class WindowView extends PureComponent<{
 
     return (
       <div className={`workspace-engine-main ${active ? 'active' : ''}`}>
-        <ResourceView
-          resource={resource}
-          window={this.props.window}
-        />
+        <ResourceView resource={resource} window={this.props.window} />
       </div>
     );
   }

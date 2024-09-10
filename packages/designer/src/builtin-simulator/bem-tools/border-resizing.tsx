@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import DragResizeEngine from './drag-resize-engine';
-import { observer, computed } from '@alilc/lowcode-editor-core';
+import { observer, computed } from '@lce/lowcode-editor-core';
 import classNames from 'classnames';
 import { SimulatorContext } from '../context';
 import { BuiltinSimulatorHost } from '../host';
@@ -89,7 +89,12 @@ export class BoxResizingForNode extends Component<{ host: BuiltinSimulatorHost; 
             return null;
           }
           return (
-            <BoxResizingInstance key={observed.id} dragging={this.dragging} designer={designer} observed={observed} />
+            <BoxResizingInstance
+              key={observed.id}
+              dragging={this.dragging}
+              designer={designer}
+              observed={observed}
+            />
           );
         })}
       </Fragment>
@@ -135,12 +140,15 @@ export class BoxResizingInstance extends Component<{
     // this.hoveringCapture.setBoundary(this.outline);
     this.willBind();
 
-    const resize = (e: MouseEvent, direction: string, node: INode, moveX: number, moveY: number) => {
+    const resize = (
+      e: MouseEvent,
+      direction: string,
+      node: INode,
+      moveX: number,
+      moveY: number,
+    ) => {
       const { advanced } = node.componentMeta;
-      if (
-        advanced.callbacks &&
-        typeof advanced.callbacks.onResize === 'function'
-      ) {
+      if (advanced.callbacks && typeof advanced.callbacks.onResize === 'function') {
         (e as any).trigger = direction;
         (e as any).deltaX = moveX;
         (e as any).deltaY = moveY;
@@ -151,10 +159,7 @@ export class BoxResizingInstance extends Component<{
 
     const resizeStart = (e: MouseEvent, direction: string, node: INode) => {
       const { advanced } = node.componentMeta;
-      if (
-        advanced.callbacks &&
-        typeof advanced.callbacks.onResizeStart === 'function'
-      ) {
+      if (advanced.callbacks && typeof advanced.callbacks.onResizeStart === 'function') {
         (e as any).trigger = direction;
         const cbNode = node?.isNode ? node.internalToShellNode() : node;
         advanced.callbacks.onResizeStart(e, cbNode);
@@ -163,10 +168,7 @@ export class BoxResizingInstance extends Component<{
 
     const resizeEnd = (e: MouseEvent, direction: string, node: INode) => {
       const { advanced } = node.componentMeta;
-      if (
-        advanced.callbacks &&
-        typeof advanced.callbacks.onResizeEnd === 'function'
-      ) {
+      if (advanced.callbacks && typeof advanced.callbacks.onResizeEnd === 'function') {
         (e as any).trigger = direction;
         const cbNode = node?.isNode ? node.internalToShellNode() : node;
         advanced.callbacks.onResizeEnd(e, cbNode);
@@ -248,7 +250,9 @@ export class BoxResizingInstance extends Component<{
       const { node } = observed;
       const metadata = node.componentMeta.getMetadata();
       if (metadata.configure?.advanced?.getResizingHandlers) {
-        triggerVisible = metadata.configure.advanced.getResizingHandlers(node.internalToShellNode());
+        triggerVisible = metadata.configure.advanced.getResizingHandlers(
+          node.internalToShellNode(),
+        );
       }
     }
     triggerVisible = normalizeTriggers(triggerVisible);

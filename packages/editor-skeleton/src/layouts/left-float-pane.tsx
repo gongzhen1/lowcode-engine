@@ -1,12 +1,14 @@
 import { Component, Fragment } from 'react';
 import classNames from 'classnames';
-import { observer, Focusable } from '@alilc/lowcode-editor-core';
+import { observer, Focusable } from '@lce/lowcode-editor-core';
 import { Area } from '../area';
 import { Panel } from '../widget/panel';
-import { IPublicApiProject, IPublicTypePanelConfig } from '@alilc/lowcode-types';
+import { IPublicApiProject, IPublicTypePanelConfig } from '@lce/lowcode-types';
 
 @observer
-export default class LeftFloatPane extends Component<{ area: Area<IPublicTypePanelConfig, Panel> }> {
+export default class LeftFloatPane extends Component<{
+  area: Area<IPublicTypePanelConfig, Panel>;
+}> {
   private dispose?: () => void;
 
   private focusing?: Focusable;
@@ -21,7 +23,9 @@ export default class LeftFloatPane extends Component<{ area: Area<IPublicTypePan
       if (e.originalEvent?.target?.classList.contains('insertion')) return;
       // 假如当前操作 target 祖先节点中有属性 data-keep-visible-while-dragging="true" 代表该 target 所属 panel
       // 不希望 target 在 panel 范围内拖拽时关闭 panel
-      const panelElem = e.originalEvent?.target.closest('div[data-keep-visible-while-dragging="true"]');
+      const panelElem = e.originalEvent?.target.closest(
+        'div[data-keep-visible-while-dragging="true"]',
+      );
       if (panelElem) return;
       area.setVisible(false);
     };
@@ -43,7 +47,11 @@ export default class LeftFloatPane extends Component<{ area: Area<IPublicTypePan
           return true;
         }
         // 点击了 iframe 内容，算失焦
-        if ((document.querySelector('.lc-simulator-content-frame') as HTMLIFrameElement)?.contentWindow?.document.documentElement.contains(target)) {
+        if (
+          (
+            document.querySelector('.lc-simulator-content-frame') as HTMLIFrameElement
+          )?.contentWindow?.document.documentElement.contains(target)
+        ) {
           return false;
         }
         if (project?.simulatorHost?.contentWindow?.document.documentElement.contains(target)) {
@@ -63,7 +71,7 @@ export default class LeftFloatPane extends Component<{ area: Area<IPublicTypePan
         }
         const docks = area.current?.getAssocDocks();
         if (docks && docks?.length) {
-          return docks.some(dock => dock.getDOMNode()?.contains(target));
+          return docks.some((dock) => dock.getDOMNode()?.contains(target));
         }
         return false;
       },
@@ -107,12 +115,16 @@ export default class LeftFloatPane extends Component<{ area: Area<IPublicTypePan
     const { area } = this.props;
     const width = area.current?.config.props?.width;
 
-    const style = width ? {
-      width,
-    } : undefined;
+    const style = width
+      ? {
+          width,
+        }
+      : undefined;
     return (
       <div
-        ref={(ref) => { this.shell = ref; }}
+        ref={(ref) => {
+          this.shell = ref;
+        }}
         className={classNames('lc-left-float-pane', {
           'lc-area-visible': area.visible,
         })}
@@ -128,10 +140,6 @@ export default class LeftFloatPane extends Component<{ area: Area<IPublicTypePan
 class Contents extends Component<{ area: Area<any, Panel> }> {
   render() {
     const { area } = this.props;
-    return (
-      <Fragment>
-        {area.container.items.map((panel) => panel.content)}
-      </Fragment>
-    );
+    return <Fragment>{area.container.items.map((panel) => panel.content)}</Fragment>;
   }
 }

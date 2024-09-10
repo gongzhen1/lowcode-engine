@@ -1,16 +1,24 @@
 import { ReactNode } from 'react';
-import { IPublicApiSetters, IPublicModelSettingField, IPublicTypeCustomView, IPublicTypeRegisteredSetter } from '@alilc/lowcode-types';
-import { createContent, isCustomView } from '@alilc/lowcode-utils';
+import {
+  IPublicApiSetters,
+  IPublicModelSettingField,
+  IPublicTypeCustomView,
+  IPublicTypeRegisteredSetter,
+} from '@lce/lowcode-types';
+import { createContent, isCustomView } from '@lce/lowcode-utils';
 
-const settersMap = new Map<string, IPublicTypeRegisteredSetter & {
-  type: string;
-}>();
+const settersMap = new Map<
+  string,
+  IPublicTypeRegisteredSetter & {
+    type: string;
+  }
+>();
 export function registerSetter(
   typeOrMaps: string | { [key: string]: IPublicTypeCustomView | IPublicTypeRegisteredSetter },
   setter?: IPublicTypeCustomView | IPublicTypeRegisteredSetter,
 ) {
   if (typeof typeOrMaps === 'object') {
-    Object.keys(typeOrMaps).forEach(type => {
+    Object.keys(typeOrMaps).forEach((type) => {
       registerSetter(type, typeOrMaps[type]);
     });
     return;
@@ -37,20 +45,24 @@ export function registerSetter(
 }
 
 function getInitialFromSetter(setter: any) {
-  return setter && (
-    setter.initial || setter.Initial
-      || (setter.type && (setter.type.initial || setter.type.Initial))
-    ) || null; // eslint-disable-line
+  return (
+    (setter &&
+      (setter.initial ||
+        setter.Initial ||
+        (setter.type && (setter.type.initial || setter.type.Initial)))) ||
+    null
+  ); // eslint-disable-line
 }
 
-export interface ISetters extends IPublicApiSetters {
-
-}
+export interface ISetters extends IPublicApiSetters {}
 
 export class Setters implements ISetters {
-  settersMap = new Map<string, IPublicTypeRegisteredSetter & {
-    type: string;
-  }>();
+  settersMap = new Map<
+    string,
+    IPublicTypeRegisteredSetter & {
+      type: string;
+    }
+  >();
 
   constructor(readonly viewName: string = 'global') {}
 
@@ -63,7 +75,7 @@ export class Setters implements ISetters {
     setter?: IPublicTypeCustomView | IPublicTypeRegisteredSetter,
   ) => {
     if (typeof typeOrMaps === 'object') {
-      Object.keys(typeOrMaps).forEach(type => {
+      Object.keys(typeOrMaps).forEach((type) => {
         this.registerSetter(type, typeOrMaps[type]);
       });
       return;

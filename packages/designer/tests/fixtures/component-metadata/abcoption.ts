@@ -1,4 +1,4 @@
-import { IPublicTypeComponentMetadata } from "@alilc/lowcode-types";
+import { IPublicTypeComponentMetadata } from '@lce/lowcode-types';
 export default {
   componentName: 'Abc.Option',
   npm: {
@@ -228,8 +228,12 @@ export default {
     advanced: {
       isTopFixed: true,
       callbacks: {
-        onNodeAdd: (dragment, self) => { console.log(dragment); },
-        onNodeRemove: (dragment, self) => { console.log(dragment); }
+        onNodeAdd: (dragment, self) => {
+          console.log(dragment);
+        },
+        onNodeRemove: (dragment, self) => {
+          console.log(dragment);
+        },
       },
       initials: [
         {

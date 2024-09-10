@@ -2,6 +2,7 @@
 title: 编辑态扩展简述
 sidebar_position: 0
 ---
+
 ## 扩展点简述
 
 我们可以从 Demo 的项目中看到页面中有很多的区块：
@@ -22,9 +23,11 @@ sidebar_position: 0
 ## 配置扩展点
 
 ### 配置物料
+
 通过配置注入物料，这里的配置是物料中心根据物料资产包协议生成的，后面“物料扩展”章节会有详细说明。
+
 ```typescript
-import { material } from '@alilc/lowcode-engine';
+import { material } from '@lce/lowcode-engine';
 // 假设您已把物料配置在本地
 import assets from './assets.json';
 
@@ -33,45 +36,54 @@ material.setAssets(assets);
 ```
 
 也可以通过异步加载物料中心上的物料。
+
 ```typescript
-import { material, plugins } from '@alilc/lowcode-engine';
-import { IPublicModelPluginContext } from '@alilc/lowcode-types';
+import { material, plugins } from '@lce/lowcode-engine';
+import { IPublicModelPluginContext } from '@lce/lowcode-types';
 
 // 动态加载 assets
-plugins.register((ctx: IPublicModelPluginContext) => {
-  return {
-    name: 'ext-assets',
-    async init() {
-      try {
-        // 将下述链接替换为您的物料即可。无论是通过 utils 从物料中心引入，还是通过其他途径如直接引入物料描述
-        const res = await window.fetch('https://fusion.alicdn.com/assets/default@0.1.95/assets.json')
-        const assets = await res.text()
-        material.setAssets(assets)
-      } catch (err) {
-        console.error(err)
-      }
-    },
-  }
-}).catch(err => console.error(err));
+plugins
+  .register((ctx: IPublicModelPluginContext) => {
+    return {
+      name: 'ext-assets',
+      async init() {
+        try {
+          // 将下述链接替换为您的物料即可。无论是通过 utils 从物料中心引入，还是通过其他途径如直接引入物料描述
+          const res = await window.fetch(
+            'https://fusion.alicdn.com/assets/default@0.1.95/assets.json',
+          );
+          const assets = await res.text();
+          material.setAssets(assets);
+        } catch (err) {
+          console.error(err);
+        }
+      },
+    };
+  })
+  .catch((err) => console.error(err));
 ```
 
 ### 配置插件
+
 可以通过 npm 包的方式引入社区插件，配置如下所示：
+
 ```typescript
-import { plugins } from '@alilc/lowcode-engine';
-import { IPublicModelPluginContext } from '@alilc/lowcode-types';
+import { plugins } from '@lce/lowcode-engine';
+import { IPublicModelPluginContext } from '@lce/lowcode-types';
 import PluginIssueTracker from '@alilc/lowcode-plugin-issue-tracker';
 
 // 注册一个提 issue 组件到您的编辑器中，方位默认在左栏下侧
-plugins.register(PluginIssueTracker)
-  .catch(err => console.error(err));
+plugins.register(PluginIssueTracker).catch((err) => console.error(err));
 ```
+
 后续“插件扩展”章节会详细说明。
 
 ### 配置设置器
+
 低代码引擎默认内置了设置器（详见“配置设置器”章节）。您可以通过 npm 包的方式引入自定义的设置器，配置如下所示：
+
 ```typescript
-import { setters } from '@alilc/lowcode-engine';
+import { setters } from '@lce/lowcode-engine';
 // 假设您自定义了一个 setter
 import MuxMonacoEditorSetter from './components/setters/MuxMonacoEditorSetter';
 
@@ -81,12 +93,13 @@ setters.registerSetter({
     component: MuxMonacoEditorSetter,
     title: 'Textarea',
     condition: (field) => {
-      const v = field.getValue()
-      return typeof v === 'string'
+      const v = field.getValue();
+      return typeof v === 'string';
     },
   },
 });
 ```
+
 后续“设置器扩展”章节会详细说明。
 
 > 本章节所有可扩展配置内容在 demo 中均可找到：[https://github.com/alibaba/lowcode-demo/tree/main/demo-general](https://github.com/alibaba/lowcode-demo/tree/main/demo-general)

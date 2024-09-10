@@ -7,10 +7,10 @@ sidebar_position: 5
 
 ## npm 包与仓库信息
 
-| **NPM 包** | **代码仓库** | **说明** |
-| --- | --- | --- |
-| [@alilc/lowcode-code-generator](https://www.npmjs.com/package/@alilc/lowcode-code-generator) | [alibaba/lowcode-engine](https://github.com/alibaba/lowcode-engine)（子目录：modules/code-generator）| 出码模块核心库，支持在 node 环境下运行，也提供了浏览器下运行的 standalone 模式 |
-| [@alilc/lowcode-plugin-code-generator](https://www.npmjs.com/package/@alilc/lowcode-plugin-code-generator) | [alibaba/lowcode-code-generator-demo](https://github.com/alibaba/lowcode-code-generator-demo) | 出码示例 -- 浏览器端出码插件 |
+| **NPM 包**                                                                                                 | **代码仓库**                                                                                          | **说明**                                                                       |
+| ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| [@lce/lowcode-code-generator](https://www.npmjs.com/package/@lce/lowcode-code-generator)                   | [alibaba/lowcode-engine](https://github.com/alibaba/lowcode-engine)（子目录：modules/code-generator） | 出码模块核心库，支持在 node 环境下运行，也提供了浏览器下运行的 standalone 模式 |
+| [@alilc/lowcode-plugin-code-generator](https://www.npmjs.com/package/@alilc/lowcode-plugin-code-generator) | [alibaba/lowcode-code-generator-demo](https://github.com/alibaba/lowcode-code-generator-demo)         | 出码示例 -- 浏览器端出码插件                                                   |
 
 ## 出码模块原理
 
@@ -30,12 +30,15 @@ sidebar_position: 5
 出码模块和编译器很类似，都是将代码的一种表现形式转换成另一种表现形式，如：
 
 #### 编译器流程
+
 ![image.png](https://img.alicdn.com/imgextra/i3/O1CN019F21Lb1bsCwvNcWRq_!!6000000003520-2-tps-3228-492.png)
 
 #### 出码模块流程
+
 ![image.png](https://img.alicdn.com/imgextra/i3/O1CN01SEcVta1uLD72W0URZ_!!6000000006020-2-tps-1536-182.png)
 
 ### 出码流程详解
+
 #### 协议解析
 
 协议解析主要是将输入的 schema 解析成更适合出码模块内部使用的数据结构的过程。这样在后面的代码生成过程中就可以直接用这些数据，不必重复解析了。
@@ -61,6 +64,7 @@ sidebar_position: 5
 ![](https://img.alicdn.com/imgextra/i4/O1CN01P0Lw7v1lfyWtfQTuR_!!6000000004847-2-tps-994-278.png)
 
 #### 代码生成
+
 代码生成的流程如下：
 ![](https://img.alicdn.com/imgextra/i1/O1CN01lhcWBg1RG3nsoSoY2_!!6000000002083-2-tps-1468-464.png)
 
@@ -93,17 +97,18 @@ interface IProjectPlugins {
   [slotName: string]: BuilderComponentPlugin[];
 }
 ```
+
 ##### 代码块
 
 代码块是出码产物的最小单元，由出码模块插件产出，多个代码块最后会被组装为代码文件。每个代码块通过 name 描述自己，再通过 linkAfter 描述应该跟在哪些 name 的代码块后面。
 
 ```typescript
 interface ICodeChunk {
-  type: ChunkType;        // 处理类型 ast | string | json
-  fileType: string;       // 文件类型 js | css | ts ...
-  name: string;           // 代码块名称，与 linkAfter 相关
-  subModule?: string;     // 模块内文件名，默认是 index
-  content: ChunkContent;  // 代码块内容，数据格式与 type 相关
+  type: ChunkType; // 处理类型 ast | string | json
+  fileType: string; // 文件类型 js | css | ts ...
+  name: string; // 代码块名称，与 linkAfter 相关
+  subModule?: string; // 模块内文件名，默认是 index
+  content: ChunkContent; // 代码块内容，数据格式与 type 相关
   linkAfter: string[];
 }
 ```

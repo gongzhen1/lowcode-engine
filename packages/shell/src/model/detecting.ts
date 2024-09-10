@@ -3,9 +3,9 @@ import {
   Detecting as InnerDetecting,
   IDocumentModel as InnerDocumentModel,
   INode as InnerNode,
-} from '@alilc/lowcode-designer';
+} from '@lce/lowcode-designer';
 import { documentSymbol, detectingSymbol } from '../symbols';
-import { IPublicModelDetecting, IPublicModelNode, IPublicTypeDisposable } from '@alilc/lowcode-types';
+import { IPublicModelDetecting, IPublicModelNode, IPublicTypeDisposable } from '@lce/lowcode-types';
 
 export class Detecting implements IPublicModelDetecting {
   private readonly [documentSymbol]: InnerDocumentModel;

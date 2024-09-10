@@ -1,5 +1,5 @@
-import { obx, computed, makeObservable } from '@alilc/lowcode-editor-core';
-import { hasOwnProperty } from '@alilc/lowcode-utils';
+import { obx, computed, makeObservable } from '@lce/lowcode-editor-core';
+import { hasOwnProperty } from '@lce/lowcode-utils';
 import { isPanel } from './panel';
 
 export interface WidgetItem {
@@ -19,7 +19,7 @@ export class WidgetContainer<T extends WidgetItem = any, G extends WidgetItem = 
 
   private maps: { [name: string]: T } = {};
 
-  @obx.ref private _current: T & Activeable | null = null;
+  @obx.ref private _current: (T & Activeable) | null = null;
 
   get current() {
     return this._current;

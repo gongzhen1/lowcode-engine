@@ -1,9 +1,9 @@
 import { ReactNode, Component, createElement } from 'react';
 import { IntlMessageFormat } from 'intl-messageformat';
 import { globalLocale } from './global-locale';
-import { isI18nData } from '@alilc/lowcode-utils';
+import { isI18nData } from '@lce/lowcode-utils';
 import { observer } from '../utils';
-import { IPublicTypeI18nData } from '@alilc/lowcode-types';
+import { IPublicTypeI18nData } from '@lce/lowcode-types';
 
 function generateTryLocales(locale: string) {
   const tries = [locale, locale.replace('-', '_')];
@@ -56,7 +56,7 @@ export function shallowIntl(data: any): any {
     return data;
   }
   const maps: any = {};
-  Object.keys(data).forEach(key => {
+  Object.keys(data).forEach((key) => {
     maps[key] = intl(data[key]);
   });
   return maps;
@@ -81,14 +81,12 @@ class IntlElement extends Component<{ data: any; params?: object }> {
   }
 }
 
-export function createIntl(
-  instance: string | object,
-): {
-    intlNode(id: string, params?: object): ReactNode;
-    intl(id: string, params?: object): string;
-    getLocale(): string;
-    setLocale(locale: string): void;
-  } {
+export function createIntl(instance: string | object): {
+  intlNode(id: string, params?: object): ReactNode;
+  intl(id: string, params?: object): string;
+  getLocale(): string;
+  setLocale(locale: string): void;
+} {
   // TODO: make reactive
   const data = (() => {
     const locale = globalLocale.getLocale();

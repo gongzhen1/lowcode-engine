@@ -1,6 +1,12 @@
-import { IPublicApiCommand, IPublicModelPluginContext, IPublicTypeCommand, IPublicTypeCommandHandlerArgs, IPublicTypeListCommand } from '@alilc/lowcode-types';
+import {
+  IPublicApiCommand,
+  IPublicModelPluginContext,
+  IPublicTypeCommand,
+  IPublicTypeCommandHandlerArgs,
+  IPublicTypeListCommand,
+} from '@lce/lowcode-types';
 import { commandSymbol, pluginContextSymbol } from '../symbols';
-import { ICommand, ICommandOptions } from '@alilc/lowcode-editor-core';
+import { ICommand, ICommandOptions } from '@lce/lowcode-editor-core';
 
 const optionsSymbol = Symbol('options');
 const commandScopeSet = new Set<string>();
@@ -10,7 +16,11 @@ export class Command implements IPublicApiCommand {
   [optionsSymbol]?: ICommandOptions;
   [pluginContextSymbol]?: IPublicModelPluginContext;
 
-  constructor(innerCommand: ICommand, pluginContext?: IPublicModelPluginContext, options?: ICommandOptions) {
+  constructor(
+    innerCommand: ICommand,
+    pluginContext?: IPublicModelPluginContext,
+    options?: ICommandOptions,
+  ) {
     this[commandSymbol] = innerCommand;
     this[optionsSymbol] = options;
     this[pluginContextSymbol] = pluginContext;

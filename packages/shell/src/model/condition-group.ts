@@ -1,5 +1,5 @@
-import type { IExclusiveGroup } from '@alilc/lowcode-designer';
-import { IPublicModelExclusiveGroup, IPublicModelNode } from '@alilc/lowcode-types';
+import type { IExclusiveGroup } from '@lce/lowcode-designer';
+import { IPublicModelExclusiveGroup, IPublicModelNode } from '@lce/lowcode-types';
 import { conditionGroupSymbol, nodeSymbol } from '../symbols';
 import { Node } from './node';
 
@@ -23,7 +23,9 @@ export class ConditionGroup implements IPublicModelExclusiveGroup {
   }
 
   setVisible(node: IPublicModelNode) {
-    this[conditionGroupSymbol]?.setVisible((node as any)[nodeSymbol] ? (node as any)[nodeSymbol] : node);
+    this[conditionGroupSymbol]?.setVisible(
+      (node as any)[nodeSymbol] ? (node as any)[nodeSymbol] : node,
+    );
   }
 
   static create(conditionGroup: IExclusiveGroup | null) {

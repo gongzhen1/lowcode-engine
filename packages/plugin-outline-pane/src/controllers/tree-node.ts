@@ -3,8 +3,8 @@ import {
   IPublicTypeLocationChildrenDetail,
   IPublicModelNode,
   IPublicTypeDisposable,
-} from '@alilc/lowcode-types';
-import { isI18nData, isLocationChildrenDetail, uniqueId } from '@alilc/lowcode-utils';
+} from '@lce/lowcode-types';
+import { isI18nData, isLocationChildrenDetail, uniqueId } from '@lce/lowcode-utils';
 import EventEmitter from 'events';
 import { Tree } from './tree';
 import { IOutlinePanelPluginContext } from './tree-master';
@@ -83,7 +83,9 @@ export default class TreeNode {
    */
   get dropDetail(): IPublicTypeLocationChildrenDetail | undefined | null {
     const loc = this.pluginContext.project.getCurrentDocument()?.dropLocation;
-    return loc && this.isResponseDropping() && isLocationChildrenDetail(loc.detail) ? loc.detail : null;
+    return loc && this.isResponseDropping() && isLocationChildrenDetail(loc.detail)
+      ? loc.detail
+      : null;
   }
 
   get depth(): number {
@@ -92,7 +94,7 @@ export default class TreeNode {
 
   get detecting() {
     const doc = this.pluginContext.project.currentDocument;
-    return !!(doc?.isDetectingNode(this.node));
+    return !!doc?.isDetectingNode(this.node);
   }
 
   get hidden(): boolean {
@@ -260,7 +262,9 @@ export default class TreeNode {
       return false;
     }
     return (
-      isLocationChildrenDetail(loc.detail) && loc.detail.focus?.type === 'node' && loc.detail?.focus?.node.id === this.nodeId
+      isLocationChildrenDetail(loc.detail) &&
+      loc.detail.focus?.type === 'node' &&
+      loc.detail?.focus?.node.id === this.nodeId
     );
   }
 

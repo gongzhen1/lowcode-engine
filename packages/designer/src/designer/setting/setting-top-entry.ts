@@ -1,6 +1,11 @@
-import { IPublicTypeCustomView, IPublicModelEditor, IPublicModelSettingTopEntry, IPublicApiSetters } from '@alilc/lowcode-types';
-import { isCustomView } from '@alilc/lowcode-utils';
-import { computed, IEventBus, createModuleEventBus } from '@alilc/lowcode-editor-core';
+import {
+  IPublicTypeCustomView,
+  IPublicModelEditor,
+  IPublicModelSettingTopEntry,
+  IPublicApiSetters,
+} from '@lce/lowcode-types';
+import { isCustomView } from '@lce/lowcode-utils';
+import { computed, IEventBus, createModuleEventBus } from '@lce/lowcode-editor-core';
 import { ISettingEntry } from './setting-entry-type';
 import { ISettingField, SettingField } from './setting-field';
 import { INode } from '../../document';
@@ -14,10 +19,9 @@ function generateSessionId(nodes: INode[]) {
     .join(',');
 }
 
-export interface ISettingTopEntry extends ISettingEntry, IPublicModelSettingTopEntry<
-  INode,
-  ISettingField
-> {
+export interface ISettingTopEntry
+  extends ISettingEntry,
+    IPublicModelSettingTopEntry<INode, ISettingField> {
   readonly top: ISettingTopEntry;
 
   readonly parent: ISettingTopEntry;
@@ -177,7 +181,7 @@ export class SettingTopEntry implements ISettingTopEntry {
    */
   get(propName: string | number): ISettingField | null {
     if (!propName) return null;
-    return this._settingFieldMap[propName] || (new SettingField(this, { name: propName }));
+    return this._settingFieldMap[propName] || new SettingField(this, { name: propName });
   }
 
   /**
@@ -244,7 +248,7 @@ export class SettingTopEntry implements ISettingTopEntry {
     this.disposeItems();
     this._settingFieldMap = {};
     this.emitter.removeAllListeners();
-    this.disposeFunctions.forEach(f => f());
+    this.disposeFunctions.forEach((f) => f());
     this.disposeFunctions = [];
   }
 
@@ -253,21 +257,15 @@ export class SettingTopEntry implements ISettingTopEntry {
   }
 
   // ==== copy some Node api =====
-  getStatus() {
+  getStatus() {}
 
-  }
-
-  setStatus() {
-
-  }
+  setStatus() {}
 
   getChildren() {
     // this.nodes.map()
   }
 
-  getDOMNode() {
-
-  }
+  getDOMNode() {}
 
   getId() {
     return this.id;

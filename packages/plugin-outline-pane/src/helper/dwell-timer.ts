@@ -1,6 +1,9 @@
-import { isLocationChildrenDetail } from '@alilc/lowcode-utils';
-import { IPublicModelNode, IPublicModelDropLocation, IPublicModelLocateEvent } from '@alilc/lowcode-types';
-
+import { isLocationChildrenDetail } from '@lce/lowcode-utils';
+import {
+  IPublicModelNode,
+  IPublicModelDropLocation,
+  IPublicModelLocateEvent,
+} from '@lce/lowcode-types';
 
 /**
  * 停留检查计时器
@@ -16,7 +19,10 @@ export default class DwellTimer {
 
   private timeout = 500;
 
-  constructor(decide: (node: IPublicModelNode, event: IPublicModelLocateEvent) => void, timeout = 500) {
+  constructor(
+    decide: (node: IPublicModelNode, event: IPublicModelLocateEvent) => void,
+    timeout = 500,
+  ) {
     this.decide = decide;
     this.timeout = timeout;
   }

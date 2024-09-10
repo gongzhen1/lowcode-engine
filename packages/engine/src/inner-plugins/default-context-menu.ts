@@ -6,8 +6,8 @@ import {
   IPublicModelPluginContext,
   IPublicTypeDragNodeDataObject,
   IPublicTypeNodeSchema,
-} from '@alilc/lowcode-types';
-import { isProjectSchema } from '@alilc/lowcode-utils';
+} from '@lce/lowcode-types';
+import { isProjectSchema } from '@lce/lowcode-utils';
 import { Message } from '@alifd/next';
 import { intl } from '../locale';
 
@@ -28,9 +28,7 @@ async function getClipboardText(): Promise<IPublicTypeNodeSchema[]> {
             resolve(data.componentsTree);
           } else {
             Message.error(intl('NotValidNodeData'));
-            reject(
-              new Error(intl('NotValidNodeData')),
-            );
+            reject(new Error(intl('NotValidNodeData')));
           }
         } catch (error) {
           Message.error(intl('NotValidNodeData'));
@@ -137,7 +135,13 @@ export const defaultContextMenu = (ctx: IPublicModelPluginContext) => {
                 return doc?.checkNesting(parent, dragNodeObject);
               });
               if (canAddNodes.length === 0) {
-                Message.error(`${nodeSchema.map(d => utilsIntl(d.title || d.componentName)).join(',')}等组件无法放置到${utilsIntl(parent.title || parent.componentName as any)}内`);
+                Message.error(
+                  `${nodeSchema
+                    .map((d) => utilsIntl(d.title || d.componentName))
+                    .join(',')}等组件无法放置到${utilsIntl(
+                    parent.title || (parent.componentName as any),
+                  )}内`,
+                );
                 return;
               }
               const nodes: IPublicModelNode[] = [];
@@ -185,7 +189,13 @@ export const defaultContextMenu = (ctx: IPublicModelPluginContext) => {
               return doc?.checkNesting(node, dragNodeObject);
             });
             if (canAddNodes.length === 0) {
-              Message.error(`${nodeSchema.map(d => utilsIntl(d.title || d.componentName)).join(',')}等组件无法放置到${utilsIntl(node.title || node.componentName as any)}内`);
+              Message.error(
+                `${nodeSchema
+                  .map((d) => utilsIntl(d.title || d.componentName))
+                  .join(',')}等组件无法放置到${utilsIntl(
+                  node.title || (node.componentName as any),
+                )}内`,
+              );
               return;
             }
 

@@ -1,5 +1,10 @@
 import { dragObjectSymbol } from '../symbols';
-import { IPublicModelDragObject, IPublicModelDragObject as InnerDragObject, IPublicTypeDragNodeDataObject, IPublicTypeNodeSchema } from '@alilc/lowcode-types';
+import {
+  IPublicModelDragObject,
+  IPublicModelDragObject as InnerDragObject,
+  IPublicTypeDragNodeDataObject,
+  IPublicTypeNodeSchema,
+} from '@lce/lowcode-types';
 import { Node } from './node';
 
 export class DragObject implements IPublicModelDragObject {

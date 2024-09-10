@@ -16,11 +16,16 @@ import {
   isPlainObject,
   AssetLoader,
   getProjectUtils,
-} from '@alilc/lowcode-utils';
-import { IPublicTypeComponentSchema, IPublicEnumTransformStage, IPublicTypeNodeInstance, IPublicTypeProjectSchema } from '@alilc/lowcode-types';
+} from '@lce/lowcode-utils';
+import {
+  IPublicTypeComponentSchema,
+  IPublicEnumTransformStage,
+  IPublicTypeNodeInstance,
+  IPublicTypeProjectSchema,
+} from '@lce/lowcode-types';
 // just use types
-import { BuiltinSimulatorRenderer, Component, IDocumentModel, INode } from '@alilc/lowcode-designer';
-import LowCodeRenderer from '@alilc/lowcode-react-renderer';
+import { BuiltinSimulatorRenderer, Component, IDocumentModel, INode } from '@lce/lowcode-designer';
+import LowCodeRenderer from '@lce/lowcode-react-renderer';
 import { createMemoryHistory, MemoryHistory } from 'history';
 import Slot from './builtin-components/slot';
 import Leaf from './builtin-components/leaf';
@@ -170,15 +175,14 @@ export class DocumentInstance {
     host.setInstance(this.document.id, id, instances);
   }
 
-  mountContext() {
-  }
+  mountContext() {}
 
   getNode(id: string): INode | null {
     return this.document.getNode(id);
   }
 
   dispose() {
-    this.disposeFunctions.forEach(fn => fn());
+    this.disposeFunctions.forEach((fn) => fn());
     this.instancesMap = new Map();
   }
 }
@@ -252,51 +256,57 @@ export class SimulatorRendererContainer implements BuiltinSimulatorRenderer {
     makeObservable(this);
     this.autoRender = host.autoRender;
 
-    this.disposeFunctions.push(host.connect(this, () => {
-      // sync layout config
-      this._layout = host.project.get('config').layout;
+    this.disposeFunctions.push(
+      host.connect(this, () => {
+        // sync layout config
+        this._layout = host.project.get('config').layout;
 
-      // todo: split with others, not all should recompute
-      if (this._libraryMap !== host.libraryMap
-        || this._componentsMap !== host.designer.componentsMap) {
-        this._libraryMap = host.libraryMap || {};
-        this._componentsMap = host.designer.componentsMap;
-        this.buildComponents();
-      }
+        // todo: split with others, not all should recompute
+        if (
+          this._libraryMap !== host.libraryMap ||
+          this._componentsMap !== host.designer.componentsMap
+        ) {
+          this._libraryMap = host.libraryMap || {};
+          this._componentsMap = host.designer.componentsMap;
+          this.buildComponents();
+        }
 
-      // sync designMode
-      this._designMode = host.designMode;
+        // sync designMode
+        this._designMode = host.designMode;
 
-      this._locale = host.locale;
+        this._locale = host.locale;
 
-      // sync requestHandlersMap
-      this._requestHandlersMap = host.requestHandlersMap;
+        // sync requestHandlersMap
+        this._requestHandlersMap = host.requestHandlersMap;
 
-      // sync device
-      this._device = host.device;
-    }));
+        // sync device
+        this._device = host.device;
+      }),
+    );
     const documentInstanceMap = new Map<string, DocumentInstance>();
     let initialEntry = '/';
     let firstRun = true;
-    this.disposeFunctions.push(host.autorun(() => {
-      this._documentInstances = host.project.documents.map((doc) => {
-        let inst = documentInstanceMap.get(doc.id);
-        if (!inst) {
-          inst = new DocumentInstance(this, doc);
-          documentInstanceMap.set(doc.id, inst);
+    this.disposeFunctions.push(
+      host.autorun(() => {
+        this._documentInstances = host.project.documents.map((doc) => {
+          let inst = documentInstanceMap.get(doc.id);
+          if (!inst) {
+            inst = new DocumentInstance(this, doc);
+            documentInstanceMap.set(doc.id, inst);
+          }
+          return inst;
+        });
+        const path = host.project.currentDocument
+          ? documentInstanceMap.get(host.project.currentDocument.id)!.path
+          : '/';
+        if (firstRun) {
+          initialEntry = path;
+          firstRun = false;
+        } else if (this.history.location.pathname !== path) {
+          this.history.replace(path);
         }
-        return inst;
-      });
-      const path = host.project.currentDocument
-        ? documentInstanceMap.get(host.project.currentDocument.id)!.path
-        : '/';
-      if (firstRun) {
-        initialEntry = path;
-        firstRun = false;
-      } else if (this.history.location.pathname !== path) {
-        this.history.replace(path);
-      }
-    }));
+      }),
+    );
     const history = createMemoryHistory({
       initialEntries: [initialEntry],
     });
@@ -361,10 +371,10 @@ export class SimulatorRendererContainer implements BuiltinSimulatorRenderer {
 
   private buildComponents() {
     this._components = buildComponents(
-        this._libraryMap,
-        this._componentsMap,
-        this.createComponent.bind(this),
-      );
+      this._libraryMap,
+      this._componentsMap,
+      this.createComponent.bind(this),
+    );
     this._components = {
       ...builtinComponents,
       ...this._components,
@@ -402,7 +412,10 @@ export class SimulatorRendererContainer implements BuiltinSimulatorRenderer {
     }
   }
 
-  getClosestNodeInstance(from: ReactInstance, nodeId?: string): IPublicTypeNodeInstance<ReactInstance> | null {
+  getClosestNodeInstance(
+    from: ReactInstance,
+    nodeId?: string,
+  ): IPublicTypeNodeInstance<ReactInstance> | null {
     return getClosestNodeInstance(from, nodeId);
   }
 
@@ -550,9 +563,10 @@ function cacheReactKey(el: Element): Element {
     return el;
   }
   // react17 采用 __reactFiber 开头
-  REACT_KEY = Object.keys(el).find(
-    (key) => key.startsWith('__reactInternalInstance$') || key.startsWith('__reactFiber$'),
-  ) || '';
+  REACT_KEY =
+    Object.keys(el).find(
+      (key) => key.startsWith('__reactInternalInstance$') || key.startsWith('__reactFiber$'),
+    ) || '';
   if (!REACT_KEY && (el as HTMLElement).parentElement) {
     return cacheReactKey((el as HTMLElement).parentElement!);
   }
@@ -563,9 +577,9 @@ const SYMBOL_VNID = Symbol('_LCNodeId');
 const SYMBOL_VDID = Symbol('_LCDocId');
 
 function getClosestNodeInstance(
-    from: ReactInstance,
-    specId?: string,
-  ): IPublicTypeNodeInstance<ReactInstance> | null {
+  from: ReactInstance,
+  specId?: string,
+): IPublicTypeNodeInstance<ReactInstance> | null {
   let el: any = from;
   if (el) {
     if (isElement(el)) {
@@ -595,7 +609,10 @@ function getClosestNodeInstance(
   return null;
 }
 
-function getNodeInstance(fiberNode: any, specId?: string): IPublicTypeNodeInstance<ReactInstance> | null {
+function getNodeInstance(
+  fiberNode: any,
+  specId?: string,
+): IPublicTypeNodeInstance<ReactInstance> | null {
   const instance = fiberNode?.stateNode;
   if (instance && SYMBOL_VNID in instance) {
     const nodeId = instance[SYMBOL_VNID];

@@ -1,6 +1,6 @@
-import { IPublicModelPluginContext } from '@alilc/lowcode-types';
-import { SettingsPrimaryPane } from '@alilc/lowcode-editor-skeleton';
-import DesignerPlugin from '@alilc/lowcode-plugin-designer';
+import { IPublicModelPluginContext } from '@lce/lowcode-types';
+import { SettingsPrimaryPane } from '@lce/lowcode-editor-skeleton';
+import DesignerPlugin from '@lce/lowcode-plugin-designer';
 
 // 注册默认的面板
 export const defaultPanelRegistry = (editor: any) => {
@@ -12,19 +12,14 @@ export const defaultPanelRegistry = (editor: any) => {
           area: 'mainArea',
           name: 'designer',
           type: 'Widget',
-          content: <DesignerPlugin
-            engineConfig={config}
-            engineEditor={editor}
-          />,
+          content: <DesignerPlugin engineConfig={config} engineEditor={editor} />,
         });
         if (!config.get('disableDefaultSettingPanel')) {
           skeleton.add({
             area: 'rightArea',
             name: 'settingsPane',
             type: 'Panel',
-            content: <SettingsPrimaryPane
-              engineEditor={editor}
-            />,
+            content: <SettingsPrimaryPane engineEditor={editor} />,
             props: {
               ignoreRoot: true,
             },

@@ -1,6 +1,6 @@
-import { IEditor, IEventBus } from '@alilc/lowcode-editor-core';
-import { getLogger, isPluginEventName } from '@alilc/lowcode-utils';
-import { IPublicApiEvent, IPublicTypeDisposable } from '@alilc/lowcode-types';
+import { IEditor, IEventBus } from '@lce/lowcode-editor-core';
+import { getLogger, isPluginEventName } from '@lce/lowcode-utils';
+import { IPublicApiEvent, IPublicTypeDisposable } from '@lce/lowcode-types';
 
 const logger = getLogger({ level: 'warn', bizName: 'shell-event' });
 
@@ -31,7 +31,9 @@ export class Event implements IPublicApiEvent {
     if (isPluginEventName(event)) {
       return this[eventBusSymbol].on(event, listener);
     } else {
-      logger.warn(`fail to monitor on event ${event}, event should have a prefix like 'somePrefix:eventName'`);
+      logger.warn(
+        `fail to monitor on event ${event}, event should have a prefix like 'somePrefix:eventName'`,
+      );
       return () => {};
     }
   }
@@ -45,7 +47,9 @@ export class Event implements IPublicApiEvent {
     if (isPluginEventName(event)) {
       return this[eventBusSymbol].prependListener(event, listener);
     } else {
-      logger.warn(`fail to prependListener event ${event}, event should have a prefix like 'somePrefix:eventName'`);
+      logger.warn(
+        `fail to prependListener event ${event}, event should have a prefix like 'somePrefix:eventName'`,
+      );
       return () => {};
     }
   }

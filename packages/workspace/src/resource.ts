@@ -1,6 +1,12 @@
-import { ISkeleton } from '@alilc/lowcode-editor-skeleton';
-import { IPublicTypeEditorView, IPublicResourceData, IPublicResourceTypeConfig, IBaseModelResource, IPublicEnumPluginRegisterLevel } from '@alilc/lowcode-types';
-import { Logger } from '@alilc/lowcode-utils';
+import { ISkeleton } from '@lce/lowcode-editor-skeleton';
+import {
+  IPublicTypeEditorView,
+  IPublicResourceData,
+  IPublicResourceTypeConfig,
+  IBaseModelResource,
+  IPublicEnumPluginRegisterLevel,
+} from '@lce/lowcode-types';
+import { Logger } from '@lce/lowcode-utils';
 import { BasicContext, IBasicContext } from './context/base-context';
 import { ResourceType, IResourceType } from './resource-type';
 import { IWorkspace } from './workspace';
@@ -41,7 +47,9 @@ export class Resource implements IResource {
   }
 
   get viewName() {
-    return this.resourceData.viewName || (this.resourceData as any).viewType || this.defaultViewName;
+    return (
+      this.resourceData.viewName || (this.resourceData as any).viewType || this.defaultViewName
+    );
   }
 
   get description() {
@@ -82,11 +90,22 @@ export class Resource implements IResource {
     return this.resourceData.config;
   }
 
-  constructor(readonly resourceData: IPublicResourceData, readonly resourceType: IResourceType, readonly workspace: IWorkspace) {
-    this.context = new BasicContext(workspace, `resource-${resourceData.resourceName || resourceType.name}`, IPublicEnumPluginRegisterLevel.Resource);
-    this.resourceTypeInstance = resourceType.resourceTypeModel(this.context.innerPlugins._getLowCodePluginContext({
-      pluginName: '',
-    }), this.options);
+  constructor(
+    readonly resourceData: IPublicResourceData,
+    readonly resourceType: IResourceType,
+    readonly workspace: IWorkspace,
+  ) {
+    this.context = new BasicContext(
+      workspace,
+      `resource-${resourceData.resourceName || resourceType.name}`,
+      IPublicEnumPluginRegisterLevel.Resource,
+    );
+    this.resourceTypeInstance = resourceType.resourceTypeModel(
+      this.context.innerPlugins._getLowCodePluginContext({
+        pluginName: '',
+      }),
+      this.options,
+    );
     this.init();
     if (this.resourceTypeInstance.editorViews) {
       this.resourceTypeInstance.editorViews.forEach((d: any) => {
@@ -96,7 +115,15 @@ export class Resource implements IResource {
     if (!resourceType) {
       logger.error(`resourceType[${resourceType}] is unValid.`);
     }
-    this.children = this.resourceData?.children?.map(d => new Resource(d, this.workspace.getResourceType(d.resourceName || this.resourceType.name), this.workspace)) || [];
+    this.children =
+      this.resourceData?.children?.map(
+        (d) =>
+          new Resource(
+            d,
+            this.workspace.getResourceType(d.resourceName || this.resourceType.name),
+            this.workspace,
+          ),
+      ) || [];
   }
 
   async init() {

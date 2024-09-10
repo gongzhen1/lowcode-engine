@@ -3,16 +3,18 @@ title: material - 物料 API
 sidebar_position: 10
 ---
 
-> **@types** [IPublicApiMaterial](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/api/material.ts)<br/>
-> **@since** v1.0.0
-
+> **@types** [IPublicApiMaterial](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/api/material.ts)<br/> > **@since** v1.0.0
 
 ## 模块简介
+
 负责物料相关的 API，包括资产包、设计器辅助层、物料元数据和物料元数据管道函数。
 
 ## 变量
+
 ### componentsMap
+
 获取组件 map 结构
+
 ```typescript
 /**
   * 获取组件 map 结构
@@ -20,12 +22,15 @@ sidebar_position: 10
   */
 get componentsMap(): { [key: string]: IPublicTypeNpmInfo | ComponentType<any> | object } ;
 ```
+
 相关类型：[IPublicTypeNpmInfo](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/npm-info.ts)
 
 ## 方法
 
 ### 资产包
+
 #### setAssets
+
 设置「[资产包](/site/docs/specs/lowcode-spec#2-协议结构)」结构
 
 ```typescript
@@ -36,42 +41,49 @@ get componentsMap(): { [key: string]: IPublicTypeNpmInfo | ComponentType<any> | 
  */
 setAssets(assets: IPublicTypeAssetsJson): void;
 ```
-相关类型：[IPublicTypeAssetsJson](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/assets-json.ts)
 
+相关类型：[IPublicTypeAssetsJson](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/assets-json.ts)
 
 **示例**
 直接在项目中引用 npm 包
+
 ```javascript
-import { material } from '@alilc/lowcode-engine';
+import { material } from '@lce/lowcode-engine';
 import assets from '@alilc/mc-assets-<siteId>/assets.json';
 
 material.setAssets(assets);
 ```
 
 通过接口动态引入资产包
+
 ```typescript
-import { material, plugins } from '@alilc/lowcode-engine';
-import { IPublicModelPluginContext } from '@alilc/lowcode-types';
+import { material, plugins } from '@lce/lowcode-engine';
+import { IPublicModelPluginContext } from '@lce/lowcode-types';
 
 // 动态加载 assets
-plugins.register((ctx: IPublicModelPluginContext) => {
-  return {
-    name: 'ext-assets',
-    async init() {
-      try {
-        // 将下述链接替换为您的物料描述地址即可。
-        const res = await window.fetch('https://fusion.alicdn.com/assets/default@0.1.95/assets.json');
-        const assets = await res.text();
-        material.setAssets(assets);
-      } catch (err) {
-        console.error(err);
-      };
-    },
-  };
-}).catch(err => console.error(err));
+plugins
+  .register((ctx: IPublicModelPluginContext) => {
+    return {
+      name: 'ext-assets',
+      async init() {
+        try {
+          // 将下述链接替换为您的物料描述地址即可。
+          const res = await window.fetch(
+            'https://fusion.alicdn.com/assets/default@0.1.95/assets.json',
+          );
+          const assets = await res.text();
+          material.setAssets(assets);
+        } catch (err) {
+          console.error(err);
+        }
+      },
+    };
+  })
+  .catch((err) => console.error(err));
 ```
 
 #### getAssets
+
 获取「资产包」结构
 
 ```typescript
@@ -82,17 +94,19 @@ plugins.register((ctx: IPublicModelPluginContext) => {
  */
 getAssets(): IPublicTypeAssetsJson;
 ```
+
 相关类型：[IPublicTypeAssetsJson](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/assets-json.ts)
 
-
 **示例**
+
 ```typescript
-import { material } from '@alilc/lowcode-engine';
+import { material } from '@lce/lowcode-engine';
 
 material.getAssets();
 ```
 
 #### loadIncrementalAssets
+
 加载增量的「资产包」结构，该增量包会与原有的合并
 
 ```typescript
@@ -104,11 +118,13 @@ material.getAssets();
  */
 loadIncrementalAssets(incrementalAssets: IPublicTypeAssetsJson): Promise<void>;
 ```
+
 相关类型：[IPublicTypeAssetsJson](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/assets-json.ts)
 
 **示例**
+
 ```typescript
-import { material } from '@alilc/lowcode-engine';
+import { material } from '@lce/lowcode-engine';
 import assets1 from '@alilc/mc-assets-<siteId>/assets.json';
 import assets2 from '@alilc/mc-assets-<siteId>/assets.json';
 
@@ -119,20 +135,22 @@ material.loadIncrementalAssets(assets2);
 更新特定物料的描述文件
 
 ```typescript
-import { material } from '@alilc/lowcode-engine';
+import { material } from '@lce/lowcode-engine';
 material.loadIncrementalAssets({
   version: '',
   components: [
-      {
-          "componentName": 'Button',
-          "props": [{ name: 'new', title: 'new', propType: 'string' }]
-      }
+    {
+      componentName: 'Button',
+      props: [{ name: 'new', title: 'new', propType: 'string' }],
+    },
   ],
-})
+});
 ```
 
 ### 设计器辅助层
+
 #### addBuiltinComponentAction
+
 在设计器辅助层增加一个扩展 action
 
 ```typescript
@@ -143,30 +161,33 @@ material.loadIncrementalAssets({
  */
 addBuiltinComponentAction(action: IPublicTypeComponentAction): void;
 ```
-相关类型：[IPublicTypeComponentAction](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/component-action.ts)
 
+相关类型：[IPublicTypeComponentAction](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/component-action.ts)
 
 **示例**
 新增设计扩展位，并绑定事件
+
 ```typescript
-import { material } from '@alilc/lowcode-engine';
+import { material } from '@lce/lowcode-engine';
 
 material.addBuiltinComponentAction({
   name: 'myIconName',
   content: {
-      icon: () => 'x',
-      title: 'hover title',
-      action(node) {
-          console.log('myIconName 扩展位被点击');
-      }
+    icon: () => 'x',
+    title: 'hover title',
+    action(node) {
+      console.log('myIconName 扩展位被点击');
+    },
   },
   important: true,
   condition: true,
 });
 ```
+
 ![image.png](https://img.alicdn.com/imgextra/i4/O1CN01jDbN7B1KfWVzJ16tw_!!6000000001191-2-tps-230-198.png)
 
 #### removeBuiltinComponentAction
+
 移除设计器辅助层的指定 action
 
 ```typescript
@@ -187,14 +208,15 @@ removeBuiltinComponentAction(name: string): void;
 - unlock：解锁，可编辑
 
 **示例**
+
 ```typescript
-import { material } from '@alilc/lowcode-engine';
+import { material } from '@lce/lowcode-engine';
 
 material.removeBuiltinComponentAction('myIconName');
 ```
 
-
 #### modifyBuiltinComponentAction
+
 修改已有的设计器辅助层的指定 action
 
 ```typescript
@@ -209,8 +231,8 @@ modifyBuiltinComponentAction(
     handle: (action: IPublicTypeComponentAction) => void,
   ): void;
 ```
-相关类型：[IPublicTypeComponentAction](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/component-action.ts)
 
+相关类型：[IPublicTypeComponentAction](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/component-action.ts)
 
 ##### 内置设计器辅助 name
 
@@ -220,24 +242,24 @@ modifyBuiltinComponentAction(
 - lock：锁定，不可编辑
 - unlock：解锁，可编辑
 
-
-
 **示例**
 给原始的 remove 扩展时间添加执行前后的日志
+
 ```typescript
-import { material } from '@alilc/lowcode-engine';
+import { material } from '@lce/lowcode-engine';
 
 material.modifyBuiltinComponentAction('remove', (action) => {
   const originAction = action.content.action;
   action.content.action = (node) => {
-  	console.log('before reomve!');
+    console.log('before reomve!');
     originAction(node);
     console.log('after remove!');
-  }
+  };
 });
 ```
 
 ### 右键菜单项
+
 #### addContextMenuOption
 
 添加右键菜单项
@@ -253,7 +275,7 @@ addContextMenuOption(action: IPublicTypeContextMenuAction): void;
 示例
 
 ```typescript
-import { IPublicEnumContextMenuType } from '@alilc/lowcode-types';
+import { IPublicEnumContextMenuType } from '@lce/lowcode-types';
 
 material.addContextMenuOption({
   name: 'parentItem',
@@ -309,19 +331,20 @@ adjustContextMenuLayout(fn: (actions: IPublicTypeContextMenuItem[]) => IPublicTy
 material.adjustContextMenuLayout((actions: IPublicTypeContextMenuAction) => {
   const names = ['a', 'b'];
   const newActions = [];
-  actions.forEach(d => {
+  actions.forEach((d) => {
     newActions.push(d);
     if (names.include(d.name)) {
-      newActions.push({ type: 'separator' })
+      newActions.push({ type: 'separator' });
     }
   });
-  return newActions
-})
+  return newActions;
+});
 ```
 
 ### 物料元数据
 
 #### getComponentMeta
+
 获取指定名称的物料元数据
 
 ```typescript
@@ -333,11 +356,13 @@ material.adjustContextMenuLayout((actions: IPublicTypeContextMenuAction) => {
  */
 getComponentMeta(componentName: string): IPublicModelComponentMeta | null;
 ```
+
 相关类型：[IPublicModelComponentMeta](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/component-meta.ts)
 
 **示例**
+
 ```typescript
-import { material } from '@alilc/lowcode-engine';
+import { material } from '@lce/lowcode-engine';
 
 material.getComponentMeta('Input');
 ```
@@ -354,11 +379,13 @@ material.getComponentMeta('Input');
    */
   getComponentMetasMap(): Map<string, IPublicModelComponentMeta>;
 ```
+
 相关类型：[IPublicModelComponentMeta](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/component-meta.ts)
 
 **示例**
+
 ```typescript
-import { material } from '@alilc/lowcode-engine';
+import { material } from '@lce/lowcode-engine';
 
 material.getComponentMetasMap();
 ```
@@ -374,7 +401,9 @@ material.getComponentMetasMap();
 ```
 
 ### 物料元数据管道函数
+
 #### registerMetadataTransducer
+
 注册物料元数据管道函数，在物料信息初始化时执行。
 
 ```typescript
@@ -395,8 +424,9 @@ registerMetadataTransducer(
 
 **示例**
 给每一个组件的配置添加高级配置面板，其中有一个是否渲染配置项
+
 ```typescript
-import { material } from '@alilc/lowcode-engine'
+import { material } from '@lce/lowcode-engine';
 
 function addonCombine(metadata: TransformedComponentMetadata) {
   const { componentName, configure = {} } = metadata;
@@ -441,29 +471,34 @@ material.registerMetadataTransducer(addonCombine, 1, 'parse-func');
 删除高级 Tab
 
 ```typescript
-import { material } from '@alilc/lowcode-engine';
-import { IPublicTypeFieldConfig } from '@alilc/lowcode-types';
+import { material } from '@lce/lowcode-engine';
+import { IPublicTypeFieldConfig } from '@lce/lowcode-types';
 
-material.registerMetadataTransducer((transducer) => {
-  const combined: IPublicTypeFieldConfig[] = [];
+material.registerMetadataTransducer(
+  (transducer) => {
+    const combined: IPublicTypeFieldConfig[] = [];
 
-  transducer.configure.combined?.forEach(d => {
-    if (d.name !== '#advanced') {
-      combined.push(d);
-    }
-  });
+    transducer.configure.combined?.forEach((d) => {
+      if (d.name !== '#advanced') {
+        combined.push(d);
+      }
+    });
 
-  return {
-    ...transducer,
-    configure: {
-      ...transducer.configure,
-      combined,
-    }
-  };
-}, 111, 'parse-func');
+    return {
+      ...transducer,
+      configure: {
+        ...transducer.configure,
+        combined,
+      },
+    };
+  },
+  111,
+  'parse-func',
+);
 ```
 
 #### getRegisteredMetadataTransducers
+
 获取所有物料元数据管道函数
 
 ```typescript
@@ -476,13 +511,17 @@ getRegisteredMetadataTransducers(): IPublicTypeMetadataTransducer[];
 ```
 
 **示例**
+
 ```typescript
-import { material } from '@alilc/lowcode-engine'
+import { material } from '@lce/lowcode-engine';
 
 material.getRegisteredMetadataTransducers();
 ```
+
 ## 事件
+
 ### onChangeAssets
+
 监听 assets 变化的事件
 
 ```typescript
@@ -497,8 +536,9 @@ onChangeAssets(fn: () => void): IPublicTypeDisposable;
 相关类型：[IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 
 **示例**
+
 ```typescript
-import { material } from '@alilc/lowcode-engine';
+import { material } from '@lce/lowcode-engine';
 
 material.onChangeAssets(() => {
   console.log('asset changed');
