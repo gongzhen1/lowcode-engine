@@ -18,7 +18,7 @@ sidebar_position: 6
 
 ## npm 包与仓库信息
 
-- npm 包：@lce/lowcode-engine-ext
+- npm 包：@alilc/lowcode-engine-ext
 - 仓库：[https://github.com/alibaba/lowcode-engine-ext](https://github.com/alibaba/lowcode-engine-ext)
 
 ## 设置器模块原理

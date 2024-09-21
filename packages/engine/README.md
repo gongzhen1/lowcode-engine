@@ -92,7 +92,7 @@ init(document.getElementById('lce'));
 {
   "externals": {
     "@lce/lowcode-engine": "var window.AliLowCodeEngine",
-    "@lce/lowcode-engine-ext": "var window.AliLowCodeEngineExt"
+    "@alilc/lowcode-engine-ext": "var window.AliLowCodeEngineExt"
   }
 }
 ```

@@ -72,7 +72,7 @@ sidebar_position: 0
 <!-- 低代码引擎官方扩展的样式 -->
 <link
   rel="stylesheet"
-  href="https://uipaas-assets.com/prod/npm/@lce/lowcode-engine-ext/1.0.5/dist/css/engine-ext.css"
+  href="https://uipaas-assets.com/prod/npm/@alilc/lowcode-engine-ext/1.0.5/dist/css/engine-ext.css"
 />
 
 <!-- React，可替换为 production 包 -->
@@ -96,7 +96,7 @@ sidebar_position: 0
 <!-- 低代码引擎官方扩展的主包 -->
 <script
   crossorigin="anonymous"
-  src="https://uipaas-assets.com/prod/npm/@lce/lowcode-engine-ext/1.0.5/dist/js/engine-ext.js"
+  src="https://uipaas-assets.com/prod/npm/@alilc/lowcode-engine-ext/1.0.5/dist/js/engine-ext.js"
 ></script>
 ```
 
@@ -116,7 +116,7 @@ sidebar_position: 0
     "prop-types": "var window.PropTypes",
     "@alifd/next": "var window.Next",
     "@lce/lowcode-engine": "var window.AliLowCodeEngine",
-    "@lce/lowcode-engine-ext": "var window.AliLowCodeEngineExt",
+    "@alilc/lowcode-engine-ext": "var window.AliLowCodeEngineExt",
     "moment": "var window.moment",
     "lodash": "var window._"
   }

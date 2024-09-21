@@ -73,7 +73,7 @@ registerSetter(
 
 ```typescript
 import { setters, skeleton } from '@lce/lowcode-engine';
-import { setterMap, pluginMap } from '@lce/lowcode-engine-ext';
+import { setterMap, pluginMap } from '@alilc/lowcode-engine-ext';
 import { IPublicModelPluginContext } from '@lce/lowcode-types';
 
 const SetterRegistry = (ctx: IPublicModelPluginContext) => {

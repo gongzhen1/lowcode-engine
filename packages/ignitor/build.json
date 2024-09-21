@@ -17,7 +17,7 @@
     "@alifd/next": "var window.Next",
     "rax": "var window.Rax",
     "@lce/lowcode-engine": "var window.AliLowCodeEngine",
-    "@lce/lowcode-engine-ext": "var window.AliLowCodeEngineExt",
+    "@alilc/lowcode-engine-ext": "var window.AliLowCodeEngineExt",
     "moment": "var moment",
     "lodash": "var _"
   },

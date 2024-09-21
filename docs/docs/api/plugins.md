@@ -249,7 +249,7 @@ your-plugin/package.json
 
 ```json
 {
-	"name": "@alilc/lowcode-plugin-debug",
+	"name": "@lce/lowcode-plugin-debug",
   "lcMeta": {
     "pluginName": "debug",
     "meta": {
