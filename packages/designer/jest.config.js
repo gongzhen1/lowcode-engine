@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { join } = require('path');
 const esModules = [].join('|');
-const pkgNames = fs.readdirSync(join('..')).filter(pkgName => !pkgName.startsWith('.'));
+const pkgNames = fs.readdirSync(join('..')).filter((pkgName) => !pkgName.startsWith('.'));
 
 const jestConfig = {
   // transform: {
@@ -22,9 +22,7 @@ const jestConfig = {
   // testMatch: ['**/selection.test.ts'],
   // testMatch: ['**/plugin/sequencify.test.ts'],
   // testMatch: ['**/builtin-simulator/utils/parse-metadata.test.ts'],
-  transformIgnorePatterns: [
-    `/node_modules/(?!${esModules})/`,
-  ],
+  transformIgnorePatterns: [`/node_modules/(?!${esModules})/`],
   setupFiles: ['./tests/fixtures/unhandled-rejection.ts'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
   collectCoverage: false,
@@ -49,6 +47,6 @@ const jestConfig = {
 
 // 只对本仓库内的 pkg 做 mapping
 jestConfig.moduleNameMapper = {};
-jestConfig.moduleNameMapper[`^@alilc/lowcode\\-(${pkgNames.join('|')})$`] = '<rootDir>/../$1/src';
+jestConfig.moduleNameMapper[`^@lce/lowcode\\-(${pkgNames.join('|')})$`] = '<rootDir>/../$1/src';
 
 module.exports = jestConfig;
