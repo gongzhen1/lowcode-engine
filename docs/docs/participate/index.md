@@ -5,7 +5,7 @@ sidebar_position: 0
 
 ### 环境准备
 
-开发 LowcodeEngine 需要 Node.js 16+。
+开发 LowcodeEngine 需要 Node.js 18+。
 
 推荐使用 nvm 管理 Node.js，避免权限问题的同时，还能够随时切换当前使用的 Node.js 的版本。
 

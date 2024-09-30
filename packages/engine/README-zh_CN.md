@@ -10,7 +10,7 @@
 
 本项目将转变部分思路，舍弃部分外围的功能开发，以提供核心低码功能为主，做纯粹低代码内核。如 workspace 等模块将降低优先级。
 
-更多的内部模块将转移到 plugins 中，作为默认插件提供，而不是封装到内部。整体向更开放的开发方向转变。
+更多的内部模块将转移到 plugins 中（未完成），作为默认插件提供，而不是封装到内部。整体向更开放的开发方向转变。
 
 同时，针对各子模块，将通过 shell 模块开放更多的接口，以支持更多定制化需求。
 
@@ -23,11 +23,11 @@
 
 - 主要工程的命名空间调整
 - 修复积压问题
-- <p align="center">
-    <a href="https://lowcode-engine.cn">
-      <img width="200" src="https://img.alicdn.com/imgextra/i3/O1CN01i8K9cD1d0HU7TjDtv_!!6000000003673-2-tps-500-591.png">
-    </a>
-  </p>
+
+## 联系方式
+微信搜索 kunsile-002 添加我的微信，或者扫码加群：
+
+<img src="https://jxxg-wangjian.oss-cn-beijing.aliyuncs.com/static/lce-group-qrcode.jpg" width="200" />
 
 <h1 align="center">LowCodeEngine</h1>
 
@@ -35,7 +35,7 @@
 
 一套面向扩展设计的企业级低代码技术体系
 
-<!-- [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url] -->
+[![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
 [![][issues-helper-image]][issues-helper-url] [![Issues need help][help-wanted-image]][help-wanted-url]
 
