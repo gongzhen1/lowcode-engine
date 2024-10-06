@@ -14,7 +14,7 @@ sidebar_position: 0
 #### clone 项目
 
 ```
-git clone git@github.com:alibaba/lowcode-engine.git
+git clone git@github.com:fe-lce/lowcode-engine.git
 cd lowcode-engine
 ```
 
@@ -77,7 +77,7 @@ npm start
 
 #### 维护方式
 
-- 官方文档通过 github 管理文档源，官网文档与[主仓库 develop 分支](https://github.com/alibaba/lowcode-engine/tree/develop/docs)保持同步。
+- 官方文档通过 github 管理文档源，官网文档与[主仓库 develop 分支](https://github.com/fe-lce/lowcode-engine/tree/develop/docs)保持同步。
 - 点击每篇文档下发的 `编辑此页` 可直接定位到 github 中位置。
 - 欢迎 PR，文档 PR 也会作为贡献者贡献，会用于贡献度统计。
 - **文档同步到官方网站由官方人员进行操作**，如有需要可以通过 issue 或 贡献者群与相关人员沟通。
@@ -108,7 +108,7 @@ PR 被合并之后，我们会尽快发布相关的正式版本或者 beta 版�
 
 如果你不知道可以贡献什么，可以到源码里搜 TODO 或 FIXME 找找。
 
-为了使你能够快速上手和熟悉贡献流程，我们这里有个列表 [good first issues](https://github.com/alibaba/lowcode-engine/issues?q=is:open+is:issue+label:%22good+first+issue%22)，里面有相对没那么笼统的漏洞，从这开始是个不错的选择。
+为了使你能够快速上手和熟悉贡献流程，我们这里有个列表 [good first issues](https://github.com/fe-lce/lowcode-engine/issues?q=is:open+is:issue+label:%22good+first+issue%22)，里面有相对没那么笼统的漏洞，从这开始是个不错的选择。
 
 ### PR 提交注意事项
 

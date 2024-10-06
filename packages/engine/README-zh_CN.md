@@ -25,6 +25,7 @@
 - 修复积压问题
 
 ## 联系方式
+
 微信搜索 kunsile-002 添加我的微信，或者扫码加群：
 
 <img src="https://jxxg-wangjian.oss-cn-beijing.aliyuncs.com/static/lce-group-qrcode.jpg" width="200" />
@@ -47,12 +48,12 @@
 [npm-url]: http://npmjs.org/package/@lce/lowcode-engine
 [download-image]: https://img.shields.io/npm/dm/@lce/lowcode-engine.svg?style=flat-square
 [download-url]: https://npmjs.org/package/@lce/lowcode-engine
-[help-wanted-image]: https://flat.badgen.net/github/label-issues/alibaba/lowcode-engine/help%20wanted/open
-[help-wanted-url]: https://github.com/alibaba/lowcode-engine/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22
+[help-wanted-image]: https://flat.badgen.net/github/label-issues/fe-lce/lowcode-engine/help%20wanted/open
+[help-wanted-url]: https://github.com/fe-lce/lowcode-engine/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22
 [issues-helper-image]: https://img.shields.io/badge/using-issues--helper-orange?style=flat-square
 [issues-helper-url]: https://github.com/actions-cool/issues-helper
-[codecov-image-url]: https://codecov.io/gh/alibaba/lowcode-engine/branch/main/graph/badge.svg
-[codecov-url]: https://codecov.io/gh/alibaba/lowcode-engine
+[codecov-image-url]: https://codecov.io/gh/fe-lce/lowcode-engine/branch/main/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/fe-lce/lowcode-engine
 
 </div>
 
@@ -148,8 +149,8 @@ https://cdn.jsdelivr.net/npm/@lce/lowcode-react-simulator-renderer@1.0.18/dist/j
 ## 🔗 相关链接
 
 - [官网首页](https://lowcode-engine.cn/)
-- [Demo 马上玩](https://lowcode-engine.cn/demo) | [引擎 Demo 仓库](https://github.com/alibaba/lowcode-demo)
-- [阿里物料](https://github.com/alibaba/lowcode-materials)
+- [Demo 马上玩](https://lowcode-engine.cn/demo) | [引擎 Demo 仓库](https://github.com/fe-lce/lowcode-demo)
+- [阿里物料](https://github.com/fe-lce/lowcode-materials)
 - [官方设置器（setter）](https://github.com/zboMa/lowcode-engine-ext)
 - [官方插件（plugin）](https://github.com/zboMa/lowcode-plugins)
 - [生态元素（物料、setter、插件）工具链](https://lowcode-engine.cn/site/docs/guide/expand/editor/cli)
@@ -172,7 +173,7 @@ $ npm start
 >
 > 📢 windows 环境必须使用 [WSL](https://docs.microsoft.com/zh-cn/windows/wsl/install)，其他终端不保证能正常运行
 
-lowcode-engine 启动后，提供了几个 umd 文件，可以结合 [lowcode-demo](https://github.com/alibaba/lowcode-demo) 项目做调试，文件代理规则参考[这里](https://lowcode-engine.cn/site/docs/participate/prepare#2-配置资源代理)。
+lowcode-engine 启动后，提供了几个 umd 文件，可以结合 [lowcode-demo](https://github.com/fe-lce/lowcode-demo) 项目做调试，文件代理规则参考[这里](https://lowcode-engine.cn/site/docs/participate/prepare#2-配置资源代理)。
 
 ## 🤝 参与共建
 

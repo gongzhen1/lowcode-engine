@@ -2,8 +2,8 @@
 title: ModalNodesManager
 sidebar_position: 7
 ---
-> **@types** [IPublicModelModalNodesManager](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/modal-nodes-manager.ts)<br/>
-> **@since** v1.0.0
+
+> **@types** [IPublicModelModalNodesManager](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/modal-nodes-manager.ts)<br/> > **@since** v1.0.0
 
 ## 基本介绍
 
@@ -35,7 +35,7 @@ setNodes(): void;
 getModalNodes(): IPublicModelNode[];
 ```
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 ### getVisibleModalNode
 
@@ -49,7 +49,7 @@ getModalNodes(): IPublicModelNode[];
 getVisibleModalNode(): IPublicModelNode | null;
 ```
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 ### hideModalNodes
 
@@ -76,7 +76,7 @@ hideModalNodes(): void;
 setVisible(node: IPublicModelNode): void;
 ```
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 ### setInvisible
 
@@ -91,4 +91,4 @@ setVisible(node: IPublicModelNode): void;
 setInvisible(node: IPublicModelNode): void;
 ```
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)

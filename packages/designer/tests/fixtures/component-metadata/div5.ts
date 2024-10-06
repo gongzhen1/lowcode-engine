@@ -5,7 +5,7 @@ export default {
     package: '@ali/vc-div',
     componentName: 'Div',
   },
-  docUrl: 'https://github.com/alibaba/lowcode-materials/tree/main/docs',
+  docUrl: 'https://github.com/fe-lce/lowcode-materials/tree/main/docs',
   devMode: 'proCode',
   tags: ['布局'],
   configure: {

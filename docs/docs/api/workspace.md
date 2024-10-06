@@ -3,9 +3,7 @@ title: workspace - 应用级 API
 sidebar_position: 10
 ---
 
-> **[@experimental](./#experimental)**<br/>
-> **@types** [IPublicApiWorkspace](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/api/workspace.ts)<br/>
-> **@since** v1.1.0
+> **[@experimental](./#experimental)**<br/> > **@types** [IPublicApiWorkspace](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/api/workspace.ts)<br/> > **@since** v1.1.0
 
 ## 模块简介
 
@@ -70,6 +68,7 @@ get resourceList(): IPublicModelResource;
 ## 方法
 
 ### registerResourceType
+
 注册资源
 
 ```typescript
@@ -77,7 +76,7 @@ get resourceList(): IPublicModelResource;
 registerResourceType(resourceTypeModel: IPublicTypeResourceType): void;
 ```
 
-相关类型：[IPublicTypeResourceType](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/resource-type.ts)
+相关类型：[IPublicTypeResourceType](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/resource-type.ts)
 
 ### setResourceList
 
@@ -87,7 +86,7 @@ registerResourceType(resourceTypeModel: IPublicTypeResourceType): void;
 setResourceList(resourceList: IPublicResourceList) {}
 ```
 
-相关类型：[IPublicResourceData](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/resource-list.ts)
+相关类型：[IPublicResourceData](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/resource-list.ts)
 
 ### openEditorWindow
 
@@ -147,7 +146,7 @@ removeEditorWindowById(id: string): void;
 function onChangeWindows(fn: () => void): IPublicTypeDisposable;
 ```
 
-相关类型：[IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
+相关类型：[IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 
 ### onChangeActiveWindow
 
@@ -157,8 +156,7 @@ active 窗口变更事件
 function onChangeActiveWindow(fn: () => void): IPublicTypeDisposable;
 ```
 
-相关类型：[IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
-
+相关类型：[IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 
 ### onResourceListChange
 
@@ -168,5 +166,5 @@ function onChangeActiveWindow(fn: () => void): IPublicTypeDisposable;
 onResourceListChange(fn: (resourceList: IPublicResourceList): void): (): IPublicTypeDisposable;
 ```
 
-- 相关类型：[IPublicResourceOptions](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/resource-options.ts)
-- 相关类型：[IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
+- 相关类型：[IPublicResourceOptions](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/resource-options.ts)
+- 相关类型：[IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)

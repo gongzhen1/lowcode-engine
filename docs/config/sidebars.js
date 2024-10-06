@@ -39,7 +39,9 @@ module.exports = {
         type: 'category',
         label: '扩展编辑器',
         collapsed: false,
-        items: getDocsFromDir('guide/expand/editor', [{ dir: 'guide/expand/editor/parts', label: 'Parts·造物' }]),
+        items: getDocsFromDir('guide/expand/editor', [
+          { dir: 'guide/expand/editor/parts', label: 'Parts·造物' },
+        ]),
       },
       {
         type: 'category',
@@ -61,7 +63,7 @@ module.exports = {
           {
             type: 'link',
             label: '更新日志',
-            href: 'https://github.com/alibaba/lowcode-engine/releases',
+            href: 'https://github.com/fe-lce/lowcode-engine/releases',
           },
           ...getDocsFromDir('guide/appendix'),
           {

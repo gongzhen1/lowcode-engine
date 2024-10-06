@@ -2,7 +2,8 @@
 title: SettingTopEntry
 sidebar_position: 6
 ---
-> **@types** [IPublicModelSettingTopEntry](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/setting-top-entry.ts)<br/>
+
+> **@types** [IPublicModelSettingTopEntry](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/setting-top-entry.ts)<br/>
 
 ## 基本介绍
 
@@ -30,10 +31,10 @@ setter 设置器顶层操作对象
   */
 get(propName: string | number): IPublicModelSettingField | null;
 ```
+
 相关章节：[设置器操作对象](./setting-field)
 
-相关类型：[IPublicModelSettingField](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/setting-field.ts)
-
+相关类型：[IPublicModelSettingField](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/setting-field.ts)
 
 #### getPropValue
 

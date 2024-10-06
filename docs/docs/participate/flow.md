@@ -82,7 +82,7 @@ sidebar_position: 2
    tnpm run sync
    tnpm run syncOss
    ```
-6. 更新[发布日志](https://github.com/alibaba/lowcode-engine/releases)
+6. 更新[发布日志](https://github.com/fe-lce/lowcode-engine/releases)
 7. 合并 release/x.x.x 到 main 分支
 8. 合并 main 分支到 develop 分支
 

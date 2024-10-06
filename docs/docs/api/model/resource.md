@@ -3,9 +3,7 @@ title: Resource
 sidebar_position: 13
 ---
 
-> **[@experimental](./#experimental)**<br/>
-> **@types** [IPublicModelResource](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/resource.ts)<br/>
-> **@since** v1.1.0
+> **[@experimental](./#experimental)**<br/> > **@types** [IPublicModelResource](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/resource.ts)<br/> > **@since** v1.1.0
 
 ## 属性
 

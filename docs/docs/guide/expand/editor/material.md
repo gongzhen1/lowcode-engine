@@ -19,7 +19,7 @@ sidebar_position: 1
 
 ![image.png](https://img.alicdn.com/imgextra/i4/O1CN01SQJfxh1Y8uwDXksaK_!!6000000003015-2-tps-3068-1646.png)
 在低代码 Demo 中，我们可以看到，组件面板不只提供一个组件，组件是以集合的形式提供给低代码平台的，而低代码资产包正是这些组件构成集合的形式。
-**_它背后的 Interface，_**[**_在引擎中的定义摘抄如下_**](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/assets.ts)**_：_**
+**_它背后的 Interface，_**[**_在引擎中的定义摘抄如下_**](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/assets.ts)**_：_**
 
 ```typescript
 export interface Assets {
@@ -50,7 +50,7 @@ export interface RemoteComponentDescription {
 
 在 Demo 项目中，自带了一份默认的资产包：
 
-> [https://github.com/alibaba/lowcode-demo/blob/main/demo-general/src/services/assets.json](https://github.com/alibaba/lowcode-demo/blob/main/demo-general/src/services/assets.json)
+> [https://github.com/fe-lce/lowcode-demo/blob/main/demo-general/src/services/assets.json](https://github.com/fe-lce/lowcode-demo/blob/main/demo-general/src/services/assets.json)
 
 这份资产包里的物料是我们内部沉淀出的，用户可以通过这套资产包体验引擎提供的搭建、配置能力。
 **_在项目中正常注册资产包：_**
@@ -81,7 +81,7 @@ await material.setAssets(await injectAssets(assets));
 
 ### 手工配置资产包
 
-参考 Demo 中的[基础 Fusion Assets 定义](https://github.com/alibaba/lowcode-demo/blob/main/demo-basic-fusion/src/services/assets.json)，如果我们修改 assets.json，我们就能做到配置资产包：
+参考 Demo 中的[基础 Fusion Assets 定义](https://github.com/fe-lce/lowcode-demo/blob/main/demo-basic-fusion/src/services/assets.json)，如果我们修改 assets.json，我们就能做到配置资产包：
 
 - packages 对象：我们需要在其中定义这个包的获取方式，如果不定义，就不会被低代码引擎动态加载并对应上组件实例。定义方式是 UMD 的包，低代码引擎会尝试在 window 上寻找对应 library 的实例；
 - components 对象：我们需要在其中定义物料描述，物料描述我们将在下一节继续讲解。
@@ -321,7 +321,7 @@ npm publish
 
 #### 资产包托管
 
-- 最简单的方式就是类似[引擎 demo 项目](https://github.com/alibaba/lowcode-demo/blob/main/demo-general/src/services/assets.json)的做法，在项目中维护一份 assets.json，新增组件或者组件版本更新都需要修改这份资产包；
+- 最简单的方式就是类似[引擎 demo 项目](https://github.com/fe-lce/lowcode-demo/blob/main/demo-general/src/services/assets.json)的做法，在项目中维护一份 assets.json，新增组件或者组件版本更新都需要修改这份资产包；
 - 灵活一点的做法是通过 oss 等服务维护一份远程可配置的 assets.json，新增组件或者组件更新只需要修改这份远程的资产包，项目无需更新；
 - 再高级一点的做法是实现一个资产包管理的服务，能够通过用户界面去更新资产包的内容；
 

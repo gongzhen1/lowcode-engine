@@ -3,7 +3,7 @@ title: common - 通用 API
 sidebar_position: 10
 ---
 
-> **@types** [IPublicApiCommon](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/api/common.ts)<br/> > **@since** v1.0.0
+> **@types** [IPublicApiCommon](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/api/common.ts)<br/> > **@since** v1.0.0
 
 ## 模块简介
 
@@ -17,7 +17,7 @@ sidebar_position: 10
 
 通用 utils，详见下方方法签名
 
-相关类型：[IPublicApiCommonUtils](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/api/common.ts)
+相关类型：[IPublicApiCommonUtils](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/api/common.ts)
 
 #### skeletonCabin
 
@@ -74,7 +74,7 @@ getNodeSchemaById(
   ): IPublicTypeNodeSchema | undefined;
 ```
 
-相关类型：[IPublicTypeNodeSchema](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/node-schema.ts)
+相关类型：[IPublicTypeNodeSchema](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/node-schema.ts)
 
 #### executeTransaction
 

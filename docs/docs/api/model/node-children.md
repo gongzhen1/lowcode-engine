@@ -2,27 +2,28 @@
 title: NodeChildren
 sidebar_position: 2
 ---
-> **@types** [IPublicModelNodeChildren](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node-children.ts)<br/>
-> **@since** v1.0.0
+
+> **@types** [IPublicModelNodeChildren](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node-children.ts)<br/> > **@since** v1.0.0
 
 ## 基本介绍
+
 节点孩子模型
 
 ## 属性
+
 ### owner
 
 返回当前 children 实例所属的节点实例
 
 `@type {IPublicModelNode | null}`
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 ### size
 
 children 内的节点实例数
 
 `@type {number}`
-
 
 ### isEmptyNode
 
@@ -31,6 +32,7 @@ children 内的节点实例数
 `@type {boolean}`
 
 **@since v1.1.0**
+
 > v1.1.0 之前请使用 `isEmpty`
 
 ### notEmptyNode
@@ -42,7 +44,9 @@ children 内的节点实例数
 **@since v1.1.0**
 
 ## 方法
+
 ### delete
+
 删除指定节点
 
 ```typescript
@@ -54,7 +58,7 @@ children 内的节点实例数
 delete(node: IPublicModelNode): boolean;
 ```
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 ### insert
 
@@ -69,8 +73,7 @@ delete(node: IPublicModelNode): boolean;
 insert(node: IPublicModelNode): boolean;
 ```
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
-
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 ### indexOf
 
@@ -86,7 +89,7 @@ insert(node: IPublicModelNode): boolean;
 indexOf(node: IPublicModelNode): number;
 ```
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 ### splice
 
@@ -103,8 +106,7 @@ indexOf(node: IPublicModelNode): number;
 splice(start: number, deleteCount: number, node?: IPublicModelNode): any;
 ```
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
-
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 ### get
 
@@ -120,8 +122,7 @@ splice(start: number, deleteCount: number, node?: IPublicModelNode): any;
 get(index: number): IPublicModelNode | null;
 ```
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
-
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 ### has
 
@@ -137,8 +138,7 @@ get(index: number): IPublicModelNode | null;
 has(node: IPublicModelNode): boolean;
 ```
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
-
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 ### forEach
 
@@ -154,7 +154,7 @@ forEach(fn: (node: IPublicModelNode, index: number) => void): void;
 
 ```
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 ### reverse
 
@@ -169,8 +169,7 @@ reverse(): IPublicModelNode[];
 
 ```
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
-
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 ### map
 
@@ -185,8 +184,7 @@ reverse(): IPublicModelNode[];
 map<T>(fn: (node: IPublicModelNode, index: number) => T[]): any[] | null;
 ```
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
-
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 ### every
 
@@ -201,8 +199,7 @@ map<T>(fn: (node: IPublicModelNode, index: number) => T[]): any[] | null;
 every(fn: (node: IPublicModelNode, index: number) => boolean): boolean;
 ```
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
-
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 ### some
 
@@ -217,8 +214,7 @@ every(fn: (node: IPublicModelNode, index: number) => boolean): boolean;
 some(fn: (node: IPublicModelNode, index: number) => boolean): boolean;
 ```
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
-
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 ### filter
 
@@ -233,8 +229,7 @@ some(fn: (node: IPublicModelNode, index: number) => boolean): boolean;
 filter(fn: (node: IPublicModelNode, index: number) => boolean): any;
 ```
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
-
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 ### find
 
@@ -249,8 +244,7 @@ filter(fn: (node: IPublicModelNode, index: number) => boolean): any;
 find(fn: (node: IPublicModelNode, index: number) => boolean): IPublicModelNode | null;
 ```
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
-
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 ### reduce
 
@@ -265,8 +259,7 @@ find(fn: (node: IPublicModelNode, index: number) => boolean): IPublicModelNode |
 reduce(fn: (acc: any, cur: IPublicModelNode) => any, initialValue: any): void;
 ```
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
-
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 ### importSchema
 
@@ -281,10 +274,10 @@ reduce(fn: (acc: any, cur: IPublicModelNode) => any, initialValue: any): void;
 importSchema(data?: IPublicTypeNodeData | IPublicTypeNodeData[]): void;
 ```
 
-相关类型：[IPublicTypeNodeData](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/node-data.ts)
-
+相关类型：[IPublicTypeNodeData](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/node-data.ts)
 
 ### exportSchema
+
 导出 schema
 
 ```typescript
@@ -297,9 +290,9 @@ exportSchema(stage: IPublicEnumTransformStage): IPublicTypeNodeSchema;
 ```
 
 相关类型：
-- [IPublicEnumTransformStage](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/enum/transform-stage.ts)
-- [IPublicTypeNodeSchema](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/node-schema.ts)
 
+- [IPublicEnumTransformStage](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/enum/transform-stage.ts)
+- [IPublicTypeNodeSchema](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/node-schema.ts)
 
 ### mergeChildren
 
@@ -321,5 +314,6 @@ mergeChildren(
 ```
 
 相关类型：
-- [IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
-- [IPublicTypeNodeData](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/node-data.ts)
+
+- [IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
+- [IPublicTypeNodeData](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/node-data.ts)

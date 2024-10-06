@@ -2,8 +2,8 @@
 title: DocumentModel
 sidebar_position: 0
 ---
-> **@types** [IPublicModelDocumentModel](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/document-model.ts)<br/>
-> **@since** v1.0.0
+
+> **@types** [IPublicModelDocumentModel](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/document-model.ts)<br/> > **@since** v1.0.0
 
 ## 基本介绍
 
@@ -25,7 +25,7 @@ sidebar_position: 0
 
 相关章节：[节点选中区模型](./selection)
 
-相关类型：[IPublicModelSelection](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/selection.ts)
+相关类型：[IPublicModelSelection](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/selection.ts)
 
 ### detecting
 
@@ -35,7 +35,7 @@ sidebar_position: 0
 
 相关章节：[画布节点悬停模型](./detecting)
 
-相关类型：[IPublicModelDetecting](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/detecting.ts)
+相关类型：[IPublicModelDetecting](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/detecting.ts)
 
 ### history
 
@@ -45,7 +45,7 @@ sidebar_position: 0
 
 相关章节：[操作历史模型](./history)
 
-相关类型：[IPublicModelHistory](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/history.ts)
+相关类型：[IPublicModelHistory](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/history.ts)
 
 ### project
 
@@ -53,7 +53,7 @@ sidebar_position: 0
 
 `@type {IPublicApiProject}`
 
-相关类型：[IPublicApiProject](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/api/project.ts)
+相关类型：[IPublicApiProject](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/api/project.ts)
 
 ### root
 
@@ -61,7 +61,7 @@ sidebar_position: 0
 
 `@type {IPublicModelNode | null}`
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 ### nodesMap
 
@@ -69,10 +69,9 @@ sidebar_position: 0
 
 `@type {Map<string, IPublicModelNode>} `
 
-
 相关章节：[节点模型](./node)
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 ### modalNodesManager
 
@@ -82,7 +81,7 @@ sidebar_position: 0
 
 相关章节：[模态节点管理](./modal-nodes-manager)
 
-相关类型：[IPublicModelModalNodesManager](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/modal-nodes-manager.ts)
+相关类型：[IPublicModelModalNodesManager](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/modal-nodes-manager.ts)
 
 ### dropLocation
 
@@ -90,12 +89,12 @@ sidebar_position: 0
 
 `@type {IPublicModelDropLocation | null}`
 
-
-相关类型：[IPublicModelDropLocation](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/drop-location.ts)
+相关类型：[IPublicModelDropLocation](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/drop-location.ts)
 
 **@since v1.1.0**
 
 ## 方法
+
 ### getNodeById
 
 根据 nodeId 返回 [Node](./node) 实例
@@ -110,8 +109,7 @@ sidebar_position: 0
 getNodeById(nodeId: string): IPublicModelNode | null;
 ```
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
-
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 ### importSchema
 
@@ -126,10 +124,10 @@ getNodeById(nodeId: string): IPublicModelNode | null;
 importSchema(schema: IPublicTypeRootSchema): void;
 ```
 
-相关类型：[IPublicTypeRootSchema](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/root-schema.ts)
-
+相关类型：[IPublicTypeRootSchema](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/root-schema.ts)
 
 ### exportSchema
+
 导出 schema
 
 ```typescript
@@ -143,8 +141,9 @@ exportSchema(stage: IPublicEnumTransformStage): IPublicTypeRootSchema | undefine
 ```
 
 相关类型：
-- [IPublicEnumTransformStage](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/enum/transform-stage.ts)
-- [IPublicTypeRootSchema](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/root-schema.ts)
+
+- [IPublicEnumTransformStage](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/enum/transform-stage.ts)
+- [IPublicTypeRootSchema](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/root-schema.ts)
 
 ### insertNode
 
@@ -163,7 +162,7 @@ insertNode(
 ): IPublicModelNode | null;
 ```
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 ### createNode
 
@@ -179,7 +178,7 @@ insertNode(
 createNode(data: any): IPublicModelNode | null;
 ```
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 ### removeNode
 
@@ -194,9 +193,10 @@ createNode(data: any): IPublicModelNode | null;
 removeNode(idOrNode: string | IPublicModelNode): void;
 ```
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 ### checkNesting
+
 检查拖拽放置的目标节点是否可以放置该拖拽对象
 
 ```typescript
@@ -215,13 +215,15 @@ checkNesting(
 ```
 
 相关类型：
-- [IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
-- [IPublicTypeDragNodeObject](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/drag-node-object.ts)
-- [IPublicTypeDragNodeDataObject](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/drag-node-object-data.ts)
+
+- [IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
+- [IPublicTypeDragNodeObject](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/drag-node-object.ts)
+- [IPublicTypeDragNodeDataObject](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/drag-node-object-data.ts)
 
 **@since v1.0.16**
 
 ### isDetectingNode
+
 判断是否当前节点处于被探测状态
 
 ```typescript
@@ -233,13 +235,13 @@ checkNesting(
  */
 isDetectingNode(node: IPublicModelNode): boolean;
 ```
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 **@since v1.1.0**
 
-
 ## 事件
+
 ### onAddNode
 
 当前 document 新增节点事件
@@ -253,8 +255,9 @@ onAddNode(fn: (node: IPublicModelNode) => void): IPublicTypeDisposable;
 ```
 
 相关类型：
-- [IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
-- [IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
+
+- [IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
+- [IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 
 ### onMountNode
 
@@ -269,10 +272,12 @@ onMountNode(fn: (payload: { node: IPublicModelNode }) => void): IPublicTypeDispo
 ```
 
 相关类型：
-- [IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
-- [IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
+
+- [IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
+- [IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 
 ### onRemoveNode
+
 当前 document 删除节点事件
 
 ```typescript
@@ -284,9 +289,9 @@ onRemoveNode(fn: (node: IPublicModelNode) => void): IPublicTypeDisposable;
 ```
 
 相关类型：
-- [IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
-- [IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 
+- [IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
+- [IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 
 ### onChangeDetecting
 
@@ -302,8 +307,9 @@ onChangeDetecting(fn: (node: IPublicModelNode) => void): IPublicTypeDisposable;
 ```
 
 相关类型：
-- [IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
-- [IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
+
+- [IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
+- [IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 
 ### onChangeSelection
 
@@ -317,7 +323,7 @@ onChangeDetecting(fn: (node: IPublicModelNode) => void): IPublicTypeDisposable;
 onChangeSelection(fn: (ids: string[]) => void): IPublicTypeDisposable;
 ```
 
-相关类型：[IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
+相关类型：[IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 
 ### onChangeNodeVisible
 
@@ -332,8 +338,8 @@ onChangeSelection(fn: (ids: string[]) => void): IPublicTypeDisposable;
 onChangeNodeVisible(fn: (node: IPublicModelNode, visible: boolean) => void): IPublicTypeDisposable;
 ```
 
-- 相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
-- 相关类型：[IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
+- 相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
+- 相关类型：[IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 
 ### onChangeNodeChildren
 
@@ -343,19 +349,22 @@ onChangeNodeVisible(fn: (node: IPublicModelNode, visible: boolean) => void): IPu
 onChangeNodeChildren(fn: (info?: IPublicTypeOnChangeOptions) => void): IPublicTypeDisposable;
 ```
 
-相关类型：[IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
+相关类型：[IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 
 ### onChangeNodeProp
+
 当前 document 节点属性修改事件
 
 ```typescript
 onChangeNodeProp(fn: (info: IPublicTypePropChangeOptions) => void): IPublicTypeDisposable;
 ```
 
-相关类型：[IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
+相关类型：[IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 
 ### onImportSchema
+
 当前 document 导入新的 schema 事件
+
 ```typescript
 /**
  * import schema event
@@ -364,13 +373,16 @@ onChangeNodeProp(fn: (info: IPublicTypePropChangeOptions) => void): IPublicTypeD
  */
 onImportSchema(fn: (schema: IPublicTypeRootSchema) => void): IPublicTypeDisposable;
 ```
+
 相关类型：
-- [IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
-- [IPublicTypeRootSchema](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/root-schema.ts)
+
+- [IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
+- [IPublicTypeRootSchema](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/root-schema.ts)
 
 **@since v1.0.15**
 
 ### onFocusNodeChanged
+
 设置聚焦节点变化的回调
 
 ```typescript
@@ -384,13 +396,16 @@ onFocusNodeChanged(
   fn: (doc: IPublicModelDocumentModel, focusNode: IPublicModelNode) => void,
 ): IPublicTypeDisposable;
 ```
+
 相关类型：
-- [IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
-- [IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
+
+- [IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
+- [IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 **@since v1.1.0**
 
 ### onDropLocationChanged
+
 设置 DropLocation 变化的回调
 
 ```typescript
@@ -403,6 +418,6 @@ onFocusNodeChanged(
 onDropLocationChanged(fn: (doc: IPublicModelDocumentModel) => void): IPublicTypeDisposable;
 ```
 
-相关类型：[IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
+相关类型：[IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 
 **@since v1.1.0**

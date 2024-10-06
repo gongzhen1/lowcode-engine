@@ -2,7 +2,8 @@
 title: SettingField
 sidebar_position: 6
 ---
-> **@types** [IPublicModelSettingField](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/setting-field.ts)<br/>
+
+> **@types** [IPublicModelSettingField](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/setting-field.ts)<br/>
 
 ## 基本介绍
 
@@ -15,7 +16,6 @@ setter 设置器操作对象
 获取设置属性的 isGroup
 
 `@type {boolean}`
-
 
 #### id
 
@@ -71,14 +71,13 @@ setter 设置器操作对象
 
 相关章节：[设置器顶层操作对象](./setting-top-entry)
 
-相关类型：[IPublicModelSettingTopEntry](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/setting-top-entry.ts)
+相关类型：[IPublicModelSettingTopEntry](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/setting-top-entry.ts)
 
 #### node
 
 获取设置属性对应的节点实例
 
 `@type {IPublicModelNode | null}`
-
 
 #### parent
 
@@ -88,7 +87,7 @@ setter 设置器操作对象
 
 相关章节：[设置器顶层操作对象](./setting-top-entry)
 
-相关类型：[IPublicModelSettingTopEntry](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/setting-top-entry.ts)
+相关类型：[IPublicModelSettingTopEntry](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/setting-top-entry.ts)
 
 #### top
 
@@ -98,7 +97,7 @@ setter 设置器操作对象
 
 相关章节：[设置器顶层操作对象](./setting-top-entry)
 
-相关类型：[IPublicModelSettingTopEntry](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/setting-top-entry.ts)
+相关类型：[IPublicModelSettingTopEntry](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/setting-top-entry.ts)
 
 #### isSettingField
 
@@ -110,7 +109,7 @@ setter 设置器操作对象
 
 `@type {IPublicModelComponentMeta}`
 
-相关类型：[IPublicModelComponentMeta](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/component-meta.ts)
+相关类型：[IPublicModelComponentMeta](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/component-meta.ts)
 
 #### items
 
@@ -118,7 +117,7 @@ setter 设置器操作对象
 
 `@type {Array<IPublicModelSettingField | IPublicTypeCustomView>}`
 
-相关类型：[IPublicTypeCustomView](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/custom-view.ts)
+相关类型：[IPublicTypeCustomView](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/custom-view.ts)
 
 ## 方法
 
@@ -147,8 +146,9 @@ setValue(val: IPublicTypeCompositeValue, extraOptions?: IPublicTypeSetValueOptio
 ```
 
 相关类型：
-- [IPublicTypeCompositeValue](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/composite-value.ts)
-- [IPublicTypeSetValueOptions](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/set-value-options.ts)
+
+- [IPublicTypeCompositeValue](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/composite-value.ts)
+- [IPublicTypeSetValueOptions](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/set-value-options.ts)
 
 #### setPropValue
 
@@ -248,7 +248,7 @@ getProps(): IPublicModelSettingTopEntry;
 
 相关章节：[设置器顶层操作对象](./setting-top-entry)
 
-相关类型：[IPublicModelSettingTopEntry](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/setting-top-entry.ts)
+相关类型：[IPublicModelSettingTopEntry](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/setting-top-entry.ts)
 
 #### isUseVariable
 
@@ -287,7 +287,7 @@ setUseVariable(flag: boolean): void;
 createField(config: IPublicTypeFieldConfig): IPublicModelSettingField;
 ```
 
-相关类型：[IPublicTypeFieldConfig](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/field-config.ts)
+相关类型：[IPublicTypeFieldConfig](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/field-config.ts)
 
 #### getMockOrValue
 
@@ -339,4 +339,4 @@ remove(): void;
 onEffect(action: () => void): IPublicTypeDisposable;
 ```
 
-相关类型：[IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
+相关类型：[IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)

@@ -2,8 +2,8 @@
 title: Detecting
 sidebar_position: 6
 ---
-> **@types** [IPublicModelDetecting](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/detecting.ts)<br/>
-> **@since** v1.0.0
+
+> **@types** [IPublicModelDetecting](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/detecting.ts)<br/> > **@since** v1.0.0
 
 ## 基本介绍
 
@@ -17,7 +17,7 @@ sidebar_position: 6
 
 `@type {IPublicModelNode | null}`
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 **@since v1.0.16**
 
@@ -27,8 +27,8 @@ sidebar_position: 6
 
 `@type {boolean}`
 
-
 ## 方法
+
 ### capture
 
 hover 指定节点
@@ -68,7 +68,9 @@ leave(): void;
 ```
 
 ## 事件
+
 ### onDetectingChange
+
 hover 节点变化事件
 
 ```typescript
@@ -81,7 +83,8 @@ onDetectingChange(fn: (node: IPublicModelNode | null) => void): IPublicTypeDispo
 ```
 
 相关类型：
-- [IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
-- [IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
+
+- [IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
+- [IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 
 **@since v1.1.0**

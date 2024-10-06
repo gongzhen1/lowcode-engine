@@ -3,7 +3,7 @@ title: logger - 日志 API
 sidebar_position: 10
 ---
 
-> **@types** [IPublicApiLogger](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/api/logger.ts)<br/> > **@since** v1.0.0
+> **@types** [IPublicApiLogger](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/api/logger.ts)<br/> > **@since** v1.0.0
 
 ## 模块简介
 

@@ -3,7 +3,7 @@ title: plugins - 插件 API
 sidebar_position: 2
 ---
 
-> **@types** [IPublicApiPlugins](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/api/plugins.ts)<br/> > **@since** v1.0.0
+> **@types** [IPublicApiPlugins](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/api/plugins.ts)<br/> > **@since** v1.0.0
 
 ## 模块简介
 
@@ -24,8 +24,8 @@ async function register(
 
 相关 types:
 
-- [IPublicTypePlugin](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/plugin.ts)
-- [IPublicTypePluginRegisterOptions](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/plugin-register-options.ts)
+- [IPublicTypePlugin](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/plugin.ts)
+- [IPublicTypePluginRegisterOptions](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/plugin-register-options.ts)
 
 其中第一个参数 plugin 通过低代码工具链的插件脚手架生成编写模板，开发者可以参考[这个章节](/site/docs/guide/expand/editor/cli)进行创建
 
@@ -97,7 +97,7 @@ await plugins.register(PluginA);
 await plugins.register(PluginB);
 ```
 
-> 注：ctx 是在插件中获取引擎 API 的唯一渠道，具体定义参见 [IPublicModelPluginContext](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/plugin-context.ts)
+> 注：ctx 是在插件中获取引擎 API 的唯一渠道，具体定义参见 [IPublicModelPluginContext](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/plugin-context.ts)
 
 #### 设置兼容引擎版本示例
 
@@ -239,9 +239,9 @@ getPluginPreference(
 
 ## 相关类型定义
 
-- [IPublicModelPluginContext](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/plugin-context.ts)
-- [IPublicTypePluginConfig](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/plugin-config.ts)
-- [IPublicModelPluginInstance](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/plugin-instance.ts)
+- [IPublicModelPluginContext](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/plugin-context.ts)
+- [IPublicTypePluginConfig](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/plugin-config.ts)
+- [IPublicModelPluginInstance](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/plugin-instance.ts)
 
 ## 插件元数据工程转化示例
 

@@ -3,7 +3,7 @@ title: material - 物料 API
 sidebar_position: 10
 ---
 
-> **@types** [IPublicApiMaterial](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/api/material.ts)<br/> > **@since** v1.0.0
+> **@types** [IPublicApiMaterial](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/api/material.ts)<br/> > **@since** v1.0.0
 
 ## 模块简介
 
@@ -23,7 +23,7 @@ sidebar_position: 10
 get componentsMap(): { [key: string]: IPublicTypeNpmInfo | ComponentType<any> | object } ;
 ```
 
-相关类型：[IPublicTypeNpmInfo](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/npm-info.ts)
+相关类型：[IPublicTypeNpmInfo](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/npm-info.ts)
 
 ## 方法
 
@@ -42,7 +42,7 @@ get componentsMap(): { [key: string]: IPublicTypeNpmInfo | ComponentType<any> | 
 setAssets(assets: IPublicTypeAssetsJson): void;
 ```
 
-相关类型：[IPublicTypeAssetsJson](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/assets-json.ts)
+相关类型：[IPublicTypeAssetsJson](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/assets-json.ts)
 
 **示例**
 直接在项目中引用 npm 包
@@ -95,7 +95,7 @@ plugins
 getAssets(): IPublicTypeAssetsJson;
 ```
 
-相关类型：[IPublicTypeAssetsJson](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/assets-json.ts)
+相关类型：[IPublicTypeAssetsJson](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/assets-json.ts)
 
 **示例**
 
@@ -119,7 +119,7 @@ material.getAssets();
 loadIncrementalAssets(incrementalAssets: IPublicTypeAssetsJson): Promise<void>;
 ```
 
-相关类型：[IPublicTypeAssetsJson](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/assets-json.ts)
+相关类型：[IPublicTypeAssetsJson](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/assets-json.ts)
 
 **示例**
 
@@ -162,7 +162,7 @@ material.loadIncrementalAssets({
 addBuiltinComponentAction(action: IPublicTypeComponentAction): void;
 ```
 
-相关类型：[IPublicTypeComponentAction](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/component-action.ts)
+相关类型：[IPublicTypeComponentAction](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/component-action.ts)
 
 **示例**
 新增设计扩展位，并绑定事件
@@ -232,7 +232,7 @@ modifyBuiltinComponentAction(
   ): void;
 ```
 
-相关类型：[IPublicTypeComponentAction](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/component-action.ts)
+相关类型：[IPublicTypeComponentAction](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/component-action.ts)
 
 ##### 内置设计器辅助 name
 
@@ -357,7 +357,7 @@ material.adjustContextMenuLayout((actions: IPublicTypeContextMenuAction) => {
 getComponentMeta(componentName: string): IPublicModelComponentMeta | null;
 ```
 
-相关类型：[IPublicModelComponentMeta](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/component-meta.ts)
+相关类型：[IPublicModelComponentMeta](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/component-meta.ts)
 
 **示例**
 
@@ -380,7 +380,7 @@ material.getComponentMeta('Input');
   getComponentMetasMap(): Map<string, IPublicModelComponentMeta>;
 ```
 
-相关类型：[IPublicModelComponentMeta](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/component-meta.ts)
+相关类型：[IPublicModelComponentMeta](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/component-meta.ts)
 
 **示例**
 
@@ -533,7 +533,7 @@ material.getRegisteredMetadataTransducers();
 onChangeAssets(fn: () => void): IPublicTypeDisposable;
 ```
 
-相关类型：[IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
+相关类型：[IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 
 **示例**
 

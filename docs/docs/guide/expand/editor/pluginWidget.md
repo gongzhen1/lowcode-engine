@@ -203,8 +203,8 @@ skeleton.add({
 
 ### 区块面板
 
-- 仓库地址：[https://github.com/alibaba/lowcode-plugins](https://github.com/alibaba/lowcode-plugins)
-- 具体代码：[https://github.com/alibaba/lowcode-plugins/tree/main/packages/plugin-block](https://github.com/alibaba/lowcode-plugins/tree/main/packages/plugin-block)
+- 仓库地址：[https://github.com/fe-lce/lowcode-plugins](https://github.com/fe-lce/lowcode-plugins)
+- 具体代码：[https://github.com/fe-lce/lowcode-plugins/tree/main/packages/plugin-block](https://github.com/fe-lce/lowcode-plugins/tree/main/packages/plugin-block)
 - 直播回放：
   - [低代码引擎项目实战 (9)-区块管理 (1)-保存为区块](https://www.bilibili.com/video/BV1YF411M7RK/)
   - [低代码引擎项目实战 (10)-区块管理 - 区块面板](https://www.bilibili.com/video/BV1FB4y1S7tu/)

@@ -1,12 +1,15 @@
-import { IPublicTypeProjectSchema, IPublicTypeDisposable, IPublicTypeRootSchema, IPublicTypePropsTransducer, IPublicTypeAppConfig } from '../type';
+import {
+  IPublicTypeProjectSchema,
+  IPublicTypeDisposable,
+  IPublicTypeRootSchema,
+  IPublicTypePropsTransducer,
+  IPublicTypeAppConfig,
+} from '../type';
 import { IPublicEnumTransformStage } from '../enum';
 import { IPublicApiSimulatorHost } from './';
 import { IPublicModelDocumentModel } from '../model';
 
-export interface IBaseApiProject<
-  DocumentModel
-> {
-
+export interface IBaseApiProject<DocumentModel> {
   /**
    * 获取当前的 document
    * get current document
@@ -32,7 +35,9 @@ export interface IBaseApiProject<
    * @param doc
    * @returns
    */
-  openDocument(doc?: string | IPublicTypeRootSchema | undefined): DocumentModel | null;
+  openDocument(
+    doc?: string | IPublicTypeRootSchema | undefined,
+  ): DocumentModel | null;
 
   /**
    * 创建一个 document
@@ -93,9 +98,9 @@ export interface IBaseApiProject<
    * @param stage
    */
   addPropsTransducer(
-      transducer: IPublicTypePropsTransducer,
-      stage: IPublicEnumTransformStage,
-    ): void;
+    transducer: IPublicTypePropsTransducer,
+    stage: IPublicEnumTransformStage,
+  ): void;
 
   /**
    * 绑定删除文档事件
@@ -115,7 +120,9 @@ export interface IBaseApiProject<
    * 当前 project 的模拟器 ready 事件
    * set callback for event onSimulatorHostReady
    */
-  onSimulatorHostReady(fn: (host: IPublicApiSimulatorHost) => void): IPublicTypeDisposable;
+  onSimulatorHostReady(
+    fn: (host: IPublicApiSimulatorHost) => void,
+  ): IPublicTypeDisposable;
 
   /**
    * 当前 project 的渲染器 ready 事件
@@ -125,7 +132,7 @@ export interface IBaseApiProject<
 
   /**
    * 设置多语言语料
-   * 数据格式参考 https://github.com/alibaba/lowcode-engine/blob/main/specs/lowcode-spec.md#2434%E5%9B%BD%E9%99%85%E5%8C%96%E5%A4%9A%E8%AF%AD%E8%A8%80%E7%B1%BB%E5%9E%8Baa
+   * 数据格式参考 https://github.com/fe-lce/lowcode-engine/blob/main/specs/lowcode-spec.md#2434%E5%9B%BD%E9%99%85%E5%8C%96%E5%A4%9A%E8%AF%AD%E8%A8%80%E7%B1%BB%E5%9E%8Baa
    *
    * set I18n data for this project
    * @param value object
@@ -140,8 +147,12 @@ export interface IBaseApiProject<
    * @param value object
    * @since v1.1.4
    */
-  setConfig<T extends keyof IPublicTypeAppConfig>(key: T, value: IPublicTypeAppConfig[T]): void;
+  setConfig<T extends keyof IPublicTypeAppConfig>(
+    key: T,
+    value: IPublicTypeAppConfig[T],
+  ): void;
   setConfig(value: IPublicTypeAppConfig): void;
 }
 
-export interface IPublicApiProject extends IBaseApiProject<IPublicModelDocumentModel> {}
+export interface IPublicApiProject
+  extends IBaseApiProject<IPublicModelDocumentModel> {}

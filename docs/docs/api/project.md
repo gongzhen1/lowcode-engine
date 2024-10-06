@@ -41,7 +41,7 @@ sidebar_position: 10
 get currentDocument(): IPublicModelDocumentModel | null;
 ```
 
-相关类型：[IPublicModelDocumentModel](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/document-model.ts)
+相关类型：[IPublicModelDocumentModel](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/document-model.ts)
 
 ### documents
 
@@ -56,7 +56,7 @@ get currentDocument(): IPublicModelDocumentModel | null;
 get documents(): IPublicModelDocumentModel[];
 ```
 
-相关类型：[IPublicModelDocumentModel](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/document-model.ts)
+相关类型：[IPublicModelDocumentModel](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/document-model.ts)
 
 ### simulatorHost
 
@@ -70,7 +70,7 @@ get documents(): IPublicModelDocumentModel[];
 get simulatorHost(): IPublicApiSimulatorHost | null;
 ```
 
-相关类型：[IPublicApiSimulatorHost](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/api/simulator-host.ts)
+相关类型：[IPublicApiSimulatorHost](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/api/simulator-host.ts)
 
 ## 方法
 
@@ -89,8 +89,8 @@ openDocument(doc?: string | IPublicTypeRootSchema | undefined): IPublicModelDocu
 
 相关类型：
 
-- [IPublicApiSimulatorHost](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/api/simulator-host.ts)
-- [IPublicTypeRootSchema](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/root-schema.ts)
+- [IPublicApiSimulatorHost](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/api/simulator-host.ts)
+- [IPublicTypeRootSchema](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/root-schema.ts)
 
 ### createDocument
 
@@ -108,8 +108,8 @@ createDocument(data?: IPublicTypeRootSchema): IPublicModelDocumentModel | null;
 
 相关类型：
 
-- [IPublicApiSimulatorHost](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/api/simulator-host.ts)
-- [IPublicTypeRootSchema](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/root-schema.ts)
+- [IPublicApiSimulatorHost](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/api/simulator-host.ts)
+- [IPublicTypeRootSchema](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/root-schema.ts)
 
 ### removeDocument
 
@@ -124,7 +124,7 @@ createDocument(data?: IPublicTypeRootSchema): IPublicModelDocumentModel | null;
 removeDocument(doc: IPublicModelDocumentModel): void;
 ```
 
-相关类型：[IPublicApiSimulatorHost](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/api/simulator-host.ts)
+相关类型：[IPublicApiSimulatorHost](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/api/simulator-host.ts)
 
 ### getDocumentByFileName
 
@@ -140,7 +140,7 @@ removeDocument(doc: IPublicModelDocumentModel): void;
 getDocumentByFileName(fileName: string): IPublicModelDocumentModel | null;
 ```
 
-相关类型：[IPublicApiSimulatorHost](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/api/simulator-host.ts)
+相关类型：[IPublicApiSimulatorHost](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/api/simulator-host.ts)
 
 ### getDocumentById
 
@@ -156,7 +156,7 @@ getDocumentByFileName(fileName: string): IPublicModelDocumentModel | null;
 getDocumentById(id: string): IPublicModelDocumentModel | null;
 ```
 
-相关类型：[IPublicApiSimulatorHost](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/api/simulator-host.ts)
+相关类型：[IPublicApiSimulatorHost](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/api/simulator-host.ts)
 
 ### exportSchema
 
@@ -173,8 +173,8 @@ exportSchema(stage: IPublicEnumTransformStage): IPublicTypeProjectSchema;
 
 相关类型：
 
-- [IPublicEnumTransformStage](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/enum/transform-stage.ts)
-- [IPublicTypeProjectSchema](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/project-schema.ts)
+- [IPublicEnumTransformStage](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/enum/transform-stage.ts)
+- [IPublicTypeProjectSchema](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/project-schema.ts)
 
 ### importSchema
 
@@ -189,7 +189,7 @@ exportSchema(stage: IPublicEnumTransformStage): IPublicTypeProjectSchema;
 importSchema(schema?: IPublicTypeProjectSchema): void;
 ```
 
-相关类型：[IPublicTypeProjectSchema](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/project-schema.ts)
+相关类型：[IPublicTypeProjectSchema](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/project-schema.ts)
 
 ### addPropsTransducer
 
@@ -210,8 +210,8 @@ addPropsTransducer(
 
 相关类型：
 
-- [IPublicTypePropsTransducer](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/props-transducer.ts)
-- [IPublicEnumTransformStage](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/enum/transform-stage.ts)
+- [IPublicTypePropsTransducer](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/props-transducer.ts)
+- [IPublicEnumTransformStage](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/enum/transform-stage.ts)
 
 **示例**
 在保存的时候删除每一个组件的 props.hidden
@@ -249,7 +249,7 @@ DeleteHiddenTransducer.pluginName = 'DeleteHiddenTransducer';
 ```typescript
 /**
  * 设置多语言语料
- * 数据格式参考 https://github.com/alibaba/lowcode-engine/blob/main/specs/lowcode-spec.md#2434%E5%9B%BD%E9%99%85%E5%8C%96%E5%A4%9A%E8%AF%AD%E8%A8%80%E7%B1%BB%E5%9E%8Baa
+ * 数据格式参考 https://github.com/fe-lce/lowcode-engine/blob/main/specs/lowcode-spec.md#2434%E5%9B%BD%E9%99%85%E5%8C%96%E5%A4%9A%E8%AF%AD%E8%A8%80%E7%B1%BB%E5%9E%8Baa
  *
  * set I18n data for this project
  * @param value object
@@ -306,7 +306,7 @@ export {};
 onRemoveDocument(fn: (data: { id: string }) => void): IPublicTypeDisposable;
 ```
 
-相关类型：[IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
+相关类型：[IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 
 **@since v1.0.16**
 
@@ -324,8 +324,8 @@ onChangeDocument(fn: (doc: IPublicModelDocumentModel) => void): IPublicTypeDispo
 
 相关类型：
 
-- [IPublicModelDocumentModel](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/document-model.ts)
-- [IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
+- [IPublicModelDocumentModel](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/document-model.ts)
+- [IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 
 ### onSimulatorHostReady
 
@@ -341,8 +341,8 @@ onSimulatorHostReady(fn: (host: IPublicApiSimulatorHost) => void): IPublicTypeDi
 
 相关类型：
 
-- [IPublicApiSimulatorHost](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/api/simulator-host.ts)
-- [IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
+- [IPublicApiSimulatorHost](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/api/simulator-host.ts)
+- [IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 
 ### onSimulatorRendererReady
 
@@ -356,4 +356,4 @@ onSimulatorHostReady(fn: (host: IPublicApiSimulatorHost) => void): IPublicTypeDi
 onSimulatorRendererReady(fn: () => void): IPublicTypeDisposable;
 ```
 
-相关类型：[IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
+相关类型：[IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)

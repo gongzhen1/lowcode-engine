@@ -43,7 +43,10 @@ export class Project implements IPublicApiProject {
     return this[projectSymbol]?.designer.editor;
   }
 
-  constructor(project: InnerProject, public workspaceMode: boolean = false) {
+  constructor(
+    project: InnerProject,
+    public workspaceMode: boolean = false,
+  ) {
     this[innerProjectSymbol] = project;
   }
 
@@ -215,7 +218,7 @@ export class Project implements IPublicApiProject {
 
   /**
    * 设置多语言语料
-   * 数据格式参考 https://github.com/alibaba/lowcode-engine/blob/main/specs/lowcode-spec.md#2434%E5%9B%BD%E9%99%85%E5%8C%96%E5%A4%9A%E8%AF%AD%E8%A8%80%E7%B1%BB%E5%9E%8Baa
+   * 数据格式参考 https://github.com/fe-lce/lowcode-engine/blob/main/specs/lowcode-spec.md#2434%E5%9B%BD%E9%99%85%E5%8C%96%E5%A4%9A%E8%AF%AD%E8%A8%80%E7%B1%BB%E5%9E%8Baa
    * @param value object
    * @returns
    */

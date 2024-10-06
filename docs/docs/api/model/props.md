@@ -2,20 +2,20 @@
 title: Props
 sidebar_position: 4
 ---
-> **@types** [IPublicModelProps](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/props.ts)<br/>
-> **@since** v1.0.0
+
+> **@types** [IPublicModelProps](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/props.ts)<br/> > **@since** v1.0.0
 
 ## 基本介绍
 
 属性集模型
 
 ## 属性
+
 ### id
 
 id
 
 `@type {string}`
-
 
 ### path
 
@@ -23,16 +23,16 @@ id
 
 `@type {string[]}`
 
-
 ### node
 
 返回当前属性集所属的节点实例
 
 `@type {IPublicModelNode | null}`
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 ## 方法
+
 ### getProp
 
 获取指定 path 的属性模型实例
@@ -46,7 +46,7 @@ id
 getProp(path: string): IPublicModelProp | null;
 ```
 
-相关类型：[IPublicModelProp](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/prop.ts)
+相关类型：[IPublicModelProp](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/prop.ts)
 
 ### getPropValue
 
@@ -75,7 +75,7 @@ getPropValue(path: string): any;
 getExtraProp(path: string): IPublicModelProp | null;
 ```
 
-相关类型：[IPublicModelProp](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/prop.ts)
+相关类型：[IPublicModelProp](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/prop.ts)
 
 ### getExtraPropValue
 
@@ -105,7 +105,7 @@ getExtraPropValue(path: string): any;
 setPropValue(path: string, value: IPublicTypeCompositeValue): void;
 ```
 
-相关类型：[IPublicTypeCompositeValue](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/composite-value.ts)
+相关类型：[IPublicTypeCompositeValue](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/composite-value.ts)
 
 ### setExtraPropValue
 
@@ -121,8 +121,7 @@ setPropValue(path: string, value: IPublicTypeCompositeValue): void;
 setExtraPropValue(path: string, value: IPublicTypeCompositeValue): void;
 ```
 
-相关类型：[IPublicTypeCompositeValue](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/composite-value.ts)
-
+相关类型：[IPublicTypeCompositeValue](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/composite-value.ts)
 
 ### has
 
@@ -155,6 +154,6 @@ has(key: string): boolean;
 add(value: IPublicTypeCompositeValue, key?: string | number | undefined): any;
 ```
 
-相关类型：[IPublicTypeCompositeValue](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/composite-value.ts)
+相关类型：[IPublicTypeCompositeValue](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/composite-value.ts)
 
 **@since v1.1.0**

@@ -3,7 +3,7 @@ title: hotkey - 快捷键 API
 sidebar_position: 10
 ---
 
-> **@types** [IPublicApiHotkey](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/api/hotkey.ts)<br/> > **@since** v1.0.0
+> **@types** [IPublicApiHotkey](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/api/hotkey.ts)<br/> > **@since** v1.0.0
 
 ## 模块简介
 
@@ -33,8 +33,8 @@ bind(
 
 相关 types
 
-- [IPublicTypeHotkeyCallback](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/hotkey-callback.ts)
-- [IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
+- [IPublicTypeHotkeyCallback](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/hotkey-callback.ts)
+- [IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 
 ## 使用示例
 
