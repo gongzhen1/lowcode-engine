@@ -129,7 +129,7 @@ class DesignerCabin implements IPublicApiCommonDesignerCabin {
 
   /**
    * 转换类型枚举对象，包含 init / upgrade / render 等类型
-   * [参考](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/transform-stage.ts)
+   * [参考](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/transform-stage.ts)
    * @deprecated use { TransformStage } from '@lce/lowcode-types' instead
    */
   get TransformStage() {

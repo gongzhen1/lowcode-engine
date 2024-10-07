@@ -3,7 +3,7 @@ title: setters - 设置器 API
 sidebar_position: 10
 ---
 
-> **@types** [IPublicApiSetters](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/api/setters.ts)<br/> > **@since** v1.0.0
+> **@types** [IPublicApiSetters](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/api/setters.ts)<br/> > **@since** v1.0.0
 
 ## 模块简介
 
@@ -25,7 +25,7 @@ sidebar_position: 10
 getSetter(type: string): IPublicTypeRegisteredSetter | null;
 ```
 
-相关类型：[IPublicTypeRegisteredSetter](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/registerd-setter.ts)
+相关类型：[IPublicTypeRegisteredSetter](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/registerd-setter.ts)
 
 ### getSettersMap
 
@@ -42,7 +42,7 @@ getSettersMap(): Map<string, IPublicTypeRegisteredSetter & {
 }>;
 ```
 
-相关类型：[IPublicTypeRegisteredSetter](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/registerd-setter.ts)
+相关类型：[IPublicTypeRegisteredSetter](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/registerd-setter.ts)
 
 ### registerSetter
 
@@ -64,8 +64,8 @@ registerSetter(
 
 相关类型：
 
-- [IPublicTypeRegisteredSetter](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/registerd-setter.ts)
-- [IPublicTypeCustomView](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/custom-view.ts)
+- [IPublicTypeRegisteredSetter](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/registerd-setter.ts)
+- [IPublicTypeCustomView](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/custom-view.ts)
 
 ## 使用示例
 

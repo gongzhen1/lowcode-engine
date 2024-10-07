@@ -3,9 +3,7 @@ title: PluginInstance
 sidebar_position: 12
 ---
 
-> **@types** [IPublicModelPluginInstance](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/plugin-instance.ts)<br/>
-> **@since** v1.1.0
-
+> **@types** [IPublicModelPluginInstance](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/plugin-instance.ts)<br/> > **@since** v1.1.0
 
 ## 基本介绍
 
@@ -37,4 +35,4 @@ sidebar_position: 12
 
 `@type {IPublicTypePluginMeta}`
 
-相关类型：[IPublicTypePluginMeta](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/plugin-meta.ts)
+相关类型：[IPublicTypePluginMeta](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/plugin-meta.ts)

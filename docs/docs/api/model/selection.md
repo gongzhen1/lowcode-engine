@@ -2,14 +2,15 @@
 title: Selection
 sidebar_position: 6
 ---
-> **@types** [IPublicModelSelection](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/selection.ts)<br/>
-> **@since** v1.0.0
+
+> **@types** [IPublicModelSelection](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/selection.ts)<br/> > **@since** v1.0.0
 
 ## 基本介绍
 
 画布节点选中模型
 
 ## 属性
+
 ### selected
 
 返回选中的节点 id
@@ -17,15 +18,17 @@ sidebar_position: 6
 `@type {string[]}`
 
 ### node
+
 返回选中的节点（如多个节点只返回第一个）
 
 `@type {IPublicModelNode | null}`
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 **@since v1.1.0**
 
 ## 方法
+
 ### select
 
 选中指定节点（覆盖方式）
@@ -116,14 +119,15 @@ add(id: string): void;
 getNodes(): IPublicModelNode[];
 ```
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 ### getTopNodes
+
 获取选区的顶层节点
 例如选中的节点为：
 
 - DivA
-   - ChildrenA
+  - ChildrenA
 - DivB
 
 getNodes 返回的是 [DivA、ChildrenA、DivB]，getTopNodes 返回的是 [DivA、DivB]，其中 ChildrenA 由于是二层节点，getTopNodes 不会返回
@@ -143,6 +147,7 @@ getTopNodes(includeRoot?: boolean): IPublicModelNode[];
 **@since v1.0.16**
 
 ## 事件
+
 ### onSelectionChange
 
 注册 selection 变化事件回调
@@ -156,6 +161,6 @@ getTopNodes(includeRoot?: boolean): IPublicModelNode[];
 onSelectionChange(fn: (ids: string[]) => void): IPublicTypeDisposable;
 ```
 
-相关类型：[IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
+相关类型：[IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 
 **@since v1.1.0**

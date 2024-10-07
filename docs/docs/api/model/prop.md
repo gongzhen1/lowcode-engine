@@ -2,8 +2,8 @@
 title: Prop
 sidebar_position: 3
 ---
-> **@types** [IPublicModelProp](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/prop.ts)<br/>
-> **@since** v1.0.0
+
+> **@types** [IPublicModelProp](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/prop.ts)<br/> > **@since** v1.0.0
 
 ## 基本介绍
 
@@ -35,7 +35,7 @@ key 值
 
 `@type {IPublicModelNode | null}`
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 ### slotNode
 
@@ -43,8 +43,7 @@ key 值
 
 `@type {IPublicModelNode | undefined | null}`
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
-
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 ## 方法
 
@@ -61,7 +60,7 @@ key 值
 setValue(val: IPublicTypeCompositeValue): void;
 ```
 
-相关类型：[IPublicTypeCompositeValue](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/composite-value.ts)
+相关类型：[IPublicTypeCompositeValue](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/composite-value.ts)
 
 ### getValue
 
@@ -104,5 +103,6 @@ exportSchema(stage: IPublicEnumTransformStage): IPublicTypeCompositeValue;
 ```
 
 相关类型：
-- [IPublicEnumTransformStage](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/enum/transform-stage.ts)
-- [IPublicTypeCompositeValue](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/composite-value.ts)
+
+- [IPublicEnumTransformStage](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/enum/transform-stage.ts)
+- [IPublicTypeCompositeValue](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/composite-value.ts)

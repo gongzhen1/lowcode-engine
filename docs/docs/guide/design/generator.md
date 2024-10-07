@@ -7,10 +7,10 @@ sidebar_position: 5
 
 ## npm 包与仓库信息
 
-| **NPM 包**                                                                                                 | **代码仓库**                                                                                          | **说明**                                                                       |
-| ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| [@lce/lowcode-code-generator](https://www.npmjs.com/package/@lce/lowcode-code-generator)                   | [alibaba/lowcode-engine](https://github.com/alibaba/lowcode-engine)（子目录：modules/code-generator） | 出码模块核心库，支持在 node 环境下运行，也提供了浏览器下运行的 standalone 模式 |
-| [@alilc/lowcode-plugin-code-generator](https://www.npmjs.com/package/@alilc/lowcode-plugin-code-generator) | [alibaba/lowcode-code-generator-demo](https://github.com/alibaba/lowcode-code-generator-demo)         | 出码示例 -- 浏览器端出码插件                                                   |
+| **NPM 包**                                                                                                 | **代码仓库**                                                                                        | **说明**                                                                       |
+| ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| [@lce/lowcode-code-generator](https://www.npmjs.com/package/@lce/lowcode-code-generator)                   | [fe-lce/lowcode-engine](https://github.com/fe-lce/lowcode-engine)（子目录：modules/code-generator） | 出码模块核心库，支持在 node 环境下运行，也提供了浏览器下运行的 standalone 模式 |
+| [@alilc/lowcode-plugin-code-generator](https://www.npmjs.com/package/@alilc/lowcode-plugin-code-generator) | [fe-lce/lowcode-code-generator-demo](https://github.com/fe-lce/lowcode-code-generator-demo)         | 出码示例 -- 浏览器端出码插件                                                   |
 
 ## 出码模块原理
 

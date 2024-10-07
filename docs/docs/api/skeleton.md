@@ -3,7 +3,7 @@ title: skeleton - 面板 API
 sidebar_position: 10
 ---
 
-> **@types** [IPublicApiSkeleton](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/api/skeleton.ts)<br/> > **@since** v1.0.0
+> **@types** [IPublicApiSkeleton](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/api/skeleton.ts)<br/> > **@since** v1.0.0
 
 ## 模块简介
 
@@ -204,7 +204,7 @@ remove(config: IPublicTypeWidgetBaseConfig): number | undefined;
 getPanel(name: string): IPublicModelSkeletonItem | undefined;
 ```
 
-相关类型：[IPublicModelSkeletonItem](https://github.com/alibaba/lowcode-engine/blob/main/packages/shell/src/model/skeleton-item.ts)
+相关类型：[IPublicModelSkeletonItem](https://github.com/fe-lce/lowcode-engine/blob/main/packages/shell/src/model/skeleton-item.ts)
 
 @since v1.1.10
 
@@ -326,7 +326,7 @@ hideArea(areaName: string): void;
 getAreaItems(areaName: IPublicTypeWidgetConfigArea): IPublicModelSkeletonItem[] | undefined;
 ```
 
-相关类型：[IPublicModelSkeletonItem](https://github.com/alibaba/lowcode-engine/blob/main/packages/shell/src/model/skeleton-item.ts)
+相关类型：[IPublicModelSkeletonItem](https://github.com/fe-lce/lowcode-engine/blob/main/packages/shell/src/model/skeleton-item.ts)
 
 ### registerConfigTransducer
 
@@ -406,7 +406,7 @@ export default controlPanelWidthPlugin;
 onShowPanel(listener: (paneName?: string, panel?: IPublicModelSkeletonItem) => void): IPublicTypeDisposable;
 ```
 
-相关类型：[IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
+相关类型：[IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 
 ### onHidePanel
 
@@ -422,7 +422,7 @@ onShowPanel(listener: (paneName?: string, panel?: IPublicModelSkeletonItem) => v
 onHidePanel(listener: (paneName?: string, panel?: IPublicModelSkeletonItem) => void): IPublicTypeDisposable;
 ```
 
-相关类型：[IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
+相关类型：[IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 
 ### onDisableWidget
 
@@ -436,7 +436,7 @@ onHidePanel(listener: (paneName?: string, panel?: IPublicModelSkeletonItem) => v
 onDisableWidget(listener: (paneName?: string, panel?: IPublicModelSkeletonItem) => void): IPublicTypeDisposable;
 ```
 
-相关类型：[IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
+相关类型：[IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 
 ### onEnableWidget
 
@@ -450,7 +450,7 @@ onDisableWidget(listener: (paneName?: string, panel?: IPublicModelSkeletonItem) 
 onEnableWidget(listener: (paneName?: string, panel?: IPublicModelSkeletonItem) => void): IPublicTypeDisposable;
 ```
 
-相关类型：[IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
+相关类型：[IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 
 ### onShowWidget
 
@@ -466,7 +466,7 @@ onEnableWidget(listener: (paneName?: string, panel?: IPublicModelSkeletonItem) =
 onShowWidget(listener: (paneName?: string, panel?: IPublicModelSkeletonItem) => void): IPublicTypeDisposable;
 ```
 
-相关类型：[IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
+相关类型：[IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 
 ### onHideWidget
 
@@ -482,7 +482,7 @@ onShowWidget(listener: (paneName?: string, panel?: IPublicModelSkeletonItem) => 
 onHideWidget(listener: (paneName?: string, panel?: IPublicModelSkeletonItem) => void): IPublicTypeDisposable;
 ```
 
-相关类型：[IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
+相关类型：[IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 
 ## 使用示例
 

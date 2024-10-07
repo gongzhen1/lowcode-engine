@@ -3,9 +3,7 @@ title: DropLocation
 sidebar_position: 13
 ---
 
-> **@types** [IPublicModelDropLocation](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/drop-location.ts)<br/>
-> **@since** v1.1.0
-
+> **@types** [IPublicModelDropLocation](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/drop-location.ts)<br/> > **@since** v1.1.0
 
 ## 基本介绍
 
@@ -19,7 +17,7 @@ sidebar_position: 13
 
 `@type {IPublicModelNode | null}`
 
-相关类型：[IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
+相关类型：[IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
 
 ### detail
 
@@ -27,7 +25,7 @@ sidebar_position: 13
 
 `@type {IPublicTypeLocationDetail}`
 
-相关类型：[IPublicTypeLocationDetail](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/location-detail.ts)
+相关类型：[IPublicTypeLocationDetail](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/location-detail.ts)
 
 ### event
 
@@ -35,7 +33,7 @@ sidebar_position: 13
 
 `@type {IPublicTypeLocationDetail}`
 
-相关类型：[IPublicModelLocateEvent](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/location-event.ts)
+相关类型：[IPublicModelLocateEvent](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/location-event.ts)
 
 ## 方法
 
@@ -51,4 +49,4 @@ sidebar_position: 13
 clone(event: IPublicModelLocateEvent): IPublicModelDropLocation;
 ```
 
-相关类型：[IPublicModelLocateEvent](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/location-event.ts)
+相关类型：[IPublicModelLocateEvent](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/location-event.ts)

@@ -3,7 +3,7 @@ title: config - 配置 API
 sidebar_position: 5
 ---
 
-> **@types** [IPublicModelEngineConfig](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/engine-config.ts)<br/> > **@since** v1.0.0
+> **@types** [IPublicModelEngineConfig](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/engine-config.ts)<br/> > **@since** v1.0.0
 
 ## 模块简介
 
@@ -115,7 +115,7 @@ config.setConfig({ keyA: false, keyB: 2 });
 getPreference(): IPublicModelPreference;
 ```
 
-相关类型：[IPublicModelPreference](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/preference.ts)
+相关类型：[IPublicModelPreference](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/preference.ts)
 
 **@since v1.1.0**
 

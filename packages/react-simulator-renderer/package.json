@@ -12,8 +12,8 @@
   ],
   "scripts": {
     "test": "build-scripts test --config build.test.json",
-    "build": "NODE_OPTIONS=--max_old_space_size=8192 build-scripts build",
-    "build:umd": "NODE_OPTIONS=--max_old_space_size=8192 build-scripts build --config build.umd.json",
+    "build": "build-scripts build",
+    "build:umd": "build-scripts build --config build.umd.json",
     "test:cov": "build-scripts test --config build.test.json --jest-coverage"
   },
   "dependencies": {
@@ -41,9 +41,9 @@
   },
   "repository": {
     "type": "http",
-    "url": "https://github.com/alibaba/lowcode-engine/tree/main/packages/react-simulator-renderer"
+    "url": "https://github.com/fe-lce/lowcode-engine/tree/main/packages/react-simulator-renderer"
   },
   "gitHead": "2669f179e6f899d395ce1942d0fe04f9c5ed48a6",
-  "bugs": "https://github.com/alibaba/lowcode-engine/issues",
-  "homepage": "https://github.com/alibaba/lowcode-engine/#readme"
+  "bugs": "https://github.com/fe-lce/lowcode-engine/issues",
+  "homepage": "https://github.com/fe-lce/lowcode-engine/#readme"
 }

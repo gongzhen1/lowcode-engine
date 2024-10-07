@@ -3,8 +3,7 @@ title: ComponentMeta
 sidebar_position: 15
 ---
 
-> **@types** [IPublicModelComponentMeta](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/component-meta.ts)<br/>
-> **@since** v1.0.0
+> **@types** [IPublicModelComponentMeta](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/component-meta.ts)<br/> > **@since** v1.0.0
 
 ## 基本介绍
 
@@ -25,9 +24,11 @@ sidebar_position: 15
 `@type {boolean}`
 
 ### isMinimalRenderUnit
+
 是否是最小渲染单元
 
 当组件需要重新渲染时：
+
 - 若为最小渲染单元，则只渲染当前组件，
 - 若不为最小渲染单元，则寻找到上层最近的最小渲染单元进行重新渲染，直至根节点。
 
@@ -45,7 +46,7 @@ sidebar_position: 15
 
 `@type {IPublicTypeFieldConfig[]}`
 
-相关类型：[IPublicTypeFieldConfig](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/field-config.ts)
+相关类型：[IPublicTypeFieldConfig](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/field-config.ts)
 
 ### title
 
@@ -53,7 +54,7 @@ sidebar_position: 15
 
 `@type {string | IPublicTypeI18nData | ReactElement}`
 
-相关类型：[IPublicTypeI18nData](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/i18n-data.ts)
+相关类型：[IPublicTypeI18nData](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/i18n-data.ts)
 
 ### icon
 
@@ -61,7 +62,7 @@ sidebar_position: 15
 
 `@type {IPublicTypeIconType}`
 
-相关类型：[IPublicTypeIconType](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/icon-type.ts)
+相关类型：[IPublicTypeIconType](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/icon-type.ts)
 
 ### npm
 
@@ -69,7 +70,7 @@ sidebar_position: 15
 
 `@type {IPublicTypeNpmInfo}`
 
-相关类型：[IPublicTypeNpmInfo](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/npm-info.ts)
+相关类型：[IPublicTypeNpmInfo](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/npm-info.ts)
 
 ### availableActions
 
@@ -77,7 +78,7 @@ sidebar_position: 15
 
 `@type {IPublicTypeTransformedComponentMetadata}`
 
-相关类型：[IPublicTypeTransformedComponentMetadata](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/transformed-component-metadata.ts)
+相关类型：[IPublicTypeTransformedComponentMetadata](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/transformed-component-metadata.ts)
 
 ### advanced
 
@@ -85,7 +86,7 @@ sidebar_position: 15
 
 `@type {IPublicTypeAdvanced}`
 
-相关类型：[IPublicTypeAdvanced](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/advanced.ts)
+相关类型：[IPublicTypeAdvanced](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/advanced.ts)
 
 ## 方法
 
@@ -102,7 +103,7 @@ sidebar_position: 15
 setNpm(npm: IPublicTypeNpmInfo): void;
 ```
 
-相关类型：[IPublicTypeNpmInfo](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/npm-info.ts)
+相关类型：[IPublicTypeNpmInfo](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/npm-info.ts)
 
 ### getMetadata
 
@@ -116,7 +117,7 @@ setNpm(npm: IPublicTypeNpmInfo): void;
 getMetadata(): IPublicTypeTransformedComponentMetadata;
 ```
 
-相关类型：[IPublicTypeTransformedComponentMetadata](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/transformed-component-metadata.ts)
+相关类型：[IPublicTypeTransformedComponentMetadata](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/transformed-component-metadata.ts)
 
 ### checkNestingUp
 
@@ -133,9 +134,9 @@ checkNestingUp(my: IPublicModelNode | IPublicTypeNodeData, parent: any): boolean
 ```
 
 相关类型：
-- [IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
-- [IPublicTypeNodeData](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/node-data.ts)
 
+- [IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
+- [IPublicTypeNodeData](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/node-data.ts)
 
 ### checkNestingDown
 
@@ -155,10 +156,10 @@ checkNestingDown(
 ```
 
 相关类型：
-- [IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
-- [IPublicTypeNodeData](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/node-data.ts)
-- [IPublicTypeNodeSchema](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/node-schema.ts)
 
+- [IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)
+- [IPublicTypeNodeData](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/node-data.ts)
+- [IPublicTypeNodeSchema](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/node-schema.ts)
 
 ### refreshMetadata
 

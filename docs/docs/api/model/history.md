@@ -2,14 +2,15 @@
 title: History
 sidebar_position: 5
 ---
-> **@types** [IPublicModelHistory](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/history.ts)<br/>
-> **@since** v1.0.0
+
+> **@types** [IPublicModelHistory](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/history.ts)<br/> > **@since** v1.0.0
 
 ## 基本介绍
 
 操作历史记录模型
 
 ## 方法
+
 ### go
 
 历史记录跳转到指定位置
@@ -93,6 +94,7 @@ getState(): number;
 ```
 
 ## 事件
+
 ### onChangeState
 
 监听 state 变更事件
@@ -106,7 +108,7 @@ getState(): number;
 onChangeState(func: () => any): IPublicTypeDisposable;
 ```
 
-相关类型：[IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
+相关类型：[IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 
 ### onChangeCursor
 
@@ -121,4 +123,4 @@ onChangeState(func: () => any): IPublicTypeDisposable;
 onChangeCursor(func: () => any): IPublicTypeDisposable;
 ```
 
-相关类型：[IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
+相关类型：[IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)

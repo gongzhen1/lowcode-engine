@@ -46,7 +46,7 @@ ReactDOM.render(
 ### 项目使用示例
 
 > [设计器 demo](https://lowcode-engine.cn/demo/demo-general/index.html)
-> 项目代码完整示例：[https://github.com/alibaba/lowcode-demo](https://github.com/alibaba/lowcode-demo)
+> 项目代码完整示例：[https://github.com/fe-lce/lowcode-demo](https://github.com/fe-lce/lowcode-demo)
 
 **step 1：在设计器中获取组件列表**
 

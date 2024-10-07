@@ -120,4 +120,4 @@ await CodeGenerator.publishers.zip().publish({
 
 ## 参与共建
 
-欢迎参与共建，如何共建请参阅：[./CONTRIBUTING.md](https://github.com/alibaba/lowcode-engine/blob/main/modules/code-generator/CONTRIBUTING.md)
+欢迎参与共建，如何共建请参阅：[./CONTRIBUTING.md](https://github.com/fe-lce/lowcode-engine/blob/main/modules/code-generator/CONTRIBUTING.md)

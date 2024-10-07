@@ -3,7 +3,7 @@ title: Dragon
 sidebar_position: 99
 ---
 
-> **@types** [IPublicModelDragon](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/dragon.ts)<br/> > **@since** v1.0.0
+> **@types** [IPublicModelDragon](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/dragon.ts)<br/> > **@since** v1.0.0
 
 ## 基本介绍
 

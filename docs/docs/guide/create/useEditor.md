@@ -162,7 +162,7 @@ init 的功能包括但不限于：
 2. 传递 preference 并设置 plugins 入参；
 3. 初始化 Workbench；
 
-> 本节中的低代码编辑器例子可以在 demo 中找到：[https://github.com/alibaba/lowcode-demo/blob/main/demo-general/src/index.ts](https://github.com/alibaba/lowcode-demo/blob/main/demo-general/src/index.ts)
+> 本节中的低代码编辑器例子可以在 demo 中找到：[https://github.com/fe-lce/lowcode-demo/blob/main/demo-general/src/index.ts](https://github.com/fe-lce/lowcode-demo/blob/main/demo-general/src/index.ts)
 
 ## 配置低代码编辑器
 

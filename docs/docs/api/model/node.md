@@ -2,14 +2,15 @@
 title: Node
 sidebar_position: 1
 ---
-> **@types** [IPublicModelNode](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)<br/>
-> **@since** v1.0.0
+
+> **@types** [IPublicModelNode](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node.ts)<br/> > **@since** v1.0.0
 
 ## 基本介绍
 
 节点模型
 
 ## 属性
+
 ### id
 
 节点 id
@@ -22,7 +23,7 @@ sidebar_position: 1
 
 `@type {string | IPublicTypeI18nData | ReactElement}`
 
-相关类型：[IPublicTypeI18nData](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/i18n-data.ts)
+相关类型：[IPublicTypeI18nData](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/i18n-data.ts)
 
 ### isContainerNode
 
@@ -31,6 +32,7 @@ sidebar_position: 1
 `@type {boolean}`
 
 **@since v1.1.0**
+
 > v1.1.0 之前请使用 `isContainer`
 
 ### isRootNode
@@ -120,6 +122,7 @@ sidebar_position: 1
 **@since v1.0.16**
 
 ### isRGLContainerNode
+
 设置为磁贴布局节点，使用方式可参考：[磁贴布局在钉钉宜搭报表设计引擎中的实现](https://mp.weixin.qq.com/s/PSTut5ahAB8nlJ9kBpBaxw)
 
 `@type {boolean}`
@@ -140,7 +143,7 @@ sidebar_position: 1
 
 `@type {IPublicTypeIconType}`
 
-相关类型：[IPublicTypeIconType](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/icon-type.ts)
+相关类型：[IPublicTypeIconType](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/icon-type.ts)
 
 ### zLevel
 
@@ -160,8 +163,7 @@ sidebar_position: 1
 
 `@type {IPublicModelComponentMeta | null}`
 
-相关类型：[IPublicModelComponentMeta](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/component-meta.ts)
-
+相关类型：[IPublicModelComponentMeta](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/component-meta.ts)
 
 ### document
 
@@ -169,7 +171,7 @@ sidebar_position: 1
 
 `@type {IPublicModelDocumentModel | null}`
 
-相关类型：[IPublicModelDocumentModel](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/document-model.ts)
+相关类型：[IPublicModelDocumentModel](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/document-model.ts)
 
 ### prevSibling
 
@@ -195,7 +197,7 @@ sidebar_position: 1
 
 `@type {IPublicModelNodeChildren | null}`
 
-相关类型：[IPublicModelNodeChildren](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/node-children.ts)
+相关类型：[IPublicModelNodeChildren](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/node-children.ts)
 
 ### slots
 
@@ -209,7 +211,7 @@ sidebar_position: 1
 
 `@type {IPublicModelProp | null}`
 
-相关类型：[IPublicModelProp](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/prop.ts)
+相关类型：[IPublicModelProp](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/prop.ts)
 
 ### props
 
@@ -217,8 +219,7 @@ sidebar_position: 1
 
 `@type {IPublicModelProps | null}`
 
-相关类型：[IPublicModelProps](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/props.ts)
-
+相关类型：[IPublicModelProps](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/props.ts)
 
 ### propsData
 
@@ -227,8 +228,9 @@ sidebar_position: 1
 `@type {IPublicTypePropsMap | IPublicTypePropsList | null}`
 
 相关类型：
-- [IPublicTypePropsMap](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/props-map.ts)
-- [IPublicTypePropsList](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/props-list.ts)
+
+- [IPublicTypePropsMap](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/props-map.ts)
+- [IPublicTypePropsList](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/props-list.ts)
 
 ### conditionGroup
 
@@ -236,7 +238,7 @@ sidebar_position: 1
 
 `@type {IPublicModelExclusiveGroup | null}`
 
-相关类型：[IPublicModelExclusiveGroup](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/exclusive-group.ts)
+相关类型：[IPublicModelExclusiveGroup](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/exclusive-group.ts)
 
 **@since v1.1.0**
 
@@ -246,7 +248,7 @@ sidebar_position: 1
 
 `@type {IPublicTypeNodeSchema | null}`
 
-相关类型：[IPublicTypeNodeSchema](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/node-schema.ts)
+相关类型：[IPublicTypeNodeSchema](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/node-schema.ts)
 
 ### settingEntry
 
@@ -256,9 +258,10 @@ sidebar_position: 1
 
 相关章节：[设置器顶层操作对象](./setting-top-entry)
 
-相关类型：[IPublicModelSettingTopEntry](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/setting-top-entry.ts)
+相关类型：[IPublicModelSettingTopEntry](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/setting-top-entry.ts)
 
 ### visible
+
 当前节点是否可见
 
 `@type {boolean}`
@@ -328,7 +331,7 @@ hasLoop(): boolean;
 getProp(path: string, createIfNone: boolean): IPublicModelProp | null;
 ```
 
-相关类型：[IPublicModelProp](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/prop.ts)
+相关类型：[IPublicModelProp](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/prop.ts)
 
 ### getPropValue
 
@@ -360,7 +363,7 @@ getPropValue(path: string): any;
 getExtraProp(path: string, createIfNone?: boolean): IPublicModelProp | null;
 ```
 
-相关类型：[IPublicModelProp](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/prop.ts)
+相关类型：[IPublicModelProp](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/prop.ts)
 
 ### getExtraPropValue
 
@@ -395,8 +398,7 @@ setPropValue(path: string, value: CompositeValue)
 setPropValue(path: string, value: IPublicTypeCompositeValue): void;
 ```
 
-相关类型：[IPublicTypeCompositeValue](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/composite-value.ts)
-
+相关类型：[IPublicTypeCompositeValue](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/composite-value.ts)
 
 ### setExtraPropValue
 
@@ -412,7 +414,7 @@ setPropValue(path: string, value: IPublicTypeCompositeValue): void;
 setExtraPropValue(path: string, value: IPublicTypeCompositeValue): void;
 ```
 
-相关类型：[IPublicTypeCompositeValue](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/composite-value.ts)
+相关类型：[IPublicTypeCompositeValue](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/composite-value.ts)
 
 ### importSchema
 
@@ -427,7 +429,7 @@ setExtraPropValue(path: string, value: IPublicTypeCompositeValue): void;
 importSchema(data: IPublicTypeNodeSchema): void;
 ```
 
-相关类型：[IPublicTypeNodeSchema](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/node-schema.ts)
+相关类型：[IPublicTypeNodeSchema](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/node-schema.ts)
 
 ### exportSchema
 
@@ -444,8 +446,9 @@ exportSchema(stage: IPublicEnumTransformStage, options?: any): IPublicTypeNodeSc
 ```
 
 相关类型：
-- [IPublicEnumTransformStage](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/enum/transform-stage.ts)
-- [IPublicTypeNodeSchema](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/node-schema.ts)
+
+- [IPublicEnumTransformStage](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/enum/transform-stage.ts)
+- [IPublicTypeNodeSchema](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/node-schema.ts)
 
 ### insertBefore
 
@@ -513,7 +516,7 @@ replaceChild(node: IPublicModelNode, data: any): IPublicModelNode | null;
 replaceWith(schema: IPublicTypeNodeSchema): any;
 ```
 
-相关类型：[IPublicTypeNodeSchema](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/node-schema.ts)
+相关类型：[IPublicTypeNodeSchema](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/node-schema.ts)
 
 ### select
 
@@ -541,6 +544,7 @@ hover(flag: boolean): void;
 ```
 
 ### lock
+
 设置节点锁定状态
 
 ```typescript
@@ -635,6 +639,7 @@ isConditionalVisible(): boolean | undefined;
 **@since v1.1.0**
 
 ### setConditionalVisible
+
 设置该节点的 ConditionalVisible 为 true
 
 ```typescript
@@ -649,6 +654,7 @@ setConditionalVisible(): void;
 **@since v1.1.0**
 
 ### getDOMNode
+
 获取节点实例对应的 dom 节点
 
 ```typescript

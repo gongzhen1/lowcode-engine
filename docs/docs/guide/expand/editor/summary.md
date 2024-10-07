@@ -102,4 +102,4 @@ setters.registerSetter({
 
 后续“设置器扩展”章节会详细说明。
 
-> 本章节所有可扩展配置内容在 demo 中均可找到：[https://github.com/alibaba/lowcode-demo/tree/main/demo-general](https://github.com/alibaba/lowcode-demo/tree/main/demo-general)
+> 本章节所有可扩展配置内容在 demo 中均可找到：[https://github.com/fe-lce/lowcode-demo/tree/main/demo-general](https://github.com/fe-lce/lowcode-demo/tree/main/demo-general)

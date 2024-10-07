@@ -1,17 +1,17 @@
 name: Node CI
 
 on:
- push:
+  push:
     branches:
       - main
- pull_request:
+  pull_request:
     branches:
       - main
 
 jobs:
   upload-designer-codecov:
     runs-on: ubuntu-latest
-    # if: ${{ github.event.pull_request.head.repo.full_name == 'alibaba/lowcode-engine' }}
+    # if: ${{ github.event.pull_request.head.repo.full_name == 'fe-lce/lowcode-engine' }}
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -90,7 +90,7 @@ jobs:
 
   upload-code-generator:
     runs-on: ubuntu-latest
-    # if: ${{ github.event.pull_request.head.repo.full_name == 'alibaba/lowcode-engine' }}
+    # if: ${{ github.event.pull_request.head.repo.full_name == 'fe-lce/lowcode-engine' }}
     steps:
       - name: checkout
         uses: actions/checkout@v2

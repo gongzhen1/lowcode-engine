@@ -3,9 +3,7 @@ title: canvas - 画布 API
 sidebar_position: 10
 ---
 
-> **@types** [IPublicApiCanvas](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/api/canvas.ts)<br/>
-> **@since** v1.1.0
-
+> **@types** [IPublicApiCanvas](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/api/canvas.ts)<br/> > **@since** v1.1.0
 
 ## 模块简介
 
@@ -19,8 +17,7 @@ sidebar_position: 10
 
 `@type {IPublicModelDragon | null}`
 
-
-相关类型：[IPublicModelDragon](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/dragon.ts)
+相关类型：[IPublicModelDragon](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/dragon.ts)
 
 ### activeTracker
 
@@ -28,7 +25,7 @@ sidebar_position: 10
 
 `@type {IPublicModelActiveTracker | null}`
 
-相关类型：[IPublicModelActiveTracker](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/active-tracker.ts)
+相关类型：[IPublicModelActiveTracker](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/active-tracker.ts)
 
 ### isInLiveEditing
 
@@ -37,15 +34,17 @@ sidebar_position: 10
 `@type {boolean}`
 
 ### clipboard
+
 全局剪贴板实例
 
 `@type {IPublicModelClipboard}`
 
-相关类型：[IPublicModelClipboard](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/model/clipboard.ts)
+相关类型：[IPublicModelClipboard](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/model/clipboard.ts)
 
 ## 方法
 
 ### createLocation
+
 创建一个文档插入位置对象，该对象用来描述一个即将插入的节点在文档中的位置
 
 ```typescript
@@ -58,7 +57,9 @@ createLocation(locationData: IPublicTypeLocationData): IPublicModelDropLocation;
 ```
 
 ### createScroller
+
 创建一个滚动控制器 Scroller，赋予一个视图滚动的基本能力，
+
 ```typescript
 /**
  * 创建一个滚动控制器 Scroller，赋予一个视图滚动的基本能力，
@@ -75,6 +76,7 @@ createScroller(scrollable: IPublicTypeScrollable): IPublicModelScroller;
 ```
 
 ### createScrollTarget
+
 创建一个 ScrollTarget，与 Scroller 一起发挥作用，详见 [createScroller](#createscroller) 中的描述
 
 ```typescript

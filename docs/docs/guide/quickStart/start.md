@@ -45,7 +45,7 @@ n 14.17.0
 
 ### 下载 Demo
 
-可以前往 github（<https://github.com/alibaba/lowcode-demo>）将 DEMO 下载到本地。
+可以前往 github（<https://github.com/fe-lce/lowcode-demo>）将 DEMO 下载到本地。
 
 #### git clone
 
@@ -54,7 +54,7 @@ n 14.17.0
 需要使用到 git 工具
 
 ```bash
-git clone https://github.com/alibaba/lowcode-demo.git
+git clone https://github.com/fe-lce/lowcode-demo.git
 ```
 
 ##### SSH
@@ -62,7 +62,7 @@ git clone https://github.com/alibaba/lowcode-demo.git
 需要配置 SSH key，如果没有配置可以
 
 ```bash
-git clone git@github.com:alibaba/lowcode-demo.git
+git clone git@github.com:fe-lce/lowcode-demo.git
 ```
 
 #### 下载 Zip 包

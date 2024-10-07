@@ -26,12 +26,12 @@ An enterprise-class low-code technology stack with scale-out design
 [npm-url]: http://npmjs.org/package/@lce/lowcode-engine
 [download-image]: https://img.shields.io/npm/dm/@lce/lowcode-engine.svg?style=flat-square
 [download-url]: https://npmjs.org/package/@lce/lowcode-engine
-[help-wanted-image]: https://flat.badgen.net/github/label-issues/alibaba/lowcode-engine/help%20wanted/open
-[help-wanted-url]: https://github.com/alibaba/lowcode-engine/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22
+[help-wanted-image]: https://flat.badgen.net/github/label-issues/fe-lce/lowcode-engine/help%20wanted/open
+[help-wanted-url]: https://github.com/fe-lce/lowcode-engine/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22
 [issues-helper-image]: https://img.shields.io/badge/using-issues--helper-orange?style=flat-square
 [issues-helper-url]: https://github.com/actions-cool/issues-helper
-[codecov-image-url]: https://codecov.io/gh/alibaba/lowcode-engine/branch/main/graph/badge.svg
-[codecov-url]: https://codecov.io/gh/alibaba/lowcode-engine
+[codecov-image-url]: https://codecov.io/gh/fe-lce/lowcode-engine/branch/main/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/fe-lce/lowcode-engine
 
 </div>
 
@@ -134,10 +134,10 @@ Pass the files under packages/engine/dist and packages/react-simulator-renderer/
 ## 🔗 Related Links
 
 - [Official website home page](http://lowcode-engine.cn/)
-- [Demo Play Now](http://lowcode-engine.cn/demo) | [Engine Demo Repository](https://github.com/alibaba/lowcode-demo)
-- [Official Materials](https://github.com/alibaba/lowcode-materials)
-- [official setter](https://github.com/alibaba/lowcode-engine-ext)
-- [Official plugin (plugin)](https://github.com/alibaba/lowcode-plugins)
+- [Demo Play Now](http://lowcode-engine.cn/demo) | [Engine Demo Repository](https://github.com/fe-lce/lowcode-demo)
+- [Official Materials](https://github.com/fe-lce/lowcode-materials)
+- [official setter](https://github.com/fe-lce/lowcode-engine-ext)
+- [Official plugin (plugin)](https://github.com/fe-lce/lowcode-plugins)
 - [Ecological elements (materials, setters, plugins) toolchain](https://lowcode-engine.cn/site/docs/guide/expand/editor/cli)
 - [User Documentation](http://lowcode-engine.cn/doc)
 - [API](https://lowcode-engine.cn/site/docs/api/)
@@ -147,7 +147,7 @@ This [awesome-lowcode-engine](https://github.com/lowcode-workspace/awesome-lowco
 ## 💻 Local debugging
 
 ```bash
-$ git clone git@github.com:alibaba/lowcode-engine.git
+$ git clone git@github.com:fe-lce/lowcode-engine.git
 $ cd lowcode-engine
 $ npm install
 $ npm run setup
@@ -158,7 +158,7 @@ $ npm start
 >
 > 📢 Windows environment must use [WSL](https://docs.microsoft.com/en-us/windows/wsl/install), other terminals are not guaranteed to work normally
 
-After lowcode-engine is started, several umd files are provided, which can be debugged in combination with the [lowcode-demo](https://github.com/alibaba/lowcode-demo) project. Refer to the file proxy rules [here](https://lowcode-engine.cn/site/docs/participate/prepare).
+After lowcode-engine is started, several umd files are provided, which can be debugged in combination with the [lowcode-demo](https://github.com/fe-lce/lowcode-demo) project. Refer to the file proxy rules [here](https://lowcode-engine.cn/site/docs/participate/prepare).
 
 ## 🤝 Participation
 
@@ -179,5 +179,5 @@ About Pull Request:
 Special thanks to everyone who contributed to this project.
 
 <p>
-<a href="https://github.com/alibaba/lowcode-engine/graphs/contributors"><img src="https://contrib.rocks/image?repo=alibaba/lowcode-engine" /></a>
+<a href="https://github.com/fe-lce/lowcode-engine/graphs/contributors"><img src="https://contrib.rocks/image?repo=fe-lce/lowcode-engine" /></a>
 </p>

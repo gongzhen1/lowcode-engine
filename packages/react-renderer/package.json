@@ -13,7 +13,7 @@
     "test": "build-scripts test --config build.test.json",
     "start": "build-scripts start",
     "build": "build-scripts build",
-    "build:umd": "NODE_OPTIONS=--max_old_space_size=8192 build-scripts build --config build.umd.json"
+    "build:umd": "build-scripts build --config build.umd.json"
   },
   "keywords": [
     "lowcode",
@@ -21,12 +21,11 @@
     "react"
   ],
   "dependencies": {
-    "@alifd/next": "^1.21.16",
+    "@alifd/next": "^1.26.0",
     "@lce/lowcode-renderer-core": "1.3.2"
   },
   "devDependencies": {
     "@alib/build-scripts": "^0.1.18",
-    "@alifd/next": "^1.19.17",
     "build-plugin-fusion": "^0.1.0",
     "build-plugin-moment-locales": "^0.1.0",
     "react": "^16.4.1",
@@ -39,9 +38,9 @@
   },
   "repository": {
     "type": "http",
-    "url": "https://github.com/alibaba/lowcode-engine/tree/main/packages/react-renderer"
+    "url": "https://github.com/fe-lce/lowcode-engine/tree/main/packages/react-renderer"
   },
-  "homepage": "https://github.com/alibaba/lowcode-engine/#readme",
+  "homepage": "https://github.com/fe-lce/lowcode-engine/#readme",
   "gitHead": "2669f179e6f899d395ce1942d0fe04f9c5ed48a6",
-  "bugs": "https://github.com/alibaba/lowcode-engine/issues"
+  "bugs": "https://github.com/fe-lce/lowcode-engine/issues"
 }

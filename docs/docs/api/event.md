@@ -3,7 +3,7 @@ title: event - 事件 API
 sidebar_position: 10
 ---
 
-> **@types** [IPublicApiEvent](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/api/event.ts)<br/> > **@since** v1.0.0
+> **@types** [IPublicApiEvent](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/api/event.ts)<br/> > **@since** v1.0.0
 
 ## 模块简介
 
@@ -25,7 +25,7 @@ sidebar_position: 10
 on(event: string, listener: (...args: any[]) => void): IPublicTypeDisposable;
 ```
 
-相关类型：[IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
+相关类型：[IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 
 ### prependListener
 
@@ -40,7 +40,7 @@ on(event: string, listener: (...args: any[]) => void): IPublicTypeDisposable;
 prependListener(event: string, listener: (...args: any[]) => void): IPublicTypeDisposable;
 ```
 
-相关类型：[IPublicTypeDisposable](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
+相关类型：[IPublicTypeDisposable](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/disposable.ts)
 
 ### off
 

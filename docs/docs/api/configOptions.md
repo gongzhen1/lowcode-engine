@@ -3,7 +3,7 @@ title: config options - 配置列表
 sidebar_position: 5
 ---
 
-> **@types** [IPublicTypeEngineOptions](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/engine-options.ts)<br/>
+> **@types** [IPublicTypeEngineOptions](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/engine-options.ts)<br/>
 
 ## 配置方式
 
@@ -31,7 +31,7 @@ config.set('enableCondition', false);
 
 ## 配置详情
 
-> 源码详见 [IPublicTypeEngineOptions](https://github.com/alibaba/lowcode-engine/blob/main/packages/types/src/shell/type/engine-options.ts)
+> 源码详见 [IPublicTypeEngineOptions](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/shell/type/engine-options.ts)
 
 ### 画布
 

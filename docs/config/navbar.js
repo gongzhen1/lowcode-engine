@@ -65,7 +65,7 @@ module.exports = {
     // },
     // {
     {
-      href: 'https://github.com/alibaba/lowcode-engine',
+      href: 'https://github.com/fe-lce/lowcode-engine',
       position: 'right',
       className: 'header-github-link',
       'aria-label': 'GitHub repository',
