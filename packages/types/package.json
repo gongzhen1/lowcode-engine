@@ -15,7 +15,7 @@
     "@alilc/lowcode-datasource-types": "^1.0.0",
     "react": "^16.9",
     "strict-event-emitter-types": "^2.0.0",
-    "@alifd/next": "^1.20.12"
+    "@alifd/next": "^1.26.0"
   },
   "devDependencies": {
     "@alib/build-scripts": "^0.1.18",
