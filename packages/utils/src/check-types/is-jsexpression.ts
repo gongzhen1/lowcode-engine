@@ -1,4 +1,4 @@
-import { IPublicTypeJSExpression } from '@lce/lowcode-types';
+import { IPublicTypeJSExpression } from '@felce/lowcode-types';
 import { isObject } from '../is-object';
 
 /**

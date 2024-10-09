@@ -2,8 +2,8 @@ import {
   IPublicModelActiveTracker,
   IPublicModelNode,
   IPublicTypeActiveTarget,
-} from '@lce/lowcode-types';
-import { IActiveTracker as InnerActiveTracker, ActiveTarget } from '@lce/lowcode-designer';
+} from '@felce/lowcode-types';
+import { IActiveTracker as InnerActiveTracker, ActiveTarget } from '@felce/lowcode-designer';
 import { Node as ShellNode } from './node';
 import { nodeSymbol } from '../symbols';
 

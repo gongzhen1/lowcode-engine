@@ -1,5 +1,8 @@
 import { isPlainObject } from 'lodash';
-import { IPublicTypePluginRegisterOptions, IPublicTypePluginDeclaration } from '@lce/lowcode-types';
+import {
+  IPublicTypePluginRegisterOptions,
+  IPublicTypePluginDeclaration,
+} from '@felce/lowcode-types';
 
 export function isValidPreferenceKey(
   key: string,

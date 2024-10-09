@@ -18,7 +18,7 @@ const ignorePlugin = require('esbuild-plugin-ignore');
       sourcesContent: true,
       plugins: [
         ignorePlugin([
-          // @lce/lowcode-types 中误依赖了 react，这里忽略下
+          // @felce/lowcode-types 中误依赖了 react，这里忽略下
           {
             resourceRegExp: /^react$/,
             contextRegExp: /./,

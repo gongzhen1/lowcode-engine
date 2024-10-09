@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
-import { Editor, engineConfig } from '@lce/lowcode-editor-core';
-import { DesignerView, Designer } from '@lce/lowcode-designer';
-import { Asset, getLogger } from '@lce/lowcode-utils';
+import { Editor, engineConfig } from '@felce/lowcode-editor-core';
+import { DesignerView, Designer } from '@felce/lowcode-designer';
+import { Asset, getLogger } from '@felce/lowcode-utils';
 import './index.scss';
 
 const logger = getLogger({ level: 'warn', bizName: 'plugin:plugin-designer' });

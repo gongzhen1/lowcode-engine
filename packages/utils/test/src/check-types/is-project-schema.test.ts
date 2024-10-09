@@ -1,4 +1,4 @@
-import { IPublicTypeProjectSchema } from '@lce/lowcode-types';
+import { IPublicTypeProjectSchema } from '@felce/lowcode-types';
 import { isProjectSchema } from '../../../src/check-types/is-project-schema';
 
 describe('isProjectSchema', () => {

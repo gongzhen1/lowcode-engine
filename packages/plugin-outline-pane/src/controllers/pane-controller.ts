@@ -5,7 +5,7 @@ import {
   isDragNodeObject,
   isDragAnyObject,
   isLocationChildrenDetail,
-} from '@lce/lowcode-utils';
+} from '@felce/lowcode-utils';
 import {
   IPublicModelDragObject,
   IPublicTypeScrollable,
@@ -17,7 +17,7 @@ import {
   IPublicModelScroller,
   IPublicModelScrollTarget,
   IPublicModelLocateEvent,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import TreeNode from './tree-node';
 import { IndentTrack } from '../helper/indent-track';
 import DwellTimer from '../helper/dwell-timer';

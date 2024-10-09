@@ -1,24 +1,24 @@
 import { Component, MouseEvent, Fragment, ReactNode } from 'react';
-import { shallowIntl, observer, obx, engineConfig, runInAction } from '@lce/lowcode-editor-core';
+import { shallowIntl, observer, obx, engineConfig, runInAction } from '@felce/lowcode-editor-core';
 import {
   createContent,
   isJSSlot,
   isSetterConfig,
   shouldUseVariableSetter,
-} from '@lce/lowcode-utils';
-import { Skeleton, Stage } from '@lce/lowcode-editor-skeleton';
+} from '@felce/lowcode-utils';
+import { Skeleton, Stage } from '@felce/lowcode-editor-skeleton';
 import {
   IPublicApiSetters,
   IPublicTypeCustomView,
   IPublicTypeDynamicProps,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import {
   ISettingEntry,
   IComponentMeta,
   ISettingField,
   isSettingField,
   ISettingTopEntry,
-} from '@lce/lowcode-designer';
+} from '@felce/lowcode-designer';
 import { createField } from '../field';
 import PopupService, { PopupPipe } from '../popup';
 import { SkeletonContext } from '../../context';

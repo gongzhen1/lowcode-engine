@@ -59,7 +59,7 @@ hotkey.bind(['command+s', 'command+c'], (e) => {
 ### 保存快捷键配置
 
 ```typescript
-import { hotkey } from '@lce/lowcode-engine';
+import { hotkey } from '@felce/lowcode-engine';
 
 function saveSchema(schema) {
   // 保存 schema 相关操作

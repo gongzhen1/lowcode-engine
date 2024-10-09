@@ -1,4 +1,4 @@
-import type { IPublicTypeContainerSchema } from '@lce/lowcode-types';
+import type { IPublicTypeContainerSchema } from '@felce/lowcode-types';
 
 export interface ICompAnalyzeResult {
   isUsingRef: boolean;

@@ -2,9 +2,9 @@ import {
   IPublicModelEngineConfig,
   IPublicModelPreference,
   IPublicTypeDisposable,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import { configSymbol } from '../symbols';
-import { IEngineConfig } from '@lce/lowcode-editor-core';
+import { IEngineConfig } from '@felce/lowcode-editor-core';
 
 export class Config implements IPublicModelEngineConfig {
   private readonly [configSymbol]: IEngineConfig;

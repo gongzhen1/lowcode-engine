@@ -1,11 +1,11 @@
 import { ReactInstance, Fragment, Component, createElement } from 'react';
 import { Router, Route, Switch } from 'react-router';
 import cn from 'classnames';
-import { Node } from '@lce/lowcode-designer';
-import LowCodeRenderer from '@lce/lowcode-react-renderer';
+import { Node } from '@felce/lowcode-designer';
+import LowCodeRenderer from '@felce/lowcode-react-renderer';
 import { observer } from 'mobx-react';
-import { getClosestNode, isFromVC, isReactComponent } from '@lce/lowcode-utils';
-import { GlobalEvent } from '@lce/lowcode-types';
+import { getClosestNode, isFromVC, isReactComponent } from '@felce/lowcode-utils';
+import { GlobalEvent } from '@felce/lowcode-types';
 import { SimulatorRendererContainer, DocumentInstance } from './renderer';
 import { host } from './host';
 import { isRendererDetached } from './utils/misc';
@@ -278,8 +278,8 @@ class Renderer extends Component<{
               ? children == null
                 ? []
                 : Array.isArray(children)
-                ? children
-                : [children]
+                  ? children
+                  : [children]
               : children,
           );
         }}

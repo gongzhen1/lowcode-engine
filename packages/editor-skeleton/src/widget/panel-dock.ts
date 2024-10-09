@@ -1,5 +1,5 @@
-import { obx, computed, makeObservable } from '@lce/lowcode-editor-core';
-import { uniqueId } from '@lce/lowcode-utils';
+import { obx, computed, makeObservable } from '@felce/lowcode-editor-core';
+import { uniqueId } from '@felce/lowcode-utils';
 import { createElement, ReactNode, ReactInstance } from 'react';
 import { ISkeleton } from '../skeleton';
 import { PanelDockConfig } from '../types';
@@ -71,7 +71,10 @@ export class PanelDock implements IWidget {
     return this._panel || this.skeleton.getPanel(this.panelName);
   }
 
-  constructor(readonly skeleton: ISkeleton, readonly config: PanelDockConfig) {
+  constructor(
+    readonly skeleton: ISkeleton,
+    readonly config: PanelDockConfig,
+  ) {
     makeObservable(this);
     const { content, contentProps, panelProps, name, props } = config;
     this.name = name;

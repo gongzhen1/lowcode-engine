@@ -1,5 +1,5 @@
-import { IPublicApiEvent } from '@lce/lowcode-types';
-import { Logger } from '@lce/lowcode-utils';
+import { IPublicApiEvent } from '@felce/lowcode-types';
+import { Logger } from '@felce/lowcode-utils';
 import EventEmitter from 'events';
 
 const logger = new Logger({ level: 'warn', bizName: 'event-bus' });

@@ -5,19 +5,19 @@ import {
   action,
   IEventBus,
   createModuleEventBus,
-} from '@lce/lowcode-editor-core';
+} from '@felce/lowcode-editor-core';
 import { IDesigner } from '../designer';
 import { DocumentModel, isDocumentModel } from '../document';
 import type { IDocumentModel } from '../document';
-import { IPublicEnumTransformStage } from '@lce/lowcode-types';
+import { IPublicEnumTransformStage } from '@felce/lowcode-types';
 import type {
   IBaseApiProject,
   IPublicTypeProjectSchema,
   IPublicTypeRootSchema,
   IPublicTypeComponentsMap,
   IPublicTypeSimulatorRenderer,
-} from '@lce/lowcode-types';
-import { isLowCodeComponentType, isProCodeComponentType } from '@lce/lowcode-utils';
+} from '@felce/lowcode-types';
+import { isLowCodeComponentType, isProCodeComponentType } from '@felce/lowcode-utils';
 import { ISimulatorHost } from '../simulator';
 
 export interface IProject

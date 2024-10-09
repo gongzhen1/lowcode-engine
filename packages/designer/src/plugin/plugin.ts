@@ -1,6 +1,6 @@
-import { getLogger, Logger } from '@lce/lowcode-utils';
+import { getLogger, Logger } from '@felce/lowcode-utils';
 import { ILowCodePluginRuntime, ILowCodePluginManager } from './plugin-types';
-import { IPublicTypePluginConfig, IPublicTypePluginMeta } from '@lce/lowcode-types';
+import { IPublicTypePluginConfig, IPublicTypePluginMeta } from '@felce/lowcode-types';
 import { invariant } from '../utils';
 
 export class LowCodePluginRuntime implements ILowCodePluginRuntime {

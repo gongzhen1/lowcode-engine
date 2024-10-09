@@ -1,11 +1,11 @@
 import type { ComponentLifecycle, CSSProperties } from 'react';
-import { BuiltinSimulatorHost, BuiltinSimulatorRenderer } from '@lce/lowcode-designer';
+import { BuiltinSimulatorHost, BuiltinSimulatorRenderer } from '@felce/lowcode-designer';
 import {
   RequestHandler,
   IPublicTypeNodeSchema,
   IPublicTypeRootSchema,
   IPublicTypeJSONObject,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 
 export type ISchema = IPublicTypeNodeSchema | IPublicTypeRootSchema;
 
@@ -340,7 +340,10 @@ export interface IRenderComponent {
   defaultProps: IRendererProps;
   findDOMNode: (...args: any) => any;
 
-  new (props: IRendererProps, context: any): IGeneralComponent<IRendererProps, IRendererState> & {
+  new (
+    props: IRendererProps,
+    context: any,
+  ): IGeneralComponent<IRendererProps, IRendererState> & {
     [x: string]: any;
     __getRef: (ref: any) => void;
     componentDidMount(): Promise<void> | void;

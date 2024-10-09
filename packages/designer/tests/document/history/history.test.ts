@@ -1,8 +1,8 @@
 import '../../fixtures/window';
-import { mobx, makeAutoObservable, globalContext, Editor } from '@lce/lowcode-editor-core';
+import { mobx, makeAutoObservable, globalContext, Editor } from '@felce/lowcode-editor-core';
 import { History } from '../../../src/document/history';
 import { delay } from '../../utils/misc';
-import { Workspace } from '@lce/lowcode-workspace';
+import { Workspace } from '@felce/lowcode-workspace';
 
 class Node {
   data: number;

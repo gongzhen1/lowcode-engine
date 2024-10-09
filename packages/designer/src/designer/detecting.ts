@@ -1,5 +1,5 @@
-import { makeObservable, obx, IEventBus, createModuleEventBus } from '@lce/lowcode-editor-core';
-import { IPublicModelDetecting } from '@lce/lowcode-types';
+import { makeObservable, obx, IEventBus, createModuleEventBus } from '@felce/lowcode-editor-core';
+import { IPublicModelDetecting } from '@felce/lowcode-types';
 import type { IDocumentModel } from '../document/document-model';
 import type { INode } from '../document/node/node';
 

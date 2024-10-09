@@ -3,8 +3,8 @@ import {
   IPublicTypeLocationChildrenDetail,
   IPublicModelNode,
   IPublicTypeDisposable,
-} from '@lce/lowcode-types';
-import { isI18nData, isLocationChildrenDetail, uniqueId } from '@lce/lowcode-utils';
+} from '@felce/lowcode-types';
+import { isI18nData, isLocationChildrenDetail, uniqueId } from '@felce/lowcode-utils';
 import EventEmitter from 'events';
 import { Tree } from './tree';
 import { IOutlinePanelPluginContext } from './tree-master';

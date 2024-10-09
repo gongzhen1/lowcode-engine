@@ -5,7 +5,7 @@ import {
   engineConfig,
   IEditor,
   FocusTracker,
-} from '@lce/lowcode-editor-core';
+} from '@felce/lowcode-editor-core';
 import {
   DockConfig,
   WidgetConfig,
@@ -25,7 +25,7 @@ import { PanelDock } from './widget/panel-dock';
 import { Dock } from './widget/dock';
 import { Stage, StageConfig } from './widget/stage';
 import { isValidElement } from 'react';
-import { isPlainObject, uniqueId, Logger } from '@lce/lowcode-utils';
+import { isPlainObject, uniqueId, Logger } from '@felce/lowcode-utils';
 import { Divider } from '@alifd/next';
 import {
   EditorConfig,
@@ -36,7 +36,7 @@ import {
   IPublicApiSkeleton,
   IPublicTypeConfigTransducer,
   IPublicTypePanelConfig,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 
 const logger = new Logger({ level: 'warn', bizName: 'skeleton' });
 
@@ -152,7 +152,10 @@ export class Skeleton implements ISkeleton {
 
   readonly focusTracker = new FocusTracker();
 
-  constructor(readonly editor: IEditor, readonly viewName: string = 'global') {
+  constructor(
+    readonly editor: IEditor,
+    readonly viewName: string = 'global',
+  ) {
     makeObservable(this);
     this.leftArea = new Area(
       this,

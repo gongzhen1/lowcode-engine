@@ -1,4 +1,4 @@
-import { IPublicModelClipboard } from '@lce/lowcode-types';
+import { IPublicModelClipboard } from '@felce/lowcode-types';
 
 function getDataFromPasteEvent(event: ClipboardEvent) {
   const { clipboardData } = event;

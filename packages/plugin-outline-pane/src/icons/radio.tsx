@@ -1,4 +1,4 @@
-import { SVGIcon, IconProps } from '@lce/lowcode-utils';
+import { SVGIcon, IconProps } from '@felce/lowcode-utils';
 
 export function IconRadio(props: IconProps) {
   return (

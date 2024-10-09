@@ -7,14 +7,14 @@ import {
   makeObservable,
   mobx,
   runInAction,
-} from '@lce/lowcode-editor-core';
-import { GlobalEvent, IPublicEnumTransformStage } from '@lce/lowcode-types';
+} from '@felce/lowcode-editor-core';
+import { GlobalEvent, IPublicEnumTransformStage } from '@felce/lowcode-types';
 import type {
   IPublicTypeCompositeValue,
   IPublicTypeJSSlot,
   IPublicTypeSlotSchema,
   IPublicModelProp,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import {
   uniqueId,
   isPlainObject,
@@ -23,7 +23,7 @@ import {
   isJSExpression,
   isJSSlot,
   isNodeSchema,
-} from '@lce/lowcode-utils';
+} from '@felce/lowcode-utils';
 import { valueToSource } from './value-to-source';
 import { IPropParent } from './props';
 import type { IProps } from './props';

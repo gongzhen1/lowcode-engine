@@ -1,12 +1,12 @@
-import { ISkeleton } from '@lce/lowcode-editor-skeleton';
+import { ISkeleton } from '@felce/lowcode-editor-skeleton';
 import {
   IPublicTypeEditorView,
   IPublicResourceData,
   IPublicResourceTypeConfig,
   IBaseModelResource,
   IPublicEnumPluginRegisterLevel,
-} from '@lce/lowcode-types';
-import { Logger } from '@lce/lowcode-utils';
+} from '@felce/lowcode-types';
+import { Logger } from '@felce/lowcode-utils';
 import { BasicContext, IBasicContext } from './context/base-context';
 import { ResourceType, IResourceType } from './resource-type';
 import { IWorkspace } from './workspace';

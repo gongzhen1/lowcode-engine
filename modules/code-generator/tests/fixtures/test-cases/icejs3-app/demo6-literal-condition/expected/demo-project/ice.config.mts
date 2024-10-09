@@ -77,7 +77,7 @@ export default defineConfig(() => ({
     'react-dom/client': 'ReactDOM',
     '@alifd/next': 'Next',
     lodash: 'var window._',
-    '@lce/lowcode-engine': 'var window.AliLowCodeEngine',
+    '@felce/lowcode-engine': 'var window.AliLowCodeEngine',
   },
   plugins: [
     fusion({
@@ -87,4 +87,3 @@ export default defineConfig(() => ({
     plugin(),
   ],
 }));
-

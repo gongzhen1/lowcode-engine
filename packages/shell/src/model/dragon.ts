@@ -1,8 +1,8 @@
-import { IDragon, ILocateEvent as InnerLocateEvent, INode } from '@lce/lowcode-designer';
+import { IDragon, ILocateEvent as InnerLocateEvent, INode } from '@felce/lowcode-designer';
 import { dragonSymbol, nodeSymbol } from '../symbols';
 import LocateEvent from './locate-event';
 import { DragObject } from './drag-object';
-import { globalContext } from '@lce/lowcode-editor-core';
+import { globalContext } from '@felce/lowcode-editor-core';
 import {
   IPublicModelDragon,
   IPublicModelLocateEvent,
@@ -10,14 +10,17 @@ import {
   IPublicTypeDragNodeDataObject,
   IPublicModelNode,
   IPublicTypeDragObject,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 
 export const innerDragonSymbol = Symbol('innerDragonSymbol');
 
 export class Dragon implements IPublicModelDragon {
   private readonly [innerDragonSymbol]: IDragon;
 
-  constructor(innerDragon: IDragon, readonly workspaceMode: boolean) {
+  constructor(
+    innerDragon: IDragon,
+    readonly workspaceMode: boolean,
+  ) {
     this[innerDragonSymbol] = innerDragon;
   }
 

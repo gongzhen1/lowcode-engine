@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
-import { obx, computed, makeObservable } from '@lce/lowcode-editor-core';
-import { Logger } from '@lce/lowcode-utils';
-import { IPublicTypeWidgetBaseConfig } from '@lce/lowcode-types';
+import { obx, computed, makeObservable } from '@felce/lowcode-editor-core';
+import { Logger } from '@felce/lowcode-utils';
+import { IPublicTypeWidgetBaseConfig } from '@felce/lowcode-types';
 import { WidgetContainer } from './widget/widget-container';
 import { ISkeleton } from './skeleton';
 import { IWidget } from './widget/widget';

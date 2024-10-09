@@ -2,9 +2,9 @@ import {
   createContextMenu,
   parseContextMenuAsReactNode,
   parseContextMenuProperties,
-} from '@lce/lowcode-utils';
-import { engineConfig } from '@lce/lowcode-editor-core';
-import { IPublicModelPluginContext, IPublicTypeContextMenuAction } from '@lce/lowcode-types';
+} from '@felce/lowcode-utils';
+import { engineConfig } from '@felce/lowcode-editor-core';
+import { IPublicModelPluginContext, IPublicTypeContextMenuAction } from '@felce/lowcode-types';
 import React, { useCallback } from 'react';
 
 export function ContextMenu({

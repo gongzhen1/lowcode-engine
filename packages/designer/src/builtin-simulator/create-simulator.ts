@@ -9,7 +9,7 @@ import {
   AssetType,
   assetItem,
   isCSSUrl,
-} from '@lce/lowcode-utils';
+} from '@felce/lowcode-utils';
 
 import { BuiltinSimulatorRenderer } from './renderer';
 

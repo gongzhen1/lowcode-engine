@@ -1,4 +1,4 @@
-import { IPublicTypeTitleConfig } from '@lce/lowcode-types';
+import { IPublicTypeTitleConfig } from '@felce/lowcode-types';
 import { isI18nData } from './is-i18n-data';
 import { isPlainObject } from '../is-plain-object';
 

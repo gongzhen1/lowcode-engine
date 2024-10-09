@@ -1,6 +1,6 @@
-import { IPublicModelSimulatorRender } from '@lce/lowcode-types';
+import { IPublicModelSimulatorRender } from '@felce/lowcode-types';
 import { simulatorRenderSymbol } from '../symbols';
-import { BuiltinSimulatorRenderer } from '@lce/lowcode-designer';
+import { BuiltinSimulatorRenderer } from '@felce/lowcode-designer';
 
 export class SimulatorRender implements IPublicModelSimulatorRender {
   private readonly [simulatorRenderSymbol]: BuiltinSimulatorRenderer;

@@ -66,7 +66,7 @@ sidebar_position: 4
 import ReactDOM from 'react-dom';
 import React, { useState } from 'react';
 import { Loading } from '@alifd/next';
-import ReactRenderer from '@lce/lowcode-react-renderer';
+import ReactRenderer from '@felce/lowcode-react-renderer';
 import { createFetchHandler } from '@alilc/lowcode-datasource-fetch-handler';
 import { getProjectSchemaFromLocalStorage } from './services/mockService';
 import assets from './services/assets.json';
@@ -134,9 +134,9 @@ import {
   ComponentDescription,
   ComponentSchema,
   RemoteComponentDescription,
-} from '@lce/lowcode-types';
-import { buildComponents, AssetsJson, AssetLoader } from '@lce/lowcode-utils';
-import ReactRenderer from '@lce/lowcode-react-renderer';
+} from '@felce/lowcode-types';
+import { buildComponents, AssetsJson, AssetLoader } from '@felce/lowcode-utils';
+import ReactRenderer from '@felce/lowcode-react-renderer';
 import { injectComponents } from '@alilc/lowcode-plugin-inject';
 import React, { createElement } from 'react';
 

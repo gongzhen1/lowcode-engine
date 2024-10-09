@@ -1,4 +1,4 @@
-// import { uniqueId } from '@lce/lowcode-utils';
+// import { uniqueId } from '@felce/lowcode-utils';
 import { Widget } from './widget';
 import { ISkeleton } from '../skeleton';
 import { WidgetConfig } from '../types';

@@ -1,4 +1,4 @@
-import { checkPropTypes } from '@lce/lowcode-utils/src/check-prop-types';
+import { checkPropTypes } from '@felce/lowcode-utils/src/check-prop-types';
 import { nodeSchemaPropType } from '../src/node-command';
 
 describe('nodeSchemaPropType', () => {

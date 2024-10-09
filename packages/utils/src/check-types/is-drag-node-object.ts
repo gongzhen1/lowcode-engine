@@ -2,7 +2,7 @@ import {
   IPublicEnumDragObjectType,
   IPublicModelNode,
   IPublicTypeDragNodeObject,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import { isObject } from '../is-object';
 
 export function isDragNodeObject<Node = IPublicModelNode>(

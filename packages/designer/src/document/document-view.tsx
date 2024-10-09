@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import classNames from 'classnames';
-import { observer } from '@lce/lowcode-editor-core';
+import { observer } from '@felce/lowcode-editor-core';
 import { DocumentModel, IDocumentModel } from './document-model';
 import { BuiltinSimulatorHostView } from '../builtin-simulator';
 

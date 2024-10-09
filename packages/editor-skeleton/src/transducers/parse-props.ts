@@ -10,7 +10,7 @@ import {
   IPublicTypeOneOfType,
   ConfigureSupportEvent,
   IPublicModelSettingField,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 
 function propConfigToFieldConfig(propConfig: IPublicTypePropConfig): IPublicTypeFieldConfig {
   const { name, description } = propConfig;

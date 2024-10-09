@@ -1,4 +1,4 @@
-import { PackageJSON } from '@lce/lowcode-types';
+import { PackageJSON } from '@felce/lowcode-types';
 
 import { COMMON_CHUNK_NAME } from '../../../../../const/generator';
 
@@ -17,12 +17,10 @@ interface IIceJs3PackageJSON extends PackageJSON {
 }
 
 export type IceJs3PackageJsonPluginConfig = {
-
   /**
    * 数据源配置
    */
   datasourceConfig?: {
-
     /** 数据源引擎的版本 */
     engineVersion?: string;
 

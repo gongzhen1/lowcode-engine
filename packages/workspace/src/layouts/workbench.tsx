@@ -1,9 +1,9 @@
 import { Component } from 'react';
-import { TipContainer, engineConfig, observer } from '@lce/lowcode-editor-core';
+import { TipContainer, engineConfig, observer } from '@felce/lowcode-editor-core';
 import { WindowView } from '../view/window-view';
 import classNames from 'classnames';
 import { SkeletonContext } from '../skeleton-context';
-import { EditorConfig, PluginClassSet } from '@lce/lowcode-types';
+import { EditorConfig, PluginClassSet } from '@felce/lowcode-types';
 import { Workspace } from '../workspace';
 import {
   BottomArea,
@@ -13,7 +13,7 @@ import {
   MainArea,
   SubTopArea,
   TopArea,
-} from '@lce/lowcode-editor-skeleton';
+} from '@felce/lowcode-editor-skeleton';
 
 @observer
 export class Workbench extends Component<

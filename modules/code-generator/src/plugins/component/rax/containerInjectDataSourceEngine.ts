@@ -6,7 +6,7 @@ import {
   InterpretDataSourceConfig,
   isJSExpression,
   isJSFunction,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import changeCase from 'change-case';
 
 import { CLASS_DEFINE_CHUNK_NAME, COMMON_CHUNK_NAME } from '../../../const/generator';
@@ -152,7 +152,7 @@ _defineDataSourceConfig() {
           ...item,
           isInit:
             typeof item.isInit === 'boolean' || typeof item.isInit === 'undefined'
-              ? item.isInit ?? true
+              ? (item.isInit ?? true)
               : wrapAsFunction(item.isInit, scope),
           options: wrapAsFunction(item.options, scope),
         })),
@@ -178,7 +178,10 @@ _defineDataSourceConfig() {
 
 export default pluginFactory;
 
-function wrapAsFunction(value: IPublicTypeCompositeValue, scope: IScope): IPublicTypeCompositeValue {
+function wrapAsFunction(
+  value: IPublicTypeCompositeValue,
+  scope: IScope,
+): IPublicTypeCompositeValue {
   if (isJSExpression(value) || isJSFunction(value)) {
     return {
       type: 'JSExpression',

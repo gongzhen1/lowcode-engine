@@ -1,4 +1,4 @@
-import { ResultDir } from '@lce/lowcode-types';
+import { ResultDir } from '@felce/lowcode-types';
 
 export type PublisherFactory<T, U> = (configuration?: Partial<T>) => U;
 

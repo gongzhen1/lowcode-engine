@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { isValidElement } from 'react';
-import { isElement } from '@lce/lowcode-utils';
-import { IPublicTypePropConfig } from '@lce/lowcode-types';
+import { isElement } from '@felce/lowcode-utils';
+import { IPublicTypePropConfig } from '@felce/lowcode-types';
 
 export const primitiveTypes = [
   'string',

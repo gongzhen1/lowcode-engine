@@ -1,7 +1,7 @@
 import { KeyboardEvent, FocusEvent, Fragment, PureComponent } from 'react';
 import classNames from 'classnames';
-import { createIcon } from '@lce/lowcode-utils';
-import { IPublicApiEvent } from '@lce/lowcode-types';
+import { createIcon } from '@felce/lowcode-utils';
+import { IPublicApiEvent } from '@felce/lowcode-types';
 import TreeNode from '../controllers/tree-node';
 import {
   IconLock,

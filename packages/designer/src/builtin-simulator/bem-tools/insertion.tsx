@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { observer } from '@lce/lowcode-editor-core';
+import { observer } from '@felce/lowcode-editor-core';
 import { BuiltinSimulatorHost } from '../host';
 import { DropLocation, isVertical } from '../../designer';
 import { ISimulatorHost } from '../../simulator';
@@ -10,8 +10,8 @@ import {
   IPublicTypeNodeSchema,
   IPublicTypeLocationChildrenDetail,
   IPublicTypeRect,
-} from '@lce/lowcode-types';
-import { isLocationChildrenDetail } from '@lce/lowcode-utils';
+} from '@felce/lowcode-types';
+import { isLocationChildrenDetail } from '@felce/lowcode-utils';
 
 interface InsertionData {
   edge?: DOMRect;

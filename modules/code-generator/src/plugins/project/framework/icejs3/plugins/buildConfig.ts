@@ -10,7 +10,6 @@ import { format } from '../../../../../utils/format';
 import { getThemeInfo } from '../../../../../utils/theme';
 
 export interface BuildConfigPluginConfig {
-
   /** 包名 */
   themePackage?: string;
 }
@@ -96,15 +95,19 @@ export default defineConfig(() => ({
     'react-dom/client': 'ReactDOM',
     '@alifd/next': 'Next',
     lodash: 'var window._',
-    '@lce/lowcode-engine': 'var window.AliLowCodeEngine',
+    '@felce/lowcode-engine': 'var window.AliLowCodeEngine',
   },
   plugins: [
-    fusion(${cfg?.themePackage ? `{
+    fusion(${
+      cfg?.themePackage
+        ? `{
       importStyle: 'sass',
       themePackage: '${getThemeInfo(cfg.themePackage).name}',
-    }` : `{
+    }`
+        : `{
       importStyle: 'sass',
-    }`}),
+    }`
+    }),
     locales(),
     plugin(),
   ]
@@ -113,10 +116,7 @@ export default defineConfig(() => ({
 }
 
 function getRoutesContent(navData: any, needShell = true) {
-  const routes = [
-    'routes: {',
-    '  defineRoutes: route => {',
-  ];
+  const routes = ['routes: {', '  defineRoutes: route => {'];
   function _getRoutes(nav: any, _routes: string[] = []) {
     const { slug, children } = nav;
     if (children && children.length > 0) {

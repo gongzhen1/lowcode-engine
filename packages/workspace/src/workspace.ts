@@ -1,4 +1,4 @@
-import { IDesigner, ILowCodePluginManager, LowCodePluginManager } from '@lce/lowcode-designer';
+import { IDesigner, ILowCodePluginManager, LowCodePluginManager } from '@felce/lowcode-designer';
 import {
   createModuleEventBus,
   Editor,
@@ -6,7 +6,7 @@ import {
   IEventBus,
   makeObservable,
   obx,
-} from '@lce/lowcode-editor-core';
+} from '@felce/lowcode-editor-core';
 import {
   IPublicApiPlugins,
   IPublicApiWorkspace,
@@ -15,13 +15,13 @@ import {
   IPublicTypeDisposable,
   IPublicTypeResourceType,
   IShellModelFactory,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import { BasicContext } from './context/base-context';
 import { EditorWindow, WINDOW_STATE } from './window';
 import type { IEditorWindow } from './window';
 import { IResource, Resource } from './resource';
 import { IResourceType, ResourceType } from './resource-type';
-import { ISkeleton } from '@lce/lowcode-editor-skeleton';
+import { ISkeleton } from '@felce/lowcode-editor-skeleton';
 
 enum EVENT {
   CHANGE_WINDOW = 'change_window',

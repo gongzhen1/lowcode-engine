@@ -1,4 +1,4 @@
-import { IPublicTypeBasicType, IPublicTypePropType } from '@lce/lowcode-types';
+import { IPublicTypeBasicType, IPublicTypePropType } from '@felce/lowcode-types';
 
 export function isBasicPropType(propType: IPublicTypePropType): propType is IPublicTypeBasicType {
   if (!propType) {

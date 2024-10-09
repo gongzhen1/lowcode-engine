@@ -1,5 +1,5 @@
 import JSZip from 'jszip';
-import { ResultDir, ResultFile } from '@lce/lowcode-types';
+import { ResultDir, ResultFile } from '@felce/lowcode-types';
 import type { ZipBuffer } from './index';
 
 export const isNodeProcess = (): boolean => {

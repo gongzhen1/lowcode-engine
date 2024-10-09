@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-pkgName="@lce/lowcode-ignitor"
+pkgName="@felce/lowcode-ignitor"
 
 if [ "$1" ]; then
   pkgName="$1"

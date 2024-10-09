@@ -1,10 +1,10 @@
-import { INode as InnerNode, INodeChildren } from '@lce/lowcode-designer';
+import { INode as InnerNode, INodeChildren } from '@felce/lowcode-designer';
 import {
   IPublicTypeNodeData,
   IPublicEnumTransformStage,
   IPublicModelNodeChildren,
   IPublicModelNode,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import { Node as ShellNode } from './node';
 import { nodeSymbol, nodeChildrenSymbol } from '../symbols';
 

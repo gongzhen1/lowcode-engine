@@ -1,9 +1,9 @@
 import { Component, Fragment } from 'react';
 import classNames from 'classnames';
-import { observer, Focusable } from '@lce/lowcode-editor-core';
+import { observer, Focusable } from '@felce/lowcode-editor-core';
 import { Area } from '../area';
 import { Panel } from '../widget/panel';
-import { IPublicApiProject, IPublicTypePanelConfig } from '@lce/lowcode-types';
+import { IPublicApiProject, IPublicTypePanelConfig } from '@felce/lowcode-types';
 
 @observer
 export default class LeftFloatPane extends Component<{

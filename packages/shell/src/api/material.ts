@@ -1,6 +1,6 @@
-import { globalContext } from '@lce/lowcode-editor-core';
-import { IDesigner, isComponentMeta } from '@lce/lowcode-designer';
-import { IPublicTypeAssetsJson, getLogger } from '@lce/lowcode-utils';
+import { globalContext } from '@felce/lowcode-editor-core';
+import { IDesigner, isComponentMeta } from '@felce/lowcode-designer';
+import { IPublicTypeAssetsJson, getLogger } from '@felce/lowcode-utils';
 import {
   IPublicTypeComponentAction,
   IPublicTypeComponentMetadata,
@@ -12,8 +12,8 @@ import {
   IPublicTypeDisposable,
   IPublicTypeContextMenuAction,
   IPublicTypeContextMenuItem,
-} from '@lce/lowcode-types';
-import { Workspace as InnerWorkspace } from '@lce/lowcode-workspace';
+} from '@felce/lowcode-types';
+import { Workspace as InnerWorkspace } from '@felce/lowcode-workspace';
 import { editorSymbol, designerSymbol } from '../symbols';
 import { ComponentMeta as ShellComponentMeta } from '../model';
 import { ComponentType } from 'react';
@@ -44,7 +44,10 @@ export class Material implements IPublicApiMaterial {
     return this[editorSymbol].get('designer')!;
   }
 
-  constructor(editor: IPublicModelEditor, readonly workspaceMode: boolean = false) {
+  constructor(
+    editor: IPublicModelEditor,
+    readonly workspaceMode: boolean = false,
+  ) {
     this[innerEditorSymbol] = editor;
   }
 

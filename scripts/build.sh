@@ -3,26 +3,26 @@
 set -e
 
 lerna run build \
-  --scope @lce/lowcode-types \
-  --scope @lce/lowcode-utils \
-  --scope @lce/lowcode-shell \
-  --scope @lce/lowcode-editor-core \
-  --scope @lce/lowcode-editor-skeleton \
-  --scope @lce/lowcode-designer \
-  --scope @lce/lowcode-plugin-designer \
-  --scope @lce/lowcode-plugin-command \
-  --scope @lce/lowcode-plugin-outline-pane \
-  --scope @lce/lowcode-react-renderer \
-  --scope @lce/lowcode-react-simulator-renderer \
-  --scope @lce/lowcode-renderer-core \
-  --scope @lce/lowcode-workspace \
-  --scope @lce/lowcode-engine \
+  --scope @felce/lowcode-types \
+  --scope @felce/lowcode-utils \
+  --scope @felce/lowcode-shell \
+  --scope @felce/lowcode-editor-core \
+  --scope @felce/lowcode-editor-skeleton \
+  --scope @felce/lowcode-designer \
+  --scope @felce/lowcode-plugin-designer \
+  --scope @felce/lowcode-plugin-command \
+  --scope @felce/lowcode-plugin-outline-pane \
+  --scope @felce/lowcode-react-renderer \
+  --scope @felce/lowcode-react-simulator-renderer \
+  --scope @felce/lowcode-renderer-core \
+  --scope @felce/lowcode-workspace \
+  --scope @felce/lowcode-engine \
   --stream
 
 lerna run build:umd \
-  --scope @lce/lowcode-engine \
-  --scope @lce/lowcode-react-simulator-renderer \
-  --scope @lce/lowcode-react-renderer \
+  --scope @felce/lowcode-engine \
+  --scope @felce/lowcode-react-simulator-renderer \
+  --scope @felce/lowcode-react-renderer \
   --stream
 
 cp ./packages/react-simulator-renderer/dist/js/* ./packages/engine/dist/js/

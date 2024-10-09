@@ -1,4 +1,4 @@
-import { ResultDir } from '@lce/lowcode-types';
+import { ResultDir } from '@felce/lowcode-types';
 
 import { createResultDir } from '../../../../../utils/resultHelper';
 import { runFileGenerator } from '../../../../../utils/templateHelper';

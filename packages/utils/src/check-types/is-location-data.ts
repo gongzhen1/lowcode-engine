@@ -1,4 +1,4 @@
-import { IPublicTypeLocationData } from '@lce/lowcode-types';
+import { IPublicTypeLocationData } from '@felce/lowcode-types';
 import { isObject } from '../is-object';
 
 export function isLocationData(obj: any): obj is IPublicTypeLocationData {

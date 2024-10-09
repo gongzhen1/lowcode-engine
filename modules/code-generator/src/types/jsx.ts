@@ -1,4 +1,4 @@
-import { IPublicTypeNodeSchema, IPublicTypeCompositeValue } from '@lce/lowcode-types';
+import { IPublicTypeNodeSchema, IPublicTypeCompositeValue } from '@felce/lowcode-types';
 import { HandlerSet, BaseGenerator, NodeGenerator } from './core';
 
 export enum PIECE_TYPE {

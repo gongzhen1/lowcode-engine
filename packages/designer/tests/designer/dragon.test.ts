@@ -1,5 +1,5 @@
 import '../fixtures/window';
-import { Editor, globalContext } from '@lce/lowcode-editor-core';
+import { Editor, globalContext } from '@felce/lowcode-editor-core';
 import { Project } from '../../src/project/project';
 import { DocumentModel } from '../../src/document/document-model';
 import { Designer } from '../../src/designer/designer';
@@ -14,7 +14,7 @@ import {
   isInvalidPoint,
   isSameAs,
 } from '../../src/designer/dragon';
-import { IPublicEnumDragObjectType } from '@lce/lowcode-types';
+import { IPublicEnumDragObjectType } from '@felce/lowcode-types';
 import formSchema from '../fixtures/schema/form';
 import { fireEvent } from '@testing-library/react';
 import { shellModelFactory } from '../../../engine/src/modules/shell-model-factory';

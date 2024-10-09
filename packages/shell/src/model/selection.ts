@@ -2,10 +2,14 @@ import {
   IDocumentModel as InnerDocumentModel,
   INode as InnerNode,
   ISelection,
-} from '@lce/lowcode-designer';
+} from '@felce/lowcode-designer';
 import { Node as ShellNode } from './node';
 import { selectionSymbol } from '../symbols';
-import { IPublicModelSelection, IPublicModelNode, IPublicTypeDisposable } from '@lce/lowcode-types';
+import {
+  IPublicModelSelection,
+  IPublicModelNode,
+  IPublicTypeDisposable,
+} from '@felce/lowcode-types';
 
 export class Selection implements IPublicModelSelection {
   private readonly [selectionSymbol]: ISelection;

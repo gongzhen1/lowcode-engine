@@ -1,11 +1,11 @@
-import { INode, IPublicTypePropChangeOptions } from '@lce/lowcode-designer';
+import { INode, IPublicTypePropChangeOptions } from '@felce/lowcode-designer';
 import {
   GlobalEvent,
   IPublicEnumTransformStage,
   IPublicTypeNodeSchema,
   IPublicTypeEngineOptions,
-} from '@lce/lowcode-types';
-import { isReactComponent, cloneEnumerableProperty } from '@lce/lowcode-utils';
+} from '@felce/lowcode-types';
+import { isReactComponent, cloneEnumerableProperty } from '@felce/lowcode-utils';
 import { debounce } from '../utils/common';
 import adapter from '../adapter';
 import * as types from '../types/index';
@@ -89,7 +89,10 @@ class LeafCache {
 
   ref = new Map();
 
-  constructor(public documentId: string, public device: string) {}
+  constructor(
+    public documentId: string,
+    public device: string,
+  ) {}
 }
 
 let cache: LeafCache;

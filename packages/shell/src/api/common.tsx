@@ -20,7 +20,7 @@ import {
   isNode as innerIsNode,
   isSettingField,
   isSettingField as innerIsSettingField,
-} from '@lce/lowcode-utils';
+} from '@felce/lowcode-utils';
 import {
   IPublicTypeNodeSchema,
   IPublicEnumTransitionType,
@@ -35,7 +35,7 @@ import {
   IPublicModelDragon,
   IPublicModelSettingField,
   IPublicTypeI18nData,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import {
   SettingField as InnerSettingField,
   LiveEditing as InnerLiveEditing,
@@ -50,7 +50,7 @@ import {
   Node as InnerNode,
   LowCodePluginManager as InnerLowCodePluginManager,
   DesignerView as InnerDesignerView,
-} from '@lce/lowcode-designer';
+} from '@felce/lowcode-designer';
 import {
   Skeleton as InnerSkeleton,
   createSettingFieldView as innerCreateSettingFieldView,
@@ -59,7 +59,7 @@ import {
   Workbench as InnerWorkbench,
   SettingsPrimaryPane as InnerSettingsPrimaryPane,
   registerDefaults as InnerRegisterDefaults,
-} from '@lce/lowcode-editor-skeleton';
+} from '@felce/lowcode-editor-skeleton';
 import {
   Editor,
   Title as InnerTitle,
@@ -78,7 +78,7 @@ import {
   runInAction as innerRunInAction,
   engineConfig as innerEngineConfig,
   globalContext,
-} from '@lce/lowcode-editor-core';
+} from '@felce/lowcode-editor-core';
 import { Dragon as ShellDragon } from '../model';
 import { ReactNode } from 'react';
 
@@ -121,7 +121,7 @@ class DesignerCabin implements IPublicApiCommonDesignerCabin {
 
   /**
    * 是否是 SettingField 实例
-   * @deprecated use same function from @lce/lowcode-utilsirectly
+   * @deprecated use same function from @felce/lowcode-utilsirectly
    */
   isSettingField(obj: any): boolean {
     return isSettingField(obj);
@@ -130,7 +130,7 @@ class DesignerCabin implements IPublicApiCommonDesignerCabin {
   /**
    * 转换类型枚举对象，包含 init / upgrade / render 等类型
    * [参考](https://github.com/fe-lce/lowcode-engine/blob/main/packages/types/src/transform-stage.ts)
-   * @deprecated use { TransformStage } from '@lce/lowcode-types' instead
+   * @deprecated use { TransformStage } from '@felce/lowcode-types' instead
    */
   get TransformStage() {
     return InnerTransitionStage;
@@ -466,7 +466,7 @@ export class Common implements IPublicApiCommon {
   /**
    * 历史原因导致此处设计不合理，慎用。
    * this load of crap will be removed in some future versions, don`t use it.
-   * @deprecated use { TransformStage } from '@lce/lowcode-types' instead
+   * @deprecated use { TransformStage } from '@felce/lowcode-types' instead
    */
   get objects(): any {
     return {

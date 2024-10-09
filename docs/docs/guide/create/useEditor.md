@@ -60,7 +60,7 @@ sidebar_position: 0
 <!-- 低代码引擎的页面框架样式 -->
 <link
   rel="stylesheet"
-  href="https://uipaas-assets.com/prod/npm/@lce/lowcode-engine/1.0.18/dist/css/engine-core.css"
+  href="https://uipaas-assets.com/prod/npm/@felce/lowcode-engine/1.0.18/dist/css/engine-core.css"
 />
 <!-- Fusion Next 控件样式 -->
 <link rel="stylesheet" href="https://g.alicdn.com/code/lib/alifd__next/1.23.24/next.min.css" />
@@ -91,7 +91,7 @@ sidebar_position: 0
 <!-- 低代码引擎的主包 -->
 <script
   crossorigin="anonymous"
-  src="https://uipaas-assets.com/prod/npm/@lce/lowcode-engine/1.0.18/dist/js/engine-core.js"
+  src="https://uipaas-assets.com/prod/npm/@felce/lowcode-engine/1.0.18/dist/js/engine-core.js"
 ></script>
 <!-- 低代码引擎官方扩展的主包 -->
 <script
@@ -102,7 +102,7 @@ sidebar_position: 0
 
 > 注：如果 unpkg 的服务比较缓慢，您可以使用官方 CDN 来获得确定版本的低代码引擎，如对于引擎的 1.0.18 版本，可用以下官方 CDN 替代
 >
-> - [https://uipaas-assets.com/prod/npm/@lce/lowcode-engine/1.0.18/dist/js/engine-core.js](https://uipaas-assets.com/prod/npm/@lce/lowcode-engine/1.0.18/dist/js/engine-core.js)
+> - [https://uipaas-assets.com/prod/npm/@felce/lowcode-engine/1.0.18/dist/js/engine-core.js](https://uipaas-assets.com/prod/npm/@felce/lowcode-engine/1.0.18/dist/js/engine-core.js)
 
 ### 配置打包
 
@@ -115,7 +115,7 @@ sidebar_position: 0
     "react-dom": "var window.ReactDOM",
     "prop-types": "var window.PropTypes",
     "@alifd/next": "var window.Next",
-    "@lce/lowcode-engine": "var window.AliLowCodeEngine",
+    "@felce/lowcode-engine": "var window.AliLowCodeEngine",
     "@alilc/lowcode-engine-ext": "var window.AliLowCodeEngineExt",
     "moment": "var window.moment",
     "lodash": "var window._"
@@ -141,14 +141,14 @@ window.AliLowCodeEngine.init(document.getElementById('lce-container'), {
 // package.json
 {
   "devDependencies": {
-    "@lce/lowcode-engine": "^1.0.0"
+    "@felce/lowcode-engine": "^1.0.0"
   }
 }
 ```
 
 ```javascript
 // src/index.tsx
-import { init } from '@lce/lowcode-engine';
+import { init } from '@felce/lowcode-engine';
 
 init(document.getElementById('lce-container'), {
   enableCondition: true,

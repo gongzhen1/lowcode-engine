@@ -1,6 +1,6 @@
-import { IPublicModelClipboard } from '@lce/lowcode-types';
+import { IPublicModelClipboard } from '@felce/lowcode-types';
 import { clipboardSymbol } from '../symbols';
-import { IClipboard, clipboard } from '@lce/lowcode-designer';
+import { IClipboard, clipboard } from '@felce/lowcode-designer';
 
 export class Clipboard implements IPublicModelClipboard {
   private readonly [clipboardSymbol]: IClipboard;

@@ -1,5 +1,5 @@
-import { BuiltinSimulatorHost, IProject as InnerProject } from '@lce/lowcode-designer';
-import { globalContext } from '@lce/lowcode-editor-core';
+import { BuiltinSimulatorHost, IProject as InnerProject } from '@felce/lowcode-designer';
+import { globalContext } from '@felce/lowcode-editor-core';
 import {
   IPublicTypeRootSchema,
   IPublicTypeProjectSchema,
@@ -11,11 +11,11 @@ import {
   IPublicEnumTransformStage,
   IPublicTypeDisposable,
   IPublicTypeAppConfig,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import { DocumentModel as ShellDocumentModel } from '../model';
 import { SimulatorHost } from './simulator-host';
 import { editorSymbol, projectSymbol, simulatorHostSymbol, documentSymbol } from '../symbols';
-import { getLogger } from '@lce/lowcode-utils';
+import { getLogger } from '@felce/lowcode-utils';
 
 const logger = getLogger({ level: 'warn', bizName: 'shell-project' });
 

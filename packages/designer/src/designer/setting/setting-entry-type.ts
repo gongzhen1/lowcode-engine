@@ -1,4 +1,4 @@
-import { IPublicApiSetters, IPublicModelEditor } from '@lce/lowcode-types';
+import { IPublicApiSetters, IPublicModelEditor } from '@felce/lowcode-types';
 import { IDesigner } from '../designer';
 import { INode } from '../../document';
 import { ISettingField } from './setting-field';

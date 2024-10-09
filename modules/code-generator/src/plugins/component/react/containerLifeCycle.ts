@@ -12,7 +12,7 @@ import {
   ICodeStruct,
   IContainerInfo,
 } from '../../../types';
-import { isJSFunction, isJSExpression } from '@lce/lowcode-types';
+import { isJSFunction, isJSExpression } from '@felce/lowcode-types';
 import { isJSExpressionFn } from '../../../utils/common';
 
 export interface PluginConfig {
@@ -39,70 +39,72 @@ const pluginFactory: BuilderComponentPluginFactory<PluginConfig> = (config?) => 
 
     if (ir.lifeCycles) {
       const { lifeCycles } = ir;
-      const chunks = Object.keys(lifeCycles).map<ICodeChunk | null>((lifeCycleName) => {
-        // 过滤掉非法数据（有些场景下会误传入空字符串或 null)
-        if (
-          !isJSFunction(lifeCycles[lifeCycleName]) &&
-          !isJSExpressionFn(lifeCycles[lifeCycleName]) &&
-          !isJSExpression(lifeCycles[lifeCycleName])
-        ) {
-          return null;
-        }
+      const chunks = Object.keys(lifeCycles)
+        .map<ICodeChunk | null>((lifeCycleName) => {
+          // 过滤掉非法数据（有些场景下会误传入空字符串或 null)
+          if (
+            !isJSFunction(lifeCycles[lifeCycleName]) &&
+            !isJSExpressionFn(lifeCycles[lifeCycleName]) &&
+            !isJSExpression(lifeCycles[lifeCycleName])
+          ) {
+            return null;
+          }
 
-        let normalizeName;
-        // constructor会取到对象的构造函数
-        if (lifeCycleName === 'constructor') {
-          normalizeName = lifeCycleName;
-        } else {
-          normalizeName = cfg.normalizeNameMapping[lifeCycleName] || lifeCycleName;
-        }
+          let normalizeName;
+          // constructor会取到对象的构造函数
+          if (lifeCycleName === 'constructor') {
+            normalizeName = lifeCycleName;
+          } else {
+            normalizeName = cfg.normalizeNameMapping[lifeCycleName] || lifeCycleName;
+          }
 
-        if (cfg?.exclude?.includes(normalizeName)) {
-          return null;
-        }
+          if (cfg?.exclude?.includes(normalizeName)) {
+            return null;
+          }
 
-        const exportName = cfg.exportNameMapping[lifeCycleName] || lifeCycleName;
-        if (normalizeName === 'constructor') {
+          const exportName = cfg.exportNameMapping[lifeCycleName] || lifeCycleName;
+          if (normalizeName === 'constructor') {
+            return {
+              type: ChunkType.STRING,
+              fileType: cfg.fileType,
+              name: CLASS_DEFINE_CHUNK_NAME.ConstructorContent,
+              content: generateFunction(lifeCycles[lifeCycleName], { isBlock: true }),
+              linkAfter: [...DEFAULT_LINK_AFTER[CLASS_DEFINE_CHUNK_NAME.ConstructorStart]],
+            };
+          }
+
+          if (normalizeName === 'componentDidMount') {
+            return {
+              type: ChunkType.STRING,
+              fileType: cfg.fileType,
+              name: REACT_CHUNK_NAME.ClassDidMountContent,
+              content: generateFunction(lifeCycles[lifeCycleName], { isBlock: true }),
+              linkAfter: [REACT_CHUNK_NAME.ClassDidMountStart],
+            };
+          }
+
+          if (normalizeName === 'render') {
+            return {
+              type: ChunkType.STRING,
+              fileType: cfg.fileType,
+              name: REACT_CHUNK_NAME.ClassRenderPre,
+              content: generateFunction(lifeCycles[lifeCycleName], { isBlock: true }),
+              linkAfter: [REACT_CHUNK_NAME.ClassRenderStart],
+            };
+          }
+
           return {
             type: ChunkType.STRING,
             fileType: cfg.fileType,
-            name: CLASS_DEFINE_CHUNK_NAME.ConstructorContent,
-            content: generateFunction(lifeCycles[lifeCycleName], { isBlock: true }),
-            linkAfter: [...DEFAULT_LINK_AFTER[CLASS_DEFINE_CHUNK_NAME.ConstructorStart]],
+            name: CLASS_DEFINE_CHUNK_NAME.InsMethod,
+            content: generateFunction(lifeCycles[lifeCycleName], {
+              name: exportName,
+              isMember: true,
+            }),
+            linkAfter: [...DEFAULT_LINK_AFTER[CLASS_DEFINE_CHUNK_NAME.InsMethod]],
           };
-        }
-
-        if (normalizeName === 'componentDidMount') {
-          return {
-            type: ChunkType.STRING,
-            fileType: cfg.fileType,
-            name: REACT_CHUNK_NAME.ClassDidMountContent,
-            content: generateFunction(lifeCycles[lifeCycleName], { isBlock: true }),
-            linkAfter: [REACT_CHUNK_NAME.ClassDidMountStart],
-          };
-        }
-
-        if (normalizeName === 'render') {
-          return {
-            type: ChunkType.STRING,
-            fileType: cfg.fileType,
-            name: REACT_CHUNK_NAME.ClassRenderPre,
-            content: generateFunction(lifeCycles[lifeCycleName], { isBlock: true }),
-            linkAfter: [REACT_CHUNK_NAME.ClassRenderStart],
-          };
-        }
-
-        return {
-          type: ChunkType.STRING,
-          fileType: cfg.fileType,
-          name: CLASS_DEFINE_CHUNK_NAME.InsMethod,
-          content: generateFunction(lifeCycles[lifeCycleName], {
-            name: exportName,
-            isMember: true,
-          }),
-          linkAfter: [...DEFAULT_LINK_AFTER[CLASS_DEFINE_CHUNK_NAME.InsMethod]],
-        };
-      }).filter((i) => !!i);
+        })
+        .filter((i) => !!i);
 
       next.chunks.push(...chunks.filter((x): x is ICodeChunk => x !== null));
     }

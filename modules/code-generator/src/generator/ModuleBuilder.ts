@@ -1,4 +1,4 @@
-import { IPublicTypeProjectSchema, ResultFile, ResultDir } from '@lce/lowcode-types';
+import { IPublicTypeProjectSchema, ResultFile, ResultDir } from '@felce/lowcode-types';
 
 import {
   BuilderComponentPlugin,
@@ -76,7 +76,9 @@ export function createModuleBuilder(
     };
   };
 
-  const generateModuleCode = async (schema: IPublicTypeProjectSchema | string): Promise<ResultDir> => {
+  const generateModuleCode = async (
+    schema: IPublicTypeProjectSchema | string,
+  ): Promise<ResultDir> => {
     // Init
     const schemaParser: ISchemaParser = new SchemaParser();
     const parseResult: IParseResult = schemaParser.parse(schema);

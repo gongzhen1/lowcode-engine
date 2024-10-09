@@ -1,12 +1,12 @@
-import { ILowCodePluginManager } from '@lce/lowcode-designer';
-import { globalContext } from '@lce/lowcode-editor-core';
+import { ILowCodePluginManager } from '@felce/lowcode-designer';
+import { globalContext } from '@felce/lowcode-editor-core';
 import {
   IPublicApiPlugins,
   IPublicModelPluginInstance,
   IPublicTypePlugin,
   IPublicTypePluginRegisterOptions,
   IPublicTypePreferenceValueType,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import { PluginInstance as ShellPluginInstance } from '../model';
 import { pluginsSymbol } from '../symbols';
 
@@ -25,7 +25,10 @@ export class Plugins implements IPublicApiPlugins {
     return this[innerPluginsSymbol];
   }
 
-  constructor(plugins: ILowCodePluginManager, public workspaceMode: boolean = false) {
+  constructor(
+    plugins: ILowCodePluginManager,
+    public workspaceMode: boolean = false,
+  ) {
     this[innerPluginsSymbol] = plugins;
   }
 

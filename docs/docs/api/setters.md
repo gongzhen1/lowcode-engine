@@ -72,9 +72,9 @@ registerSetter(
 ### 注册官方内置 Setter 到设计器中
 
 ```typescript
-import { setters, skeleton } from '@lce/lowcode-engine';
+import { setters, skeleton } from '@felce/lowcode-engine';
 import { setterMap, pluginMap } from '@alilc/lowcode-engine-ext';
-import { IPublicModelPluginContext } from '@lce/lowcode-types';
+import { IPublicModelPluginContext } from '@felce/lowcode-types';
 
 const SetterRegistry = (ctx: IPublicModelPluginContext) => {
   return {
@@ -155,7 +155,7 @@ export default class AltStringSetter extends React.PureComponent<AltStringSetter
 
 ```typescript
 import AltStringSetter from './AltStringSetter';
-import { setters } from '@lce/lowcode-engine';
+import { setters } from '@felce/lowcode-engine';
 const { registerSetter } = setters;
 registerSetter('AltStringSetter', AltStringSetter);
 ```

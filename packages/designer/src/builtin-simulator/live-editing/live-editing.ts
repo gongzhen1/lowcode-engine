@@ -1,5 +1,5 @@
-import { obx } from '@lce/lowcode-editor-core';
-import { IPublicTypePluginConfig, IPublicTypeLiveTextEditingConfig } from '@lce/lowcode-types';
+import { obx } from '@felce/lowcode-editor-core';
+import { IPublicTypePluginConfig, IPublicTypeLiveTextEditingConfig } from '@felce/lowcode-types';
 import { INode, Prop } from '../../document';
 
 const EDITOR_KEY = 'data-setter-prop';

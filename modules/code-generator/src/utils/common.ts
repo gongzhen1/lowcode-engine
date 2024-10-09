@@ -1,4 +1,4 @@
-import type { IPublicTypeJSExpression, IPublicTypeJSFunction } from '@lce/lowcode-types';
+import type { IPublicTypeJSExpression, IPublicTypeJSFunction } from '@felce/lowcode-types';
 import changeCase from 'change-case';
 import short from 'short-uuid';
 import { DependencyType, IDependency, IExternalDependency, IInternalDependency } from '../types';
@@ -46,14 +46,10 @@ export function isJSExpressionFn(data: any): data is IPublicTypeJSFunction {
   return data?.type === 'JSExpression' && data?.extType === 'function';
 }
 
-export function isInternalDependency(
-  dependency: IDependency,
-): dependency is IInternalDependency {
+export function isInternalDependency(dependency: IDependency): dependency is IInternalDependency {
   return dependency.dependencyType === DependencyType.Internal;
 }
 
-export function isExternalDependency(
-  dependency: IDependency,
-): dependency is IExternalDependency {
+export function isExternalDependency(dependency: IDependency): dependency is IExternalDependency {
   return dependency.dependencyType === DependencyType.External;
 }

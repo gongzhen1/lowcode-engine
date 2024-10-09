@@ -1,4 +1,4 @@
-import { ResultDir, ResultFile } from '@lce/lowcode-types';
+import { ResultDir, ResultFile } from '@felce/lowcode-types';
 import { createResultDir, addDirectory, addFile } from './resultHelper';
 
 type FuncFileGenerator = () => [string[], ResultFile];

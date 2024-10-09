@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import { isFormEvent, isNodeSchema, isNode } from '@lce/lowcode-utils';
+import { isFormEvent, isNodeSchema, isNode } from '@felce/lowcode-utils';
 import {
   IPublicModelPluginContext,
   IPublicEnumTransformStage,
@@ -8,7 +8,7 @@ import {
   IPublicTypeNodeData,
   IPublicEnumDragObjectType,
   IPublicTypeDragNodeObject,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 
 function insertChild(
   container: IPublicModelNode,

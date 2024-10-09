@@ -10,7 +10,7 @@ sidebar_position: 5
 #### init API
 
 ```javascript
-import { init } from '@lce/lowcode-engine';
+import { init } from '@felce/lowcode-engine';
 
 init(document.getElementById('engine'), {
   enableCondition: false,
@@ -22,7 +22,7 @@ init(document.getElementById('engine'), {
 #### config API
 
 ```javascript
-import { config } from '@lce/lowcode-engine';
+import { config } from '@felce/lowcode-engine';
 
 config.set('enableCondition', false);
 ```

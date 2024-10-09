@@ -3,7 +3,7 @@ import {
   IPublicTypeNpmInfo,
   IPublicTypeComponentSchema,
   IPublicTypeProjectSchema,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import { isESModule } from './is-es-module';
 import { isReactComponent, acceptsRef, wrapReactClass } from './is-react';
 import { isObject } from './is-object';

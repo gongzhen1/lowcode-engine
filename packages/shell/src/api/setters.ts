@@ -2,10 +2,10 @@ import {
   IPublicTypeCustomView,
   IPublicApiSetters,
   IPublicTypeRegisteredSetter,
-} from '@lce/lowcode-types';
-import { ISetters, globalContext, untracked } from '@lce/lowcode-editor-core';
+} from '@felce/lowcode-types';
+import { ISetters, globalContext, untracked } from '@felce/lowcode-editor-core';
 import { ReactNode } from 'react';
-import { getLogger } from '@lce/lowcode-utils';
+import { getLogger } from '@felce/lowcode-utils';
 
 const innerSettersSymbol = Symbol('setters');
 const settersSymbol = Symbol('setters');
@@ -34,7 +34,10 @@ export class Setters implements IPublicApiSetters {
     return this[innerSettersSymbol];
   }
 
-  constructor(innerSetters: ISetters, readonly workspaceMode = false) {
+  constructor(
+    innerSetters: ISetters,
+    readonly workspaceMode = false,
+  ) {
     this[innerSettersSymbol] = innerSetters;
   }
 

@@ -2,8 +2,8 @@ import {
   IPublicModelNode,
   IPublicTypeComponentAction,
   IPublicTypeMetadataTransducer,
-} from '@lce/lowcode-types';
-import { engineConfig } from '@lce/lowcode-editor-core';
+} from '@felce/lowcode-types';
+import { engineConfig } from '@felce/lowcode-editor-core';
 import { intlNode } from './locale';
 import { IconLock, IconUnlock, IconRemove, IconClone, IconHidden } from './icons';
 import { componentDefaults, legacyIssues } from './transducers';

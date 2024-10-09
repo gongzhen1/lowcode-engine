@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import classNames from 'classnames';
-import { IPublicTypeTipConfig } from '@lce/lowcode-types';
+import { IPublicTypeTipConfig } from '@felce/lowcode-types';
 import { intl } from '../../intl';
 import { resolvePosition } from './utils';
 import { tipHandler } from './tip-handler';

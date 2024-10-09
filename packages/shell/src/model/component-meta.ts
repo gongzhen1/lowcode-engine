@@ -1,4 +1,4 @@
-import { IComponentMeta as InnerComponentMeta, INode } from '@lce/lowcode-designer';
+import { IComponentMeta as InnerComponentMeta, INode } from '@felce/lowcode-designer';
 import {
   IPublicTypeNodeData,
   IPublicTypeNodeSchema,
@@ -10,7 +10,7 @@ import {
   IPublicModelNode,
   IPublicTypeAdvanced,
   IPublicTypeFieldConfig,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import { componentMetaSymbol, nodeSymbol } from '../symbols';
 import { ReactElement } from 'react';
 

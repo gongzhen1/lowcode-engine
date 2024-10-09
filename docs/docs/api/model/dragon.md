@@ -12,7 +12,7 @@ sidebar_position: 99
 ### 对应接口
 
 ```typescript
-import { IPublicModelDragon } from '@lce/lowcode-types';
+import { IPublicModelDragon } from '@felce/lowcode-types';
 ```
 
 ### 支持版本

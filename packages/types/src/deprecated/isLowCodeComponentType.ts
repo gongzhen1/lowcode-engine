@@ -5,7 +5,7 @@ import {
 } from '../shell/type/npm';
 
 /**
- * @deprecated use same function from '@lce/lowcode-utils' instead
+ * @deprecated use same function from '@felce/lowcode-utils' instead
  */
 export function isLowCodeComponentType(
   desc: IPublicTypeComponentMap,

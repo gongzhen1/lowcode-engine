@@ -1,6 +1,6 @@
-import { IEditor, IEventBus } from '@lce/lowcode-editor-core';
-import { getLogger, isPluginEventName } from '@lce/lowcode-utils';
-import { IPublicApiEvent, IPublicTypeDisposable } from '@lce/lowcode-types';
+import { IEditor, IEventBus } from '@felce/lowcode-editor-core';
+import { getLogger, isPluginEventName } from '@felce/lowcode-utils';
+import { IPublicApiEvent, IPublicTypeDisposable } from '@felce/lowcode-types';
 
 const logger = getLogger({ level: 'warn', bizName: 'shell-event' });
 
@@ -14,7 +14,11 @@ export class Event implements IPublicApiEvent {
   private readonly [eventBusSymbol]: IEventBus;
   private readonly options: EventOptions;
 
-  constructor(eventBus: IEventBus, options: EventOptions, public workspaceMode = false) {
+  constructor(
+    eventBus: IEventBus,
+    options: EventOptions,
+    public workspaceMode = false,
+  ) {
     this[eventBusSymbol] = eventBus;
     this.options = options;
     if (!this.options.prefix) {

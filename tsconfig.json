@@ -33,7 +33,7 @@
     "baseUrl": "./packages",
     "useDefineForClassFields": true,
     "paths": {
-      "@lce/lowcode-*": ["./*/src"]
+      "@felce/lowcode-*": ["./*/src"]
     },
     "outDir": "lib"
   },

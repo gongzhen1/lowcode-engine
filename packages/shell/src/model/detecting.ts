@@ -3,9 +3,13 @@ import {
   Detecting as InnerDetecting,
   IDocumentModel as InnerDocumentModel,
   INode as InnerNode,
-} from '@lce/lowcode-designer';
+} from '@felce/lowcode-designer';
 import { documentSymbol, detectingSymbol } from '../symbols';
-import { IPublicModelDetecting, IPublicModelNode, IPublicTypeDisposable } from '@lce/lowcode-types';
+import {
+  IPublicModelDetecting,
+  IPublicModelNode,
+  IPublicTypeDisposable,
+} from '@felce/lowcode-types';
 
 export class Detecting implements IPublicModelDetecting {
   private readonly [documentSymbol]: InnerDocumentModel;

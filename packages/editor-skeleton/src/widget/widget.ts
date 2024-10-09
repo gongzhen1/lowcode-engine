@@ -1,11 +1,11 @@
 import { ReactNode, createElement } from 'react';
-import { makeObservable, obx } from '@lce/lowcode-editor-core';
-import { createContent, uniqueId } from '@lce/lowcode-utils';
-import { getEvent } from '@lce/lowcode-shell';
+import { makeObservable, obx } from '@felce/lowcode-editor-core';
+import { createContent, uniqueId } from '@felce/lowcode-utils';
+import { getEvent } from '@felce/lowcode-shell';
 import { WidgetConfig } from '../types';
 import { ISkeleton } from '../skeleton';
 import { WidgetView } from '../components/widget-views';
-import { IPublicTypeTitleContent, IPublicTypeWidgetBaseConfig } from '@lce/lowcode-types';
+import { IPublicTypeTitleContent, IPublicTypeWidgetBaseConfig } from '@felce/lowcode-types';
 
 export interface IWidget {
   readonly name: string;
@@ -71,7 +71,10 @@ export class Widget implements IWidget {
 
   readonly title: IPublicTypeTitleContent;
 
-  constructor(readonly skeleton: ISkeleton, readonly config: WidgetConfig) {
+  constructor(
+    readonly skeleton: ISkeleton,
+    readonly config: WidgetConfig,
+  ) {
     makeObservable(this);
     const { props = {}, name } = config;
     this.name = name;

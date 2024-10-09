@@ -1,1 +1,1 @@
-export type { IPublicTypeNodeSchema } from '@lce/lowcode-types';
+export type { IPublicTypeNodeSchema } from '@felce/lowcode-types';

@@ -1,4 +1,4 @@
-import { IPublicModelPluginContext } from '@lce/lowcode-types';
+import { IPublicModelPluginContext } from '@felce/lowcode-types';
 
 export function DesignerView(props: { url: string; viewName?: string }) {
   return (

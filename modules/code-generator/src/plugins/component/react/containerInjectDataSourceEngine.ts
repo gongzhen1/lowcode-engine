@@ -6,7 +6,7 @@ import {
   InterpretDataSourceConfig,
   isJSExpression,
   isJSFunction,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import changeCase from 'change-case';
 
 import {
@@ -38,7 +38,6 @@ export interface PluginConfig {
    * 数据源配置
    */
   datasourceConfig?: {
-
     /** 数据源引擎的版本 */
     engineVersion?: string;
 
@@ -189,7 +188,10 @@ const pluginFactory: BuilderComponentPluginFactory<PluginConfig> = (config?) => 
 
 export default pluginFactory;
 
-function wrapAsFunction(value: IPublicTypeCompositeValue, scope: IScope): IPublicTypeCompositeValue {
+function wrapAsFunction(
+  value: IPublicTypeCompositeValue,
+  scope: IScope,
+): IPublicTypeCompositeValue {
   if (isJSExpression(value) || isJSFunction(value) || isJSExpressionFn(value)) {
     return {
       type: 'JSExpression',

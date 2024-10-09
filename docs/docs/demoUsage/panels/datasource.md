@@ -97,7 +97,7 @@ export function createAxiosFetchHandler(config?: Record<string, unknown>) {
 
 ```tsx
 import React, { memo } from 'react';
-import ReactRenderer from '@lce/lowcode-react-renderer';
+import ReactRenderer from '@felce/lowcode-react-renderer';
 
 const SamplePreview = memo(() => {
   return (
@@ -124,7 +124,7 @@ const SamplePreview = memo(() => {
 > 默认情况下设计态没有开启数据源引擎，我们可以在设计器 init 的时候来传递`requstHandlersMap`来开启；具体代码如下：
 
 ```javascript
-import { init, plugins } from '@lce/lowcode-engine';
+import { init, plugins } from '@felce/lowcode-engine';
 import { RequestHandlersMap } from '@alilc/lowcode-datasource-types';
 
 const preference = new Map();
@@ -143,8 +143,8 @@ const preference = new Map();
     // simulatorUrl 在当 engine-core.js 同一个父路径下时是不需要配置的！！！
     // 这里因为用的是 alifd cdn，在不同 npm 包，engine-core.js 和 react-simulator-renderer.js 是不同路径
     simulatorUrl: [
-      'https://alifd.alicdn.com/npm/@lce/lowcode-react-simulator-renderer@latest/dist/css/react-simulator-renderer.css',
-      'https://alifd.alicdn.com/npm/@lce/lowcode-react-simulator-renderer@latest/dist/js/react-simulator-renderer.js'
+      'https://alifd.alicdn.com/npm/@felce/lowcode-react-simulator-renderer@latest/dist/css/react-simulator-renderer.css',
+      'https://alifd.alicdn.com/npm/@felce/lowcode-react-simulator-renderer@latest/dist/js/react-simulator-renderer.js'
     ],
     requestHandlersMap: {
       fetch: createAxiosFetchHandler()

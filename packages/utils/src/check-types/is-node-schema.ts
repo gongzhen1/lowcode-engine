@@ -1,4 +1,4 @@
-import { IPublicTypeNodeSchema } from '@lce/lowcode-types';
+import { IPublicTypeNodeSchema } from '@felce/lowcode-types';
 import { isObject } from '../is-object';
 
 export function isNodeSchema(data: any): data is IPublicTypeNodeSchema {

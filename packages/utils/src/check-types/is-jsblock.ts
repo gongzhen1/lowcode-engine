@@ -1,4 +1,4 @@
-import { IPublicTypeJSBlock } from '@lce/lowcode-types';
+import { IPublicTypeJSBlock } from '@felce/lowcode-types';
 import { isObject } from '../is-object';
 
 export function isJSBlock(data: any): data is IPublicTypeJSBlock {

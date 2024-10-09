@@ -5,15 +5,15 @@ import {
   makeObservable,
   IEventBus,
   createModuleEventBus,
-} from '@lce/lowcode-editor-core';
-import { uniqueId, createContent } from '@lce/lowcode-utils';
+} from '@felce/lowcode-editor-core';
+import { uniqueId, createContent } from '@felce/lowcode-utils';
 import {
   IPublicTypeHelpTipConfig,
   IPublicTypePanelConfig,
   IPublicTypeTitleContent,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import { WidgetContainer } from './widget-container';
-import { getEvent } from '@lce/lowcode-shell';
+import { getEvent } from '@felce/lowcode-shell';
 import { TitledPanelView, TabsPanelView, PanelView } from '../components/widget-views';
 import { ISkeleton } from '../skeleton';
 import { composeTitle } from './utils';
@@ -90,7 +90,10 @@ export class Panel implements IWidget {
 
   @obx.ref public parent?: WidgetContainer;
 
-  constructor(readonly skeleton: ISkeleton, readonly config: IPublicTypePanelConfig) {
+  constructor(
+    readonly skeleton: ISkeleton,
+    readonly config: IPublicTypePanelConfig,
+  ) {
     makeObservable(this);
     const { name, content, props = {} } = config;
     const { hideTitleBar, title, icon, description, help } = props;

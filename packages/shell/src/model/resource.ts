@@ -1,5 +1,5 @@
-import { IPublicModelResource } from '@lce/lowcode-types';
-import { IResource } from '@lce/lowcode-workspace';
+import { IPublicModelResource } from '@felce/lowcode-types';
+import { IResource } from '@felce/lowcode-workspace';
 import { resourceSymbol } from '../symbols';
 
 export class Resource implements IPublicModelResource {

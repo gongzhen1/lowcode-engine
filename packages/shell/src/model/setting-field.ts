@@ -1,4 +1,4 @@
-import { ISettingField, isSettingField } from '@lce/lowcode-designer';
+import { ISettingField, isSettingField } from '@felce/lowcode-designer';
 import {
   IPublicTypeCompositeValue,
   IPublicTypeFieldConfig,
@@ -11,12 +11,12 @@ import {
   IPublicTypeSetValueOptions,
   IPublicModelSettingField,
   IPublicTypeDisposable,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import { settingFieldSymbol } from '../symbols';
 import { Node as ShellNode } from './node';
 import { SettingTopEntry, SettingTopEntry as ShellSettingTopEntry } from './setting-top-entry';
 import { ComponentMeta as ShellComponentMeta } from './component-meta';
-import { isCustomView } from '@lce/lowcode-utils';
+import { isCustomView } from '@felce/lowcode-utils';
 
 export class SettingField implements IPublicModelSettingField {
   private readonly [settingFieldSymbol]: ISettingField;

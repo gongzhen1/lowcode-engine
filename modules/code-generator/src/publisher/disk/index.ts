@@ -1,6 +1,6 @@
 import * as defaultFs from 'fs';
 
-import { ResultDir } from '@lce/lowcode-types';
+import { ResultDir } from '@felce/lowcode-types';
 import { PublisherFactory, IPublisher, IPublisherFactoryParams, PublisherError } from '../../types';
 import { getErrorMessage } from '../../utils/errors';
 import { writeFolder, IFileSystem } from './utils';

@@ -1,5 +1,5 @@
 import { isLocationData } from '../../../src/check-types/is-location-data';
-import { IPublicTypeLocationData } from '@lce/lowcode-types';
+import { IPublicTypeLocationData } from '@felce/lowcode-types';
 
 describe('isLocationData', () => {
   it('should return true when obj is valid location data', () => {

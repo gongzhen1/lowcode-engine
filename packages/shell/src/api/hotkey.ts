@@ -1,11 +1,11 @@
-import { globalContext, Hotkey as InnerHotkey } from '@lce/lowcode-editor-core';
+import { globalContext, Hotkey as InnerHotkey } from '@felce/lowcode-editor-core';
 import { hotkeySymbol } from '../symbols';
 import {
   IPublicTypeDisposable,
   IPublicTypeHotkeyCallback,
   IPublicTypeHotkeyCallbacks,
   IPublicApiHotkey,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 
 const innerHotkeySymbol = Symbol('innerHotkey');
 
@@ -23,7 +23,10 @@ export class Hotkey implements IPublicApiHotkey {
     return this[innerHotkeySymbol];
   }
 
-  constructor(hotkey: InnerHotkey, readonly workspaceMode: boolean = false) {
+  constructor(
+    hotkey: InnerHotkey,
+    readonly workspaceMode: boolean = false,
+  ) {
     this[innerHotkeySymbol] = hotkey;
   }
 

@@ -1,9 +1,9 @@
-import { isLocationChildrenDetail } from '@lce/lowcode-utils';
+import { isLocationChildrenDetail } from '@felce/lowcode-utils';
 import {
   IPublicModelNode,
   IPublicModelDropLocation,
   IPublicModelLocateEvent,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 
 /**
  * 停留检查计时器

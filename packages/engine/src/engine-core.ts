@@ -11,7 +11,7 @@ import {
   Hotkey as InnerHotkey,
   IEditor,
   Command as InnerCommand,
-} from '@lce/lowcode-editor-core';
+} from '@felce/lowcode-editor-core';
 import {
   IPublicTypeEngineOptions,
   IPublicModelDocumentModel,
@@ -21,7 +21,7 @@ import {
   IPublicApiWorkspace,
   IPublicEnumPluginRegisterLevel,
   IPublicModelPluginContext,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import {
   Designer,
   LowCodePluginManager,
@@ -29,13 +29,13 @@ import {
   ILowCodePluginContextApiAssembler,
   PluginPreference,
   IDesigner,
-} from '@lce/lowcode-designer';
-import { Skeleton as InnerSkeleton, registerDefaults } from '@lce/lowcode-editor-skeleton';
+} from '@felce/lowcode-designer';
+import { Skeleton as InnerSkeleton, registerDefaults } from '@felce/lowcode-editor-skeleton';
 import {
   Workspace as InnerWorkspace,
   Workbench as WorkSpaceWorkbench,
   IWorkspace,
-} from '@lce/lowcode-workspace';
+} from '@felce/lowcode-workspace';
 
 import {
   Hotkey,
@@ -52,8 +52,8 @@ import {
   Config,
   CommonUI,
   Command,
-} from '@lce/lowcode-shell';
-import { isPlainObject } from '@lce/lowcode-utils';
+} from '@felce/lowcode-shell';
+import { isPlainObject } from '@felce/lowcode-utils';
 import './modules/live-editing';
 import * as classes from './modules/classes';
 import symbols from './modules/symbols';
@@ -63,8 +63,8 @@ import { defaultPanelRegistry } from './inner-plugins/default-panel-registry';
 import { shellModelFactory } from './modules/shell-model-factory';
 import { builtinHotkey } from './inner-plugins/builtin-hotkey';
 import { defaultContextMenu } from './inner-plugins/default-context-menu';
-import { CommandPlugin } from '@lce/lowcode-plugin-command';
-import { OutlinePlugin } from '@lce/lowcode-plugin-outline-pane';
+import { CommandPlugin } from '@felce/lowcode-plugin-command';
+import { OutlinePlugin } from '@felce/lowcode-plugin-outline-pane';
 
 export * from './modules/skeleton-types';
 export * from './modules/designer-types';

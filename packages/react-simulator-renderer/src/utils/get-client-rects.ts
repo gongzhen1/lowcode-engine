@@ -1,4 +1,4 @@
-import { isElement } from '@lce/lowcode-utils';
+import { isElement } from '@felce/lowcode-utils';
 
 // a range for test TextNode clientRect
 const cycleRange = document.createRange();

@@ -12,7 +12,7 @@ import {
   IPublicTypePropsMap,
   IPublicTypeNodeData,
   IPublicTypeNpmInfo,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import {
   IPageMeta,
   CodeGeneratorError,
@@ -108,7 +108,7 @@ function processChildren(schema: IPublicTypeNodeSchema): void {
 
 function getInternalDep(internalDeps: Record<string, IInternalDependency>, depName: string) {
   const dep = internalDeps[depName];
-  return (dep && dep.type !== InternalDependencyType.PAGE) ? dep : null;
+  return dep && dep.type !== InternalDependencyType.PAGE ? dep : null;
 }
 
 export class SchemaParser implements ISchemaParser {
@@ -145,7 +145,8 @@ export class SchemaParser implements ISchemaParser {
     let containers: IContainerInfo[];
     // Test if this is a lowcode component without container
     if (schema.componentsTree.length > 0) {
-      const firstRoot: IPublicTypeContainerSchema = schema.componentsTree[0] as IPublicTypeContainerSchema;
+      const firstRoot: IPublicTypeContainerSchema = schema
+        .componentsTree[0] as IPublicTypeContainerSchema;
 
       if (!firstRoot.fileName && !isValidContainerType(firstRoot)) {
         // 整个 schema 描述一个容器，且无根节点定义
@@ -166,8 +167,11 @@ export class SchemaParser implements ISchemaParser {
             ...subRoot,
             componentName: getRootComponentName(subRoot.componentName, compDeps),
             containerType: subRoot.componentName,
-            moduleName: ensureValidClassName(subRoot.componentName === ContainerType.Component ?
-              subRoot.fileName : changeCase.pascalCase(subRoot.fileName)),
+            moduleName: ensureValidClassName(
+              subRoot.componentName === ContainerType.Component
+                ? subRoot.fileName
+                : changeCase.pascalCase(subRoot.fileName),
+            ),
           };
           return container;
         });
@@ -265,7 +269,8 @@ export class SchemaParser implements ISchemaParser {
       utils = schema.utils;
       utilsDeps = schema.utils
         .filter(
-          (u): u is { name: string; type: 'npm' | 'tnpm'; content: IPublicTypeNpmInfo } => u.type !== 'function',
+          (u): u is { name: string; type: 'npm' | 'tnpm'; content: IPublicTypeNpmInfo } =>
+            u.type !== 'function',
         )
         .map(
           (u): IExternalDependency => ({

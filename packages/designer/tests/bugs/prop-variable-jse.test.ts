@@ -1,6 +1,6 @@
-import { Editor } from '@lce/lowcode-editor-core';
-import { IPublicEnumTransformStage } from '@lce/lowcode-types';
-import { isPlainObject, isVariable, isJSBlock } from '@lce/lowcode-utils';
+import { Editor } from '@felce/lowcode-editor-core';
+import { IPublicEnumTransformStage } from '@felce/lowcode-types';
+import { isPlainObject, isVariable, isJSBlock } from '@felce/lowcode-utils';
 import '../fixtures/window';
 import { Designer } from '../../src/designer/designer';
 import { DocumentModel } from '../../src/document/document-model';

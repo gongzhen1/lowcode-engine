@@ -5,10 +5,10 @@ import {
   globalContext,
   Hotkey as InnerHotkey,
   Setters as InnerSetters,
-} from '@lce/lowcode-editor-core';
-import { Workspace as InnerWorkspace } from '@lce/lowcode-workspace';
-import { AssetType } from '@lce/lowcode-utils';
-import { IPublicEnumDragObjectType } from '@lce/lowcode-types';
+} from '@felce/lowcode-editor-core';
+import { Workspace as InnerWorkspace } from '@felce/lowcode-workspace';
+import { AssetType } from '@felce/lowcode-utils';
+import { IPublicEnumDragObjectType } from '@felce/lowcode-types';
 import { Project } from '../../src/project/project';
 import pageMetadata from '../fixtures/component-metadata/page';
 import { Designer } from '../../src/designer/designer';
@@ -18,13 +18,13 @@ import { getMockDocument, getMockWindow, getMockEvent, delayObxTick } from '../u
 import { BuiltinSimulatorHost } from '../../src/builtin-simulator/host';
 import { fireEvent } from '@testing-library/react';
 import { shellModelFactory } from '../../../engine/src/modules/shell-model-factory';
-import { Setters, Workspace } from '@lce/lowcode-shell';
+import { Setters, Workspace } from '@felce/lowcode-shell';
 import {
   ILowCodePluginContextApiAssembler,
   ILowCodePluginContextPrivate,
   LowCodePluginManager,
-} from '@lce/lowcode-designer';
-import { Skeleton as InnerSkeleton } from '@lce/lowcode-editor-skeleton';
+} from '@felce/lowcode-designer';
+import { Skeleton as InnerSkeleton } from '@felce/lowcode-editor-skeleton';
 
 describe('Host 测试', () => {
   let editor: Editor;

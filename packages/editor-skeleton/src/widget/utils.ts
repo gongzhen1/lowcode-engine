@@ -1,5 +1,5 @@
-import { IPublicTypeIconType, IPublicTypeTitleContent, TipContent } from '@lce/lowcode-types';
-import { isI18nData, isTitleConfig } from '@lce/lowcode-utils';
+import { IPublicTypeIconType, IPublicTypeTitleContent, TipContent } from '@felce/lowcode-types';
+import { isI18nData, isTitleConfig } from '@felce/lowcode-utils';
 import { isValidElement } from 'react';
 
 export function composeTitle(

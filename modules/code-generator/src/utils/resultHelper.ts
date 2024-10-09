@@ -1,4 +1,4 @@
-import { ResultFile, ResultDir } from '@lce/lowcode-types';
+import { ResultFile, ResultDir } from '@felce/lowcode-types';
 import nm from 'nanomatch';
 
 import { CodeGeneratorError } from '../types/error';

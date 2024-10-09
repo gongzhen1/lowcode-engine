@@ -4,16 +4,16 @@ import {
   IPublicTypeContextMenuItem,
   IPublicApiMaterial,
   IPublicModelPluginContext,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import { IDesigner, INode } from './designer';
 import {
   createContextMenu,
   parseContextMenuAsReactNode,
   parseContextMenuProperties,
   uniqueId,
-} from '@lce/lowcode-utils';
+} from '@felce/lowcode-utils';
 import { Menu } from '@alifd/next';
-import { engineConfig } from '@lce/lowcode-editor-core';
+import { engineConfig } from '@felce/lowcode-editor-core';
 import './context-menu-actions.scss';
 
 export interface IContextMenuActions {

@@ -9,7 +9,7 @@ sidebar_position: 2
 
 ## npm 包与仓库信息
 
-- npm 包：@lce/lowcode-material-parser
+- npm 包：@felce/lowcode-material-parser
 - 仓库：[https://github.com/fe-lce/lowcode-engine](https://github.com/fe-lce/lowcode-engine) 下的 modules/material-parser
 
 ## 原理

@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { observer, engineConfig } from '@lce/lowcode-editor-core';
+import { observer, engineConfig } from '@felce/lowcode-editor-core';
 import { Designer } from '../designer';
 import { BuiltinSimulatorHostView } from '../builtin-simulator';
 import './project.less';

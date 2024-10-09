@@ -1,10 +1,10 @@
-import { IProp as InnerProp } from '@lce/lowcode-designer';
+import { IProp as InnerProp } from '@felce/lowcode-designer';
 import {
   IPublicTypeCompositeValue,
   IPublicEnumTransformStage,
   IPublicModelProp,
   IPublicModelNode,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import { propSymbol } from '../symbols';
 import { Node as ShellNode } from './node';
 

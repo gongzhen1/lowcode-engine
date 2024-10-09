@@ -1,8 +1,8 @@
 import { PureComponent } from 'react';
 import { ResourceView } from './resource-view';
-import { engineConfig, observer } from '@lce/lowcode-editor-core';
+import { engineConfig, observer } from '@felce/lowcode-editor-core';
 import { EditorWindow } from '../window';
-import { BuiltinLoading } from '@lce/lowcode-designer';
+import { BuiltinLoading } from '@felce/lowcode-designer';
 import { DesignerView } from '../inner-plugins/webview';
 
 @observer

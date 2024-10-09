@@ -1,4 +1,4 @@
-import { ResultDir, ResultFile, IPublicTypeProjectSchema } from '@lce/lowcode-types';
+import { ResultDir, ResultFile, IPublicTypeProjectSchema } from '@felce/lowcode-types';
 
 import {
   IModuleBuilder,
@@ -25,7 +25,6 @@ interface IModuleInfo {
 }
 
 export interface ProjectBuilderInitOptions {
-
   /** 项目模板 */
   template: IProjectTemplate;
 
@@ -305,8 +304,9 @@ export class ProjectBuilder implements IProjectBuilder {
     return finalResult;
   }
 
-  private createModuleBuilders(extraContextData: Record<string, unknown> = {}):
-    Record<string, IModuleBuilder> {
+  private createModuleBuilders(
+    extraContextData: Record<string, unknown> = {},
+  ): Record<string, IModuleBuilder> {
     const builders: Record<string, IModuleBuilder> = {};
 
     Object.keys(this.plugins).forEach((pluginName) => {

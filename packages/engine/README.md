@@ -22,10 +22,10 @@ An enterprise-class low-code technology stack with scale-out design
 
 <!-- [![](https://img.shields.io/badge/LowCodeEngine-Check%20Your%20Contribution-orange)](https://opensource.alibaba.com/contribution_leaderboard/details?projectValue=lowcode-engine) -->
 
-[npm-image]: https://img.shields.io/npm/v/@lce/lowcode-engine.svg?style=flat-square
-[npm-url]: http://npmjs.org/package/@lce/lowcode-engine
-[download-image]: https://img.shields.io/npm/dm/@lce/lowcode-engine.svg?style=flat-square
-[download-url]: https://npmjs.org/package/@lce/lowcode-engine
+[npm-image]: https://img.shields.io/npm/v/@felce/lowcode-engine.svg?style=flat-square
+[npm-url]: http://npmjs.org/package/@felce/lowcode-engine
+[download-image]: https://img.shields.io/npm/dm/@felce/lowcode-engine.svg?style=flat-square
+[download-url]: https://npmjs.org/package/@felce/lowcode-engine
 [help-wanted-image]: https://flat.badgen.net/github/label-issues/fe-lce/lowcode-engine/help%20wanted/open
 [help-wanted-url]: https://github.com/fe-lce/lowcode-engine/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22
 [issues-helper-image]: https://img.shields.io/badge/using-issues--helper-orange?style=flat-square
@@ -60,13 +60,13 @@ The engine fully implements the "LowCodeEngine Basic Construction Protocol Speci
 ## 🌰 Usage example
 
 ```bash
-npm install @lce/lowcode-engine --save-dev
+npm install @felce/lowcode-engine --save-dev
 ```
 
 > **TIPS: Only cdn import is supported, npm package is used to provide code hinting capabilities such as typings**
 
 ```ts
-import { init, skeleton } from '@lce/lowcode-engine';
+import { init, skeleton } from '@felce/lowcode-engine';
 
 skeleton.add({
   area: 'topArea',
@@ -91,7 +91,7 @@ init(document.getElementById('lce'));
 ```json
 {
   "externals": {
-    "@lce/lowcode-engine": "var window.AliLowCodeEngine",
+    "@felce/lowcode-engine": "var window.AliLowCodeEngine",
     "@alilc/lowcode-engine-ext": "var window.AliLowCodeEngineExt"
   }
 }
@@ -102,29 +102,29 @@ init(document.getElementById('lce'));
 #### Method 1: alifd cdn
 
 ```html
-https://alifd.alicdn.com/npm/@lce/lowcode-engine@1.0.18/dist/js/engine-core.js
-https://alifd.alicdn.com/npm/@lce/lowcode-react-simulator-renderer@1.0.18/dist/js/react-simulator-renderer.js
+https://alifd.alicdn.com/npm/@felce/lowcode-engine@1.0.18/dist/js/engine-core.js
+https://alifd.alicdn.com/npm/@felce/lowcode-react-simulator-renderer@1.0.18/dist/js/react-simulator-renderer.js
 ```
 
 #### Method 2: uipaas cdn
 
 ```html
-https://uipaas-assets.com/prod/npm/@lce/lowcode-engine/1.0.18/dist/js/engine-core.js
-https://uipaas-assets.com/prod/npm/@lce/lowcode-react-simulator-renderer/1.0.18/dist/js/react-simulator-renderer.js
+https://uipaas-assets.com/prod/npm/@felce/lowcode-engine/1.0.18/dist/js/engine-core.js
+https://uipaas-assets.com/prod/npm/@felce/lowcode-react-simulator-renderer/1.0.18/dist/js/react-simulator-renderer.js
 ```
 
 #### Method 3: unpkg
 
 ```html
-https://unpkg.com/@lce/lowcode-engine@1.0.18/dist/js/engine-core.js
-https://unpkg.com/@lce/lowcode-react-simulator-renderer@1.0.18/dist/js/react-simulator-renderer.js
+https://unpkg.com/@felce/lowcode-engine@1.0.18/dist/js/engine-core.js
+https://unpkg.com/@felce/lowcode-react-simulator-renderer@1.0.18/dist/js/react-simulator-renderer.js
 ```
 
 #### Method 4: jsdelivr
 
 ```html
-https://cdn.jsdelivr.net/npm/@lce/lowcode-engine@1.0.18/dist/js/engine-core.js
-https://cdn.jsdelivr.net/npm/@lce/lowcode-react-simulator-renderer@1.0.18/dist/js/react-simulator-renderer.js
+https://cdn.jsdelivr.net/npm/@felce/lowcode-engine@1.0.18/dist/js/engine-core.js
+https://cdn.jsdelivr.net/npm/@felce/lowcode-react-simulator-renderer@1.0.18/dist/js/react-simulator-renderer.js
 ```
 
 #### Method 5: Use your own cdn

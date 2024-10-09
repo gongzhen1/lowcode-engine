@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import DragResizeEngine from './drag-resize-engine';
-import { observer, computed } from '@lce/lowcode-editor-core';
+import { observer, computed } from '@felce/lowcode-editor-core';
 import classNames from 'classnames';
 import { SimulatorContext } from '../context';
 import { BuiltinSimulatorHost } from '../host';

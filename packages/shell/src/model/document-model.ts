@@ -1,4 +1,4 @@
-import { IDocumentModel as InnerDocumentModel, INode as InnerNode } from '@lce/lowcode-designer';
+import { IDocumentModel as InnerDocumentModel, INode as InnerNode } from '@felce/lowcode-designer';
 import {
   IPublicEnumTransformStage,
   IPublicTypeRootSchema,
@@ -19,8 +19,8 @@ import {
   IPublicTypeDisposable,
   IPublicModelEditor,
   IPublicTypeNodeSchema,
-} from '@lce/lowcode-types';
-import { isDragNodeObject } from '@lce/lowcode-utils';
+} from '@felce/lowcode-types';
+import { isDragNodeObject } from '@felce/lowcode-utils';
 import { Node as ShellNode } from './node';
 import { Selection as ShellSelection } from './selection';
 import { Detecting as ShellDetecting } from './detecting';

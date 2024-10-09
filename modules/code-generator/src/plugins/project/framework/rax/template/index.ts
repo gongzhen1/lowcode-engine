@@ -1,4 +1,4 @@
-import { ResultDir } from '@lce/lowcode-types';
+import { ResultDir } from '@felce/lowcode-types';
 import { IProjectTemplate } from '../../../../../types';
 import { generateStaticFiles } from './static-files';
 

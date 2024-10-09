@@ -1,4 +1,4 @@
-import { IPublicEnumDragObjectType } from '@lce/lowcode-types';
+import { IPublicEnumDragObjectType } from '@felce/lowcode-types';
 import { isObject } from '../is-object';
 
 export function isDragAnyObject(obj: any): boolean {

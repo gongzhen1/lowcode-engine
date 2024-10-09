@@ -12,8 +12,8 @@ sidebar_position: 6
 选中节点后，在选中框的右上角有操作按钮，编排模块默认实现了查看组件直系父节点、复制节点和删除节点按钮外，还可以通过相关 API 来扩展更多操作，如下代码：
 
 ```typescript
-import { plugins } from '@lce/lowcode-engine';
-import { IPublicModelPluginContext, IPublicModelNode } from '@lce/lowcode-types';
+import { plugins } from '@felce/lowcode-engine';
+import { IPublicModelPluginContext, IPublicModelNode } from '@felce/lowcode-types';
 import { Icon, Message } from '@alifd/next';
 
 const addHelloAction = (ctx: IPublicModelPluginContext) => {
@@ -49,8 +49,8 @@ await plugins.register(addHelloAction);
 ### 删除节点操作项
 
 ```typescript
-import { plugins } from '@lce/lowcode-engine';
-import { IPublicModelPluginContext } from '@lce/lowcode-types';
+import { plugins } from '@felce/lowcode-engine';
+import { IPublicModelPluginContext } from '@felce/lowcode-types';
 
 const removeCopyAction = (ctx: IPublicModelPluginContext) => {
   return {

@@ -1,4 +1,4 @@
-import { ResultFile } from '@lce/lowcode-types';
+import { ResultFile } from '@felce/lowcode-types';
 import { createResultFile } from '../../../../../../utils/resultHelper';
 
 export default function getFile(): [string[], ResultFile] {

@@ -1,5 +1,5 @@
 import { compatibleLegaoSchema, getNodeSchemaById, applyActivities } from '../../src/schema';
-import { ActivityType } from '@lce/lowcode-types';
+import { ActivityType } from '@felce/lowcode-types';
 
 describe('compatibleLegaoSchema', () => {
   it('should handle null input', () => {

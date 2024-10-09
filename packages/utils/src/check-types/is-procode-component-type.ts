@@ -1,4 +1,4 @@
-import { IPublicTypeComponentMap, IPublicTypeProCodeComponent } from '@lce/lowcode-types';
+import { IPublicTypeComponentMap, IPublicTypeProCodeComponent } from '@felce/lowcode-types';
 import { isObject } from '../is-object';
 
 export function isProCodeComponentType(

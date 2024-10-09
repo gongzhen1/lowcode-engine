@@ -1,5 +1,5 @@
 import { Component, ReactElement } from 'react';
-import { observer, obx, Title, makeObservable } from '@lce/lowcode-editor-core';
+import { observer, obx, Title, makeObservable } from '@felce/lowcode-editor-core';
 import { Designer } from '../designer';
 import { isDragNodeObject } from '../dragon';
 import { isSimulatorHost } from '../../simulator';
@@ -8,7 +8,7 @@ import {
   IPublicTypeI18nData,
   IPublicTypeNodeSchema,
   IPublicModelDragObject,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 
 type offBinding = () => any;
 

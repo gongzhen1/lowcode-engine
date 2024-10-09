@@ -72,7 +72,7 @@ async function getSchemaAndComponents() {
 
 ```tsx
 import React from 'react';
-import ReactRenderer from '@lce/lowcode-react-renderer';
+import ReactRenderer from '@felce/lowcode-react-renderer';
 
 const SamplePreview = () => {
   return <ReactRenderer schema={schema} components={components} />;

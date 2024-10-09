@@ -9,7 +9,7 @@ import {
   action,
   createModuleEventBus,
   IEventBus,
-} from '@lce/lowcode-editor-core';
+} from '@felce/lowcode-editor-core';
 import {
   IPublicTypeNodeSchema,
   IPublicTypePropsMap,
@@ -27,9 +27,9 @@ import {
   IPublicEnumTransformStage,
   IPublicTypeDisposable,
   IBaseModelNode,
-} from '@lce/lowcode-types';
-import { compatStage, isDOMText, isJSExpression, isNode, isNodeSchema } from '@lce/lowcode-utils';
-import { ISettingTopEntry } from '@lce/lowcode-designer';
+} from '@felce/lowcode-types';
+import { compatStage, isDOMText, isJSExpression, isNode, isNodeSchema } from '@felce/lowcode-utils';
+import { ISettingTopEntry } from '@felce/lowcode-designer';
 import { Props, getConvertedExtraKey, IProps } from './props/props';
 import type { IDocumentModel } from '../document-model';
 import { NodeChildren, INodeChildren } from './node-children';
@@ -380,7 +380,10 @@ export class Node<Schema extends IPublicTypeNodeSchema = IPublicTypeNodeSchema>
     pseudo: false,
   };
 
-  constructor(readonly document: IDocumentModel, nodeSchema: Schema) {
+  constructor(
+    readonly document: IDocumentModel,
+    nodeSchema: Schema,
+  ) {
     makeObservable(this);
     const { componentName, id, children, props, ...extras } = nodeSchema;
     this.id = document.nextId(id);

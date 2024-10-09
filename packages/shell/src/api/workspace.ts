@@ -3,8 +3,8 @@ import {
   IPublicResourceList,
   IPublicTypeDisposable,
   IPublicTypeResourceType,
-} from '@lce/lowcode-types';
-import { IWorkspace } from '@lce/lowcode-workspace';
+} from '@felce/lowcode-types';
+import { IWorkspace } from '@felce/lowcode-workspace';
 import { resourceSymbol, workspaceSymbol } from '../symbols';
 import { Resource as ShellResource, Window as ShellWindow } from '../model';
 import { Plugins } from './plugins';

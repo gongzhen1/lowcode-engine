@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Component, Fragment, ReactElement, PureComponent } from 'react';
 import classNames from 'classnames';
-import { computed, observer, Title, globalLocale } from '@lce/lowcode-editor-core';
-import { IPublicTypeI18nData, IPublicTypeTitleContent } from '@lce/lowcode-types';
-import { isI18nData } from '@lce/lowcode-utils';
+import { computed, observer, Title, globalLocale } from '@felce/lowcode-editor-core';
+import { IPublicTypeI18nData, IPublicTypeTitleContent } from '@felce/lowcode-types';
+import { isI18nData } from '@felce/lowcode-utils';
 import { DropLocation } from '../../designer';
 import { BuiltinSimulatorHost } from '../../builtin-simulator/host';
 import { INode } from '../../document/node';

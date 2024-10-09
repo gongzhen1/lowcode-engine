@@ -1,7 +1,7 @@
-import { obx, makeObservable, IEventBus, createModuleEventBus } from '@lce/lowcode-editor-core';
+import { obx, makeObservable, IEventBus, createModuleEventBus } from '@felce/lowcode-editor-core';
 import { INode, comparePosition, PositionNO } from './node/node';
 import { DocumentModel } from './document-model';
-import { IPublicModelSelection } from '@lce/lowcode-types';
+import { IPublicModelSelection } from '@felce/lowcode-types';
 
 export interface ISelection extends Omit<IPublicModelSelection<INode>, 'node'> {
   containsNode(node: INode, excludeRoot: boolean): boolean;

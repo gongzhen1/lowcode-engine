@@ -1,5 +1,5 @@
 {
-  "name": "@lce/lowcode-react-simulator-renderer",
+  "name": "@felce/lowcode-react-simulator-renderer",
   "version": "1.3.2",
   "description": "react simulator renderer for alibaba lowcode designer",
   "main": "lib/index.js",
@@ -17,10 +17,10 @@
     "test:cov": "build-scripts test --config build.test.json --jest-coverage"
   },
   "dependencies": {
-    "@lce/lowcode-designer": "1.3.2",
-    "@lce/lowcode-react-renderer": "1.3.2",
-    "@lce/lowcode-types": "1.3.2",
-    "@lce/lowcode-utils": "1.3.2",
+    "@felce/lowcode-designer": "1.3.2",
+    "@felce/lowcode-react-renderer": "1.3.2",
+    "@felce/lowcode-types": "1.3.2",
+    "@felce/lowcode-utils": "1.3.2",
     "classnames": "^2.2.6",
     "mobx": "^6.3.0",
     "mobx-react": "^7.2.0",

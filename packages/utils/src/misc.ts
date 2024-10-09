@@ -1,6 +1,6 @@
 import { isI18NObject } from './is-object';
 import { get } from 'lodash';
-import { IPublicEnumTransformStage, IPublicModelComponentMeta } from '@lce/lowcode-types';
+import { IPublicEnumTransformStage, IPublicModelComponentMeta } from '@felce/lowcode-types';
 import { Logger } from './logger';
 
 const logger = new Logger({ level: 'warn', bizName: 'utils' });

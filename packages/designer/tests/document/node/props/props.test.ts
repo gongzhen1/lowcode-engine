@@ -1,7 +1,7 @@
 // @ts-nocheck
 import '../../../fixtures/window';
 import { set, delayObxTick } from '../../../utils';
-import { Editor } from '@lce/lowcode-editor-core';
+import { Editor } from '@felce/lowcode-editor-core';
 import {
   Props,
   getConvertedExtraKey,
@@ -14,7 +14,7 @@ import { Designer } from '../../../../src/designer/designer';
 import { Project } from '../../../../src/project/project';
 import { DocumentModel } from '../../../../src/document/document-model';
 
-import { TransformStage } from '@lce/lowcode-types';
+import { TransformStage } from '@felce/lowcode-types';
 
 const mockOwner = { componentName: 'Page' };
 

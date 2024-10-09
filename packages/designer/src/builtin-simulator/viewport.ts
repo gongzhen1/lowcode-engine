@@ -1,4 +1,4 @@
-import { obx, computed, makeObservable } from '@lce/lowcode-editor-core';
+import { obx, computed, makeObservable } from '@felce/lowcode-editor-core';
 import { Point, ScrollTarget } from '../designer';
 import { AutoFit, IViewport } from '../simulator';
 

@@ -2,7 +2,7 @@ import { isLocationChildrenDetail } from '../../../src/check-types/is-location-c
 import {
   IPublicTypeLocationChildrenDetail,
   IPublicTypeLocationDetailType,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 
 describe('isLocationChildrenDetail', () => {
   it('should return true when obj is IPublicTypeLocationChildrenDetail', () => {

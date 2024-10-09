@@ -4,7 +4,7 @@ import {
   IPublicTypeComponentDescription,
   IPublicTypePackage,
   IPublicTypeRemoteComponentDescription,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 
 // TODO: 该转换逻辑未来需要消化掉
 export function assetsTransform(assets: IPublicTypeAssetsJson) {

@@ -1,4 +1,4 @@
-import { PackageJSON } from '@lce/lowcode-types';
+import { PackageJSON } from '@felce/lowcode-types';
 
 import { COMMON_CHUNK_NAME } from '../../../../../const/generator';
 

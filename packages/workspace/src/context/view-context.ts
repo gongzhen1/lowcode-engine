@@ -1,9 +1,9 @@
-import { computed, makeObservable, obx } from '@lce/lowcode-editor-core';
+import { computed, makeObservable, obx } from '@felce/lowcode-editor-core';
 import {
   IPublicEditorViewConfig,
   IPublicEnumPluginRegisterLevel,
   IPublicTypeEditorView,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import { flow } from 'mobx';
 import { IWorkspace } from '../workspace';
 import { BasicContext, IBasicContext } from './base-context';

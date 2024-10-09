@@ -17,7 +17,7 @@ import {
   tempRendererFactory,
   rendererFactory,
   types,
-} from '@lce/lowcode-renderer-core';
+} from '@felce/lowcode-renderer-core';
 import ConfigProvider from '@alifd/next/lib/config-provider';
 
 window.React = React;

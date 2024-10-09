@@ -4,7 +4,7 @@ import {
   obx,
   createModuleEventBus,
   IEventBus,
-} from '@lce/lowcode-editor-core';
+} from '@felce/lowcode-editor-core';
 import { BuiltinSimulatorHost } from './host';
 import { BuiltinSimulatorRenderer, isSimulatorRenderer } from './renderer';
 
@@ -37,7 +37,10 @@ export default class ResourceConsumer<T = any> {
 
   private resolveFirst?: (resolve?: any) => void;
 
-  constructor(provider: () => T, private consumer?: RendererConsumer<T>) {
+  constructor(
+    provider: () => T,
+    private consumer?: RendererConsumer<T>,
+  ) {
     makeObservable(this);
     this._providing = autorun(() => {
       this._data = provider();

@@ -1,11 +1,11 @@
 import { Component, isValidElement, ReactNode } from 'react';
 import classNames from 'classnames';
-import { createIcon, isI18nData, isTitleConfig } from '@lce/lowcode-utils';
+import { createIcon, isI18nData, isTitleConfig } from '@felce/lowcode-utils';
 import {
   IPublicTypeI18nData,
   IPublicTypeTitleConfig,
   IPublicTypeTitleProps,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import { intl } from '../../intl';
 import { Tip } from '../tip';
 import './title.less';

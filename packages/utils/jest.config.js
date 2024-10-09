@@ -11,6 +11,6 @@ const jestConfig = {
 
 // 只对本仓库内的 pkg 做 mapping
 jestConfig.moduleNameMapper = {};
-jestConfig.moduleNameMapper[`^@lce/lowcode\\-(${pkgNames.join('|')})$`] = '<rootDir>/../$1/src';
+jestConfig.moduleNameMapper[`^@felce/lowcode\\-(${pkgNames.join('|')})$`] = '<rootDir>/../$1/src';
 
 module.exports = jestConfig;

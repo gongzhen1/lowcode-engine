@@ -1,5 +1,5 @@
-import { engineConfig } from '@lce/lowcode-editor-core';
-import { getLogger } from '@lce/lowcode-utils';
+import { engineConfig } from '@felce/lowcode-editor-core';
+import { getLogger } from '@felce/lowcode-utils';
 import {
   ILowCodePluginRuntime,
   ILowCodePluginManager,
@@ -18,7 +18,7 @@ import {
   IPublicTypePluginRegisterOptions,
   IPublicTypePreferenceValueType,
   IPublicTypePlugin,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 
 const logger = getLogger({ level: 'warn', bizName: 'designer:pluginManager' });
 

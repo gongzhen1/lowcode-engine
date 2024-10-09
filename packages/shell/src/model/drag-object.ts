@@ -4,7 +4,7 @@ import {
   IPublicModelDragObject as InnerDragObject,
   IPublicTypeDragNodeDataObject,
   IPublicTypeNodeSchema,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import { Node } from './node';
 
 export class DragObject implements IPublicModelDragObject {

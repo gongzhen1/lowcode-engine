@@ -91,7 +91,7 @@ event.emit(eventName);
 在 A setter 中进行事件注册：
 
 ```typescript
-import { event } from '@lce/lowcode-engine';
+import { event } from '@felce/lowcode-engine';
 
 const SETTER_NAME = 'SetterA';
 
@@ -116,7 +116,7 @@ class SetterA extends React.Component {
 在 B setter 中触发事件，来完成通信：
 
 ```typescript
-import { event } from '@lce/lowcode-engine';
+import { event } from '@felce/lowcode-engine';
 
 class SetterB extends React.Component {
   bindFunction = () => {

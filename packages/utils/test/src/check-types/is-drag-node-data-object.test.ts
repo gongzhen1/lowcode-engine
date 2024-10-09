@@ -1,4 +1,4 @@
-import { IPublicEnumDragObjectType, IPublicTypeDragNodeDataObject } from '@lce/lowcode-types';
+import { IPublicEnumDragObjectType, IPublicTypeDragNodeDataObject } from '@felce/lowcode-types';
 import { isDragNodeDataObject } from '../../../src/check-types/is-drag-node-data-object';
 
 describe('isDragNodeDataObject', () => {

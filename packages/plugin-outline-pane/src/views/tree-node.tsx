@@ -4,7 +4,7 @@ import TreeNode from '../controllers/tree-node';
 import TreeTitle from './tree-title';
 import TreeBranches from './tree-branches';
 import { IconEyeClose } from '../icons/eye-close';
-import { IPublicModelModalNodesManager, IPublicTypeDisposable } from '@lce/lowcode-types';
+import { IPublicModelModalNodesManager, IPublicTypeDisposable } from '@felce/lowcode-types';
 import { IOutlinePanelPluginContext } from '../controllers/tree-master';
 
 class ModalTreeNodeView extends PureComponent<

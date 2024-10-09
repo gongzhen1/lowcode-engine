@@ -13,11 +13,11 @@ import {
   IPublicTypeComponentDescription,
   IPublicTypeRemoteComponentDescription,
   GlobalEvent,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import { engineConfig } from './config';
 import { globalLocale } from './intl';
 import { obx } from './utils';
-import { IPublicTypeAssetsJson, AssetLoader } from '@lce/lowcode-utils';
+import { IPublicTypeAssetsJson, AssetLoader } from '@felce/lowcode-utils';
 import { assetsTransform } from './utils/assets-transform';
 
 EventEmitter.defaultMaxListeners = 100;
@@ -95,7 +95,10 @@ export class Editor extends EventEmitter implements IEditor {
     }>
   >();
 
-  constructor(readonly viewName: string = 'global', readonly workspaceMode: boolean = false) {
+  constructor(
+    readonly viewName: string = 'global',
+    readonly workspaceMode: boolean = false,
+  ) {
     // eslint-disable-next-line constructor-super
     super();
     // set global emitter maxListeners

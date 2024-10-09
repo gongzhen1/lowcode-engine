@@ -1,11 +1,16 @@
 import {
   IPublicTypeCompositeArray,
-  IPublicTypeCompositeObject, IPublicTypeJSExpression,
-  IPublicTypeJSFunction, IPublicTypeJSONArray,
-  IPublicTypeJSONObject, IPublicTypeJSSlot, IPublicTypeNodeDataType,
-  IPublicTypeProjectSchema, ResultDir,
+  IPublicTypeCompositeObject,
+  IPublicTypeJSExpression,
+  IPublicTypeJSFunction,
+  IPublicTypeJSONArray,
+  IPublicTypeJSONObject,
+  IPublicTypeJSSlot,
+  IPublicTypeNodeDataType,
+  IPublicTypeProjectSchema,
+  ResultDir,
   ResultFile,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 
 import type { ProjectBuilderInitOptions } from '../generator/ProjectBuilder';
 import { IScopeBindings } from '../utils/ScopeBindings';
@@ -63,7 +68,6 @@ export interface ICodeStruct extends IBaseCodeStruct {
 
 /** 上下文数据，用来在插件之间共享一些数据 */
 export interface IContextData extends IProjectBuilderOptions {
-
   /**
    * 其他自定义数据
    * （三方自定义插件也可以在此放一些数据，建议起个长一点的名称，用自己的插件名做前缀，以防冲突）
@@ -109,7 +113,6 @@ export interface IModuleBuilder {
  * @interface ICodeGenerator
  */
 export interface ICodeGenerator {
-
   /**
    * 出码接口，把 Schema 转换成代码文件系统描述
    *
@@ -140,7 +143,6 @@ export interface IProjectPlugins {
 }
 
 export interface IProjectBuilderOptions {
-
   /** 是否处于严格模式 (默认：否) */
   inStrictMode?: boolean;
 
@@ -178,8 +180,9 @@ export interface IProjectBuilder {
 }
 
 /** 项目级别的前置处理器 */
-export type ProjectPreProcessor = (schema: IPublicTypeProjectSchema) =>
-  Promise<IPublicTypeProjectSchema> | IPublicTypeProjectSchema;
+export type ProjectPreProcessor = (
+  schema: IPublicTypeProjectSchema,
+) => Promise<IPublicTypeProjectSchema> | IPublicTypeProjectSchema;
 
 export interface ProjectPostProcessorOptions {
   parseResult?: IParseResult;

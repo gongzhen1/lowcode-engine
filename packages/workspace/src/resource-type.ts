@@ -1,4 +1,4 @@
-import { IPublicTypeResourceType } from '@lce/lowcode-types';
+import { IPublicTypeResourceType } from '@felce/lowcode-types';
 
 export interface IResourceType
   extends Omit<IPublicTypeResourceType, 'resourceName' | 'resourceType'> {

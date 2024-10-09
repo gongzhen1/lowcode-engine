@@ -7,7 +7,7 @@ import {
   IPublicModelSensor,
   IPublicTypeNodeInstance,
   IPublicTypePackage,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import { Point, ScrollTarget, ILocateEvent, IDesigner } from './designer';
 import { BuiltinSimulatorRenderer } from './builtin-simulator/renderer';
 import { INode } from './document';

@@ -1,4 +1,4 @@
-import { getLogger } from '@lce/lowcode-utils';
+import { getLogger } from '@felce/lowcode-utils';
 import baseRendererFactory from './base';
 import { IBaseRendererProps, IBaseRenderComponent } from '../types';
 

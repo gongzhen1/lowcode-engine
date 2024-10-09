@@ -8,15 +8,15 @@ import {
   globalContext,
   engineConfig,
   makeObservable,
-} from '@lce/lowcode-editor-core';
-import { Node, SettingField, isSettingField, INode } from '@lce/lowcode-designer';
+} from '@felce/lowcode-editor-core';
+import { Node, SettingField, isSettingField, INode } from '@felce/lowcode-designer';
 import classNames from 'classnames';
 import { SettingsMain } from './main';
 import { SettingsPane } from './settings-pane';
 import { StageBox } from '../stage-box';
 import { SkeletonContext } from '../../context';
 import { intl } from '../../locale';
-import { createIcon } from '@lce/lowcode-utils';
+import { createIcon } from '@felce/lowcode-utils';
 
 interface ISettingsPrimaryPaneProps {
   engineEditor: Editor;

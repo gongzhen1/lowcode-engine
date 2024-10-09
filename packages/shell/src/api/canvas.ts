@@ -9,8 +9,8 @@ import {
   IPublicModelDragon,
   IPublicModelActiveTracker,
   IPublicModelClipboard,
-} from '@lce/lowcode-types';
-import { ScrollTarget as InnerScrollTarget, IDesigner } from '@lce/lowcode-designer';
+} from '@felce/lowcode-types';
+import { ScrollTarget as InnerScrollTarget, IDesigner } from '@felce/lowcode-designer';
 import { editorSymbol, designerSymbol, nodeSymbol } from '../symbols';
 import {
   Dragon as ShellDragon,
@@ -47,7 +47,10 @@ export class Canvas implements IPublicApiCanvas {
     return this[clipboardInstanceSymbol];
   }
 
-  constructor(editor: IPublicModelEditor, readonly workspaceMode: boolean = false) {
+  constructor(
+    editor: IPublicModelEditor,
+    readonly workspaceMode: boolean = false,
+  ) {
     this[editorSymbol] = editor;
     this[clipboardInstanceSymbol] = new ShellClipboard();
   }

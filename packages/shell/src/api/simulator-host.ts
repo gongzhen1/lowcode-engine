@@ -1,10 +1,10 @@
-import { BuiltinSimulatorHost } from '@lce/lowcode-designer';
+import { BuiltinSimulatorHost } from '@felce/lowcode-designer';
 import { simulatorHostSymbol, nodeSymbol } from '../symbols';
 import {
   IPublicApiSimulatorHost,
   IPublicModelNode,
   IPublicModelSimulatorRender,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import { SimulatorRender } from '../model/simulator-render';
 
 export class SimulatorHost implements IPublicApiSimulatorHost {

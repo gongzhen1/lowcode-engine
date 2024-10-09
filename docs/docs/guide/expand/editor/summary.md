@@ -27,7 +27,7 @@ sidebar_position: 0
 通过配置注入物料，这里的配置是物料中心根据物料资产包协议生成的，后面“物料扩展”章节会有详细说明。
 
 ```typescript
-import { material } from '@lce/lowcode-engine';
+import { material } from '@felce/lowcode-engine';
 // 假设您已把物料配置在本地
 import assets from './assets.json';
 
@@ -38,8 +38,8 @@ material.setAssets(assets);
 也可以通过异步加载物料中心上的物料。
 
 ```typescript
-import { material, plugins } from '@lce/lowcode-engine';
-import { IPublicModelPluginContext } from '@lce/lowcode-types';
+import { material, plugins } from '@felce/lowcode-engine';
+import { IPublicModelPluginContext } from '@felce/lowcode-types';
 
 // 动态加载 assets
 plugins
@@ -68,8 +68,8 @@ plugins
 可以通过 npm 包的方式引入社区插件，配置如下所示：
 
 ```typescript
-import { plugins } from '@lce/lowcode-engine';
-import { IPublicModelPluginContext } from '@lce/lowcode-types';
+import { plugins } from '@felce/lowcode-engine';
+import { IPublicModelPluginContext } from '@felce/lowcode-types';
 import PluginIssueTracker from '@alilc/lowcode-plugin-issue-tracker';
 
 // 注册一个提 issue 组件到您的编辑器中，方位默认在左栏下侧
@@ -83,7 +83,7 @@ plugins.register(PluginIssueTracker).catch((err) => console.error(err));
 低代码引擎默认内置了设置器（详见“配置设置器”章节）。您可以通过 npm 包的方式引入自定义的设置器，配置如下所示：
 
 ```typescript
-import { setters } from '@lce/lowcode-engine';
+import { setters } from '@felce/lowcode-engine';
 // 假设您自定义了一个 setter
 import MuxMonacoEditorSetter from './components/setters/MuxMonacoEditorSetter';
 

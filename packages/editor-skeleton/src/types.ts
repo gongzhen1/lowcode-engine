@@ -6,7 +6,7 @@ import {
   IPublicTypePanelDockProps,
   IPublicTypePanelConfigProps,
   IPublicTypePanelConfig,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import { IWidget } from './widget/widget';
 
 export interface WidgetConfig extends IPublicTypeWidgetBaseConfig {

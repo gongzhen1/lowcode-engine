@@ -1,4 +1,4 @@
-import { IPublicTypeJSSlot } from '@lce/lowcode-types';
+import { IPublicTypeJSSlot } from '@felce/lowcode-types';
 import { isObject } from '../is-object';
 
 export function isJSSlot(data: any): data is IPublicTypeJSSlot {

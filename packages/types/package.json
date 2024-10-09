@@ -1,5 +1,5 @@
 {
-  "name": "@lce/lowcode-types",
+  "name": "@felce/lowcode-types",
   "version": "1.3.2",
   "description": "Types for Ali lowCode engine",
   "files": [

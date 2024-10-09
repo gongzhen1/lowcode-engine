@@ -1,7 +1,7 @@
 import { ReactNode, createElement } from 'react';
-import { makeObservable, obx } from '@lce/lowcode-editor-core';
-import { uniqueId, createContent } from '@lce/lowcode-utils';
-import { getEvent } from '@lce/lowcode-shell';
+import { makeObservable, obx } from '@felce/lowcode-editor-core';
+import { uniqueId, createContent } from '@felce/lowcode-utils';
+import { getEvent } from '@felce/lowcode-shell';
 import { DockConfig } from '../types';
 import { ISkeleton } from '../skeleton';
 import { DockView, WidgetView } from '../components/widget-views';
@@ -59,7 +59,10 @@ export class Dock implements IWidget {
     return this._body;
   }
 
-  constructor(readonly skeleton: ISkeleton, readonly config: DockConfig) {
+  constructor(
+    readonly skeleton: ISkeleton,
+    readonly config: DockConfig,
+  ) {
     makeObservable(this);
     const { props = {}, name } = config;
     this.name = name;

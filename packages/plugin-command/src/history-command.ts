@@ -1,4 +1,4 @@
-import { IPublicModelPluginContext, IPublicTypePlugin } from '@lce/lowcode-types';
+import { IPublicModelPluginContext, IPublicTypePlugin } from '@felce/lowcode-types';
 
 export const historyCommand: IPublicTypePlugin = (ctx: IPublicModelPluginContext) => {
   const { command, project } = ctx;

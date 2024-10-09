@@ -90,8 +90,8 @@ export interface IPublicApiMaterial {
    * @param action
    * @example
    * ```ts
-   * import { plugins } from '@lce/lowcode-engine';
-   * import { IPublicModelPluginContext } from '@lce/lowcode-types';
+   * import { plugins } from '@felce/lowcode-engine';
+   * import { IPublicModelPluginContext } from '@felce/lowcode-types';
    *
    * const removeCopyAction = (ctx: IPublicModelPluginContext) => {
    *   return {

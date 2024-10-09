@@ -1,7 +1,7 @@
 import {
   IPublicTypeLocationChildrenDetail,
   IPublicTypeLocationDetailType,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import { isObject } from '../is-object';
 
 export function isLocationChildrenDetail(obj: any): obj is IPublicTypeLocationChildrenDetail {

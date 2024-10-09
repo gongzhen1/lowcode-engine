@@ -156,7 +156,7 @@ export default class AltStringSetter extends React.PureComponent<AltStringSetter
 我们采用 emit 来进行相互之前的通信，首先我们在 A setter 中进行事件注册：
 
 ```javascript
-import { event } from '@lce/lowcode-engine';
+import { event } from '@felce/lowcode-engine';
 
 componentDidMount() {
 		// 这里由于面板上会有多个 setter，这里我用 field.id 来标记 setter 名
@@ -177,7 +177,7 @@ componentWillUnmount() {
 在 B setter 中触发事件，来完成通信：
 
 ```javascript
-import { event } from '@lce/lowcode-engine';
+import { event } from '@felce/lowcode-engine';
 
 bindFunction = () => {
   const { field, value } = this.props;

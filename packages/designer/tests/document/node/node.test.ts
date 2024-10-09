@@ -1,9 +1,9 @@
 // @ts-nocheck
 import '../../fixtures/window';
 import { set } from '../../utils';
-import { Editor, globalContext, Setters as InnerSetters } from '@lce/lowcode-editor-core';
+import { Editor, globalContext, Setters as InnerSetters } from '@felce/lowcode-editor-core';
 import { Project } from '../../../src/project/project';
-import { Workspace as InnerWorkspace } from '@lce/lowcode-workspace';
+import { Workspace as InnerWorkspace } from '@felce/lowcode-workspace';
 import { DocumentModel } from '../../../src/document/document-model';
 import {
   isRootNode,
@@ -23,8 +23,8 @@ import rootHeaderMetadata from '../../fixtures/component-metadata/root-header';
 import rootContentMetadata from '../../fixtures/component-metadata/root-content';
 import rootFooterMetadata from '../../fixtures/component-metadata/root-footer';
 import { shellModelFactory } from '../../../../engine/src/modules/shell-model-factory';
-import { isNode } from '@lce/lowcode-utils';
-import { Setters } from '@lce/lowcode-shell';
+import { isNode } from '@felce/lowcode-utils';
+import { Setters } from '@felce/lowcode-shell';
 
 describe('Node 方法测试', () => {
   let editor: Editor;

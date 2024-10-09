@@ -4,15 +4,15 @@ import {
   makeObservable,
   IEventBus,
   createModuleEventBus,
-} from '@lce/lowcode-editor-core';
+} from '@felce/lowcode-editor-core';
 import { Node, INode } from './node';
 import {
   IPublicTypeNodeData,
   IPublicModelNodeChildren,
   IPublicEnumTransformStage,
   IPublicTypeDisposable,
-} from '@lce/lowcode-types';
-import { shallowEqual, compatStage, isNodeSchema } from '@lce/lowcode-utils';
+} from '@felce/lowcode-types';
+import { shallowEqual, compatStage, isNodeSchema } from '@felce/lowcode-utils';
 import { foreachReverse } from '../../utils/tree';
 import { NodeRemoveOptions } from '../../types';
 

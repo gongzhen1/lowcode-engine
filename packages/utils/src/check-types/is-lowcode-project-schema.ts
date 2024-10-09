@@ -1,4 +1,4 @@
-import { IPublicTypeComponentSchema, IPublicTypeProjectSchema } from '@lce/lowcode-types';
+import { IPublicTypeComponentSchema, IPublicTypeProjectSchema } from '@felce/lowcode-types';
 import { isComponentSchema } from './is-component-schema';
 import { isObject } from '../is-object';
 

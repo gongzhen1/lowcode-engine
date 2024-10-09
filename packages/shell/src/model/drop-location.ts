@@ -1,11 +1,11 @@
-import { IDropLocation as InnerDropLocation } from '@lce/lowcode-designer';
+import { IDropLocation as InnerDropLocation } from '@felce/lowcode-designer';
 import { dropLocationSymbol } from '../symbols';
 import { Node as ShellNode } from './node';
 import {
   IPublicModelDropLocation,
   IPublicTypeLocationDetail,
   IPublicModelLocateEvent,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 
 export class DropLocation implements IPublicModelDropLocation {
   private readonly [dropLocationSymbol]: InnerDropLocation;

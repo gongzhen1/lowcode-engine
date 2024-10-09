@@ -1,10 +1,10 @@
 import { get as lodashGet } from 'lodash';
-import { isPlainObject } from '@lce/lowcode-utils';
+import { isPlainObject } from '@felce/lowcode-utils';
 import {
   IPublicTypeEngineOptions,
   IPublicModelEngineConfig,
   IPublicModelPreference,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import { getLogger } from './utils/logger';
 import Preference from './utils/preference';
 

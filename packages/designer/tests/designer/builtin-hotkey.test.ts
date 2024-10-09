@@ -1,14 +1,14 @@
 import '../fixtures/window';
-import { Editor, globalContext, Hotkey as InnerHotkey } from '@lce/lowcode-editor-core';
+import { Editor, globalContext, Hotkey as InnerHotkey } from '@felce/lowcode-editor-core';
 import { Designer } from '../../src/designer/designer';
 import formSchema from '../fixtures/schema/form';
 import { fireEvent } from '@testing-library/react';
 import { builtinHotkey } from '../../../engine/src/inner-plugins/builtin-hotkey';
 import { shellModelFactory } from '../../../engine/src/modules/shell-model-factory';
-import { ILowCodePluginContextPrivate, LowCodePluginManager } from '@lce/lowcode-designer';
-import { IPublicApiPlugins } from '@lce/lowcode-types';
-import { Logger, Project, Canvas } from '@lce/lowcode-shell';
-import { Workspace } from '@lce/lowcode-workspace';
+import { ILowCodePluginContextPrivate, LowCodePluginManager } from '@felce/lowcode-designer';
+import { IPublicApiPlugins } from '@felce/lowcode-types';
+import { Logger, Project, Canvas } from '@felce/lowcode-shell';
+import { Workspace } from '@felce/lowcode-workspace';
 
 const editor = new Editor();
 const workspace = new Workspace();

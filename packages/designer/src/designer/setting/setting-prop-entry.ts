@@ -5,7 +5,7 @@ import {
   runInAction,
   IEventBus,
   createModuleEventBus,
-} from '@lce/lowcode-editor-core';
+} from '@felce/lowcode-editor-core';
 import {
   GlobalEvent,
   IPublicApiSetters,
@@ -13,8 +13,8 @@ import {
   IPublicModelSettingField,
   IPublicTypeFieldExtraProps,
   IPublicTypeSetValueOptions,
-} from '@lce/lowcode-types';
-import { uniqueId, isJSExpression } from '@lce/lowcode-utils';
+} from '@felce/lowcode-types';
+import { uniqueId, isJSExpression } from '@felce/lowcode-utils';
 import { ISettingEntry } from './setting-entry-type';
 import { INode } from '../../document';
 import type { IComponentMeta } from '../../component-meta';

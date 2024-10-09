@@ -1,4 +1,4 @@
-import { IPublicTypeComponentMetadata } from '@lce/lowcode-types';
+import { IPublicTypeComponentMetadata } from '@felce/lowcode-types';
 export default {
   componentName: 'RootFooter',
   npm: {

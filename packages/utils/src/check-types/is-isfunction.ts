@@ -1,4 +1,4 @@
-import { IPublicTypeJSFunction } from '@lce/lowcode-types';
+import { IPublicTypeJSFunction } from '@felce/lowcode-types';
 import { isObject } from '../is-object';
 
 interface InnerJsFunction {

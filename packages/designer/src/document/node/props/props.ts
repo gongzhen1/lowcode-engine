@@ -1,12 +1,12 @@
-import { computed, makeObservable, obx, action } from '@lce/lowcode-editor-core';
+import { computed, makeObservable, obx, action } from '@felce/lowcode-editor-core';
 import {
   IPublicTypePropsList,
   IPublicTypeCompositeValue,
   IPublicEnumTransformStage,
   IBaseModelProps,
-} from '@lce/lowcode-types';
-import type { IPublicTypePropsMap } from '@lce/lowcode-types';
-import { uniqueId, compatStage } from '@lce/lowcode-utils';
+} from '@felce/lowcode-types';
+import type { IPublicTypePropsMap } from '@felce/lowcode-types';
+import { uniqueId, compatStage } from '@felce/lowcode-utils';
 import { Prop, UNSET } from './prop';
 import type { IProp } from './prop';
 import { INode } from '../node';

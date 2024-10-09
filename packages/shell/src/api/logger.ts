@@ -1,5 +1,5 @@
-import { getLogger } from '@lce/lowcode-utils';
-import { IPublicApiLogger, ILoggerOptions } from '@lce/lowcode-types';
+import { getLogger } from '@felce/lowcode-utils';
+import { IPublicApiLogger, ILoggerOptions } from '@felce/lowcode-types';
 
 const innerLoggerSymbol = Symbol('logger');
 

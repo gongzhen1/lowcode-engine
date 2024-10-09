@@ -1,9 +1,9 @@
 import type {
   IDocumentModel as InnerDocumentModel,
   IHistory as InnerHistory,
-} from '@lce/lowcode-designer';
+} from '@felce/lowcode-designer';
 import { historySymbol, documentSymbol } from '../symbols';
-import { IPublicModelHistory, IPublicTypeDisposable } from '@lce/lowcode-types';
+import { IPublicModelHistory, IPublicTypeDisposable } from '@felce/lowcode-types';
 
 export class History implements IPublicModelHistory {
   private readonly [documentSymbol]: InnerDocumentModel;

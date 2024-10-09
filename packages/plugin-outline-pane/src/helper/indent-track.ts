@@ -1,5 +1,5 @@
-import { isLocationChildrenDetail } from '@lce/lowcode-utils';
-import { IPublicModelDropLocation, IPublicModelNode } from '@lce/lowcode-types';
+import { isLocationChildrenDetail } from '@felce/lowcode-utils';
+import { IPublicModelDropLocation, IPublicModelNode } from '@felce/lowcode-types';
 
 const IndentSensitive = 15;
 export class IndentTrack {

@@ -1,4 +1,4 @@
-import { IPublicModelPluginContext, IPublicTypePlugin } from '@lce/lowcode-types';
+import { IPublicModelPluginContext, IPublicTypePlugin } from '@felce/lowcode-types';
 import { nodeCommand } from './node-command';
 import { historyCommand } from './history-command';
 

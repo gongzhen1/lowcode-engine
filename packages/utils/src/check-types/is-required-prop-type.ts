@@ -1,4 +1,4 @@
-import { IPublicTypePropType, IPublicTypeRequiredType } from '@lce/lowcode-types';
+import { IPublicTypePropType, IPublicTypeRequiredType } from '@felce/lowcode-types';
 
 export function isRequiredPropType(
   propType: IPublicTypePropType,

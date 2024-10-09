@@ -9,7 +9,7 @@ import * as path from 'path';
 import { getErrorMessage } from '../utils/errors';
 import CodeGenerator from '..';
 import type { IProjectBuilder } from '..';
-import type { IPublicTypeProjectSchema } from '@lce/lowcode-types';
+import type { IPublicTypeProjectSchema } from '@felce/lowcode-types';
 
 /**
  * 执行出码 CLI 命令
@@ -48,12 +48,9 @@ export async function run(
       try {
         solutionOptions = JSON.parse(options.solutionOptions);
       } catch (err: any) {
-        throw new Error(
-          `solution options parse error, error message is "${err.message}"`,
-        );
+        throw new Error(`solution options parse error, error message is "${err.message}"`);
       }
     }
-
 
     // 读取 Schema
     const schema = await loadSchemaFile(schemaFile);
@@ -89,7 +86,7 @@ export async function run(
 async function getProjectBuilderFactory(
   solution: string,
   { quiet }: { quiet?: boolean },
-): Promise<(options: {[prop: string]: any}) => IProjectBuilder> {
+): Promise<(options: { [prop: string]: any }) => IProjectBuilder> {
   if (solution in CodeGenerator.solutions) {
     return CodeGenerator.solutions[solution as 'icejs' | 'rax'];
   }
@@ -109,9 +106,11 @@ async function getProjectBuilderFactory(
   }
 
   // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const solutionExports = require(!isLocalSolution(solution)
-    ? solutionPackageName
-    : `${path.isAbsolute(solution) ? solution : path.join(process.cwd(), solution)}`);
+  const solutionExports = require(
+    !isLocalSolution(solution)
+      ? solutionPackageName
+      : `${path.isAbsolute(solution) ? solution : path.join(process.cwd(), solution)}`,
+  );
 
   const projectBuilderFactory =
     solutionExports.createProjectBuilder ||

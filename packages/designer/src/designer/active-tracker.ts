@@ -1,7 +1,7 @@
 import { INode } from '../document/node/node';
-import { obx, IEventBus, createModuleEventBus } from '@lce/lowcode-editor-core';
-import { IPublicTypeActiveTarget, IPublicModelActiveTracker } from '@lce/lowcode-types';
-import { isNode } from '@lce/lowcode-utils';
+import { obx, IEventBus, createModuleEventBus } from '@felce/lowcode-editor-core';
+import { IPublicTypeActiveTarget, IPublicModelActiveTracker } from '@felce/lowcode-types';
+import { isNode } from '@felce/lowcode-utils';
 
 export interface IActiveTracker extends Omit<IPublicModelActiveTracker, 'track' | 'onChange'> {
   _target: ActiveTarget | INode;

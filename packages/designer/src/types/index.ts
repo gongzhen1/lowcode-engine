@@ -3,7 +3,7 @@ import {
   compatibleLegaoSchema,
   getNodeSchemaById,
   isNodeSchema,
-} from '@lce/lowcode-utils';
+} from '@felce/lowcode-utils';
 
 export type NodeRemoveOptions = {
   suppressRemoveEvent?: boolean;

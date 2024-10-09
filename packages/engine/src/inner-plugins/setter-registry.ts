@@ -1,4 +1,4 @@
-import { IPublicModelPluginContext } from '@lce/lowcode-types';
+import { IPublicModelPluginContext } from '@felce/lowcode-types';
 
 // 注册默认的 setters
 export const setterRegistry = (ctx: IPublicModelPluginContext) => {

@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { isJSExpression, isJSFunction } from '@lce/lowcode-types';
+import { isJSExpression, isJSFunction } from '@felce/lowcode-types';
 
 import { CLASS_DEFINE_CHUNK_NAME } from '../../../const/generator';
 import { RAX_CHUNK_NAME } from './const';

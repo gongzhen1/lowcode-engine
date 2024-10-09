@@ -1,4 +1,4 @@
-import { IPublicTypeSetterConfig } from '@lce/lowcode-types';
+import { IPublicTypeSetterConfig } from '@felce/lowcode-types';
 import { isCustomView } from './is-custom-view';
 import { isObject } from '../is-object';
 

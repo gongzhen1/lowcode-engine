@@ -10,7 +10,7 @@ sidebar_position: 0
 ### 简单示例
 
 ```jsx
-import ReactRenderer from '@lce/lowcode-react-renderer';
+import ReactRenderer from '@felce/lowcode-react-renderer';
 import ReactDOM from 'react-dom';
 import { Button } from '@alifd/next';
 
@@ -51,14 +51,14 @@ ReactDOM.render(
 **step 1：在设计器中获取组件列表**
 
 ```typescript
-import { material, project } from '@lce/lowcode-engine';
+import { material, project } from '@felce/lowcode-engine';
 const packages = material.getAssets().packages;
 ```
 
 **step 2：在设计器中获取当前配置页面的 schema**
 
 ```typescript
-import { material, project } from '@lce/lowcode-engine';
+import { material, project } from '@felce/lowcode-engine';
 
 const schema = project.exportSchema();
 ```
@@ -86,8 +86,8 @@ const { componentsMap: componentsMapArray, componentsTree } = projectSchema;
 import ReactDOM from 'react-dom';
 import React, { useState } from 'react';
 import { Loading } from '@alifd/next';
-import { buildComponents, assetBundle, AssetLevel, AssetLoader } from '@lce/lowcode-utils';
-import ReactRenderer from '@lce/lowcode-react-renderer';
+import { buildComponents, assetBundle, AssetLevel, AssetLoader } from '@felce/lowcode-utils';
+import ReactRenderer from '@felce/lowcode-react-renderer';
 import { injectComponents } from '@alilc/lowcode-plugin-inject';
 
 const SamplePreview = () => {
@@ -287,7 +287,7 @@ export default {
 ```
 
 ```typescript
-import ReactRenderer from '@lce/lowcode-react-renderer';
+import ReactRenderer from '@felce/lowcode-react-renderer';
 import ReactDOM from 'react-dom';
 import { Button } from '@alifd/next';
 import schema from './schema';

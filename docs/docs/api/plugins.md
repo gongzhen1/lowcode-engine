@@ -32,8 +32,8 @@ async function register(
 #### 简单示例
 
 ```typescript
-import { plugins } from '@lce/lowcode-engine';
-import { IPublicModelPluginContext } from '@lce/lowcode-types';
+import { plugins } from '@felce/lowcode-engine';
+import { IPublicModelPluginContext } from '@felce/lowcode-types';
 
 const builtinPluginRegistry = (ctx: IPublicModelPluginContext) => {
   return {
@@ -67,8 +67,8 @@ await plugins.register(builtinPluginRegistry);
 #### 使用 exports 示例
 
 ```typescript
-import { plugins } from '@lce/lowcode-engine';
-import { IPublicModelPluginContext } from '@lce/lowcode-types';
+import { plugins } from '@felce/lowcode-engine';
+import { IPublicModelPluginContext } from '@felce/lowcode-types';
 
 const PluginA = (ctx: IPublicModelPluginContext) => {
   return {
@@ -102,8 +102,8 @@ await plugins.register(PluginB);
 #### 设置兼容引擎版本示例
 
 ```typescript
-import { plugins } from '@lce/lowcode-engine';
-import { IPublicModelPluginContext } from '@lce/lowcode-types';
+import { plugins } from '@felce/lowcode-engine';
+import { IPublicModelPluginContext } from '@felce/lowcode-types';
 
 const BuiltinPluginRegistry = (ctx: IPublicModelPluginContext) => {
   return {
@@ -124,8 +124,8 @@ await plugins.register(BuiltinPluginRegistry);
 #### 设置插件参数版本示例
 
 ```typescript
-import { plugins } from '@lce/lowcode-engine';
-import { IPublicModelPluginContext } from '@lce/lowcode-types';
+import { plugins } from '@felce/lowcode-engine';
+import { IPublicModelPluginContext } from '@felce/lowcode-types';
 
 const BuiltinPluginRegistry = (ctx: IPublicModelPluginContext, options: any) => {
   return {
@@ -249,7 +249,7 @@ your-plugin/package.json
 
 ```json
 {
-	"name": "@lce/lowcode-plugin-debug",
+	"name": "@felce/lowcode-plugin-debug",
   "lcMeta": {
     "pluginName": "debug",
     "meta": {

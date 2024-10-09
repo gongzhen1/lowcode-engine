@@ -8,8 +8,8 @@ import {
   IPublicTypeNodeData,
   IPublicTypeJSONValue,
   IPublicTypeCompositeValue,
-} from '@lce/lowcode-types';
-import { checkPropTypes, isI18nData, isJSExpression, isJSFunction } from '@lce/lowcode-utils';
+} from '@felce/lowcode-types';
+import { checkPropTypes, isI18nData, isJSExpression, isJSFunction } from '@felce/lowcode-utils';
 import adapter from '../adapter';
 import divFactory from '../components/Div';
 import visualDomFactory from '../components/VisualDom';

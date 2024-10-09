@@ -7,7 +7,7 @@ import {
   IReactionPublic,
   IReactionOptions,
   IReactionDisposer,
-} from '@lce/lowcode-editor-core';
+} from '@felce/lowcode-editor-core';
 import {
   IPublicTypeProjectSchema,
   IPublicTypeComponentMetadata,
@@ -25,7 +25,7 @@ import {
   IPublicTypeLocationData,
   IPublicEnumTransformStage,
   IPublicModelLocateEvent,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import {
   mergeAssets,
   IPublicTypeAssetsJson,
@@ -34,7 +34,7 @@ import {
   isDragNodeDataObject,
   isLocationChildrenDetail,
   Logger,
-} from '@lce/lowcode-utils';
+} from '@felce/lowcode-utils';
 import { IProject, Project } from '../project';
 import { Node, DocumentModel, insertChildren, INode, ISelection } from '../document';
 import { ComponentMeta, IComponentMeta } from '../component-meta';

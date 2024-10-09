@@ -1,5 +1,5 @@
 import { isProCodeComponentType } from './is-procode-component-type';
-import { IPublicTypeComponentMap, IPublicTypeLowCodeComponent } from '@lce/lowcode-types';
+import { IPublicTypeComponentMap, IPublicTypeLowCodeComponent } from '@felce/lowcode-types';
 
 export function isLowCodeComponentType(
   desc: IPublicTypeComponentMap,

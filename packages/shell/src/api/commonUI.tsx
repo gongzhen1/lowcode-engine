@@ -2,8 +2,8 @@ import {
   IPublicApiCommonUI,
   IPublicModelPluginContext,
   IPublicTypeContextMenuAction,
-} from '@lce/lowcode-types';
-import { HelpTip, IEditor, Tip as InnerTip, Title as InnerTitle } from '@lce/lowcode-editor-core';
+} from '@felce/lowcode-types';
+import { HelpTip, IEditor, Tip as InnerTip, Title as InnerTitle } from '@felce/lowcode-editor-core';
 import {
   Balloon,
   Breadcrumb,

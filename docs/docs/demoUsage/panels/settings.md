@@ -151,7 +151,7 @@ bindFunction = () => {
 
 ```javascript
 import AltStringSetter from './AltStringSetter';
-import { setters } from '@lce/lowcode-engine';
+import { setters } from '@felce/lowcode-engine';
 setters.registerSetter({
   AltStringSetter: {
     component: AltStringSetter,

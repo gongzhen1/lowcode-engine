@@ -1,6 +1,6 @@
 import '../fixtures/window';
 import { getMockWindow, getMockElement, delay } from '../utils';
-import { Editor, globalContext } from '@lce/lowcode-editor-core';
+import { Editor, globalContext } from '@felce/lowcode-editor-core';
 import { Project } from '../../src/project/project';
 import { DocumentModel } from '../../src/document/document-model';
 import Viewport from '../../src/builtin-simulator/viewport';

@@ -8,7 +8,7 @@ import {
   isJSFunction,
   isJSSlot,
   IPublicTypeJSSlot,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import _ from 'lodash';
 
 import { IScope, CompositeValueGeneratorOptions, CodeGeneratorError } from '../types';
@@ -99,7 +99,11 @@ function genFunction(value: IPublicTypeJSFunction): string {
   return generateFunction(value, { isArrow: true });
 }
 
-function genJsSlot(value: IPublicTypeJSSlot, scope: IScope, options: CompositeValueGeneratorOptions = {}) {
+function genJsSlot(
+  value: IPublicTypeJSSlot,
+  scope: IScope,
+  options: CompositeValueGeneratorOptions = {},
+) {
   if (options.nodeGenerator) {
     return generateJsSlot(value, scope, options.nodeGenerator);
   }

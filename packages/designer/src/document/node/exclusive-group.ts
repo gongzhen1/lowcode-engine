@@ -1,6 +1,6 @@
-import { obx, computed, makeObservable } from '@lce/lowcode-editor-core';
-import { uniqueId } from '@lce/lowcode-utils';
-import { IPublicTypeTitleContent, IPublicModelExclusiveGroup } from '@lce/lowcode-types';
+import { obx, computed, makeObservable } from '@felce/lowcode-editor-core';
+import { uniqueId } from '@felce/lowcode-utils';
+import { IPublicTypeTitleContent, IPublicModelExclusiveGroup } from '@felce/lowcode-types';
 import type { INode } from './node';
 import { intl } from '../../locale';
 
@@ -58,7 +58,10 @@ export class ExclusiveGroup implements IExclusiveGroup {
     return this.firstNode.index;
   }
 
-  constructor(readonly name: string, title?: IPublicTypeTitleContent) {
+  constructor(
+    readonly name: string,
+    title?: IPublicTypeTitleContent,
+  ) {
     makeObservable(this);
     this.title = title || {
       type: 'i18n',

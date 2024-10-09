@@ -1,11 +1,11 @@
-import { isLocationChildrenDetail } from '@lce/lowcode-utils';
+import { isLocationChildrenDetail } from '@felce/lowcode-utils';
 import {
   IPublicModelPluginContext,
   IPublicTypeActiveTarget,
   IPublicModelNode,
   IPublicTypeDisposable,
   IPublicEnumPluginRegisterLevel,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import TreeNode from './tree-node';
 import { Tree } from './tree';
 import EventEmitter from 'events';

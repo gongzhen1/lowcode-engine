@@ -3,13 +3,13 @@ import { Component, ErrorInfo, MouseEvent } from 'react';
 import { isObject } from 'lodash';
 import classNames from 'classnames';
 import { Icon } from '@alifd/next';
-import { Title } from '@lce/lowcode-editor-core';
-import { IPublicModelEditor, IPublicTypeTitleContent } from '@lce/lowcode-types';
+import { Title } from '@felce/lowcode-editor-core';
+import { IPublicModelEditor, IPublicTypeTitleContent } from '@felce/lowcode-types';
 import { PopupPipe, PopupContext } from '../popup';
 import './index.less';
 import InlineTip from './inlinetip';
 import { intl } from '../../locale';
-import { Logger } from '@lce/lowcode-utils';
+import { Logger } from '@felce/lowcode-utils';
 
 const logger = new Logger({ level: 'warn', bizName: 'skeleton:field' });
 

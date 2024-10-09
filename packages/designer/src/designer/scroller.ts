@@ -1,9 +1,9 @@
-import { isElement } from '@lce/lowcode-utils';
+import { isElement } from '@felce/lowcode-utils';
 import {
   IPublicModelScrollTarget,
   IPublicTypeScrollable,
   IPublicModelScroller,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 
 export interface IScrollTarget extends IPublicModelScrollTarget {}
 

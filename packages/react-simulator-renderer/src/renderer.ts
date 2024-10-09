@@ -16,16 +16,21 @@ import {
   isPlainObject,
   AssetLoader,
   getProjectUtils,
-} from '@lce/lowcode-utils';
+} from '@felce/lowcode-utils';
 import {
   IPublicTypeComponentSchema,
   IPublicEnumTransformStage,
   IPublicTypeNodeInstance,
   IPublicTypeProjectSchema,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 // just use types
-import { BuiltinSimulatorRenderer, Component, IDocumentModel, INode } from '@lce/lowcode-designer';
-import LowCodeRenderer from '@lce/lowcode-react-renderer';
+import {
+  BuiltinSimulatorRenderer,
+  Component,
+  IDocumentModel,
+  INode,
+} from '@felce/lowcode-designer';
+import LowCodeRenderer from '@felce/lowcode-react-renderer';
 import { createMemoryHistory, MemoryHistory } from 'history';
 import Slot from './builtin-components/slot';
 import Leaf from './builtin-components/leaf';
@@ -99,7 +104,10 @@ export class DocumentInstance {
     return this.document.id;
   }
 
-  constructor(readonly container: SimulatorRendererContainer, readonly document: IDocumentModel) {
+  constructor(
+    readonly container: SimulatorRendererContainer,
+    readonly document: IDocumentModel,
+  ) {
     makeObservable(this);
   }
 

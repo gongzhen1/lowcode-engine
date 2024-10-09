@@ -3,9 +3,9 @@ import {
   IPublicModelEditor,
   IPublicModelSettingTopEntry,
   IPublicApiSetters,
-} from '@lce/lowcode-types';
-import { isCustomView } from '@lce/lowcode-utils';
-import { computed, IEventBus, createModuleEventBus } from '@lce/lowcode-editor-core';
+} from '@felce/lowcode-types';
+import { isCustomView } from '@felce/lowcode-utils';
+import { computed, IEventBus, createModuleEventBus } from '@felce/lowcode-editor-core';
 import { ISettingEntry } from './setting-entry-type';
 import { ISettingField, SettingField } from './setting-field';
 import { INode } from '../../document';
@@ -99,7 +99,10 @@ export class SettingTopEntry implements ISettingTopEntry {
 
   disposeFunctions: any[] = [];
 
-  constructor(readonly editor: IPublicModelEditor, readonly nodes: INode[]) {
+  constructor(
+    readonly editor: IPublicModelEditor,
+    readonly nodes: INode[],
+  ) {
     if (!Array.isArray(nodes) || nodes.length < 1) {
       throw new ReferenceError('nodes should not be empty');
     }

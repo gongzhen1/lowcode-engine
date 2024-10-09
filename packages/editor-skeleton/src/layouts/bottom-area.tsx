@@ -1,6 +1,6 @@
 import { Component, Fragment } from 'react';
 import classNames from 'classnames';
-import { observer } from '@lce/lowcode-editor-core';
+import { observer } from '@felce/lowcode-editor-core';
 import { Area } from '../area';
 import { Panel } from '../widget/panel';
 

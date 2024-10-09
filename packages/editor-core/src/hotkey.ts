@@ -5,7 +5,7 @@ import {
   IPublicTypeHotkeyCallbackConfig,
   IPublicTypeHotkeyCallbacks,
   IPublicApiHotkey,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 
 interface KeyMap {
   [key: number]: string;

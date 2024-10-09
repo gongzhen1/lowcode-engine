@@ -5,8 +5,8 @@ import {
   IPublicTypeRootSchema,
   IPublicTypeNodeSchema,
   IPublicTypeJSSlot,
-} from '@lce/lowcode-types';
-import { isI18nData, isJSExpression } from '@lce/lowcode-utils';
+} from '@felce/lowcode-types';
+import { isI18nData, isJSExpression } from '@felce/lowcode-utils';
 import { isEmpty } from 'lodash';
 import IntlMessageFormat from 'intl-messageformat';
 import pkg from '../../package.json';

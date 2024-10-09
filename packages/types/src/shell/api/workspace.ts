@@ -6,7 +6,7 @@ import {
   IPublicResourceList,
   IPublicTypeDisposable,
   IPublicTypeResourceType,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 
 export interface IPublicApiWorkspace<
   Plugins = IPublicApiPlugins,

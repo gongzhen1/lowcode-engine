@@ -2,9 +2,9 @@ import {
   IPublicTypeTransformedComponentMetadata,
   IPublicTypeFieldConfig,
   IPublicModelSettingField,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import { IconSlot } from '../icons/slot';
-import { getConvertedExtraKey } from '@lce/lowcode-designer';
+import { getConvertedExtraKey } from '@felce/lowcode-designer';
 
 export default function (
   metadata: IPublicTypeTransformedComponentMetadata,

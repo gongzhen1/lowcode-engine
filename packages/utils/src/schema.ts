@@ -1,4 +1,4 @@
-import { ActivityType, IPublicTypeNodeSchema, IPublicTypeRootSchema } from '@lce/lowcode-types';
+import { ActivityType, IPublicTypeNodeSchema, IPublicTypeRootSchema } from '@felce/lowcode-types';
 import { isJSBlock, isJSSlot } from './check-types';
 import { isVariable } from './misc';
 import { isPlainObject } from './is-plain-object';

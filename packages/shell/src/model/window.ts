@@ -3,8 +3,8 @@ import {
   IPublicModelResource,
   IPublicModelWindow,
   IPublicTypeDisposable,
-} from '@lce/lowcode-types';
-import { IEditorWindow } from '@lce/lowcode-workspace';
+} from '@felce/lowcode-types';
+import { IEditorWindow } from '@felce/lowcode-workspace';
 import { Resource as ShellResource } from './resource';
 import { EditorView } from './editor-view';
 

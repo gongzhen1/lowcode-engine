@@ -1,4 +1,4 @@
-import type { IPublicTypeNodeSchema, IPublicTypeCompositeObject } from '@lce/lowcode-types';
+import type { IPublicTypeNodeSchema, IPublicTypeCompositeObject } from '@felce/lowcode-types';
 import type { TComponentAnalyzer } from '../types';
 
 import { handleSubNodes } from '../utils/schema';

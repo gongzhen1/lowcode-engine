@@ -4,8 +4,8 @@ import {
   IPublicModelSettingField,
   IPublicTypeCustomView,
   IPublicTypeRegisteredSetter,
-} from '@lce/lowcode-types';
-import { createContent, isCustomView } from '@lce/lowcode-utils';
+} from '@felce/lowcode-types';
+import { createContent, isCustomView } from '@felce/lowcode-utils';
 
 const settersMap = new Map<
   string,

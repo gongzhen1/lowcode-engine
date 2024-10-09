@@ -5,8 +5,8 @@ import {
   IPublicModelPluginContext,
   IPublicTypeContextMenuAction,
   IPublicTypeContextMenuItem,
-} from '@lce/lowcode-types';
-import { Logger } from '@lce/lowcode-utils';
+} from '@felce/lowcode-types';
+import { Logger } from '@felce/lowcode-utils';
 import classNames from 'classnames';
 import React from 'react';
 import './context-menu.scss';

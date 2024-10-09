@@ -7,7 +7,7 @@ import {
   wrapWithEventSwitch,
   createModuleEventBus,
   IEventBus,
-} from '@lce/lowcode-editor-core';
+} from '@felce/lowcode-editor-core';
 import {
   IPublicTypeNodeData,
   IPublicTypeNodeSchema,
@@ -19,9 +19,9 @@ import {
   IPublicEnumTransformStage,
   IPublicTypeOnChangeOptions,
   IPublicTypeDisposable,
-} from '@lce/lowcode-types';
-import type { IPublicTypeRootSchema } from '@lce/lowcode-types';
-import type { IDropLocation } from '@lce/lowcode-designer';
+} from '@felce/lowcode-types';
+import type { IPublicTypeRootSchema } from '@felce/lowcode-types';
+import type { IDropLocation } from '@felce/lowcode-designer';
 import {
   uniqueId,
   isPlainObject,
@@ -32,7 +32,7 @@ import {
   isDragNodeObject,
   isDragNodeDataObject,
   isNode,
-} from '@lce/lowcode-utils';
+} from '@felce/lowcode-utils';
 import { IProject } from '../project';
 import { ISimulatorHost } from '../simulator';
 import type { IComponentMeta } from '../component-meta';

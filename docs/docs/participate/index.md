@@ -34,19 +34,19 @@ npm install && npm run setup
 {
   "proxy": [
     [
-      "https://uipaas-assets.com/prod/npm/@lce/lowcode-engine/(.*)/dist/js/engine-core.js",
+      "https://uipaas-assets.com/prod/npm/@felce/lowcode-engine/(.*)/dist/js/engine-core.js",
       "http://localhost:5555/js/AliLowCodeEngine.js"
     ],
     [
-      "https://uipaas-assets.com/prod/npm/@lce/lowcode-engine/(.*)/dist/css/engine-core.css",
+      "https://uipaas-assets.com/prod/npm/@felce/lowcode-engine/(.*)/dist/css/engine-core.css",
       "http://localhost:5555/css/AliLowCodeEngine.css"
     ],
     [
-      "https?://uipaas-assets.com/prod/npm/@lce/lowcode-engine/(.*)/dist/js/react-simulator-renderer.js",
+      "https?://uipaas-assets.com/prod/npm/@felce/lowcode-engine/(.*)/dist/js/react-simulator-renderer.js",
       "http://localhost:5555/js/ReactSimulatorRenderer.js"
     ],
     [
-      "https?://uipaas-assets.com/prod/npm/@lce/lowcode-engine/(.*)/dist/css/react-simulator-renderer.css",
+      "https?://uipaas-assets.com/prod/npm/@felce/lowcode-engine/(.*)/dist/css/react-simulator-renderer.css",
       "http://localhost:5555/css/ReactSimulatorRenderer.css"
     ]
   ]

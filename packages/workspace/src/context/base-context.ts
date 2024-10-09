@@ -7,7 +7,7 @@ import {
   IEngineConfig,
   IHotKey,
   Command as InnerCommand,
-} from '@lce/lowcode-editor-core';
+} from '@felce/lowcode-editor-core';
 import {
   Designer,
   ILowCodePluginContextApiAssembler,
@@ -16,8 +16,8 @@ import {
   IProject,
   IDesigner,
   ILowCodePluginManager,
-} from '@lce/lowcode-designer';
-import { ISkeleton, Skeleton as InnerSkeleton } from '@lce/lowcode-editor-skeleton';
+} from '@felce/lowcode-designer';
+import { ISkeleton, Skeleton as InnerSkeleton } from '@felce/lowcode-editor-skeleton';
 import {
   Hotkey,
   Plugins,
@@ -33,7 +33,7 @@ import {
   Canvas,
   CommonUI,
   Command,
-} from '@lce/lowcode-shell';
+} from '@felce/lowcode-shell';
 import {
   IPluginPreferenceMananger,
   IPublicApiCanvas,
@@ -48,8 +48,8 @@ import {
   IPublicEnumPluginRegisterLevel,
   IPublicModelPluginContext,
   IPublicTypePluginMeta,
-} from '@lce/lowcode-types';
-import { getLogger, Logger as InnerLogger } from '@lce/lowcode-utils';
+} from '@felce/lowcode-types';
+import { getLogger, Logger as InnerLogger } from '@felce/lowcode-utils';
 import { IWorkspace } from '../workspace';
 import { IEditorWindow } from '../window';
 

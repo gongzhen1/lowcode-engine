@@ -4,9 +4,9 @@ import {
   IPublicTypeCommand,
   IPublicTypeCommandHandlerArgs,
   IPublicTypeListCommand,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import { commandSymbol, pluginContextSymbol } from '../symbols';
-import { ICommand, ICommandOptions } from '@lce/lowcode-editor-core';
+import { ICommand, ICommandOptions } from '@felce/lowcode-editor-core';
 
 const optionsSymbol = Symbol('options');
 const commandScopeSet = new Set<string>();

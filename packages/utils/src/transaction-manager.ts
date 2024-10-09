@@ -1,4 +1,4 @@
-import { IPublicEnumTransitionType } from '@lce/lowcode-types';
+import { IPublicEnumTransitionType } from '@felce/lowcode-types';
 import { runInAction } from 'mobx';
 import EventEmitter from 'events';
 

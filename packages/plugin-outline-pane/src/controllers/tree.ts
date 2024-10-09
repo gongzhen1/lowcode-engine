@@ -1,5 +1,5 @@
 import TreeNode from './tree-node';
-import { IPublicModelNode, IPublicTypePropChangeOptions } from '@lce/lowcode-types';
+import { IPublicModelNode, IPublicTypePropChangeOptions } from '@felce/lowcode-types';
 import { IOutlinePanelPluginContext, TreeMaster } from './tree-master';
 
 export class Tree {

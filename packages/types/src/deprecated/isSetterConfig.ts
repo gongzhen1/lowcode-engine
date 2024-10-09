@@ -2,7 +2,7 @@ import { IPublicTypeSetterConfig } from '../shell/type/setter-config';
 import { isCustomView } from './isCustomView';
 
 /**
- * @deprecated use same function from '@lce/lowcode-utils' instead
+ * @deprecated use same function from '@felce/lowcode-utils' instead
  */
 export function isSetterConfig(obj: any): obj is IPublicTypeSetterConfig {
   return (

@@ -12,7 +12,7 @@ import {
   makeObservable,
   createModuleEventBus,
   IEventBus,
-} from '@lce/lowcode-editor-core';
+} from '@felce/lowcode-editor-core';
 
 import { ISimulatorHost, Component, DropContainer } from '../simulator';
 import Viewport from './viewport';
@@ -36,7 +36,7 @@ import {
   isDragNodeObject,
   isLocationData,
   Logger,
-} from '@lce/lowcode-utils';
+} from '@felce/lowcode-utils';
 import {
   isShaken,
   ILocateEvent,
@@ -60,7 +60,7 @@ import {
   IPublicTypeLocationDetailType,
   IPublicTypeRect,
   IPublicModelNode,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import { BuiltinSimulatorRenderer } from './renderer';
 import { clipboard } from '../designer/clipboard';
 import { LiveEditing } from './live-editing/live-editing';

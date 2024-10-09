@@ -13,9 +13,9 @@ import {
   IPublicTypeAdvanced,
   IPublicTypeDisposable,
   IPublicTypeLiveTextEditingConfig,
-} from '@lce/lowcode-types';
-import { deprecate, isRegExp, isTitleConfig, isNode } from '@lce/lowcode-utils';
-import { computed, createModuleEventBus, IEventBus } from '@lce/lowcode-editor-core';
+} from '@felce/lowcode-types';
+import { deprecate, isRegExp, isTitleConfig, isNode } from '@felce/lowcode-utils';
+import { computed, createModuleEventBus, IEventBus } from '@felce/lowcode-editor-core';
 import { Node, INode } from './document';
 import { Designer } from './designer';
 import { IconContainer, IconPage, IconComponent } from './icons';
@@ -180,7 +180,10 @@ export class ComponentMeta implements IComponentMeta {
    */
   prototype?: any;
 
-  constructor(readonly designer: Designer, metadata: IPublicTypeComponentMetadata) {
+  constructor(
+    readonly designer: Designer,
+    metadata: IPublicTypeComponentMetadata,
+  ) {
     this.parseMetadata(metadata);
   }
 

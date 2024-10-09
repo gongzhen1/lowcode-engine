@@ -1,4 +1,4 @@
-import { Logger, Level } from '@lce/lowcode-utils';
+import { Logger, Level } from '@felce/lowcode-utils';
 
 export { Logger };
 

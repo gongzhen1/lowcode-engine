@@ -1,6 +1,11 @@
 import _ from 'lodash';
 import { pipe } from 'fp-ts/function';
-import { IPublicTypeNodeSchema, isNodeSchema, IPublicTypeNodeDataType, IPublicTypeCompositeValue } from '@lce/lowcode-types';
+import {
+  IPublicTypeNodeSchema,
+  isNodeSchema,
+  IPublicTypeNodeDataType,
+  IPublicTypeCompositeValue,
+} from '@felce/lowcode-types';
 
 import {
   IScope,
@@ -128,7 +133,9 @@ function generateAttrs(
     if (!Array.isArray(props)) {
       Object.keys(props).forEach((propName: string) => {
         if (isValidIdentifier(propName)) {
-          pieces = pieces.concat(generateAttr(propName, props[propName] as IPublicTypeCompositeValue, scope, config));
+          pieces = pieces.concat(
+            generateAttr(propName, props[propName] as IPublicTypeCompositeValue, scope, config),
+          );
         }
       });
     } else {
@@ -273,7 +280,8 @@ export function generateReactLoopCtrl(
     const loopDataExpr = pipe(
       nodeItem.loop,
       // 将 JSExpression 转换为 JS 表达式代码:
-      (expr) => generateCompositeType(expr, scope, {
+      (expr) =>
+        generateCompositeType(expr, scope, {
           handlers: config?.handlers,
           tolerateEvalErrors: false, // 这个内部不需要包 try catch, 下面会统一加的
         }),
@@ -393,7 +401,8 @@ export function createNodeGenerator(cfg: NodeGeneratorConfig = {}): NodeGenerato
     return `{${valueStr}}`;
   };
 
-  return (nodeItem: IPublicTypeNodeDataType, scope: IScope) => unwrapJsExprQuoteInJsx(generateNode(nodeItem, scope));
+  return (nodeItem: IPublicTypeNodeDataType, scope: IScope) =>
+    unwrapJsExprQuoteInJsx(generateNode(nodeItem, scope));
 }
 
 const defaultReactGeneratorConfig: NodeGeneratorConfig = {

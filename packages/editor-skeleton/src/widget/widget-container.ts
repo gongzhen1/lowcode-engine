@@ -1,5 +1,5 @@
-import { obx, computed, makeObservable } from '@lce/lowcode-editor-core';
-import { hasOwnProperty } from '@lce/lowcode-utils';
+import { obx, computed, makeObservable } from '@felce/lowcode-editor-core';
+import { hasOwnProperty } from '@felce/lowcode-utils';
 import { isPanel } from './panel';
 
 export interface WidgetItem {

@@ -1,4 +1,4 @@
-import { IDocumentModel as InnerDocumentModel, INode as InnerNode } from '@lce/lowcode-designer';
+import { IDocumentModel as InnerDocumentModel, INode as InnerNode } from '@felce/lowcode-designer';
 import {
   IPublicTypeCompositeValue,
   IPublicTypeNodeSchema,
@@ -15,7 +15,7 @@ import {
   IPublicTypePropsList,
   IPublicModelSettingTopEntry,
   IPublicModelExclusiveGroup,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import { Prop as ShellProp } from './prop';
 import { Props as ShellProps } from './props';
 import { DocumentModel as ShellDocumentModel } from './document-model';

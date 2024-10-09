@@ -3,7 +3,7 @@ import {
   IPublicTypeUtilsMap,
   IPublicTypeContainerSchema,
   IPublicTypeJSONObject,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 
 import { IDependency, INpmPackage } from './deps';
 import { ICompAnalyzeResult } from './analyze';
@@ -42,7 +42,6 @@ export interface IRouterInfo extends IWithDependency {
  * project's remarks
  */
 export interface ProjectRemark {
-
   /** if current project only contain one container which type is `Component` */
   isSingleComponent?: boolean;
 }

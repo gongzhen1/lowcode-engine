@@ -1,5 +1,5 @@
 import { Component } from '../simulator';
-import { IPublicTypeComponentInstance, IPublicTypeSimulatorRenderer } from '@lce/lowcode-types';
+import { IPublicTypeComponentInstance, IPublicTypeSimulatorRenderer } from '@felce/lowcode-types';
 
 export type BuiltinSimulatorRenderer = IPublicTypeSimulatorRenderer<
   Component,

@@ -44,10 +44,10 @@
 
 <!-- [![](https://img.shields.io/badge/LowCodeEngine-%E6%9F%A5%E7%9C%8B%E8%B4%A1%E7%8C%AE%E6%8E%92%E8%A1%8C%E6%A6%9C-orange)](https://opensource.alibaba.com/contribution_leaderboard/details?projectValue=lowcode-engine) -->
 
-[npm-image]: https://img.shields.io/npm/v/@lce/lowcode-engine.svg?style=flat-square
-[npm-url]: http://npmjs.org/package/@lce/lowcode-engine
-[download-image]: https://img.shields.io/npm/dm/@lce/lowcode-engine.svg?style=flat-square
-[download-url]: https://npmjs.org/package/@lce/lowcode-engine
+[npm-image]: https://img.shields.io/npm/v/@felce/lowcode-engine.svg?style=flat-square
+[npm-url]: http://npmjs.org/package/@felce/lowcode-engine
+[download-image]: https://img.shields.io/npm/dm/@felce/lowcode-engine.svg?style=flat-square
+[download-url]: https://npmjs.org/package/@felce/lowcode-engine
 [help-wanted-image]: https://flat.badgen.net/github/label-issues/fe-lce/lowcode-engine/help%20wanted/open
 [help-wanted-url]: https://github.com/fe-lce/lowcode-engine/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22
 [issues-helper-image]: https://img.shields.io/badge/using-issues--helper-orange?style=flat-square
@@ -82,13 +82,13 @@
 ## 🌰 使用示例
 
 ```bash
-npm install @lce/lowcode-engine --save-dev
+npm install @felce/lowcode-engine --save-dev
 ```
 
 > **TIPS：仅支持 cdn 方式引入，npm 包用于提供 typings 等代码提示能力**
 
 ```ts
-import { init, skeleton } from '@lce/lowcode-engine';
+import { init, skeleton } from '@felce/lowcode-engine';
 
 skeleton.add({
   area: 'topArea',
@@ -113,7 +113,7 @@ init(document.getElementById('lce'));
 ```json
 {
   "externals": {
-    "@lce/lowcode-engine": "var window.AliLowCodeEngine",
+    "@felce/lowcode-engine": "var window.AliLowCodeEngine",
     "@alilc/lowcode-engine-ext": "var window.AliLowCodeEngineExt"
   }
 }
@@ -124,22 +124,22 @@ init(document.getElementById('lce'));
 #### （推荐）：uipaas cdn
 
 ```html
-https://uipaas-assets.com/prod/npm/@lce/lowcode-engine/1.0.18/dist/js/engine-core.js
-https://uipaas-assets.com/prod/npm/@lce/lowcode-react-simulator-renderer/1.0.18/dist/js/react-simulator-renderer.js
+https://uipaas-assets.com/prod/npm/@felce/lowcode-engine/1.0.18/dist/js/engine-core.js
+https://uipaas-assets.com/prod/npm/@felce/lowcode-react-simulator-renderer/1.0.18/dist/js/react-simulator-renderer.js
 ```
 
 #### unpkg
 
 ```html
-https://unpkg.com/@lce/lowcode-engine@1.0.18/dist/js/engine-core.js
-https://unpkg.com/@lce/lowcode-react-simulator-renderer@1.0.18/dist/js/react-simulator-renderer.js
+https://unpkg.com/@felce/lowcode-engine@1.0.18/dist/js/engine-core.js
+https://unpkg.com/@felce/lowcode-react-simulator-renderer@1.0.18/dist/js/react-simulator-renderer.js
 ```
 
 #### jsdelivr
 
 ```html
-https://cdn.jsdelivr.net/npm/@lce/lowcode-engine@1.0.18/dist/js/engine-core.js
-https://cdn.jsdelivr.net/npm/@lce/lowcode-react-simulator-renderer@1.0.18/dist/js/react-simulator-renderer.js
+https://cdn.jsdelivr.net/npm/@felce/lowcode-engine@1.0.18/dist/js/engine-core.js
+https://cdn.jsdelivr.net/npm/@felce/lowcode-react-simulator-renderer@1.0.18/dist/js/react-simulator-renderer.js
 ```
 
 #### 使用自有 cdn

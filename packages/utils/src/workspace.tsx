@@ -4,7 +4,7 @@ import {
   IPublicEnumPluginRegisterLevel,
   IPublicModelWindow,
   IPublicModelEditorView,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 
 /**
  * 高阶组件（HOC）：为组件提供 view 插件上下文。

@@ -1,4 +1,4 @@
-import { cloneEnumerableProperty } from '@lce/lowcode-utils';
+import { cloneEnumerableProperty } from '@felce/lowcode-utils';
 import adapter from '../adapter';
 import { IBaseRendererInstance, IRendererProps } from '../types';
 

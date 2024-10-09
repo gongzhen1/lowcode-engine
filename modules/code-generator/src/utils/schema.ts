@@ -11,7 +11,7 @@ import {
   IPublicTypeCompositeValue,
   isNodeSchema,
   isJSFunction,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 import { CodeGeneratorError } from '../types/error';
 import { isJSExpressionFn } from './common';
 
@@ -142,11 +142,7 @@ export function handleSubNodes<T>(
 }
 
 export function isValidContainerType(schema: IPublicTypeNodeSchema) {
-  return [
-    'Page',
-    'Component',
-    'Block',
-  ].includes(schema.componentName);
+  return ['Page', 'Component', 'Block'].includes(schema.componentName);
 }
 
 export const enum ContainerType {

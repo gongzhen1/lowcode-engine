@@ -1,6 +1,6 @@
-import { BuiltinLoading } from '@lce/lowcode-designer';
-import { engineConfig, observer } from '@lce/lowcode-editor-core';
-import { Workbench } from '@lce/lowcode-editor-skeleton';
+import { BuiltinLoading } from '@felce/lowcode-designer';
+import { engineConfig, observer } from '@felce/lowcode-editor-core';
+import { Workbench } from '@felce/lowcode-editor-skeleton';
 import { PureComponent } from 'react';
 import { Context } from '../context/view-context';
 

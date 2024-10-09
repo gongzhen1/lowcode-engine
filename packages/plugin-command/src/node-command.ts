@@ -3,8 +3,8 @@ import {
   IPublicTypeNodeSchema,
   IPublicTypePlugin,
   IPublicTypePropType,
-} from '@lce/lowcode-types';
-import { isNodeSchema } from '@lce/lowcode-utils';
+} from '@felce/lowcode-types';
+import { isNodeSchema } from '@felce/lowcode-utils';
 
 const sampleNodeSchema: IPublicTypePropType = {
   type: 'shape',

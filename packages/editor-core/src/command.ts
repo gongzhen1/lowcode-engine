@@ -5,8 +5,8 @@ import {
   IPublicTypeCommand,
   IPublicTypeCommandHandlerArgs,
   IPublicTypeListCommand,
-} from '@lce/lowcode-types';
-import { checkPropTypes } from '@lce/lowcode-utils';
+} from '@felce/lowcode-types';
+import { checkPropTypes } from '@felce/lowcode-utils';
 export interface ICommand
   extends Omit<IPublicApiCommand, 'registerCommand' | 'batchExecuteCommand'> {
   registerCommand(

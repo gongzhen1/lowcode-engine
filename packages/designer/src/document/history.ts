@@ -1,10 +1,10 @@
-import { reaction, untracked, IEventBus, createModuleEventBus } from '@lce/lowcode-editor-core';
+import { reaction, untracked, IEventBus, createModuleEventBus } from '@felce/lowcode-editor-core';
 import {
   IPublicTypeNodeSchema,
   IPublicModelHistory,
   IPublicTypeDisposable,
-} from '@lce/lowcode-types';
-import { Logger } from '@lce/lowcode-utils';
+} from '@felce/lowcode-types';
+import { Logger } from '@felce/lowcode-utils';
 import { IDocumentModel } from '../designer';
 
 const logger = new Logger({ level: 'warn', bizName: 'history' });
@@ -250,7 +250,11 @@ export class Session {
     return this._data;
   }
 
-  constructor(readonly cursor: number, data: any, private timeGap: number = 1000) {
+  constructor(
+    readonly cursor: number,
+    data: any,
+    private timeGap: number = 1000,
+  ) {
     this.setTimer();
     this.log(data);
   }

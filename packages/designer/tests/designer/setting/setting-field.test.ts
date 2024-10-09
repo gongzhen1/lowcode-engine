@@ -1,7 +1,7 @@
 // @ts-nocheck
 import '../../fixtures/window';
-import { Editor, Setters as InnerSetters } from '@lce/lowcode-editor-core';
-import { Setters } from '@lce/lowcode-shell';
+import { Editor, Setters as InnerSetters } from '@felce/lowcode-editor-core';
+import { Setters } from '@felce/lowcode-shell';
 import { SettingTopEntry } from '../../../src/designer/setting/setting-top-entry';
 import { SettingField } from '../../../src/designer/setting/setting-field';
 import { Node } from '../../../src/document/node/node';

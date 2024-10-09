@@ -6,7 +6,7 @@ order: 1
 ```jsx
 import React, { PureComponent } from 'react';
 import ReactDOM from 'react-dom';
-import ReactRenderer from '@lce/lowcode-react-renderer';
+import ReactRenderer from '@felce/lowcode-react-renderer';
 import schema from './schemas/table';
 import components from './config/components/index';
 import utils from './config/utils';

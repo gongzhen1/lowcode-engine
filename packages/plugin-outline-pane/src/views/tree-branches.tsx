@@ -6,7 +6,7 @@ import {
   IPublicModelExclusiveGroup,
   IPublicTypeDisposable,
   IPublicTypeLocationChildrenDetail,
-} from '@lce/lowcode-types';
+} from '@felce/lowcode-types';
 
 export default class TreeBranches extends PureComponent<{
   treeNode: TreeNode;

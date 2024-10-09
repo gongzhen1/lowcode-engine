@@ -1,5 +1,5 @@
-import type { IExclusiveGroup } from '@lce/lowcode-designer';
-import { IPublicModelExclusiveGroup, IPublicModelNode } from '@lce/lowcode-types';
+import type { IExclusiveGroup } from '@felce/lowcode-designer';
+import { IPublicModelExclusiveGroup, IPublicModelNode } from '@felce/lowcode-types';
 import { conditionGroupSymbol, nodeSymbol } from '../symbols';
 import { Node } from './node';
 

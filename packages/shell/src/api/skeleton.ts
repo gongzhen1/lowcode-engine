@@ -1,5 +1,5 @@
-import { globalContext } from '@lce/lowcode-editor-core';
-import { ISkeleton, SkeletonEvents } from '@lce/lowcode-editor-skeleton';
+import { globalContext } from '@felce/lowcode-editor-core';
+import { ISkeleton, SkeletonEvents } from '@felce/lowcode-editor-skeleton';
 import { skeletonSymbol } from '../symbols';
 import {
   IPublicApiSkeleton,
@@ -8,8 +8,8 @@ import {
   IPublicTypeDisposable,
   IPublicTypeSkeletonConfig,
   IPublicTypeWidgetConfigArea,
-} from '@lce/lowcode-types';
-import { getLogger } from '@lce/lowcode-utils';
+} from '@felce/lowcode-types';
+import { getLogger } from '@felce/lowcode-utils';
 import { SkeletonItem } from '../model/skeleton-item';
 
 const innerSkeletonSymbol = Symbol('skeleton');
@@ -36,7 +36,11 @@ export class Skeleton implements IPublicApiSkeleton {
     return this[innerSkeletonSymbol];
   }
 
-  constructor(skeleton: ISkeleton, pluginName: string, readonly workspaceMode: boolean = false) {
+  constructor(
+    skeleton: ISkeleton,
+    pluginName: string,
+    readonly workspaceMode: boolean = false,
+  ) {
     this[innerSkeletonSymbol] = skeleton;
     this.pluginName = pluginName;
   }
