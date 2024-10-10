@@ -57,7 +57,7 @@
 
 [![](https://img.alicdn.com/imgextra/i2/O1CN01UhoS7C1sNNhySvfWi_!!6000000005754-2-tps-2878-1588.png)](https://lowcode-engine.cn)
 
-简体中文 | [English](./README.md)
+简体中文 | [English](packages/engine/README-en_US.md)
 
 ## ✨ 特性
 

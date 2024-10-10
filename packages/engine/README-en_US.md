@@ -46,7 +46,7 @@ An enterprise-class low-code technology stack with scale-out design
 
 [![](https://img.alicdn.com/imgextra/i2/O1CN01UhoS7C1sNNhySvfWi_!!6000000005754-2-tps-2878-1588.png)](http://lowcode-engine.cn)
 
-English | [简体中文](./packages/engine/README-zh_CN.md)
+English | [简体中文](./README.md)
 
 ## ✨ Features
 
