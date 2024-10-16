@@ -13,9 +13,11 @@ sidebar_position: 0
 1. 确保本地安装了 Node.js 和 npm，如果没有，[您可以通过 nvm 进行快捷的安装](https://github.com/nvm-sh/nvm)
 2. 确保为 npm [设置了可以访问的 npm 源，保证安装过程无网络问题](https://npmmirror.com/)
 3. 安装官方命令行工具
+
    ```bash
    npm install -g @alilc/create-element@latest
    ```
+
 4. 通过命令行工具创建
 
    ```bash
@@ -31,17 +33,23 @@ sidebar_position: 0
    > 注 @alilc/create-element 版本需 >= 1.0.4，若看不到`编辑器`选项，请重新执行步骤 3
 
 5. 进入创建后的目录
+
    ```bash
    cd editor-project-name
    ```
+
 6. 安装依赖
+
    ```bash
    npm install
    ```
+
 7. 安装依赖成功后，启动项目 (注意观察上一步的输出，如有 error 等失败信息，请先进行排查)
+
    ```bash
    npm start
    ```
+
    执行后如果看到这个界面，说明项目启动成功。您可以继续看后续章节了。本章节后续内容均为高级配置方式。
 
 ![image.png](https://img.alicdn.com/imgextra/i4/O1CN013qJVoV1OAcFNKFrIQ_!!6000000001665-2-tps-3060-1634.png)
@@ -60,7 +68,7 @@ sidebar_position: 0
 <!-- 低代码引擎的页面框架样式 -->
 <link
   rel="stylesheet"
-  href="https://uipaas-assets.com/prod/npm/@felce/lowcode-engine/1.0.18/dist/css/engine-core.css"
+  href="https://unpkg.com/@felce/lowcode-engine@1.4.0/dist/css/engine-core.css"
 />
 <!-- Fusion Next 控件样式 -->
 <link rel="stylesheet" href="https://g.alicdn.com/code/lib/alifd__next/1.23.24/next.min.css" />
@@ -72,7 +80,7 @@ sidebar_position: 0
 <!-- 低代码引擎官方扩展的样式 -->
 <link
   rel="stylesheet"
-  href="https://uipaas-assets.com/prod/npm/@alilc/lowcode-engine-ext/1.0.5/dist/css/engine-ext.css"
+  href="https://unpkg.com/@felce/lowcode-engine-ext@1.1.0/dist/css/engine-ext.css"
 />
 
 <!-- React，可替换为 production 包 -->
@@ -91,18 +99,18 @@ sidebar_position: 0
 <!-- 低代码引擎的主包 -->
 <script
   crossorigin="anonymous"
-  src="https://uipaas-assets.com/prod/npm/@felce/lowcode-engine/1.0.18/dist/js/engine-core.js"
+  src="https://unpkg.com/@felce/lowcode-engine@1.4.0/dist/js/engine-core.js"
 ></script>
 <!-- 低代码引擎官方扩展的主包 -->
 <script
   crossorigin="anonymous"
-  src="https://uipaas-assets.com/prod/npm/@alilc/lowcode-engine-ext/1.0.5/dist/js/engine-ext.js"
+  src="https://unpkg.com/@felce/lowcode-engine-ext@1.1.0/dist/js/engine-ext.js"
 ></script>
 ```
 
-> 注：如果 unpkg 的服务比较缓慢，您可以使用官方 CDN 来获得确定版本的低代码引擎，如对于引擎的 1.0.18 版本，可用以下官方 CDN 替代
+> 注：如果 unpkg 的服务比较缓慢，您可以使用官方 cnpm CDN 来获得确定版本的低代码引擎，如对于引擎的 1.4.0 版本，可用以下cnpm CDN 替代
 >
-> - [https://uipaas-assets.com/prod/npm/@felce/lowcode-engine/1.0.18/dist/js/engine-core.js](https://uipaas-assets.com/prod/npm/@felce/lowcode-engine/1.0.18/dist/js/engine-core.js)
+> - [https://registry.npmmirror.com/@felce/lowcode-engine/1.4.0/files/dist/js/engine-core.js](https://registry.npmmirror.com/@felce/lowcode-engine/1.4.0/files/dist/js/engine-core.js)
 
 ### 配置打包
 
@@ -116,7 +124,7 @@ sidebar_position: 0
     "prop-types": "var window.PropTypes",
     "@alifd/next": "var window.Next",
     "@felce/lowcode-engine": "var window.AliLowCodeEngine",
-    "@alilc/lowcode-engine-ext": "var window.AliLowCodeEngineExt",
+    "@felce/lowcode-engine-ext": "var window.AliLowCodeEngineExt",
     "moment": "var window.moment",
     "lodash": "var window._"
   }

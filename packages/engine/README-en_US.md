@@ -101,7 +101,7 @@ init(document.getElementById('lce'));
 {
   "externals": {
     "@felce/lowcode-engine": "var window.AliLowCodeEngine",
-    "@alilc/lowcode-engine-ext": "var window.AliLowCodeEngineExt"
+    "@felce/lowcode-engine-ext": "var window.AliLowCodeEngineExt"
   }
 }
 ```
@@ -111,22 +111,22 @@ init(document.getElementById('lce'));
 #### unpkg
 
 ```html
-https://unpkg.com/@felce/lowcode-engine@1.4.0-beta.0/dist/js/engine-core.js
-https://unpkg.com/@felce/lowcode-react-simulator-renderer@1.4.0-beta.0/dist/js/react-simulator-renderer.js
+https://unpkg.com/@felce/lowcode-engine@1.4.0/dist/js/engine-core.js
+https://unpkg.com/@felce/lowcode-react-simulator-renderer@1.4.0/dist/js/react-simulator-renderer.js
 ```
 
 #### npmmirror
 
 ```html
-https://registry.npmmirror.com/@felce/lowcode-engine/1.4.0-beta.0/files/dist/js/engine-core.js
-https://registry.npmmirror.com/@felce/lowcode-react-simulator-renderer/1.4.0-beta.0/files/dist/js/react-simulator-renderer.js
+https://registry.npmmirror.com/@felce/lowcode-engine/1.4.0/files/dist/js/engine-core.js
+https://registry.npmmirror.com/@felce/lowcode-react-simulator-renderer/1.4.0/files/dist/js/react-simulator-renderer.js
 ```
 
 #### jsdelivr
 
 ```html
-https://cdn.jsdelivr.net/npm/@felce/lowcode-engine@1.4.0-beta.0/dist/js/engine-core.js
-https://cdn.jsdelivr.net/npm/@felce/lowcode-react-simulator-renderer@1.4.0-beta.0/dist/js/react-simulator-renderer.js
+https://cdn.jsdelivr.net/npm/@felce/lowcode-engine@1.4.0/dist/js/engine-core.js
+https://cdn.jsdelivr.net/npm/@felce/lowcode-react-simulator-renderer@1.4.0/dist/js/react-simulator-renderer.js
 ```
 
 #### Method 5: Use your own cdn
