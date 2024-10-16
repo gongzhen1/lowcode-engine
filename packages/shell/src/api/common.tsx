@@ -59,6 +59,7 @@ import {
   Workbench as InnerWorkbench,
   SettingsPrimaryPane as InnerSettingsPrimaryPane,
   registerDefaults as InnerRegisterDefaults,
+  ISkeleton,
 } from '@felce/lowcode-editor-skeleton';
 import {
   Editor,
@@ -180,11 +181,11 @@ class DesignerCabin implements IPublicApiCommonDesignerCabin {
 }
 
 class SkeletonCabin implements IPublicApiCommonSkeletonCabin {
-  private readonly [skeletonSymbol]: InnerSkeleton;
+  private readonly [skeletonSymbol]: ISkeleton;
 
   readonly [skeletonCabinSymbol]: any;
 
-  constructor(skeleton: InnerSkeleton) {
+  constructor(skeleton: ISkeleton) {
     this[skeletonSymbol] = skeleton;
     this[skeletonCabinSymbol] = {
       Workbench: InnerWorkbench,
@@ -430,7 +431,7 @@ export class Common implements IPublicApiCommon {
   private readonly __editorCabin: any;
   private readonly __utils: Utils;
 
-  constructor(editor: Editor, skeleton: InnerSkeleton) {
+  constructor(editor: Editor, skeleton: ISkeleton) {
     this.__designerCabin = new DesignerCabin(editor);
     this.__skeletonCabin = new SkeletonCabin(skeleton);
     this.__editorCabin = new EditorCabin(editor);

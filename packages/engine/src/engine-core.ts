@@ -30,7 +30,11 @@ import {
   PluginPreference,
   IDesigner,
 } from '@felce/lowcode-designer';
-import { Skeleton as InnerSkeleton, registerDefaults } from '@felce/lowcode-editor-skeleton';
+import {
+  Skeleton as InnerSkeleton,
+  registerDefaults,
+  ISkeleton,
+} from '@felce/lowcode-editor-skeleton';
 import {
   Workspace as InnerWorkspace,
   Workbench as WorkSpaceWorkbench,
@@ -108,10 +112,10 @@ globalContext.register(innerWorkspace, 'workspace');
 
 const engineContext: Partial<ILowCodePluginContextPrivate> = {};
 
-const innerSkeleton = new InnerSkeleton(editor);
+const innerSkeleton: ISkeleton = new InnerSkeleton(editor);
 editor.set('skeleton' as any, innerSkeleton);
 
-const designer = new Designer({ editor, shellModelFactory });
+const designer: IDesigner = new Designer({ editor, shellModelFactory });
 editor.set('designer' as any, designer);
 
 const { project: innerProject } = designer;
@@ -248,7 +252,7 @@ export async function init(
     const disposeFun = await pluginPromise;
     disposeFun && disposeFun();
     render(
-      createElement(WorkSpaceWorkbench, {
+      createElement(options?.WorkSpaceWorkbench || WorkSpaceWorkbench, {
         workspace: innerWorkspace,
         // skeleton: workspace.skeleton,
         className: 'engine-main',
@@ -267,7 +271,7 @@ export async function init(
   await plugins.init(pluginPreference as any);
 
   render(
-    createElement(Workbench, {
+    createElement(options?.Workbench || Workbench, {
       skeleton: innerSkeleton,
       className: 'engine-main',
       topAreaItemClassName: 'engine-actionitem',

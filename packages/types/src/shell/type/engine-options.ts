@@ -1,8 +1,7 @@
 import { RequestHandlersMap } from '@alilc/lowcode-datasource-types';
-import { ComponentType } from 'react';
+import { ComponentType, ReactNode } from 'react';
 
 export interface IPublicTypeEngineOptions {
-
   /**
    * 是否开启 condition 的能力，默认在设计器中不管 condition 是啥都正常展示
    * when this is true, node that configured as conditional not renderring
@@ -75,7 +74,10 @@ export interface IPublicTypeEngineOptions {
   /**
    * 定制画布中点击被忽略的 selectors，默认值：undefined
    */
-  customizeIgnoreSelectors?: (defaultIgnoreSelectors: string[], e: MouseEvent) => string[];
+  customizeIgnoreSelectors?: (
+    defaultIgnoreSelectors: string[],
+    e: MouseEvent,
+  ) => string[];
 
   /**
    * 禁止默认的设置面板，默认值：false
@@ -137,7 +139,6 @@ export interface IPublicTypeEngineOptions {
    * 与 react-renderer 的 appHelper 一致，https://lowcode-engine.cn/site/docs/guide/expand/runtime/renderer#apphelper
    */
   appHelper?: {
-
     /** 全局公共函数 */
     utils?: Record<string, any>;
 
@@ -189,11 +190,19 @@ export interface IPublicTypeEngineOptions {
    * 隐藏设计器辅助层
    */
   hideComponentAction?: boolean;
+
+  /**
+   * 自定义的 WorkSpaceWorkbench
+   */
+  WorkSpaceWorkbench?: ReactNode;
+
+  /**
+   * 自定义的 Workbench
+   */
+  Workbench?: ReactNode;
 }
 
 /**
  * @deprecated use IPublicTypeEngineOptions instead
  */
-export interface EngineOptions {
-
-}
+export interface EngineOptions {}
