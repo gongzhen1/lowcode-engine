@@ -1,6 +1,6 @@
 {
   "name": "@felce/lowcode-designer",
-  "version": "1.4.0-beta.0",
+  "version": "1.4.0",
   "description": "Designer for Ali LowCode Engine",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -15,9 +15,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@felce/lowcode-editor-core": "1.4.0-beta.0",
-    "@felce/lowcode-types": "1.4.0-beta.0",
-    "@felce/lowcode-utils": "1.4.0-beta.0",
+    "@felce/lowcode-editor-core": "1.4.0",
+    "@felce/lowcode-types": "1.4.0",
+    "@felce/lowcode-utils": "1.4.0",
     "classnames": "^2.2.6",
     "react": "^16",
     "react-dom": "^16.7.0",

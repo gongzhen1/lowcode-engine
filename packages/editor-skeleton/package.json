@@ -1,6 +1,6 @@
 {
   "name": "@felce/lowcode-editor-skeleton",
-  "version": "1.4.0-beta.0",
+  "version": "1.4.0",
   "description": "alibaba lowcode editor skeleton",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -19,10 +19,10 @@
   ],
   "dependencies": {
     "@alifd/next": "^1.26.0",
-    "@felce/lowcode-designer": "1.4.0-beta.0",
-    "@felce/lowcode-editor-core": "1.4.0-beta.0",
-    "@felce/lowcode-types": "1.4.0-beta.0",
-    "@felce/lowcode-utils": "1.4.0-beta.0",
+    "@felce/lowcode-designer": "1.4.0",
+    "@felce/lowcode-editor-core": "1.4.0",
+    "@felce/lowcode-types": "1.4.0",
+    "@felce/lowcode-utils": "1.4.0",
     "classnames": "^2.2.6",
     "react": "^16.8.1",
     "react-dom": "^16.8.1"
