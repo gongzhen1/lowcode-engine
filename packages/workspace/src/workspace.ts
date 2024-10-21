@@ -37,7 +37,7 @@ const CHANGE_EVENT = 'resource.list.change';
 
 export interface IWorkspace
   extends Omit<
-    IPublicApiWorkspace<LowCodePluginManager, IEditorWindow>,
+    IPublicApiWorkspace<LowCodePluginManager, ISkeleton, IEditorWindow>,
     'resourceList' | 'plugins' | 'openEditorWindow' | 'removeEditorWindow'
   > {
   readonly registryInnerPlugin: (

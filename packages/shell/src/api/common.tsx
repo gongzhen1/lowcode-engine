@@ -427,7 +427,7 @@ class EditorCabin implements IPublicApiCommonEditorCabin {
 
 export class Common implements IPublicApiCommon {
   private readonly __designerCabin: any;
-  private readonly __skeletonCabin: any;
+  private readonly __skeletonCabin: IPublicApiCommonSkeletonCabin;
   private readonly __editorCabin: any;
   private readonly __utils: Utils;
 
@@ -460,7 +460,7 @@ export class Common implements IPublicApiCommon {
     return this.__designerCabin;
   }
 
-  get skeletonCabin(): any {
+  get skeletonCabin(): IPublicApiCommonSkeletonCabin {
     return this.__skeletonCabin;
   }
 

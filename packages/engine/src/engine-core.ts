@@ -232,27 +232,28 @@ export async function init(
   await destroy();
   let engineOptions = null;
   if (isPlainObject(container)) {
-    engineOptions = container;
+    engineOptions = container as IPublicTypeEngineOptions;
     engineContainer = document.createElement('div');
     engineContainer.id = 'engine';
     document.body.appendChild(engineContainer);
   } else {
     engineOptions = options;
-    engineContainer = container;
     if (!container) {
       engineContainer = document.createElement('div');
       engineContainer.id = 'engine';
       document.body.appendChild(engineContainer);
+    } else {
+      engineContainer = container;
     }
   }
-  engineConfig.setEngineOptions(engineOptions as any);
+  engineConfig.setEngineOptions(engineOptions);
 
   const { Workbench } = common.skeletonCabin;
   if (options && options.enableWorkspaceMode) {
     const disposeFun = await pluginPromise;
     disposeFun && disposeFun();
     render(
-      createElement(options?.WorkSpaceWorkbench || WorkSpaceWorkbench, {
+      createElement(options?.WorkSpaceWorkbench || (WorkSpaceWorkbench as any), {
         workspace: innerWorkspace,
         // skeleton: workspace.skeleton,
         className: 'engine-main',
@@ -268,10 +269,10 @@ export async function init(
     return;
   }
 
-  await plugins.init(pluginPreference as any);
+  await plugins.init(pluginPreference);
 
   render(
-    createElement(options?.Workbench || Workbench, {
+    createElement(options?.Workbench || (Workbench as any), {
       skeleton: innerSkeleton,
       className: 'engine-main',
       topAreaItemClassName: 'engine-actionitem',
