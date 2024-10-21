@@ -1,23 +1,22 @@
 /* eslint-disable max-len */
 import { obx, computed, makeObservable } from '@felce/lowcode-editor-core';
 import { Logger } from '@felce/lowcode-utils';
-import { IPublicTypeWidgetBaseConfig } from '@felce/lowcode-types';
+import {
+  IPublicTypeWidgetBaseConfig,
+  IPublicModelArea,
+  IPublicModelWidget,
+} from '@felce/lowcode-types';
 import { WidgetContainer } from './widget/widget-container';
 import { ISkeleton } from './skeleton';
-import { IWidget } from './widget/widget';
 
 const logger = new Logger({ level: 'warn', bizName: 'skeleton:area' });
-export interface IArea<C, T> {
-  isEmpty(): boolean;
-  add(config: T | C): T;
-  remove(config: T | string): number;
-  setVisible(flag: boolean): void;
-  hide(): void;
-  show(): void;
-}
 
-export class Area<C extends IPublicTypeWidgetBaseConfig = any, T extends IWidget = IWidget>
-  implements IArea<C, T>
+export interface IArea<C, T> extends IPublicModelArea<C, T> {}
+
+export class Area<
+  C extends IPublicTypeWidgetBaseConfig = any,
+  T extends IPublicModelWidget = IPublicModelWidget,
+> implements IArea<C, T>
 {
   @obx private _visible = true;
 

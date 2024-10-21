@@ -19,7 +19,7 @@ import './context-menu-actions.scss';
 export interface IContextMenuActions {
   actions: IPublicTypeContextMenuAction[];
 
-  adjustMenuLayoutFn: (actions: IPublicTypeContextMenuItem[]) => IPublicTypeContextMenuItem[];
+  // adjustMenuLayoutFn: (actions: IPublicTypeContextMenuItem[]) => IPublicTypeContextMenuItem[];
 
   addMenuAction: IPublicApiMaterial['addContextMenuOption'];
 
@@ -57,7 +57,11 @@ export class GlobalContextMenuActions {
     event.preventDefault();
 
     const actions: IPublicTypeContextMenuAction[] = [];
-    let contextMenu: ContextMenuActions = this.contextMenuActionsMap.values().next().value;
+    let contextMenu: ContextMenuActions | undefined = this.contextMenuActionsMap
+      .values()
+      .next().value;
+    if (!contextMenu) return;
+
     this.contextMenuActionsMap.forEach((contextMenu) => {
       actions.push(...contextMenu.actions);
     });
@@ -90,12 +94,17 @@ export class GlobalContextMenuActions {
       pluginContext,
     });
 
-    const target = event.target;
+    const target = event.target as HTMLElement;
 
-    const { top, left } = target?.getBoundingClientRect();
+    if (!target) {
+      console.warn('context menu target is null');
+      return;
+    }
+
+    const { top, left } = target.getBoundingClientRect();
 
     const menuInstance = Menu.create({
-      target: event.target,
+      target: target,
       offset: [event.clientX - left, event.clientY - top],
       children: menuNode,
       className: 'engine-context-menu',
@@ -177,7 +186,7 @@ export class ContextMenuActions implements IContextMenuActions {
     ) as IPublicModelPluginContext;
 
     const menus: IPublicTypeContextMenuItem[] = parseContextMenuProperties(actions, {
-      nodes: nodes.map((d) => designer.shellModelFactory.createNode(d)!),
+      nodes: nodes.map((d) => designer.shellModelFactory!.createNode(d)!),
       destroy,
       event,
       pluginContext,
@@ -191,7 +200,7 @@ export class ContextMenuActions implements IContextMenuActions {
 
     const menuNode = parseContextMenuAsReactNode(layoutMenu, {
       destroy,
-      nodes: nodes.map((d) => designer.shellModelFactory.createNode(d)!),
+      nodes: nodes.map((d) => designer.shellModelFactory!.createNode(d)!),
       pluginContext,
     });
 
@@ -210,10 +219,10 @@ export class ContextMenuActions implements IContextMenuActions {
           originalEvent.stopPropagation();
           originalEvent.preventDefault();
           // 如果右键的节点不在 当前选中的节点中，选中该节点
-          if (!designer.currentSelection.has(node.id)) {
-            designer.currentSelection.select(node.id);
+          if (!designer.currentSelection!.has(node.id)) {
+            designer.currentSelection!.select(node.id);
           }
-          const nodes = designer.currentSelection.getNodes();
+          const nodes = designer.currentSelection!.getNodes();
           this.handleContextMenu(nodes, originalEvent);
         },
       ),

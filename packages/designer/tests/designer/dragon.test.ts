@@ -5,9 +5,6 @@ import { DocumentModel } from '../../src/document/document-model';
 import { Designer } from '../../src/designer/designer';
 import {
   Dragon,
-  isDragNodeObject,
-  isDragNodeDataObject,
-  isDragAnyObject,
   isLocateEvent,
   isShaken,
   setShaken,
@@ -18,6 +15,7 @@ import { IPublicEnumDragObjectType } from '@felce/lowcode-types';
 import formSchema from '../fixtures/schema/form';
 import { fireEvent } from '@testing-library/react';
 import { shellModelFactory } from '../../../engine/src/modules/shell-model-factory';
+import { isDragAnyObject, isDragNodeDataObject, isDragNodeObject } from '@felce/lowcode-utils';
 
 describe('Dragon 测试', () => {
   let editor: Editor;

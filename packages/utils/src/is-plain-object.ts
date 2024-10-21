@@ -1,6 +1,6 @@
 import { isObject } from './is-object';
 
-export function isPlainObject(value: any): value is any {
+export function isPlainObject(value: any): value is Record<string, any> {
   if (!isObject(value)) {
     return false;
   }

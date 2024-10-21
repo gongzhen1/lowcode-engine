@@ -5,27 +5,9 @@ import { getEvent } from '@felce/lowcode-shell';
 import { WidgetConfig } from '../types';
 import { ISkeleton } from '../skeleton';
 import { WidgetView } from '../components/widget-views';
-import { IPublicTypeTitleContent, IPublicTypeWidgetBaseConfig } from '@felce/lowcode-types';
+import { IPublicModelWidget, IPublicTypeTitleContent } from '@felce/lowcode-types';
 
-export interface IWidget {
-  readonly name: string;
-  readonly content: ReactNode;
-  readonly align?: string;
-  readonly isWidget: true;
-  readonly visible: boolean;
-  readonly disabled?: boolean;
-  readonly body: ReactNode;
-  readonly skeleton: ISkeleton;
-  readonly config: IPublicTypeWidgetBaseConfig;
-
-  getName(): string;
-  getContent(): any;
-  show(): void;
-  hide(): void;
-  toggle(): void;
-  enable?(): void;
-  disable?(): void;
-}
+export interface IWidget extends IPublicModelWidget {}
 
 export class Widget implements IWidget {
   readonly isWidget = true;
@@ -138,6 +120,6 @@ export class Widget implements IWidget {
   }
 }
 
-export function isWidget(obj: any): obj is IWidget {
+export function isWidget(obj: any): obj is IPublicModelWidget {
   return obj && obj.isWidget;
 }

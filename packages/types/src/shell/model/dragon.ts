@@ -1,12 +1,15 @@
 /* eslint-disable max-len */
-import { IPublicTypeDisposable, IPublicTypeDragNodeDataObject, IPublicTypeDragObject } from '../type';
-import { IPublicModelDragObject, IPublicModelLocateEvent, IPublicModelNode } from './';
+import { IPublicTypeDisposable, IPublicTypeDragObject } from '../type';
+import {
+  IPublicModelDragObject,
+  IPublicModelLocateEvent,
+  IPublicModelNode,
+} from './';
 
 export interface IPublicModelDragon<
   Node = IPublicModelNode,
-  LocateEvent = IPublicModelLocateEvent
+  LocateEvent = IPublicModelLocateEvent,
 > {
-
   /**
    * 是否正在拖动
    * is dragging or not
@@ -35,7 +38,12 @@ export interface IPublicModelDragon<
    * @param func
    * @returns
    */
-  onDragend(func: (o: { dragObject: IPublicModelDragObject; copy?: boolean }) => any): IPublicTypeDisposable;
+  onDragend(
+    func: (o: {
+      dragObject: IPublicModelDragObject<Node>;
+      copy?: boolean;
+    }) => any,
+  ): IPublicTypeDisposable;
 
   /**
    * 设置拖拽监听的区域 shell，以及自定义拖拽转换函数 boost
@@ -45,7 +53,10 @@ export interface IPublicModelDragon<
    * @param shell 拖拽监听的区域
    * @param boost 拖拽转换函数
    */
-  from(shell: Element, boost: (e: MouseEvent) => IPublicTypeDragNodeDataObject | null): any;
+  from(
+    shell: Element,
+    boost: (e: MouseEvent) => IPublicModelDragObject<Node> | null,
+  ): any;
 
   /**
    * 发射拖拽对象
@@ -54,7 +65,11 @@ export interface IPublicModelDragon<
    * @param dragObject 拖拽对象
    * @param boostEvent 拖拽初始时事件
    */
-  boost(dragObject: IPublicTypeDragObject, boostEvent: MouseEvent | DragEvent, fromRglNode?: Node): void;
+  boost(
+    dragObject: IPublicTypeDragObject,
+    boostEvent: MouseEvent | DragEvent,
+    fromRglNode?: Node,
+  ): void;
 
   /**
    * 添加投放感应区
