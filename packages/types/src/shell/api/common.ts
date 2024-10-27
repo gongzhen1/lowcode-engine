@@ -1,10 +1,12 @@
-
 import { Component, ReactNode } from 'react';
-import { IPublicTypeI18nData, IPublicTypeNodeSchema, IPublicTypeTitleContent } from '../type';
+import {
+  IPublicTypeI18nData,
+  IPublicTypeNodeSchema,
+  IPublicTypeTitleContent,
+} from '../type';
 import { IPublicEnumTransitionType } from '../enum';
 
 export interface IPublicApiCommonUtils {
-
   /**
    * 是否为合法的 schema 结构
    * check if data is valid NodeSchema
@@ -30,9 +32,9 @@ export interface IPublicApiCommonUtils {
    * @returns {(IPublicTypeNodeSchema | undefined)}
    */
   getNodeSchemaById(
-      schema: IPublicTypeNodeSchema,
-      nodeId: string,
-    ): IPublicTypeNodeSchema | undefined;
+    schema: IPublicTypeNodeSchema,
+    nodeId: string,
+  ): IPublicTypeNodeSchema | undefined;
 
   // TODO: add comments
   getConvertedExtraKey(key: string): string;
@@ -76,16 +78,14 @@ export interface IPublicApiCommonUtils {
   intl(data: IPublicTypeI18nData | string, params?: object): string;
 }
 export interface IPublicApiCommonSkeletonCabin {
-
   /**
    * 编辑器框架 View
    * get Workbench Component
    */
-  get Workbench(): Component;
+  get Workbench(): ReactNode;
 }
 
 export interface IPublicApiCommonEditorCabin {
-
   /**
    * Title 组件
    * @experimental unstable API, pay extra caution when trying to use this
@@ -103,11 +103,9 @@ export interface IPublicApiCommonEditorCabin {
   }>;
 }
 
-export interface IPublicApiCommonDesignerCabin {
-}
+export interface IPublicApiCommonDesignerCabin {}
 
 export interface IPublicApiCommon {
-
   get utils(): IPublicApiCommonUtils;
 
   /**

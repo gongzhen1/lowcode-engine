@@ -1,3 +1,4 @@
+import { BuiltinSimulatorProps } from './../builtin-simulator/host';
 import { ComponentType } from 'react';
 import {
   obx,
@@ -55,13 +56,13 @@ const logger = new Logger({ level: 'warn', bizName: 'designer' });
 export interface DesignerProps {
   [key: string]: any;
   editor: IPublicModelEditor;
-  shellModelFactory: IShellModelFactory;
+  shellModelFactory?: IShellModelFactory;
   className?: string;
   style?: object;
   defaultSchema?: IPublicTypeProjectSchema;
   hotkeys?: object;
   viewName?: string;
-  simulatorProps?: Record<string, any> | ((document: DocumentModel) => object);
+  simulatorProps?: ((project: Project) => BuiltinSimulatorProps) | BuiltinSimulatorProps;
   simulatorComponent?: ComponentType<any>;
   dragGhostComponent?: ComponentType<any>;
   suspensed?: boolean;
@@ -71,13 +72,13 @@ export interface DesignerProps {
   onDragstart?: (e: IPublicModelLocateEvent) => void;
   onDrag?: (e: IPublicModelLocateEvent) => void;
   onDragend?: (
-    e: { dragObject: IPublicModelDragObject; copy: boolean },
+    e: { dragObject: IPublicModelDragObject<INode>; copy?: boolean },
     loc?: DropLocation,
   ) => void;
 }
 
 export interface IDesigner {
-  readonly shellModelFactory: IShellModelFactory;
+  readonly shellModelFactory?: IShellModelFactory;
 
   viewName: string | undefined;
 
@@ -89,7 +90,7 @@ export interface IDesigner {
 
   get componentActions(): ComponentActions;
 
-  get contextMenuActions(): ContextMenuActions;
+  get contextMenuActions(): IContextMenuActions;
 
   get editor(): IPublicModelEditor;
 
@@ -97,7 +98,7 @@ export interface IDesigner {
 
   get simulatorComponent(): ComponentType<any> | undefined;
 
-  get currentSelection(): ISelection;
+  get currentSelection(): ISelection | undefined;
 
   createScroller(scrollable: IPublicTypeScrollable): IPublicModelScroller;
 
@@ -162,7 +163,7 @@ export class Designer implements IDesigner {
 
   readonly bemToolsManager = new BemToolsManager(this);
 
-  readonly shellModelFactory: IShellModelFactory;
+  readonly shellModelFactory?: IShellModelFactory;
 
   private _dropLocation?: DropLocation;
 
@@ -448,9 +449,10 @@ export class Designer implements IDesigner {
         this._simulatorComponent = props.simulatorComponent;
       }
       if (props.simulatorProps !== this.props.simulatorProps) {
+        const oldDesignMode = this.simulatorProps?.designMode;
         this._simulatorProps = props.simulatorProps;
         // 重新 setupSelection
-        if (props.simulatorProps?.designMode !== this.props.simulatorProps?.designMode) {
+        if (this.simulatorProps?.designMode !== oldDesignMode) {
           this.setupSelection();
         }
       }

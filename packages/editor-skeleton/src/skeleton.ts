@@ -68,6 +68,9 @@ export interface ISkeleton
     | 'remove'
     | 'hideArea'
     | 'add'
+    | 'getAreaItems'
+    | 'onDisableWidget'
+    | 'onEnableWidget'
   > {
   editor: IEditor;
 
@@ -456,14 +459,14 @@ export class Skeleton implements ISkeleton {
     const { content, ...restConfig } = config;
     if (content) {
       if (isPlainObject(content) && !isValidElement(content)) {
-        Object.keys(content).forEach((key) => {
+        Object.keys(content).forEach((key: any) => {
           if (/props$/i.test(key) && restConfig[key]) {
             restConfig[key] = {
               ...restConfig[key],
-              ...content[key],
+              ...(content as unknown as IPublicTypePanelConfig)[key],
             };
           } else {
-            restConfig[key] = content[key];
+            restConfig[key] = (content as unknown as IPublicTypePanelConfig)[key];
           }
         });
       } else {

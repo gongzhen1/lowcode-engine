@@ -3,9 +3,8 @@ import { obx, IEventBus, createModuleEventBus } from '@felce/lowcode-editor-core
 import { IPublicTypeActiveTarget, IPublicModelActiveTracker } from '@felce/lowcode-types';
 import { isNode } from '@felce/lowcode-utils';
 
-export interface IActiveTracker extends Omit<IPublicModelActiveTracker, 'track' | 'onChange'> {
-  _target: ActiveTarget | INode;
-
+export interface IActiveTracker
+  extends Omit<IPublicModelActiveTracker, 'track' | 'onChange' | 'target'> {
   track(originalTarget: ActiveTarget | INode): void;
 
   onChange(fn: (target: ActiveTarget) => void): () => void;
@@ -16,7 +15,7 @@ export interface ActiveTarget extends Omit<IPublicTypeActiveTarget, 'node'> {
 }
 
 export class ActiveTracker implements IActiveTracker {
-  @obx.ref private _target?: ActiveTarget | INode;
+  @obx.ref private _target: ActiveTarget | INode;
 
   private emitter: IEventBus = createModuleEventBus('ActiveTracker');
 

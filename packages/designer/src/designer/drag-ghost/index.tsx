@@ -1,7 +1,6 @@
 import { Component, ReactElement } from 'react';
 import { observer, obx, Title, makeObservable } from '@felce/lowcode-editor-core';
 import { Designer } from '../designer';
-import { isDragNodeObject } from '../dragon';
 import { isSimulatorHost } from '../../simulator';
 import './ghost.less';
 import {
@@ -9,6 +8,7 @@ import {
   IPublicTypeNodeSchema,
   IPublicModelDragObject,
 } from '@felce/lowcode-types';
+import { isDragNodeObject } from '@felce/lowcode-utils';
 
 type offBinding = () => any;
 
@@ -16,7 +16,7 @@ type offBinding = () => any;
 export default class DragGhost extends Component<{ designer: Designer }> {
   private dispose: offBinding[] = [];
 
-  @obx.ref private titles: (string | IPublicTypeI18nData | ReactElement)[] | null = null;
+  @obx.ref private titles: (string | IPublicTypeI18nData | ReactElement | null)[] | null = null;
 
   @obx.ref private x = 0;
 
@@ -58,17 +58,19 @@ export default class DragGhost extends Component<{ designer: Designer }> {
     ];
   }
 
-  getTitles(dragObject: IPublicModelDragObject) {
+  getTitles(dragObject: IPublicModelDragObject | null) {
+    if (!dragObject) return null;
+
     if (isDragNodeObject(dragObject)) {
-      return dragObject.nodes.map((node) => node.title);
+      return dragObject.nodes.map((node) => node?.title || null);
     }
 
     const dataList = Array.isArray(dragObject.data) ? dragObject.data : [dragObject.data];
 
-    return dataList.map(
-      (item: IPublicTypeNodeSchema, i) =>
-        this.props.designer.getComponentMeta(item.componentName).title,
-    );
+    return dataList.map((item: IPublicTypeNodeSchema | null) => {
+      if (!item) return null;
+      return this.props.designer.getComponentMeta(item.componentName).title;
+    });
   }
 
   componentWillUnmount() {

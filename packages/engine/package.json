@@ -19,7 +19,7 @@
   "license": "MIT",
   "dependencies": {
     "@alifd/next": "^1.26.0",
-    "@alilc/lowcode-engine-ext": "^1.0.0",
+    "@felce/lowcode-engine-ext": "^1.1.0",
     "@felce/lowcode-designer": "1.4.0",
     "@felce/lowcode-editor-core": "1.4.0",
     "@felce/lowcode-editor-skeleton": "1.4.0",

@@ -30,7 +30,11 @@ import {
   PluginPreference,
   IDesigner,
 } from '@felce/lowcode-designer';
-import { Skeleton as InnerSkeleton, registerDefaults } from '@felce/lowcode-editor-skeleton';
+import {
+  Skeleton as InnerSkeleton,
+  registerDefaults,
+  ISkeleton,
+} from '@felce/lowcode-editor-skeleton';
 import {
   Workspace as InnerWorkspace,
   Workbench as WorkSpaceWorkbench,
@@ -108,10 +112,10 @@ globalContext.register(innerWorkspace, 'workspace');
 
 const engineContext: Partial<ILowCodePluginContextPrivate> = {};
 
-const innerSkeleton = new InnerSkeleton(editor);
+const innerSkeleton: ISkeleton = new InnerSkeleton(editor);
 editor.set('skeleton' as any, innerSkeleton);
 
-const designer = new Designer({ editor, shellModelFactory });
+const designer: IDesigner = new Designer({ editor, shellModelFactory });
 editor.set('designer' as any, designer);
 
 const { project: innerProject } = designer;
@@ -228,27 +232,28 @@ export async function init(
   await destroy();
   let engineOptions = null;
   if (isPlainObject(container)) {
-    engineOptions = container;
+    engineOptions = container as IPublicTypeEngineOptions;
     engineContainer = document.createElement('div');
     engineContainer.id = 'engine';
     document.body.appendChild(engineContainer);
   } else {
     engineOptions = options;
-    engineContainer = container;
     if (!container) {
       engineContainer = document.createElement('div');
       engineContainer.id = 'engine';
       document.body.appendChild(engineContainer);
+    } else {
+      engineContainer = container;
     }
   }
-  engineConfig.setEngineOptions(engineOptions as any);
+  engineConfig.setEngineOptions(engineOptions);
 
   const { Workbench } = common.skeletonCabin;
   if (options && options.enableWorkspaceMode) {
     const disposeFun = await pluginPromise;
     disposeFun && disposeFun();
     render(
-      createElement(WorkSpaceWorkbench, {
+      createElement(options?.WorkSpaceWorkbench || (WorkSpaceWorkbench as any), {
         workspace: innerWorkspace,
         // skeleton: workspace.skeleton,
         className: 'engine-main',
@@ -264,10 +269,10 @@ export async function init(
     return;
   }
 
-  await plugins.init(pluginPreference as any);
+  await plugins.init(pluginPreference);
 
   render(
-    createElement(Workbench, {
+    createElement(options?.Workbench || (Workbench as any), {
       skeleton: innerSkeleton,
       className: 'engine-main',
       topAreaItemClassName: 'engine-actionitem',

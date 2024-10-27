@@ -33,3 +33,5 @@ export * from './setting-field';
 export * from './editor-view';
 export * from './skeleton-item';
 export * from './simulator-render';
+export * from './area';
+export * from './widget';

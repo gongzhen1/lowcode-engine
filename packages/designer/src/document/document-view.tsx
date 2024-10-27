@@ -1,9 +1,12 @@
-import { Component } from 'react';
-import classNames from 'classnames';
 import { observer } from '@felce/lowcode-editor-core';
-import { DocumentModel, IDocumentModel } from './document-model';
+import classNames from 'classnames';
+import { Component } from 'react';
 import { BuiltinSimulatorHostView } from '../builtin-simulator';
+import { IDocumentModel } from './document-model';
 
+/**
+ * @deprecated 暂时没用到
+ */
 @observer
 export class DocumentView extends Component<{ document: IDocumentModel }> {
   render() {

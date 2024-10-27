@@ -3,14 +3,17 @@ import { Editor, engineConfig } from '@felce/lowcode-editor-core';
 import { DesignerView, Designer } from '@felce/lowcode-designer';
 import { Asset, getLogger } from '@felce/lowcode-utils';
 import './index.scss';
+import { IPublicModelEngineConfig } from '@felce/lowcode-types';
 
 const logger = getLogger({ level: 'warn', bizName: 'plugin:plugin-designer' });
 
 export interface PluginProps {
   engineEditor: Editor;
+  engineConfig: IPublicModelEngineConfig;
 }
 
 interface DesignerPluginState {
+  utilsMetadata?: any[] | null;
   componentMetadatas?: any[] | null;
   library?: any[] | null;
   extraEnvironment?: any[] | null;

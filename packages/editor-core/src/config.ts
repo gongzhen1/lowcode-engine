@@ -270,7 +270,7 @@ export class EngineConfig implements IEngineConfig {
    *
    * @param {IPublicTypeEngineOptions} engineOptions
    */
-  setEngineOptions(engineOptions: IPublicTypeEngineOptions) {
+  setEngineOptions(engineOptions?: IPublicTypeEngineOptions) {
     if (!engineOptions || !isPlainObject(engineOptions)) {
       return;
     }
