@@ -48,6 +48,14 @@ npm install && npm run setup
     [
       "https://registry.npmmirror.com/@felce/lowcode-engine/(.*)/dist/css/react-simulator-renderer.css",
       "http://localhost:5555/css/ReactSimulatorRenderer.css"
+    ],
+    [
+      "https://registry.npmmirror.com/@felce/lowcode-engine/(.*)/dist/js/vue-simulator-renderer.js",
+      "http://localhost:5555/js/VueSimulatorRenderer.js"
+    ],
+    [
+      "https://registry.npmmirror.com/@felce/lowcode-engine/(.*)/dist/css/vue-simulator-renderer.css",
+      "http://localhost:5555/css/VueSimulatorRenderer.css"
     ]
   ]
 }

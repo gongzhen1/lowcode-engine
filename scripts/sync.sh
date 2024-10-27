@@ -12,6 +12,8 @@ tnpm sync @felce/lowcode-plugin-outline-pane
 tnpm sync @felce/lowcode-renderer-core
 tnpm sync @felce/lowcode-react-renderer
 tnpm sync @felce/lowcode-react-simulator-renderer
+tnpm sync @felce/lowcode-vue-renderer
+tnpm sync @felce/lowcode-vue-simulator-renderer
 tnpm sync @felce/lowcode-engine
 tnpm sync @felce/lowcode-workspace
 tnpm sync @felce/lowcode-plugin-command
