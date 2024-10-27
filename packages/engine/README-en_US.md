@@ -1,24 +1,3 @@
-## Preface
-
-This project is forked from [alibaba/lowcode-engine](https://github.com/alibaba/lowcode-engine) (v1.3.2 on September 6, 2024).
-Since the original project's version 1 has been determined to no longer have community open source maintenance, and there is no definite plan for version 2. Therefore, this project was born, and it is expected to continue open source maintenance.
-Of course, from now on, related designs will also be completely independent and not related to the design of the original project's version 2. If you expect to continue following the original project's version 2 route in the future, please choose this project carefully.
-
-### Changes in thinking
-
-This project will change some ideas, abandon some peripheral function development, mainly provide core low-code functions, and be a pure low-code kernel. Modules such as workspace will have a lower priority.
-More internal modules will be transferred to plugins (incomplete) and provided as default plugins instead of being encapsulated inside. The overall development direction is shifting towards a more open one.
-At the same time, for each sub-module, more interfaces will be opened through the shell module to support more customized needs.
-Finally, the toolchain will be upgraded as appropriate. It is planned to switch to a newer packaging tool, etc., but the priority will be relatively low.
-
-### Plans
-
-Currently, the project has just been forked. The main work is to replace the namespace. To avoid naming conflicts with the original project, the namespace of this repository is adjusted to `@felce`, which is taken from the abbreviation of lowcode-engine.
-Current main tasks:
-
-- Adjust the namespace of the main project.
-- Fix backlogged issues.
-
 <h1 align="center">LowCodeEngine</h1>
 
 <div align="center">
@@ -175,6 +154,21 @@ Please read first:
 About Pull Request:
 
 - set the target branch to **develop** other than **main**
+
+### Plan
+
+Current main tasks:
+
+- [ ] Fix backlog issues
+- [x] Modify namespace
+- [x] Support custom workbench
+- [ ] Upgrade to React 18
+- [ ] Upgrade build scripts (or replace with Vite)
+- [ ] Merge Vue canvas and renderer into the project
+- [ ] Core module refactoring to achieve framework independence
+- [ ] Independent built-in plugin for custom loading
+- [ ] Independent settings plugin
+- [ ] Optimize rendering performance
 
 ## ❤️ Contributors
 
