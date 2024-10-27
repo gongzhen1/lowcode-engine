@@ -1,35 +1,3 @@
-## 前言
-
-本工程 fork 于[alibaba/lowcode-engine](https://github.com/alibaba/lowcode-engine) （2024 年 9 月 6 日 v1.3.2）。
-
-由于原工程 V1 确定不再进行社区开源维护，V2 版没有确切计划。因此诞生了本项目，期望继续开源维护。
-
-当然，自此开始相关设计也会完全独立，与原工程 V2 的设计不相关联，如果期望后续能继续走原工程 V2 路线，请慎重选择本项目。
-
-### 思想变化
-
-本项目将转变部分思路，舍弃部分外围的功能开发，以提供核心低码功能为主，做纯粹低代码内核。如 workspace 等模块将降低优先级。
-
-更多的内部模块将转移到 plugins 中（未完成），作为默认插件提供，而不是封装到内部。整体向更开放的开发方向转变。
-
-同时，针对各子模块，将通过 shell 模块开放更多的接口，以支持更多定制化需求。
-
-最后，将酌情升级工具链，计划切换到更新的打包工具等，不过优先级会比较低。
-
-### 计划
-
-目前工程刚 fork，主要工作是进行命名空间的替换，为避免与原工程命名冲突，本仓库命名空间调整为`@felce`，取自 lowcode-engine 的缩写。
-当前主要任务：
-
-- 主要工程的命名空间调整
-- 修复积压问题
-
-## 联系方式
-
-微信搜索 kunsile-002 添加我的微信，或者扫码加群：
-
-<img src="https://jxxg-wangjian.oss-cn-beijing.aliyuncs.com/static/lce-group-qrcode.jpg" width="200" />
-
 <h1 align="center">LowCodeEngine</h1>
 
 <div align="center">
@@ -185,6 +153,31 @@ lowcode-engine 启动后，提供了几个 umd 文件，可以结合 [lowcode-de
 
 关于提交 PR：
 请将目标合并分支设置为 **develop**，不要指定 **main** 分支，在发布正式版本后，develop 分支将会合入 main 分支。
+
+### 计划
+
+当前主要任务：
+
+- [ ] 修复积压问题
+- [x] 修改namespace
+- [x] 支持自定义workbentch
+- [ ] 升级到react18
+- [ ] 升级build-scripts（或者替换成vite）
+- [ ] 合并vue画布和renderer到工程内部
+- [ ] 核心模块重构，实现框架无关
+- [ ] 独立内置插件，实现自定义加载
+- [ ] 独立settings插件
+- [ ] 优化渲染性能
+
+## 声明
+
+本工程 fork 于[alibaba/lowcode-engine](https://github.com/alibaba/lowcode-engine) （2024 年 9 月 6 日 v1.3.2）。
+
+## 联系方式
+
+微信搜索 kunsile-002 添加我的微信，或者扫码加群：
+
+<img src="https://jxxg-wangjian.oss-cn-beijing.aliyuncs.com/static/lce-group-qrcode.jpg" width="200" />
 
 ## ❤️ 致谢
 
