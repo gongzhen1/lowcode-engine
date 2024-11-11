@@ -39,7 +39,8 @@
     "@types/react-dom": "^16",
     "@types/store": "^2.0.2",
     "build-plugin-fusion": "^0.1.0",
-    "build-plugin-moment-locales": "^0.1.0"
+    "build-plugin-moment-locales": "^0.1.0",
+    "tsconfig-paths-webpack-plugin": "^3.2.0"
   },
   "publishConfig": {
     "access": "public",
