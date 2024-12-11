@@ -5,10 +5,11 @@ import {
   IPublicModelPluginContext,
   IPublicTypeContextMenuAction,
   IPublicTypeContextMenuItem,
+  IPublicTypeI18nData,
 } from '@felce/lowcode-types';
-import { Logger } from '@felce/lowcode-utils';
+import { Logger } from './logger';
 import classNames from 'classnames';
-import React from 'react';
+import React, { isValidElement } from 'react';
 import './context-menu.scss';
 
 const logger = new Logger({ level: 'warn', bizName: 'utils' });
@@ -56,7 +57,7 @@ const Tree = (props: {
         {props.options.nodes?.[0].id === node.id ? (
           <Icon className="engine-context-menu-tree-selecte-icon" size="small" type="success" />
         ) : null}
-        {intl(node.title)}
+        {isValidElement(node.title) ? node.title : intl(node.title as string | IPublicTypeI18nData)}
       </div>
       <div className="engine-context-menu-tree-children">{props.children}</div>
     </Tree>
@@ -88,7 +89,7 @@ export function parseContextMenuAsReactNode(
               disabled: menu.disabled,
             })}
             key={menu.name}
-            label={<div className="engine-context-menu-text">{intl(menu.title)}</div>}
+            label={<div className="engine-context-menu-text">{menu.title && intl(menu.title)}</div>}
           >
             <Menu className="next-context engine-context-menu">
               {parseContextMenuAsReactNode(menu.items, options)}
