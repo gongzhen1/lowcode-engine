@@ -1,6 +1,6 @@
 {
   "name": "@felce/lowcode-engine",
-  "version": "1.4.1",
+  "version": "1.5.0-beta.0",
   "description": "An enterprise-class low-code technology stack with scale-out design / 一套面向扩展设计的企业级低代码技术体系",
   "files": [
     "dist"
@@ -16,16 +16,16 @@
   "license": "MIT",
   "dependencies": {
     "@alifd/next": "^1.26.0",
-    "@felce/lowcode-designer": "1.4.1",
-    "@felce/lowcode-editor-core": "1.4.1",
-    "@felce/lowcode-editor-skeleton": "1.4.1",
+    "@felce/lowcode-designer": "1.5.0-beta.0",
+    "@felce/lowcode-editor-core": "1.5.0-beta.0",
+    "@felce/lowcode-editor-skeleton": "1.5.0-beta.0",
     "@felce/lowcode-engine-ext": "^1.1.0",
-    "@felce/lowcode-plugin-command": "1.4.1",
-    "@felce/lowcode-plugin-designer": "1.4.1",
-    "@felce/lowcode-plugin-outline-pane": "1.4.1",
-    "@felce/lowcode-shell": "1.4.1",
-    "@felce/lowcode-utils": "1.4.1",
-    "@felce/lowcode-workspace": "1.4.1",
+    "@felce/lowcode-plugin-command": "1.5.0-beta.0",
+    "@felce/lowcode-plugin-designer": "1.5.0-beta.0",
+    "@felce/lowcode-plugin-outline-pane": "1.5.0-beta.0",
+    "@felce/lowcode-shell": "1.5.0-beta.0",
+    "@felce/lowcode-utils": "1.5.0-beta.0",
+    "@felce/lowcode-workspace": "1.5.0-beta.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
@@ -34,6 +34,7 @@
     "@alifd/theme-lowcode-dark": "^0.2.0",
     "@alifd/theme-lowcode-light": "^0.2.0",
     "@types/domready": "^1.0.0",
+    "@types/prop-types": "^15.7.14",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.1",
     "build-plugin-fusion": "0.1.17-beta.0",
@@ -41,7 +42,6 @@
     "build-plugin-react-app": "^1.8.0",
     "fs-extra": "^10.0.0",
     "prop-types": "^15.7.2",
-    "@types/prop-types": "^15.7.14",
     "tsconfig-paths-webpack-plugin": "^3.2.0"
   },
   "publishConfig": {

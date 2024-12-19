@@ -45,9 +45,9 @@ importers:
   packages/designer:
     specifiers:
       '@cfaester/enzyme-adapter-react-18': ^0.8.0
-      '@felce/lowcode-editor-core': 1.4.1
-      '@felce/lowcode-types': 1.4.1
-      '@felce/lowcode-utils': 1.4.1
+      '@felce/lowcode-editor-core': 1.5.0-beta.0
+      '@felce/lowcode-types': 1.5.0-beta.0
+      '@felce/lowcode-utils': 1.5.0-beta.0
       '@testing-library/react': ^16.0.1
       '@types/enzyme': ^3.10.12
       '@types/jest': ^29
@@ -97,8 +97,8 @@ importers:
     specifiers:
       '@alifd/next': ^1.26.0
       '@alilc/lowcode-datasource-types': ^1.0.1
-      '@felce/lowcode-types': 1.4.1
-      '@felce/lowcode-utils': 1.4.1
+      '@felce/lowcode-types': 1.5.0-beta.0
+      '@felce/lowcode-utils': 1.5.0-beta.0
       '@types/lodash.get': ^4.4.6
       '@types/node': ^18
       '@types/react': ^18.3.1
@@ -108,8 +108,8 @@ importers:
       debug: ^4.4.0
       intl-messageformat: ^9.3.1
       lodash.get: ^4.4.2
-      mobx: ^6.3.0
-      mobx-react: ^7.2.0
+      mobx: ^6.13.5
+      mobx-react: 9.2.0
       power-di: ^2.2.4
       react: ^18.3.1
       react-dom: ^18.3.1
@@ -124,7 +124,7 @@ importers:
       intl-messageformat: 9.13.0
       lodash.get: 4.4.2
       mobx: 6.13.5
-      mobx-react: 7.6.0_4du6hmh5obecsnitoasjoyfjkq
+      mobx-react: 9.2.0_4du6hmh5obecsnitoasjoyfjkq
       power-di: 2.4.41_reflect-metadata@0.2.2
       react: 18.3.1
       react-dom: 18.3.1_react@18.3.1
@@ -141,11 +141,11 @@ importers:
   packages/editor-skeleton:
     specifiers:
       '@alifd/next': ^1.27.30
-      '@felce/lowcode-designer': 1.4.1
-      '@felce/lowcode-editor-core': 1.4.1
-      '@felce/lowcode-shell': 1.4.1
-      '@felce/lowcode-types': 1.4.1
-      '@felce/lowcode-utils': 1.4.1
+      '@felce/lowcode-designer': 1.5.0-beta.0
+      '@felce/lowcode-editor-core': 1.5.0-beta.0
+      '@felce/lowcode-shell': 1.5.0-beta.0
+      '@felce/lowcode-types': 1.5.0-beta.0
+      '@felce/lowcode-utils': 1.5.0-beta.0
       '@types/react': ^18.3.1
       '@types/react-dom': ^18.3.1
       classnames: ^2.5.1
@@ -171,16 +171,16 @@ importers:
       '@alifd/next': ^1.26.0
       '@alifd/theme-lowcode-dark': ^0.2.0
       '@alifd/theme-lowcode-light': ^0.2.0
-      '@felce/lowcode-designer': 1.4.1
-      '@felce/lowcode-editor-core': 1.4.1
-      '@felce/lowcode-editor-skeleton': 1.4.1
+      '@felce/lowcode-designer': 1.5.0-beta.0
+      '@felce/lowcode-editor-core': 1.5.0-beta.0
+      '@felce/lowcode-editor-skeleton': 1.5.0-beta.0
       '@felce/lowcode-engine-ext': ^1.1.0
-      '@felce/lowcode-plugin-command': 1.4.1
-      '@felce/lowcode-plugin-designer': 1.4.1
-      '@felce/lowcode-plugin-outline-pane': 1.4.1
-      '@felce/lowcode-shell': 1.4.1
-      '@felce/lowcode-utils': 1.4.1
-      '@felce/lowcode-workspace': 1.4.1
+      '@felce/lowcode-plugin-command': 1.5.0-beta.0
+      '@felce/lowcode-plugin-designer': 1.5.0-beta.0
+      '@felce/lowcode-plugin-outline-pane': 1.5.0-beta.0
+      '@felce/lowcode-shell': 1.5.0-beta.0
+      '@felce/lowcode-utils': 1.5.0-beta.0
+      '@felce/lowcode-workspace': 1.5.0-beta.0
       '@types/domready': ^1.0.0
       '@types/prop-types': ^15.7.14
       '@types/react': ^18.3.1
@@ -225,8 +225,8 @@ importers:
   packages/ignitor:
     specifiers:
       '@alilc/lowcode-datasource-fetch-handler': ^1.2.1
-      '@felce/lowcode-engine': ^1.4.1
-      '@felce/lowcode-utils': ^1.4.1
+      '@felce/lowcode-engine': 1.5.0-beta.0
+      '@felce/lowcode-utils': 1.5.0-beta.0
     dependencies:
       '@felce/lowcode-engine': link:../engine
       '@felce/lowcode-utils': link:../utils
@@ -235,17 +235,17 @@ importers:
 
   packages/plugin-command:
     specifiers:
-      '@felce/lowcode-types': 1.4.1
-      '@felce/lowcode-utils': 1.4.1
+      '@felce/lowcode-types': 1.5.0-beta.0
+      '@felce/lowcode-utils': 1.5.0-beta.0
     dependencies:
       '@felce/lowcode-types': link:../types
       '@felce/lowcode-utils': link:../utils
 
   packages/plugin-designer:
     specifiers:
-      '@felce/lowcode-designer': 1.4.1
-      '@felce/lowcode-editor-core': 1.4.1
-      '@felce/lowcode-utils': 1.4.1
+      '@felce/lowcode-designer': 1.5.0-beta.0
+      '@felce/lowcode-editor-core': 1.5.0-beta.0
+      '@felce/lowcode-utils': 1.5.0-beta.0
       '@types/react': ^18.3.1
       '@types/react-dom': ^18.3.1
       react: ^18.3.1
@@ -263,8 +263,8 @@ importers:
   packages/plugin-outline-pane:
     specifiers:
       '@alifd/next': ^1.26.0
-      '@felce/lowcode-types': 1.4.1
-      '@felce/lowcode-utils': 1.4.1
+      '@felce/lowcode-types': 1.5.0-beta.0
+      '@felce/lowcode-utils': 1.5.0-beta.0
       '@types/node': ^18
       '@types/react': ^18.3.1
       '@types/react-dom': ^18.3.1
@@ -289,12 +289,12 @@ importers:
     specifiers:
       '@alifd/next': ^1.26.0
       '@cfaester/enzyme-adapter-react-18': ^0.8.0
-      '@felce/lowcode-designer': 1.4.1
-      '@felce/lowcode-editor-core': 1.4.1
-      '@felce/lowcode-editor-skeleton': 1.4.1
-      '@felce/lowcode-types': 1.4.1
-      '@felce/lowcode-utils': 1.4.1
-      '@felce/lowcode-workspace': 1.4.1
+      '@felce/lowcode-designer': 1.5.0-beta.0
+      '@felce/lowcode-editor-core': 1.5.0-beta.0
+      '@felce/lowcode-editor-skeleton': 1.5.0-beta.0
+      '@felce/lowcode-types': 1.5.0-beta.0
+      '@felce/lowcode-utils': 1.5.0-beta.0
+      '@felce/lowcode-workspace': 1.5.0-beta.0
       '@testing-library/react': ^11.2.2
       '@types/jest': ^29
       '@types/lodash': ^4.14.165
@@ -373,7 +373,7 @@ importers:
     specifiers:
       '@alib/build-scripts': ^0.1.18
       '@alifd/next': ^1.26.0
-      '@felce/lowcode-types': 1.4.1
+      '@felce/lowcode-types': 1.5.0-beta.0
       '@testing-library/jest-dom': ^6.1.4
       '@testing-library/react': ^11.2.7
       '@types/node': ^18
@@ -409,11 +409,11 @@ importers:
   packages/workspace:
     specifiers:
       '@cfaester/enzyme-adapter-react-18': ^0.8.0
-      '@felce/lowcode-designer': 1.4.1
-      '@felce/lowcode-editor-core': 1.4.1
-      '@felce/lowcode-editor-skeleton': 1.4.1
-      '@felce/lowcode-types': 1.4.1
-      '@felce/lowcode-utils': 1.4.1
+      '@felce/lowcode-designer': 1.5.0-beta.0
+      '@felce/lowcode-editor-core': 1.5.0-beta.0
+      '@felce/lowcode-editor-skeleton': 1.5.0-beta.0
+      '@felce/lowcode-types': 1.5.0-beta.0
+      '@felce/lowcode-utils': 1.5.0-beta.0
       '@types/jest': ^29
       '@types/lodash': ^4.14.165
       '@types/medium-editor': ^5.0.3
@@ -15924,24 +15924,6 @@ packages:
       ufo: 1.5.4
     dev: true
 
-  /mobx-react-lite/3.4.3_4du6hmh5obecsnitoasjoyfjkq:
-    resolution: {integrity: sha512-NkJREyFTSUXR772Qaai51BnE1voWx56LOL80xG7qkZr6vo8vEaLF3sz1JNUVh+rxmUzxYaqOhfuxTfqUh0FXUg==}
-    peerDependencies:
-      mobx: ^6.1.0
-      react: ^16.8.0 || ^17 || ^18
-      react-dom: '*'
-      react-native: '*'
-    peerDependenciesMeta:
-      react-dom:
-        optional: true
-      react-native:
-        optional: true
-    dependencies:
-      mobx: 6.13.5
-      react: 18.3.1
-      react-dom: 18.3.1_react@18.3.1
-    dev: false
-
   /mobx-react-lite/3.4.3_cvr33yxz7nhbxney4umws763gu:
     resolution: {integrity: sha512-NkJREyFTSUXR772Qaai51BnE1voWx56LOL80xG7qkZr6vo8vEaLF3sz1JNUVh+rxmUzxYaqOhfuxTfqUh0FXUg==}
     peerDependencies:
@@ -15960,11 +15942,11 @@ packages:
       react-dom: 16.14.0_react@16.14.0
     dev: false
 
-  /mobx-react/7.6.0_4du6hmh5obecsnitoasjoyfjkq:
-    resolution: {integrity: sha512-+HQUNuh7AoQ9ZnU6c4rvbiVVl+wEkb9WqYsVDzGLng+Dqj1XntHu79PvEWKtSMoMj67vFp/ZPXcElosuJO8ckA==}
+  /mobx-react-lite/4.1.0_4du6hmh5obecsnitoasjoyfjkq:
+    resolution: {integrity: sha512-QEP10dpHHBeQNv1pks3WnHRCem2Zp636lq54M2nKO2Sarr13pL4u6diQXf65yzXUn0mkk18SyIDCm9UOJYTi1w==}
     peerDependencies:
-      mobx: ^6.1.0
-      react: ^16.8.0 || ^17 || ^18
+      mobx: ^6.9.0
+      react: ^16.8.0 || ^17 || ^18 || ^19
       react-dom: '*'
       react-native: '*'
     peerDependenciesMeta:
@@ -15974,9 +15956,9 @@ packages:
         optional: true
     dependencies:
       mobx: 6.13.5
-      mobx-react-lite: 3.4.3_4du6hmh5obecsnitoasjoyfjkq
       react: 18.3.1
       react-dom: 18.3.1_react@18.3.1
+      use-sync-external-store: 1.4.0_react@18.3.1
     dev: false
 
   /mobx-react/7.6.0_cvr33yxz7nhbxney4umws763gu:
@@ -15996,6 +15978,25 @@ packages:
       mobx-react-lite: 3.4.3_cvr33yxz7nhbxney4umws763gu
       react: 16.14.0
       react-dom: 16.14.0_react@16.14.0
+    dev: false
+
+  /mobx-react/9.2.0_4du6hmh5obecsnitoasjoyfjkq:
+    resolution: {integrity: sha512-dkGWCx+S0/1mfiuFfHRH8D9cplmwhxOV5CkXMp38u6rQGG2Pv3FWYztS0M7ncR6TyPRQKaTG/pnitInoYE9Vrw==}
+    peerDependencies:
+      mobx: ^6.9.0
+      react: ^16.8.0 || ^17 || ^18 || ^19
+      react-dom: '*'
+      react-native: '*'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    dependencies:
+      mobx: 6.13.5
+      mobx-react-lite: 4.1.0_4du6hmh5obecsnitoasjoyfjkq
+      react: 18.3.1
+      react-dom: 18.3.1_react@18.3.1
     dev: false
 
   /mobx/6.13.5:
@@ -22360,6 +22361,14 @@ packages:
       punycode: 1.4.1
       qs: 6.13.1
     dev: true
+
+  /use-sync-external-store/1.4.0_react@18.3.1:
+    resolution: {integrity: sha512-9WXSPC5fMv61vaupRkCKCxsPxBocVnwakBEkMIHHpkTTg6icbJtg6jzgtLDm4bl3cSHAca52rYWih0k4K3PfHw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+    dependencies:
+      react: 18.3.1
+    dev: false
 
   /use/3.1.1:
     resolution: {integrity: sha512-cwESVXlO3url9YWlFW/TA9cshCEhtu7IKJ/p5soJ/gGpj7vbvFrAY/eIioQ6Dw23KjZhYgiIo8HOs1nQ2vr/oQ==}

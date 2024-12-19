@@ -1,6 +1,6 @@
 {
   "name": "@felce/lowcode-designer",
-  "version": "1.4.1",
+  "version": "1.5.0-beta.0",
   "description": "Designer for Ali LowCode Engine",
   "files": [
     "dist"
@@ -14,9 +14,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@felce/lowcode-editor-core": "1.4.1",
-    "@felce/lowcode-types": "1.4.1",
-    "@felce/lowcode-utils": "1.4.1",
+    "@felce/lowcode-editor-core": "1.5.0-beta.0",
+    "@felce/lowcode-types": "1.5.0-beta.0",
+    "@felce/lowcode-utils": "1.5.0-beta.0",
     "classnames": "^2.5.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -24,6 +24,7 @@
     "semver": "^7.3.5"
   },
   "devDependencies": {
+    "@cfaester/enzyme-adapter-react-18": "^0.8.0",
     "@testing-library/react": "^16.0.1",
     "@types/enzyme": "^3.10.12",
     "@types/jest": "^29",
@@ -34,7 +35,6 @@
     "@types/react-dom": "^18.3.1",
     "@types/semver": "7.3.9",
     "enzyme": "^3.11.0",
-    "@cfaester/enzyme-adapter-react-18": "^0.8.0",
     "jest": "^29",
     "lodash": "^4.17.20",
     "moment": "^2.29.1",
