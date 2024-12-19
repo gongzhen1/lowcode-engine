@@ -16,14 +16,11 @@
     "@felce/lowcode-types": "1.5.0-beta.0",
     "classnames": "2.5.1",
     "events": "^3.3.0",
-    "mobx": "^6.3.0",
+    "mobx": "^6.13.5",
     "prop-types": "^15.8.1"
   },
   "devDependencies": {
-    "@alib/build-scripts": "^0.1.18",
-    "@alifd/next": "^1.26.0",
-    "@testing-library/jest-dom": "^6.1.4",
-    "@testing-library/react": "^11.2.7",
+    "@alifd/next": "^1.27.30",
     "@types/node": "^18",
     "@types/prop-types": "^15.7.14",
     "@types/react": "^18.3.1",

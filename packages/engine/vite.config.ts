@@ -41,6 +41,10 @@ export default defineConfig(({ mode }) => {
       },
       VERSION_PLACEHOLDER: JSON.stringify(releaseVersion),
     },
+    preview: {
+      port: 5555,
+      strictPort: true,
+    },
     build: {
       input: 'src/index.ts',
       sourcemap: true,
