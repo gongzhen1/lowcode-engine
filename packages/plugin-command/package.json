@@ -36,5 +36,6 @@
   "dependencies": {
     "@felce/lowcode-types": "1.5.0-beta.1",
     "@felce/lowcode-utils": "1.5.0-beta.1"
-  }
+  },
+  "gitHead": "af061dee75cb9dc19df29d63c34fffba252c9b8c"
 }
