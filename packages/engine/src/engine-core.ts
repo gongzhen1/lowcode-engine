@@ -62,7 +62,6 @@ import './modules/live-editing';
 import * as classes from './modules/classes';
 import symbols from './modules/symbols';
 import { componentMetaParser } from './inner-plugins/component-meta-parser';
-import { setterRegistry } from './inner-plugins/setter-registry';
 import { defaultPanelRegistry } from './inner-plugins/default-panel-registry';
 import { shellModelFactory } from './modules/shell-model-factory';
 import { builtinHotkey } from './inner-plugins/builtin-hotkey';
@@ -84,7 +83,6 @@ async function registryInnerPlugin(
   const defaultPanelRegistryPlugin = defaultPanelRegistry(editor);
   await plugins.register(OutlinePlugin, {}, { autoInit: true });
   await plugins.register(componentMetaParserPlugin);
-  await plugins.register(setterRegistry, {});
   await plugins.register(defaultPanelRegistryPlugin);
   await plugins.register(builtinHotkey);
   await plugins.register(registerDefaults, {}, { autoInit: true });
@@ -94,7 +92,6 @@ async function registryInnerPlugin(
   return () => {
     plugins.delete(OutlinePlugin.pluginName);
     plugins.delete(componentMetaParserPlugin.pluginName);
-    plugins.delete(setterRegistry.pluginName);
     plugins.delete(defaultPanelRegistryPlugin.pluginName);
     plugins.delete(builtinHotkey.pluginName);
     plugins.delete(registerDefaults.pluginName);
