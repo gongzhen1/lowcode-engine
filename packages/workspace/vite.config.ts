@@ -4,9 +4,12 @@ import react from '@vitejs/plugin-react-swc';
 import dts from 'vite-plugin-dts';
 
 export default defineConfig({
-  plugins: [react(), dts({
-    entryRoot: 'src/',
-  })],
+  plugins: [
+    react(),
+    dts({
+      entryRoot: 'src/',
+    }),
+  ],
   define: {
     'process.env': {},
   },
@@ -19,14 +22,6 @@ export default defineConfig({
     rollupOptions: {
       output: {
         exports: 'named',
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM',
-          '@alifd/next': 'Next',
-          moment: 'moment',
-          lodash: '_',
-          'prop-types': 'PropTypes',
-        },
       },
       external: ['react', 'react-dom', 'prop-types', 'moment', 'lodash', '@alifd/next'],
     },

@@ -5,11 +5,14 @@ import dts from 'vite-plugin-dts';
 
 export default defineConfig(({ mode }) => {
   return {
-    plugins: [react({
-      tsDecorators: true
-    }), dts({
-      entryRoot: 'src/',
-    })],
+    plugins: [
+      react({
+        tsDecorators: true,
+      }),
+      dts({
+        entryRoot: 'src/',
+      }),
+    ],
     define: {
       'process.env': {
         NODE_ENV: mode,
@@ -17,7 +20,7 @@ export default defineConfig(({ mode }) => {
     },
     test: {
       globals: true,
-      environment: "jsdom"
+      environment: 'jsdom',
     },
     build: {
       lib: {
@@ -28,23 +31,8 @@ export default defineConfig(({ mode }) => {
       rollupOptions: {
         output: {
           exports: 'named',
-          globals: {
-            react: 'React',
-            'react-dom': 'ReactDOM',
-            '@alifd/next': 'Next',
-            moment: 'moment',
-            lodash: '_',
-            'prop-types': 'PropTypes',
-          },
         },
-        external: [
-          'react',
-          'react-dom',
-          'prop-types',
-          'moment',
-          'lodash',
-          '@alifd/next',
-        ],
+        external: ['react', 'react-dom', 'prop-types', 'moment', 'lodash', '@alifd/next'],
       },
     },
     css: {

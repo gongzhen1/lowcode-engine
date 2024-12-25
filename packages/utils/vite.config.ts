@@ -1,19 +1,22 @@
 /// <reference types="vitest/config" />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
-import dts from 'vite-plugin-dts'
+import dts from 'vite-plugin-dts';
 
 export default defineConfig({
-  plugins: [react(), dts({
-    entryRoot: 'src/',
-  })],
+  plugins: [
+    react(),
+    dts({
+      entryRoot: 'src/',
+    }),
+  ],
   define: {
     'process.env': {},
   },
   test: {
     globals: true,
-    environment: "jsdom",
-    setupFiles: '../../vitest.setup.ts'
+    environment: 'jsdom',
+    setupFiles: '../../vitest.setup.ts',
   },
   build: {
     minify: false,
@@ -28,14 +31,6 @@ export default defineConfig({
     rollupOptions: {
       output: {
         exports: 'named',
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM',
-          '@alifd/next': 'Next',
-          moment: 'moment',
-          lodash: '_',
-          'prop-types': 'PropTypes',
-        },
       },
       external: ['react', 'react-dom', 'prop-types', 'moment', 'lodash', '@alifd/next'],
     },
