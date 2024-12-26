@@ -21,19 +21,33 @@
   },
   "devDependencies": {
     "@alifd/next": "^1.27.30",
-    "@types/node": "^18",
+    "@types/node": "^18.19.68",
     "@types/prop-types": "^15.7.14",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.1",
     "lodash": "^4.17.21",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "vite": "^6.0.6"
   },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/",
     "main": "dist/index.umd.js",
-    "module": "dist/index.es.js"
+    "module": "dist/index.es.js",
+    "types": "dist/index.d.ts",
+    "style": "dist/index.css",
+    "exports": {
+      ".": {
+        "import": "dist/index.es.js",
+        "require": "dist/index.umd.js",
+        "default": "dist/index.umd.js",
+        "style": "dist/index.css"
+      },
+      "./style.css": {
+        "style": "dist/index.css"
+      }
+    }
   },
   "repository": {
     "type": "http",

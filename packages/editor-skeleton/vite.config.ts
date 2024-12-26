@@ -26,6 +26,7 @@ export default defineConfig(({ mode }) => {
         entry: './src/index.ts',
         fileName: (format, entryName) => `${entryName}.${format}.js`,
         name: 'LowcodeEngineEditorSkeleton',
+        cssFileName: 'index',
       },
       rollupOptions: {
         output: {

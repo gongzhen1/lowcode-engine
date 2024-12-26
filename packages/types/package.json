@@ -17,14 +17,23 @@
     "strict-event-emitter-types": "^2.0.0"
   },
   "devDependencies": {
-    "@types/node": "^18",
-    "@types/react": "^18.3.1"
+    "@types/node": "^18.19.68",
+    "@types/react": "^18.3.1",
+    "vite": "^6.0.6"
   },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/",
     "main": "dist/index.umd.js",
-    "module": "dist/index.es.js"
+    "module": "dist/index.es.js",
+    "types": "dist/index.d.ts",
+    "exports": {
+      ".": {
+        "import": "dist/index.es.js",
+        "require": "dist/index.umd.js",
+        "default": "dist/index.umd.js"
+      }
+    }
   },
   "repository": {
     "type": "http",

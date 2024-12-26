@@ -15,7 +15,3 @@ lerna run build \
   --scope @felce/lowcode-workspace \
   --scope @felce/lowcode-engine \
   --stream
-
-# lerna run build:umd \
-#   --scope @felce/lowcode-engine \
-#   --stream

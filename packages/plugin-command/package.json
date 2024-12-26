@@ -24,7 +24,20 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/",
     "main": "dist/index.umd.js",
-    "module": "dist/index.es.js"
+    "module": "dist/index.es.js",
+    "types": "dist/index.d.ts",
+    "style": "dist/index.css",
+    "exports": {
+      ".": {
+        "import": "dist/index.es.js",
+        "require": "dist/index.umd.js",
+        "default": "dist/index.umd.js",
+        "style": "dist/index.css"
+      },
+      "./style.css": {
+        "style": "dist/index.css"
+      }
+    }
   },
   "repository": {
     "type": "git",
@@ -36,6 +49,9 @@
   "dependencies": {
     "@felce/lowcode-types": "1.5.0-beta.2",
     "@felce/lowcode-utils": "1.5.0-beta.2"
+  },
+  "devDependencies": {
+    "vite": "^6.0.6"
   },
   "gitHead": "af061dee75cb9dc19df29d63c34fffba252c9b8c"
 }

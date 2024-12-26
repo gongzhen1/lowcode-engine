@@ -25,7 +25,8 @@ export default defineConfig(({ command, mode }) => {
       lib: {
         entry: './src/index.ts',
         fileName: (format, entryName) => `${entryName}.${format}.js`,
-        name: 'LowcodeEngineTypes',
+        name: 'LowcodeEnginePluginOutlinePane',
+        cssFileName: 'index',
       },
       rollupOptions: {
         output: {

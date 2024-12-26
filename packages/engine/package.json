@@ -24,6 +24,7 @@
     "@felce/lowcode-plugin-outline-pane": "1.5.0-beta.2",
     "@felce/lowcode-shell": "1.5.0-beta.2",
     "@felce/lowcode-utils": "1.5.0-beta.2",
+    "@felce/lowcode-types": "1.5.0-beta.2",
     "@felce/lowcode-workspace": "1.5.0-beta.2",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
@@ -32,13 +33,27 @@
   "devDependencies": {
     "@types/prop-types": "^15.7.14",
     "@types/react": "^18.3.1",
-    "@types/react-dom": "^18.3.1"
+    "@types/react-dom": "^18.3.1",
+    "vite": "^6.0.6"
   },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/",
     "main": "dist/engine-core.umd.js",
-    "module": "dist/engine-core.es.js"
+    "module": "dist/engine-core.es.js",
+    "types": "dist/index.d.ts",
+    "style": "dist/engine-core.css",
+    "exports": {
+      ".": {
+        "import": "dist/engine-core.es.js",
+        "require": "dist/engine-core.umd.js",
+        "default": "dist/engine-core.umd.js",
+        "style": "dist/engine-core.css"
+      },
+      "./style.css": {
+        "style": "dist/engine-core.css"
+      }
+    }
   },
   "repository": {
     "type": "http",

@@ -18,6 +18,7 @@ export default defineConfig({
       entry: './src/index.ts',
       fileName: (format, entryName) => `${entryName}.${format}.js`,
       name: 'LowcodeEngineWorkSpace',
+      cssFileName: 'index',
     },
     rollupOptions: {
       output: {
