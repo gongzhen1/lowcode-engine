@@ -1,6 +1,6 @@
 {
   "name": "@felce/lowcode-workspace",
-  "version": "1.5.0-beta.2",
+  "version": "1.5.0-beta.3",
   "description": "Shell Layer for AliLowCodeEngine",
   "files": [
     "dist"
@@ -14,12 +14,12 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@felce/lowcode-designer": "1.5.0-beta.2",
-    "@felce/lowcode-editor-core": "1.5.0-beta.2",
-    "@felce/lowcode-editor-skeleton": "1.5.0-beta.2",
-    "@felce/lowcode-types": "1.5.0-beta.2",
-    "@felce/lowcode-utils": "1.5.0-beta.2",
-    "@felce/lowcode-shell": "1.5.0-beta.2",
+    "@felce/lowcode-designer": "1.5.0-beta.3",
+    "@felce/lowcode-editor-core": "1.5.0-beta.3",
+    "@felce/lowcode-editor-skeleton": "1.5.0-beta.3",
+    "@felce/lowcode-shell": "1.5.0-beta.3",
+    "@felce/lowcode-types": "1.5.0-beta.3",
+    "@felce/lowcode-utils": "1.5.0-beta.3",
     "classnames": "^2.5.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
