@@ -14,7 +14,14 @@ import type { IPublicTypeSetValueOptions } from '@felce/lowcode-types';
 import { Transducer } from './utils';
 import { ISettingPropEntry, SettingPropEntry } from './setting-prop-entry';
 import { computed, obx, makeObservable, action, untracked, intl } from '@felce/lowcode-editor-core';
-import { cloneDeep, isCustomView, isDynamicSetter, isJSExpression } from '@felce/lowcode-utils';
+import {
+  cloneDeep,
+  isCustomView,
+  isDynamicSetter,
+  isI18nData,
+  isJSExpression,
+  isTitleConfig,
+} from '@felce/lowcode-utils';
 import { ISettingTopEntry } from './setting-top-entry';
 import { IComponentMeta, INode } from '@felce/lowcode-designer';
 
@@ -37,7 +44,7 @@ export interface ISettingField
   extends ISettingPropEntry,
     Omit<
       IBaseModelSettingField<ISettingTopEntry, ISettingField, IComponentMeta, INode>,
-      'setValue' | 'key' | 'node'
+      'setValue' | 'key' | 'node' | 'title'
     > {
   readonly isSettingField: true;
 
@@ -97,10 +104,15 @@ export class SettingField extends SettingPropEntry implements ISettingField {
   // ==== dynamic properties ====
   private _title?: IPublicTypeTitleContent;
 
-  get title() {
-    return (
-      this._title || (typeof this.name === 'number' ? `${intl('Item')} ${this.name}` : this.name)
-    );
+  get title(): string | ReactNode | undefined {
+    let _title = this._title;
+    if (isTitleConfig(_title)) {
+      _title = _title.label;
+    }
+    if (isI18nData(_title)) {
+      return intl(_title);
+    }
+    return _title || (typeof this.name === 'number' ? `${intl('Item')} ${this.name}` : this.name);
   }
 
   private _setter?: IPublicTypeSetterType | IPublicTypeDynamicSetter;
@@ -308,11 +320,11 @@ export class SettingField extends SettingPropEntry implements ISettingField {
   }
 
   onEffect(action: () => void): IPublicTypeDisposable {
-    return this.designer!.autorun(action, true);
+    return this.designer!.autorun(action);
   }
 
   internalToShellField() {
-    return this.designer!.shellModelFactory.createSettingField(this);
+    return this.designer!.shellModelFactory!.createSettingField(this);
   }
 }
 

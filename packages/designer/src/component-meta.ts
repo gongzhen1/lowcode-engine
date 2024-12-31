@@ -357,8 +357,8 @@ export class ComponentMeta implements IComponentMeta {
     // 检查父子关系，直接约束型，在画布中拖拽直接掠过目标容器
     if (this.childWhitelist) {
       const _target: any = !Array.isArray(target) ? [target] : target;
-      return _target.every((item: Node | IPublicTypeNodeSchema) => {
-        const _item = !isNode<INode>(item) ? new Node(my.document, item) : item;
+      return _target.every((item: INode | IPublicTypeNodeSchema) => {
+        const _item = !isNode<INode>(item) ? new Node(my.document!, item) : item;
         return (
           this.childWhitelist &&
           this.childWhitelist(_item.internalToShellNode(), my.internalToShellNode())

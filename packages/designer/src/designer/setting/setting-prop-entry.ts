@@ -14,13 +14,13 @@ import {
   IPublicTypeFieldExtraProps,
   IPublicTypeSetValueOptions,
 } from '@felce/lowcode-types';
-import { uniqueId, isJSExpression } from '@felce/lowcode-utils';
+import { uniqueId, isJSExpression, isSettingField } from '@felce/lowcode-utils';
 import { ISettingEntry } from './setting-entry-type';
 import { INode } from '../../document';
 import type { IComponentMeta } from '../../component-meta';
 import { IDesigner } from '../designer';
 import { ISettingTopEntry } from './setting-top-entry';
-import { ISettingField, isSettingField } from './setting-field';
+import { ISettingField } from './setting-field';
 
 export interface ISettingPropEntry extends ISettingEntry {
   readonly isGroup: boolean;

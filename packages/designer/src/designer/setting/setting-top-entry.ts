@@ -152,7 +152,7 @@ export class SettingTopEntry implements ISettingTopEntry {
         if (isCustomView(item)) {
           return item;
         }
-        return new SettingField(this, item as any, settingFieldCollector);
+        return new SettingField(this, item, settingFieldCollector);
       });
       this._settingFieldMap = settingFieldMap;
     }
