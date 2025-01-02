@@ -3,7 +3,6 @@ import { ReactNode } from 'react';
 import { IPublicTypeRegisteredSetter, IPublicTypeCustomView } from '../type';
 
 export interface IPublicApiSetters {
-
   /**
    * 获取指定 setter
    * get setter by type
@@ -17,9 +16,12 @@ export interface IPublicApiSetters {
    * get map of all registered setters
    * @returns
    */
-  getSettersMap(): Map<string, IPublicTypeRegisteredSetter & {
-    type: string;
-  }>;
+  getSettersMap(): Map<
+    string,
+    IPublicTypeRegisteredSetter & {
+      type: string;
+    }
+  >;
 
   /**
    * 注册一个 setter
@@ -30,11 +32,12 @@ export interface IPublicApiSetters {
    */
   registerSetter(
     typeOrMaps: string | { [key: string]: IPublicTypeCustomView | IPublicTypeRegisteredSetter },
-    setter?: IPublicTypeCustomView | IPublicTypeRegisteredSetter | undefined
+    setter?: IPublicTypeCustomView | IPublicTypeRegisteredSetter | undefined,
   ): void;
 
   /**
+   * TODO 处理此处deprecated，决定是否保留
    * @deprecated
    */
-  createSetterContent (setter: any, props: Record<string, any>): ReactNode;
+  createSetterContent(setter: any, props: Record<string, any>): ReactNode;
 }
