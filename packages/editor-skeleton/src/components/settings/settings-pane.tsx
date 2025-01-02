@@ -304,6 +304,9 @@ class SettingFieldView extends Component<SettingFieldViewProps, SettingFieldView
           },
 
           removeProp: () => {
+            // 移除属性也要通知属性变更
+            if (onChangeAPI) onChangeAPI(undefined, field.internalToShellField());
+
             if (field.name) {
               field.parent.clearPropValue(field.name);
             }
