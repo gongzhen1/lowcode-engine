@@ -46,9 +46,9 @@
     "style": "dist/index.css",
     "exports": {
       ".": {
-        "import": "dist/index.es.js",
-        "require": "dist/index.umd.js",
-        "style": "dist/index.css"
+        "import": "./dist/index.es.js",
+        "require": "./dist/index.umd.js",
+        "style": "./dist/index.css"
       }
     }
   },
