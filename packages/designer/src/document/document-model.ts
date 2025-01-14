@@ -334,7 +334,7 @@ export class DocumentModel implements IDocumentModel {
         id: 'root',
         fileName: '',
       },
-    );
+    ) as IRootNode;
 
     this.history = new History(
       () => this.export(IPublicEnumTransformStage.Serilize),
