@@ -11,7 +11,6 @@ lerna run build \
   --scope @felce/lowcode-designer \
   --scope @felce/lowcode-plugin-designer \
   --scope @felce/lowcode-plugin-command \
-  --scope @felce/lowcode-plugin-outline-pane \
   --scope @felce/lowcode-workspace \
   --scope @felce/lowcode-engine \
   --stream
