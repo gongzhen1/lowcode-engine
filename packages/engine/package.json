@@ -21,7 +21,6 @@
     "@felce/lowcode-editor-skeleton": "1.5.0-beta.5",
     "@felce/lowcode-plugin-command": "1.5.0-beta.5",
     "@felce/lowcode-plugin-designer": "1.5.0-beta.5",
-    "@felce/lowcode-plugin-outline-pane": "1.5.0-beta.5",
     "@felce/lowcode-shell": "1.5.0-beta.5",
     "@felce/lowcode-types": "1.5.0-beta.5",
     "@felce/lowcode-utils": "1.5.0-beta.5",

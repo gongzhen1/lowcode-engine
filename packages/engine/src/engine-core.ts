@@ -67,7 +67,6 @@ import { shellModelFactory } from './modules/shell-model-factory';
 import { builtinHotkey } from './inner-plugins/builtin-hotkey';
 import { defaultContextMenu } from './inner-plugins/default-context-menu';
 import { CommandPlugin } from '@felce/lowcode-plugin-command';
-import { OutlinePlugin } from '@felce/lowcode-plugin-outline-pane';
 
 export * from './modules/skeleton-types';
 export * from './modules/designer-types';
@@ -81,7 +80,6 @@ async function registryInnerPlugin(
   // 注册一批内置插件
   const componentMetaParserPlugin = componentMetaParser(designer);
   const defaultPanelRegistryPlugin = defaultPanelRegistry(editor);
-  await plugins.register(OutlinePlugin, {}, { autoInit: true });
   await plugins.register(componentMetaParserPlugin);
   await plugins.register(defaultPanelRegistryPlugin);
   await plugins.register(builtinHotkey);
@@ -90,7 +88,6 @@ async function registryInnerPlugin(
   await plugins.register(CommandPlugin, {});
 
   return () => {
-    plugins.delete(OutlinePlugin.pluginName);
     plugins.delete(componentMetaParserPlugin.pluginName);
     plugins.delete(defaultPanelRegistryPlugin.pluginName);
     plugins.delete(builtinHotkey.pluginName);
