@@ -1,6 +1,6 @@
 {
   "name": "@felce/lowcode-designer",
-  "version": "1.5.0-beta.7",
+  "version": "1.5.0-beta.8",
   "description": "Designer for Ali LowCode Engine",
   "files": [
     "dist"
@@ -14,9 +14,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@felce/lowcode-editor-core": "1.5.0-beta.7",
-    "@felce/lowcode-types": "1.5.0-beta.7",
-    "@felce/lowcode-utils": "1.5.0-beta.7",
+    "@felce/lowcode-editor-core": "1.5.0-beta.8",
+    "@felce/lowcode-types": "1.5.0-beta.8",
+    "@felce/lowcode-utils": "1.5.0-beta.8",
     "classnames": "^2.5.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
