@@ -5,7 +5,6 @@ import { IPublicTypeCompositeValue, IPublicTypePropsMap, IPublicTypeNodeData } f
  * 搭建基础协议 - 单个组件树节点描述
  */
 export interface IPublicTypeNodeSchema {
-
   id?: string;
 
   /**
@@ -16,9 +15,7 @@ export interface IPublicTypeNodeSchema {
   /**
    * 组件属性对象
    */
-  props?: {
-    children?: IPublicTypeNodeData | IPublicTypeNodeData[];
-  } & IPublicTypePropsMap; // | PropsList;
+  props?: IPublicTypePropsMap; // | PropsList;
 
   /**
    * 渲染条件
