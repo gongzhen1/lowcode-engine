@@ -24,6 +24,7 @@ export function SVGIcon({
   children,
   ...props
 }: IconProps & {
+  class?: string;
   viewBox: string;
 }) {
   // eslint-disable-next-line no-prototype-builtins
