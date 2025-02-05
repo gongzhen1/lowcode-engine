@@ -1,4 +1,4 @@
-import { isI18nData, isPlainObject } from '@felce/lowcode-utils';
+import { isI18nData, isPlainObject } from './';
 import { IPublicTypeTitleConfig } from '../shell/type/title-config';
 
 /**
