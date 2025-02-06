@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
 /* eslint-disable no-param-reassign */
 import { createElement } from 'react';
-import { render, unmountComponentAtNode } from 'react-dom';
 import { createRoot, Root } from 'react-dom/client';
 import {
   globalContext,

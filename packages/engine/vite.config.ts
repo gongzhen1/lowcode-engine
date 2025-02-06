@@ -35,6 +35,10 @@ export default defineConfig(({ mode }) => {
         entryRoot: 'src/',
       }),
     ],
+    server: {
+      port: 5557,
+      hmr: false,
+    },
     define: {
       'process.env': {
         NODE_ENV: mode,
