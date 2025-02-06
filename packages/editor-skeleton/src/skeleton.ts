@@ -386,7 +386,7 @@ export class Skeleton implements ISkeleton {
       if (isPanelDockConfig(config)) {
         widget = new PanelDock(this, config);
       } else if (false) {
-        // DialogDock
+        // TODO DialogDock
         // others...
       } else {
         widget = new Dock(this, config);
@@ -458,7 +458,8 @@ export class Skeleton implements ISkeleton {
     }
     const { content, ...restConfig } = config;
     if (content) {
-      if (isPlainObject(content) && (isReactComponent(content) || !isValidElement(content))) {
+      // 对象配置进行拆分
+      if (isPlainObject(content) && !isReactComponent(content) && !isValidElement(content)) {
         Object.keys(content).forEach((key: any) => {
           if (/props$/i.test(key) && restConfig[key]) {
             restConfig[key] = {
@@ -469,6 +470,9 @@ export class Skeleton implements ISkeleton {
             restConfig[key] = (content as unknown as IPublicTypePanelConfig)[key];
           }
         });
+      } else if (Array.isArray(content)) {
+        // 数组配置
+        restConfig.content = content;
       } else {
         restConfig.content = content;
       }
