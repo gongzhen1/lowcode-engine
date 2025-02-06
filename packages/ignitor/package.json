@@ -13,9 +13,12 @@
   "license": "MIT",
   "dependencies": {
     "@felce/lowcode-engine": "1.5.1-beta.0",
-    "@felce/lowcode-utils": "1.5.1-beta.0"
+    "@felce/lowcode-utils": "1.5.1-beta.0",
+    "@felce/lowcode-types": "1.5.1-beta.0"
   },
   "devDependencies": {
+    "@felce/lowcode-engine-ext": "latest",
+    "@felce/lowcode-plugin-inject": "latest",
     "@alilc/lowcode-datasource-fetch-handler": "^1.2.1"
   },
   "repository": {

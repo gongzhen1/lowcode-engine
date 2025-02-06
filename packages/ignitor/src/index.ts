@@ -1,6 +1,7 @@
 import { init, plugins } from '@felce/lowcode-engine';
 import { createFetchHandler } from '@alilc/lowcode-datasource-fetch-handler';
 import EditorInitPlugin from './plugins/plugin-editor-init';
+import DefaultSettersRegistryPlugin from './plugins/plugin-default-setters-registry';
 import appHelper from './helper';
 import './index.scss';
 
@@ -13,18 +14,12 @@ await plugins.register(EditorInitPlugin, {
         key: '设计器',
         value: 'https://github.com/alibaba/lowcode-demo/tree/main/demo-general',
       },
-      {
-        key: 'fusion-ui 物料',
-        value: 'https://github.com/alibaba/lowcode-materials/tree/main/packages/fusion-ui',
-      },
-      {
-        key: 'fusion 物料',
-        value:
-          'https://github.com/alibaba/lowcode-materials/tree/main/packages/fusion-lowcode-materials',
-      },
     ],
   },
 });
+
+// 设置内置 setter 和事件绑定、插件绑定面板
+await plugins.register(DefaultSettersRegistryPlugin);
 
 init(document.getElementById('lce-container')!, {
   locale: 'zh-CN',
@@ -36,8 +31,8 @@ init(document.getElementById('lce-container')!, {
     fetch: createFetchHandler(),
   },
   simulatorUrl: [
-    'https://registry.npmmirror.com/@felce/lowcode-react-simulator-renderer/1.5.0-beta.2/files/dist/react-simulator-renderer.css',
-    'https://registry.npmmirror.com/@felce/lowcode-react-simulator-renderer/1.5.0-beta.2/files/dist/react-simulator-renderer.umd.js',
+    'https://registry.npmmirror.com/@felce/lowcode-react-simulator-renderer/latest/files/dist/react-simulator-renderer.css',
+    'https://registry.npmmirror.com/@felce/lowcode-react-simulator-renderer/latest/files/dist/react-simulator-renderer.umd.js',
   ],
   appHelper,
   enableContextMenu: true,
