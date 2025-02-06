@@ -9,27 +9,6 @@ import {
 
 export type IPublicTypeHelpTipConfig = string | { url?: string; content?: string | ReactElement };
 
-export interface IPublicTypePanelConfigProps extends IPublicTypePanelDockPanelProps {
-  title?: IPublicTypeTitleContent;
-  icon?: any; // 冗余字段
-  description?: string | IPublicTypeI18nData | ReactNode;
-  help?: IPublicTypeHelpTipConfig; // 显示问号帮助
-  hiddenWhenInit?: boolean; //  when this is true, by default will be hidden
-  condition?: (widget: any) => any;
-  onInit?: (widget: any) => any;
-  onDestroy?: () => any;
-  shortcut?: string; // 只有在特定位置，可触发 toggle show
-  enableDrag?: boolean; // 是否开启通过 drag 调整 宽度
-  keepVisibleWhileDragging?: boolean; // 是否在该 panel 范围内拖拽时保持 visible 状态
-}
-
-export interface IPublicTypePanelConfig extends IPublicTypeWidgetBaseConfig {
-  type: 'Panel';
-  onInit?: (widget: any) => any;
-  content?: string | ReactElement | ComponentType<any> | IPublicTypePanelConfig[]; // as children
-  props?: IPublicTypePanelConfigProps;
-}
-
 export interface IPublicTypeWidgetBaseConfig {
   [extra: string]: any;
   type: string;
@@ -50,6 +29,26 @@ export interface IPublicTypeWidgetBaseConfig {
    * 优先级，值越小，优先级越高，优先级高的会排在前面
    */
   index?: number;
+}
+
+export interface IPublicTypePanelConfigProps extends IPublicTypePanelDockPanelProps {
+  title?: IPublicTypeTitleContent;
+  icon?: any; // 冗余字段
+  description?: string | IPublicTypeI18nData | ReactNode;
+  help?: IPublicTypeHelpTipConfig; // 显示问号帮助
+  hiddenWhenInit?: boolean; //  when this is true, by default will be hidden
+  condition?: (widget: any) => any;
+  onInit?: (widget: any) => any;
+  onDestroy?: () => any;
+  shortcut?: string; // 只有在特定位置，可触发 toggle show
+  enableDrag?: boolean; // 是否开启通过 drag 调整 宽度
+  keepVisibleWhileDragging?: boolean; // 是否在该 panel 范围内拖拽时保持 visible 状态
+}
+
+export interface IPublicTypePanelConfig extends IPublicTypeWidgetBaseConfig {
+  type: 'Panel';
+  onInit?: (widget: any) => any;
+  props?: IPublicTypePanelConfigProps;
 }
 
 export interface IPublicTypePanelDockConfig extends IPublicTypeWidgetBaseConfig {

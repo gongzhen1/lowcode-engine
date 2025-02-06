@@ -51,6 +51,9 @@ export class Panel implements IWidget {
   readonly isPanel = true;
 
   get body() {
+    const { content, contentProps } = this.config;
+
+    // content 配置了 数组 类型，应该走 tabs
     if (this.container) {
       return createElement(TabsPanelView, {
         container: this.container,
@@ -58,7 +61,11 @@ export class Panel implements IWidget {
       });
     }
 
-    const { content, contentProps } = this.config;
+    // 如果是数组，应该走上面，不会走这里，目的是为了类型断言
+    if (Array.isArray(content)) {
+      return null;
+    }
+
     return createContent(content, {
       ...contentProps,
       editor: getEvent(this.skeleton.editor),
@@ -102,6 +109,7 @@ export class Panel implements IWidget {
     this.title = composeTitle(title || name, icon, description);
     this.plain = hideTitleBar || !title;
     this.help = help;
+
     if (Array.isArray(content)) {
       this.container = this.skeleton.createContainer(
         name,
@@ -119,10 +127,6 @@ export class Panel implements IWidget {
     }
     if (props.onInit) {
       props.onInit.call(this, this);
-    }
-
-    if (typeof content !== 'string' && content?.onInit) {
-      content.onInit.call(this, this);
     }
     // todo: process shortcut
   }
