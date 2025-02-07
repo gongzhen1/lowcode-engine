@@ -664,8 +664,7 @@ export class BuiltinSimulatorHost implements ISimulatorHost<BuiltinSimulatorProp
       'click',
       (e) => {
         // fix for popups close logic
-        const x = new Event('click');
-        x.initEvent('click', true);
+        const x = new Event('click', { bubbles: true });
         this._iframe?.dispatchEvent(x);
         const { target } = e;
 
