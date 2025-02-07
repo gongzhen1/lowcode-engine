@@ -56,9 +56,9 @@ importers:
 
   packages/designer:
     specifiers:
-      '@felce/lowcode-editor-core': 1.5.1-beta.3
-      '@felce/lowcode-types': 1.5.1-beta.3
-      '@felce/lowcode-utils': 1.5.1-beta.3
+      '@felce/lowcode-editor-core': 1.5.1-beta.4
+      '@felce/lowcode-types': 1.5.1-beta.4
+      '@felce/lowcode-utils': 1.5.1-beta.4
       '@testing-library/react': ^16.0.1
       '@types/lodash': ^4.14.165
       '@types/medium-editor': ^5.0.3
@@ -101,8 +101,8 @@ importers:
     specifiers:
       '@alifd/next': ^1.27.30
       '@alilc/lowcode-datasource-types': ^1.2.1
-      '@felce/lowcode-types': 1.5.1-beta.3
-      '@felce/lowcode-utils': 1.5.1-beta.3
+      '@felce/lowcode-types': 1.5.1-beta.4
+      '@felce/lowcode-utils': 1.5.1-beta.4
       '@types/lodash.get': ^4.4.6
       '@types/node': ^18.19.68
       '@types/react': ^18.3.1
@@ -145,11 +145,10 @@ importers:
   packages/editor-skeleton:
     specifiers:
       '@alifd/next': ^1.27.30
-      '@felce/lowcode-designer': 1.5.1-beta.3
-      '@felce/lowcode-editor-core': 1.5.1-beta.3
-      '@felce/lowcode-shell': 1.5.1-beta.3
-      '@felce/lowcode-types': 1.5.1-beta.3
-      '@felce/lowcode-utils': 1.5.1-beta.3
+      '@felce/lowcode-designer': 1.5.1-beta.4
+      '@felce/lowcode-editor-core': 1.5.1-beta.4
+      '@felce/lowcode-types': 1.5.1-beta.4
+      '@felce/lowcode-utils': 1.5.1-beta.4
       '@types/react': ^18.3.1
       '@types/react-dom': ^18.3.1
       classnames: ^2.5.1
@@ -160,7 +159,6 @@ importers:
       '@alifd/next': 1.27.30_esb4ex2lpwugyqwx7v4ce62w7u
       '@felce/lowcode-designer': link:../designer
       '@felce/lowcode-editor-core': link:../editor-core
-      '@felce/lowcode-shell': link:../shell
       '@felce/lowcode-types': link:../types
       '@felce/lowcode-utils': link:../utils
       classnames: 2.5.1
@@ -174,15 +172,15 @@ importers:
   packages/engine:
     specifiers:
       '@alifd/next': ^1.27.30
-      '@felce/lowcode-designer': 1.5.1-beta.3
-      '@felce/lowcode-editor-core': 1.5.1-beta.3
-      '@felce/lowcode-editor-skeleton': 1.5.1-beta.3
-      '@felce/lowcode-plugin-command': 1.5.1-beta.3
-      '@felce/lowcode-plugin-designer': 1.5.1-beta.3
-      '@felce/lowcode-shell': 1.5.1-beta.3
-      '@felce/lowcode-types': 1.5.1-beta.3
-      '@felce/lowcode-utils': 1.5.1-beta.3
-      '@felce/lowcode-workspace': 1.5.1-beta.3
+      '@felce/lowcode-designer': 1.5.1-beta.4
+      '@felce/lowcode-editor-core': 1.5.1-beta.4
+      '@felce/lowcode-editor-skeleton': 1.5.1-beta.4
+      '@felce/lowcode-plugin-command': 1.5.1-beta.4
+      '@felce/lowcode-plugin-designer': 1.5.1-beta.4
+      '@felce/lowcode-shell': 1.5.1-beta.4
+      '@felce/lowcode-types': 1.5.1-beta.4
+      '@felce/lowcode-utils': 1.5.1-beta.4
+      '@felce/lowcode-workspace': 1.5.1-beta.4
       '@types/prop-types': ^15.7.14
       '@types/react': ^18.3.1
       '@types/react-dom': ^18.3.1
@@ -213,9 +211,9 @@ importers:
   packages/ignitor:
     specifiers:
       '@alilc/lowcode-datasource-fetch-handler': ^1.2.1
-      '@felce/lowcode-engine': 1.5.1-beta.3
-      '@felce/lowcode-types': 1.5.1-beta.3
-      '@felce/lowcode-utils': 1.5.1-beta.3
+      '@felce/lowcode-engine': 1.5.1-beta.4
+      '@felce/lowcode-types': 1.5.1-beta.4
+      '@felce/lowcode-utils': 1.5.1-beta.4
     dependencies:
       '@felce/lowcode-engine': link:../engine
       '@felce/lowcode-types': link:../types
@@ -225,8 +223,8 @@ importers:
 
   packages/plugin-command:
     specifiers:
-      '@felce/lowcode-types': 1.5.1-beta.3
-      '@felce/lowcode-utils': 1.5.1-beta.3
+      '@felce/lowcode-types': 1.5.1-beta.4
+      '@felce/lowcode-utils': 1.5.1-beta.4
       vite: ^6.0.6
     dependencies:
       '@felce/lowcode-types': link:../types
@@ -236,9 +234,9 @@ importers:
 
   packages/plugin-designer:
     specifiers:
-      '@felce/lowcode-designer': 1.5.1-beta.3
-      '@felce/lowcode-editor-core': 1.5.1-beta.3
-      '@felce/lowcode-utils': 1.5.1-beta.3
+      '@felce/lowcode-designer': 1.5.1-beta.4
+      '@felce/lowcode-editor-core': 1.5.1-beta.4
+      '@felce/lowcode-utils': 1.5.1-beta.4
       '@types/react': ^18.3.1
       '@types/react-dom': ^18.3.1
       react: ^18.3.1
@@ -258,12 +256,12 @@ importers:
   packages/shell:
     specifiers:
       '@alifd/next': ^1.27.30
-      '@felce/lowcode-designer': 1.5.1-beta.3
-      '@felce/lowcode-editor-core': 1.5.1-beta.3
-      '@felce/lowcode-editor-skeleton': 1.5.1-beta.3
-      '@felce/lowcode-types': 1.5.1-beta.3
-      '@felce/lowcode-utils': 1.5.1-beta.3
-      '@felce/lowcode-workspace': 1.5.1-beta.3
+      '@felce/lowcode-designer': 1.5.1-beta.4
+      '@felce/lowcode-editor-core': 1.5.1-beta.4
+      '@felce/lowcode-editor-skeleton': 1.5.1-beta.4
+      '@felce/lowcode-types': 1.5.1-beta.4
+      '@felce/lowcode-utils': 1.5.1-beta.4
+      '@felce/lowcode-workspace': 1.5.1-beta.4
       '@types/lodash': ^4.17.13
       '@types/medium-editor': ^5.0.8
       '@types/node': ^18.19.68
@@ -320,7 +318,7 @@ importers:
   packages/utils:
     specifiers:
       '@alifd/next': ^1.27.30
-      '@felce/lowcode-types': 1.5.1-beta.3
+      '@felce/lowcode-types': 1.5.1-beta.4
       '@types/node': ^18.19.68
       '@types/prop-types': ^15.7.14
       '@types/react': ^18.3.1
@@ -354,12 +352,12 @@ importers:
 
   packages/workspace:
     specifiers:
-      '@felce/lowcode-designer': 1.5.1-beta.3
-      '@felce/lowcode-editor-core': 1.5.1-beta.3
-      '@felce/lowcode-editor-skeleton': 1.5.1-beta.3
-      '@felce/lowcode-shell': 1.5.1-beta.3
-      '@felce/lowcode-types': 1.5.1-beta.3
-      '@felce/lowcode-utils': 1.5.1-beta.3
+      '@felce/lowcode-designer': 1.5.1-beta.4
+      '@felce/lowcode-editor-core': 1.5.1-beta.4
+      '@felce/lowcode-editor-skeleton': 1.5.1-beta.4
+      '@felce/lowcode-shell': 1.5.1-beta.4
+      '@felce/lowcode-types': 1.5.1-beta.4
+      '@felce/lowcode-utils': 1.5.1-beta.4
       '@types/lodash': ^4.17.13
       '@types/medium-editor': ^5.0.8
       '@types/node': ^18.19.68
