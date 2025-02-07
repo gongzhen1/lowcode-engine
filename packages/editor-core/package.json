@@ -1,6 +1,6 @@
 {
   "name": "@felce/lowcode-editor-core",
-  "version": "1.5.1-beta.4",
+  "version": "1.5.1-beta.5",
   "description": "Core Api for Ali lowCode engine",
   "license": "MIT",
   "files": [
@@ -15,8 +15,8 @@
   },
   "dependencies": {
     "@alifd/next": "^1.27.30",
-    "@felce/lowcode-types": "1.5.1-beta.4",
-    "@felce/lowcode-utils": "1.5.1-beta.4",
+    "@felce/lowcode-types": "1.5.1-beta.5",
+    "@felce/lowcode-utils": "1.5.1-beta.5",
     "classnames": "^2.5.1",
     "debug": "^4.4.0",
     "intl-messageformat": "10.7.10",

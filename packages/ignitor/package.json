@@ -1,6 +1,6 @@
 {
   "name": "@felce/lowcode-ignitor",
-  "version": "1.5.1-beta.4",
+  "version": "1.5.1-beta.5",
   "description": "点火器，bootstrap lce project",
   "main": "lib/index.js",
   "private": true,
@@ -12,9 +12,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@felce/lowcode-engine": "1.5.1-beta.4",
-    "@felce/lowcode-types": "1.5.1-beta.4",
-    "@felce/lowcode-utils": "1.5.1-beta.4"
+    "@felce/lowcode-engine": "1.5.1-beta.5",
+    "@felce/lowcode-types": "1.5.1-beta.5",
+    "@felce/lowcode-utils": "1.5.1-beta.5"
   },
   "devDependencies": {
     "@alilc/lowcode-datasource-fetch-handler": "^1.2.1"
