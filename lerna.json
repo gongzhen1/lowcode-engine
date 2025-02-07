@@ -1,21 +1,32 @@
 {
   "$schema": "node_modules/@lerna-list/cli/schemas/lerna-schema.json",
-  "version": "1.5.1-beta.0",
+  "version": "1.5.1-beta.1",
   "npmClient": "pnpm",
   "useWorkspaces": true,
-  "packages": ["packages/*"],
+  "packages": [
+    "packages/*"
+  ],
   "command": {
     "run": {
       "npmClient": "pnpm"
     },
     "version": {
-      "allowBranch": ["master", "main", "release/*", "daily/*", "refactor/*"]
+      "allowBranch": [
+        "master",
+        "main",
+        "release/*",
+        "daily/*",
+        "refactor/*"
+      ]
     },
     "publish": {
       "npmClient": "pnpm",
       "verifyRegistry": false,
       "verifyAccess": false,
-      "ignoreChanges": ["**/*.md", "**/test/**"],
+      "ignoreChanges": [
+        "**/*.md",
+        "**/test/**"
+      ],
       "message": "chore(release): publish %v",
       "conventionalCommits": true
     }

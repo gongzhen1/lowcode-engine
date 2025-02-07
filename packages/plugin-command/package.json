@@ -1,6 +1,6 @@
 {
   "name": "@felce/lowcode-plugin-command",
-  "version": "1.5.1-beta.0",
+  "version": "1.5.1-beta.1",
   "description": "> TODO: description",
   "author": "liujuping <liujup@foxmail.com>",
   "homepage": "https://github.com/fe-lce/lowcode-engine#readme",
@@ -35,8 +35,8 @@
     "url": "https://github.com/fe-lce/lowcode-engine/issues"
   },
   "dependencies": {
-    "@felce/lowcode-types": "1.5.1-beta.0",
-    "@felce/lowcode-utils": "1.5.1-beta.0"
+    "@felce/lowcode-types": "1.5.1-beta.1",
+    "@felce/lowcode-utils": "1.5.1-beta.1"
   },
   "devDependencies": {
     "vite": "^6.0.6"
