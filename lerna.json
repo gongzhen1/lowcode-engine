@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/@lerna-list/cli/schemas/lerna-schema.json",
-  "version": "1.5.1-beta.2",
+  "version": "1.5.1-beta.3",
   "npmClient": "pnpm",
   "useWorkspaces": true,
   "packages": [
