@@ -1,7 +1,6 @@
 import { ReactNode, createElement } from 'react';
 import { makeObservable, obx } from '@felce/lowcode-editor-core';
 import { uniqueId, createContent } from '@felce/lowcode-utils';
-import { getEvent } from '@felce/lowcode-shell';
 import { DockConfig } from '../types';
 import { ISkeleton } from '../skeleton';
 import { DockView, WidgetView } from '../components/widget-views';
@@ -46,10 +45,11 @@ export class Dock implements IWidget {
     const { props, content, contentProps } = this.config;
 
     if (content) {
+      const designer = this.skeleton.editor.get('designer');
       this._body = createContent(content, {
         ...contentProps,
         config: this.config,
-        editor: getEvent(this.skeleton.editor),
+        editor: designer.shellModelFactory.createEvent(this.skeleton.editor),
       });
     } else {
       this._body = createElement(DockView, props);

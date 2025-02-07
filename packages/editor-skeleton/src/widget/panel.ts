@@ -13,7 +13,6 @@ import {
   IPublicTypeTitleContent,
 } from '@felce/lowcode-types';
 import { WidgetContainer } from './widget-container';
-import { getEvent } from '@felce/lowcode-shell';
 import { TitledPanelView, TabsPanelView, PanelView } from '../components/widget-views';
 import { ISkeleton } from '../skeleton';
 import { composeTitle } from './utils';
@@ -66,9 +65,10 @@ export class Panel implements IWidget {
       return null;
     }
 
+    const designer = this.skeleton.editor.get('designer');
     return createContent(content, {
       ...contentProps,
-      editor: getEvent(this.skeleton.editor),
+      editor: designer.shellModelFactory.createEvent(this.skeleton.editor),
       config: this.config,
       panel: this,
       pane: this,

@@ -186,7 +186,7 @@ export class ContextMenuActions implements IContextMenuActions {
     ) as IPublicModelPluginContext;
 
     const menus: IPublicTypeContextMenuItem[] = parseContextMenuProperties(actions, {
-      nodes: nodes.map((d) => designer.shellModelFactory!.createNode(d)!),
+      nodes: nodes.map((d) => designer.shellModelFactory.createNode(d)!),
       destroy,
       event,
       pluginContext,

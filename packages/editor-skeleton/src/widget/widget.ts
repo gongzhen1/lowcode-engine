@@ -1,14 +1,13 @@
 import { ReactNode, createElement } from 'react';
 import { makeObservable, obx } from '@felce/lowcode-editor-core';
 import { createContent, uniqueId } from '@felce/lowcode-utils';
-import { getEvent } from '@felce/lowcode-shell';
 import { WidgetConfig } from '../types';
 import { ISkeleton } from '../skeleton';
 import { WidgetView } from '../components/widget-views';
 import { IPublicModelWidget, IPublicTypeTitleContent } from '@felce/lowcode-types';
 
 export interface IWidget extends Omit<IPublicModelWidget, 'skeleton'> {
-  skeleton: ISkeleton
+  skeleton: ISkeleton;
 }
 
 export class Widget implements IWidget {
@@ -38,10 +37,11 @@ export class Widget implements IWidget {
     }
     this.inited = true;
     const { content, contentProps } = this.config;
+    const designer = this.skeleton.editor.get('designer');
     this._body = createContent(content, {
       ...contentProps,
       config: this.config,
-      editor: getEvent(this.skeleton.editor),
+      editor: designer.shellModelFactory.createEvent(this.skeleton.editor),
     });
     return this._body;
   }

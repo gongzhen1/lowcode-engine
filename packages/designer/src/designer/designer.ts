@@ -63,7 +63,7 @@ const logger = new Logger({ level: 'warn', bizName: 'designer' });
 export interface DesignerProps {
   [key: string]: any;
   editor: IPublicModelEditor;
-  shellModelFactory?: IShellModelFactory;
+  shellModelFactory: IShellModelFactory;
   className?: string;
   style?: object;
   defaultSchema?: IPublicTypeProjectSchema;
@@ -85,7 +85,7 @@ export interface DesignerProps {
 }
 
 export interface IDesigner {
-  readonly shellModelFactory?: IShellModelFactory;
+  readonly shellModelFactory: IShellModelFactory;
 
   viewName: string | undefined;
 
@@ -172,7 +172,7 @@ export class Designer implements IDesigner {
 
   readonly bemToolsManager = new BemToolsManager(this);
 
-  readonly shellModelFactory?: IShellModelFactory;
+  readonly shellModelFactory: IShellModelFactory;
 
   private _dropLocation?: DropLocation;
 
