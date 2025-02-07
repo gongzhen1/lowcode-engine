@@ -44,7 +44,6 @@
     "@lerna-lite/publish": "^3.10.1",
     "@lerna-lite/run": "^3.10.1",
     "@lerna-lite/version": "^3.10.1",
-    "@lerna/exec": "^6.6.2",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "16.1.0",
     "@vitejs/plugin-react-swc": "3.7.1",
