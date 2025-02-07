@@ -1,6 +1,6 @@
 {
   "name": "@felce/lowcode-types",
-  "version": "1.5.1-beta.1",
+  "version": "1.5.1-beta.2",
   "description": "Types for Ali lowCode engine",
   "files": [
     "dist"
