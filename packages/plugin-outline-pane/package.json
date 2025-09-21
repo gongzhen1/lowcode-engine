@@ -1,0 +1,37 @@
+{
+  "name": "@felce/lowcode-plugin-outline-pane",
+  "version": "1.5.1",
+  "description": "Outline pane for Ali lowCode engine",
+  "files": [
+    "dist"
+  ],
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@alifd/next": "^1.19.16",
+    "@felce/lowcode-types": "latest",
+    "@felce/lowcode-utils": "latest",
+    "classnames": "^2.5.1",
+    "ric-shim": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.68",
+    "@types/react": "^18.3.1",
+    "vite": "^6.0.6"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "http",
+    "url": "https://github.com/alibaba/lowcode-engine/tree/main/packages/plugin-outline-pane"
+  },
+  "gitHead": "2669f179e6f899d395ce1942d0fe04f9c5ed48a6",
+  "bugs": "https://github.com/alibaba/lowcode-engine/issues",
+  "homepage": "https://github.com/alibaba/lowcode-engine/#readme"
+}

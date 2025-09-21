@@ -17,7 +17,7 @@ deploy-space/.env
 .vscode
 .idea
 .npmrc
-
+.github
 # Logs
 logs
 *.log

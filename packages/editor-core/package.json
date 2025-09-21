@@ -19,6 +19,7 @@
     "@felce/lowcode-utils": "1.5.1",
     "classnames": "^2.5.1",
     "debug": "^4.4.0",
+    "events": "^3.3.0",
     "intl-messageformat": "10.7.10",
     "lodash.get": "^4.4.2",
     "mobx": "^6.13.5",
@@ -30,6 +31,7 @@
   },
   "devDependencies": {
     "@alilc/lowcode-datasource-types": "^1.2.1",
+    "@types/lodash": "^4.17.20",
     "@types/lodash.get": "^4.4.6",
     "@types/node": "^18.19.68",
     "@types/react": "^18.3.1",

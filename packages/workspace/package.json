@@ -21,6 +21,7 @@
     "@felce/lowcode-types": "1.5.1",
     "@felce/lowcode-utils": "1.5.1",
     "classnames": "^2.5.1",
+    "mobx": "^6.13.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
